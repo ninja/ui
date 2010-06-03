@@ -1,0 +1,33 @@
+.jqf-rating {
+  display:-moz-inline-box;/* Firefox 2 */
+  display:inline-block;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+  margin:0.25em 0.25em 0.25em 0;
+  text-align:center;
+  vertical-align:top;
+  white-space:nowrap;
+}
+.jqf-rating-label {
+  margin-bottom:0.25em;
+  text-shadow:#fff 0 1px 1px;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
+.jqf-rating-star {
+  background-image:url('../images/rating.png');
+  cursor:pointer;
+  display:-moz-inline-box;/* Firefox 2 */
+  display:inline-block;
+  font-size:12px;
+  height:2em;
+  width:18px;
+}
+.jqf-rating-group {
+  background-position:left -2em;
+}
+.jqf-rating-star:active, .jqf-rating-single {
+  background-position:left -4em;
+}

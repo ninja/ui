@@ -1,0 +1,41 @@
+.jqf-wait {
+  background:rgba(255,255,255,0.5);
+  display:none;
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  z-index:888;
+  width:100%;
+}
+.jqf-wait-frame {
+  background:url('../images/wait.gif') 1em center no-repeat;
+  background-color:rgba(0,0,0,0.75);
+  border-radius:0.5em;
+    -moz-border-radius:0.5em;
+    -webkit-border-radius:0.5em;
+  box-shadow:0 0.1em 0.25em Black;
+    -moz-box-shadow:0 0.1em 0.25em Black;
+    -webkit-box-shadow:0 0.1em 0.25em Black;
+  color:White;
+  display:none;
+  padding:1em 1em 1em 3em;
+  position:absolute;
+  text-align:center;
+  z-index:999;
+}
+.jqf-wait-reflection {
+  background-image:-moz-linear-gradient(top, rgba(0,0,0,0.25), rgba(0,0,0,0));
+  background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.25)), to(rgba(0,0,0,0)));
+  border-radius-top-left:0.5em;
+  border-radius-top-right:0.5em;
+    -moz-border-radius-topleft:0.5em;
+    -moz-border-radius-topright:0.5em;
+    -webkit-border-top-left-radius:0.5em;
+    -webkit-border-top-right-radius:0.5em;
+  height:2em;
+  left:0;
+  position:absolute;
+  bottom:-2em;
+  width:100%;
+}
