@@ -1,0 +1,81 @@
+.jqf-folders {
+  display:block;
+  margin-top:1em;
+  position:relative;
+}
+.jqf-folders-tabs {
+  display:block;
+  position:absolute;
+  left:0;
+  text-align:center;
+  top:-1em;
+  white-space:nowrap;
+  width:100%;
+  z-index:666;
+}
+.jqf-folder-tab {
+  background:url('../images/gradients.png') 0 -1em repeat-x;
+  background:-moz-linear-gradient(top, rgba(255,255,255,0.25), rgba(0,0,0,0.25));
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.25)), to(rgba(0,0,0,0.25)));
+  background-color:White;
+  box-shadow:0 0.1em 0.25em Black;
+    -moz-box-shadow:0 0.1em 0.25em Black;
+    -webkit-box-shadow:0 0.1em 0.25em Black;
+  color:Black;
+  cursor:pointer;
+  display:-moz-inline-box;/* Firefox 2 */
+  display:inline-block;
+  height:2em;
+  line-height:2em;
+  padding:0 1em;
+  text-align:left;
+  text-shadow:White 0 0.1em 0.1em;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+  white-space:nowrap;
+}
+.jqf-folder-tab.jqf-active,
+.jqf-folder-tab:active {
+  background:url('../images/gradients.png') 0 -3em repeat-x;/* IE and Gecko up to 3.5 */
+  background:-moz-linear-gradient(top, rgba(0,0,0,0.25), rgba(255,255,255,0.25));/* Gecko 3.6 */
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.25)), to(rgba(255,255,255,0.25)));/* Webkit */
+  background-color:White;
+}
+.jqf-folder-tab.jqf-active {
+  background-color:DarkOrange;
+  color:White;
+  text-shadow:Sienna 0 -0.1em 0.1em;
+}
+.jqf-folder-tab.jqf-first {
+  border-radius-bottom-left:0.5em;
+  border-radius-top-left:0.5em;
+    -moz-border-radius-bottomleft:0.5em;
+    -moz-border-radius-topleft:0.5em;
+    -webkit-border-bottom-left-radius:0.5em;
+    -webkit-border-top-left-radius:0.5em;
+}
+.jqf-folder-tab.jqf-last {
+  border-radius-bottom-right:0.5em;
+  border-radius-top-right:0.5em;
+    -moz-border-radius-bottomright:0.5em;
+    -moz-border-radius-topright:0.5em;
+    -webkit-border-bottom-right-radius:0.5em;
+    -webkit-border-top-right-radius:0.5em;
+}
+.jqf-folder {
+  background:#f0f0f0;
+  background:rgba(0,0,0,0.05);
+  background:-moz-linear-gradient(top, rgba(0,0,0,0.1), rgba(0,0,0,0));
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.1)), to(rgba(0,0,0,0)));
+  border-radius:0.5em;
+    -moz-border-radius:0.5em;
+    -webkit-border-radius:0.5em;
+  box-shadow:0 -0.1em 0.25em Gray;
+    -moz-box-shadow:0 -0.1em 0.25em Gray;
+    -webkit-box-shadow:0 -0.1em 0.25em Gray;
+  color:Black;
+  display:none;
+  margin:0;
+  padding:2em 1em 1em 1em;
+}

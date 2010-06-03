@@ -1,0 +1,97 @@
+.jqf-slider {
+  display:-moz-inline-box;/* Firefox 2 */
+  display:inline-block;
+  margin:0 1em 1em 0;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+  vertical-align:top;
+}
+.jqf-slider-label {
+  margin-bottom:0.25em;
+  text-align:center;
+  text-shadow:#fff 0 1px 1px;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
+.jqf-slider-bevel {
+  background:White;
+  background:rgba(0,0,0,0.05);
+  background:-moz-linear-gradient(top, rgba(0,0,0,0.1), rgba(0,0,0,0));
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.1)), to(rgba(0,0,0,0)));
+  border-radius:0.5em;
+    -moz-border-radius:0.5em;
+    -webkit-border-radius:0.5em;
+  box-shadow:0 -0.1em 0.25em Gray;
+    -moz-box-shadow:0 -0.1em 0.25em Gray;
+    -webkit-box-shadow:0 -0.1em 0.25em Gray;
+  display:-moz-inline-box;/* Firefox 2 */
+  display:inline-block;
+  margin-top:0.125em;
+  padding:0.25em;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
+.jqf-slider-track {
+  background:url('../images/gradients.png') 0 -0.5em repeat-x;/* IE and Gecko up to 3.5 */
+  background:-moz-linear-gradient(top, rgba(0,0,0,0.25), rgba(255,255,255,0.25));/* Gecko 3.6 */
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.25)), to(rgba(255,255,255,0.25)));/* Webkit */
+  background-color:Gray;
+  border-radius:5px;
+  	-moz-border-radius:5px;
+  	-webkit-border-radius:5px;
+  height:10px;
+  margin:5px 0;
+  position:relative;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
+.jqf-slider-level {
+  background:url('../images/gradients.png') 0 0 repeat-x;
+  background:-moz-linear-gradient(top, rgba(255,255,255,0.25), rgba(0,0,0,0.25));
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.25)), to(rgba(0,0,0,0.25)));
+  background-color:DarkOrange;
+  border-radius:4px;
+  	-moz-border-radius:4px;
+  	-webkit-border-radius:4px;
+  height:8px;
+  left:1px;
+  position:absolute;
+  top:1px;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
+.jqf-slider-button {
+  background:url('../images/gradients.png') 0 -1em repeat-x;
+  background:-moz-linear-gradient(top, rgba(255,255,255,0.25), rgba(0,0,0,0.25));
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.25)), to(rgba(0,0,0,0.25)));
+  background-color:White;
+  border:none;
+  border-radius:10px;
+  	-moz-border-radius:10px;
+  	-webkit-border-radius:10px;
+  box-shadow:0 1px 3px #000;
+    -moz-box-shadow:0 1px 3px Black;
+    -webkit-box-shadow:0 1px 3px Black;
+  cursor:pointer;
+  height:20px;
+  position:absolute;
+  top:-5px;
+}
+.jqf-slider-button:active {
+  background:-moz-linear-gradient(top, rgba(204,204,204,1), rgba(255,255,255,1));
+  background:-webkit-gradient(linear, left top, left bottom, from(rgba(204,204,204,1)), to(rgba(255,255,255,1)));
+  display:block;
+}
+.jqf-slider-text {
+  display:block;
+  font-size:11px;
+  text-shadow:White 0 1px 1px;
+  user-select:none;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+}
