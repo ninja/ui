@@ -130,8 +130,8 @@
       }, customOptions);
       $(document.body).append('<div class="jqf-window"></div>' +
         '<div class="jqf jqf-window-frame">' +
-          '<div class="jqf-window-handle">' +
-            options.title + ' <span class="jqf-icon jqf-window-close"></span>' +
+          '<div class="jqf-window-handle"><span class="jqf-window-title">' +
+            options.title + '</span><span class="jqf-icon jqf-window-close"></span>' +
           '</div>' +
           '<div class="jqf-window-content"></div><div class="jqf-window-reflection"></div>' +
         '</div>').keyup(function(event) {
@@ -168,6 +168,16 @@
             options.onOpen.call(content);
           });
         });
+      });
+    },
+    windowRetitle: function(customOptions){
+      var options = $.extend({
+        onRetitle:function(){},
+        title:'Untitled'
+      }, customOptions);
+      var title = $('.jqf-window-title');
+      $(title).text(options.title, function() {
+        options.onRetitle.call();
       });
     }
   }; // End Functions
