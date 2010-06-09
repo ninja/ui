@@ -124,6 +124,7 @@
     windowOpen: function(customOptions){
       var options = $.extend({
         maxWidth:'640px',
+        onClose:function(){},
         onOpen:function(){},
         title:'Untitled',
         url:''
@@ -136,7 +137,7 @@
           '<div class="jqf-window-content"></div><div class="jqf-window-reflection"></div>' +
         '</div>').keyup(function(event) {
         if (event.keyCode == 27) { // esc key
-          $.jqf.windowClose(content);
+          $.jqf.windowClose(options);
         }
       });
       var overlay = $('.jqf-window');
@@ -144,7 +145,7 @@
         $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
       });
       $(overlay).click(function() {
-        $.jqf.windowClose(content);
+        $.jqf.windowClose(options);
       });
       var frame = $('.jqf-window-frame');
       var handle = $('.jqf-window-handle', frame);
@@ -159,7 +160,7 @@
       $(content).css('max-width', options.maxWidth).load(options.url, function() {
         $(content).resizable({handles:'se'});
         $('.jqf-window-close', frame).click(function() {
-          $.jqf.windowClose(content);
+          $.jqf.windowClose(options);
         });
         $(overlay).fadeIn(function() {
           $(overlay).css('filter', 'progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#c0000000, EndColorStr=#c0000000)');
