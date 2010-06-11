@@ -13,3 +13,13 @@ categories: examples
 <script type="text/javascript">
   $('#folders').jqfFolders();
 </script>
+{% highlight html linenos %}
+<div id="folders">
+  <div id="folder-prize" title="What's inside?">A prize!</div>
+  <div id="folder-confidential" title="Confidential">Yeah, right!</div>
+  <div id="folder-button" title="History Eraser Button">You fool!</div>
+</div>
+<script type="text/javascript">
+  $('#folders').jqfFolders();
+</script>
+{% endhighlight %}

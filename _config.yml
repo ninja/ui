@@ -1,3 +1,4 @@
 auto: true
 permalink: none
-server: true
+pygments: true
+server: false

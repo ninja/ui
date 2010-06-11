@@ -10,3 +10,10 @@ categories: examples
     <button class="jqf-button"><span class="jqf-icon jqf-icon-thermometer"></span></button>
   </div>
 </div>
+{% highlight html linenos %}
+<div class="jqf-dock">
+  <div class="jqf-dock-frame">
+    <button class="jqf-button"><span class="jqf-icon jqf-icon-thermometer"></span></button>
+  </div>
+</div>
+{% endhighlight %}

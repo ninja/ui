@@ -9,3 +9,9 @@ categories: examples
 <script type="text/javascript">
   $('#window').jqfWindow();
 </script>
+{% highlight html linenos %}
+<button class="jqf-button" name="_window.html" id="window" title="Nothing to See Here">Open Window</button>
+<script type="text/javascript">
+  $('#window').jqfWindow();
+</script>
+{% endhighlight %}
