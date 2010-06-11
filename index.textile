@@ -2,4 +2,4 @@
 layout: default
 title: jQuery Interface
 ---
-
+Load an example by clicking a link to the left.

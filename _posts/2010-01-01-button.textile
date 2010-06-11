@@ -5,7 +5,6 @@ description: Form/anchor button.
 categories: examples
 ---
 <notextile>
-  <h2>Button</h2>
   <button class="jqf-button jqf-submit">Submit</button>
   <button class="jqf-button">Button</button>
   <button class="jqf-button jqf-submit"><span class="jqf-icon jqf-icon-add"> </span>Add</button>
