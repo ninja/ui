@@ -4,11 +4,12 @@ title: Window
 description: Dynamic inline window.
 categories: examples
 ---
-<h2>Window</h2>
-<button class="jqf-button" name="_window.html" id="window" title="Nothing to See Here">Open Window</button>
-<script type="text/javascript">
-  $('#window').jqfWindow();
-</script>
+<notextile>
+  <button class="jqf-button" name="_window.html" id="window" title="Nothing to See Here">Open Window</button>
+  <script type="text/javascript">
+    $('#window').jqfWindow();
+  </script>
+</notextile>
 {% highlight html linenos %}
 <button class="jqf-button" name="_window.html" id="window" title="Nothing to See Here">Open Window</button>
 <script type="text/javascript">

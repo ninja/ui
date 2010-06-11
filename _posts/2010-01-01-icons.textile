@@ -1,0 +1,58 @@
+---
+layout: default
+title: Icons
+description: Icons to compliment text.
+categories: examples
+---
+<notextile>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-add"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-subtract"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-up"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-right"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-down"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-left"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-drag"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-close"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-check"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-subtract"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-add"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-search"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-warning"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-home"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-gear"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-apple"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-heart"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-target"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-profile"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-photo"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-print"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-radio"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-movie"></span></button>
+  <button class="jqf-button"><span class="jqf-icon jqf-icon-refresh"></span></button>
+</notextile>
+{% highlight html linenos %}
+<button class="jqf-button"><span class="jqf-icon jqf-icon-add"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-subtract"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-up"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-right"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-down"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-left"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-drag"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-close"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-check"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-subtract"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-add"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-search"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-warning"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-home"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-gear"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-apple"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-heart"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-target"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-profile"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-photo"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-print"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-radio"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-movie"></span></button>
+<button class="jqf-button"><span class="jqf-icon jqf-icon-refresh"></span></button>
+{% endhighlight %}

@@ -4,19 +4,20 @@ title: Rating
 description: Rating with optional prefilled group or single rating.
 categories: examples
 ---
-<h2>Rating</h2>
-<div id="rating" title="Rating">
-  <input name="stars" title="Hate" type="radio" value="1"/>
-  <input name="stars" title="Don't Like" type="radio" value="2"/>
-  <input name="stars" title="Like" type="radio" value="3"/>
-  <input name="stars" title="Really Like" type="radio" value="4"/>
-  <input name="stars" title="Love" type="radio" value="5"/>
-</div>
-<script type="text/javascript">
-  $('#rating').jqfRating();
-</script>
+<notextile>
+  <div id="rating" title="Empty Rating">
+    <input name="stars" title="Hate" type="radio" value="1"/>
+    <input name="stars" title="Don't Like" type="radio" value="2"/>
+    <input name="stars" title="Like" type="radio" value="3"/>
+    <input name="stars" title="Really Like" type="radio" value="4"/>
+    <input name="stars" title="Love" type="radio" value="5"/>
+  </div>
+  <script type="text/javascript">
+    $('#rating').jqfRating();
+  </script>
+</notextile>
 {% highlight html linenos %}
-<div id="rating" title="Rating">
+<div id="rating" title="Empty Rating">
   <input name="stars" title="Hate" type="radio" value="1"/>
   <input name="stars" title="Don't Like" type="radio" value="2"/>
   <input name="stars" title="Like" type="radio" value="3"/>
@@ -27,19 +28,20 @@ categories: examples
   $('#rating').jqfRating();
 </script>
 {% endhighlight %}
-<h2>Rating (group)</h2>
-<div id="rating-group" title="Rating">
-  <input name="stars" title="Hate" type="radio" value="1"/>
-  <input name="stars" title="Don't Like" type="radio" value="2"/>
-  <input name="stars" title="Like" type="radio" value="3"/>
-  <input name="stars" title="Really Like" type="radio" value="4"/>
-  <input name="stars" title="Love" type="radio" value="5"/>
-</div>
-<script type="text/javascript">
-  $('#rating-group').jqfRating({group:4});
-</script>
+<notextile>
+  <div id="rating-group" title="Group Rating">
+    <input name="stars" title="Hate" type="radio" value="1"/>
+    <input name="stars" title="Don't Like" type="radio" value="2"/>
+    <input name="stars" title="Like" type="radio" value="3"/>
+    <input name="stars" title="Really Like" type="radio" value="4"/>
+    <input name="stars" title="Love" type="radio" value="5"/>
+  </div>
+  <script type="text/javascript">
+    $('#rating-group').jqfRating({group:4});
+  </script>
+</notextile>
 {% highlight html linenos %}
-<div id="rating-group" title="Rating">
+<div id="rating-group" title="Group Rating">
   <input name="stars" title="Hate" type="radio" value="1"/>
   <input name="stars" title="Don't Like" type="radio" value="2"/>
   <input name="stars" title="Like" type="radio" value="3"/>
@@ -50,19 +52,20 @@ categories: examples
   $('#rating-group').jqfRating({group:4});
 </script>
 {% endhighlight %}
-<h2>Rating (single)</h2>
-<div id="rating-single" title="Rating">
-  <input name="stars" title="Hate" type="radio" value="1"/>
-  <input name="stars" title="Don't Like" type="radio" value="2"/>
-  <input name="stars" title="Like" type="radio" value="3"/>
-  <input name="stars" title="Really Like" type="radio" value="4"/>
-  <input name="stars" title="Love" type="radio" value="5"/>
-</div>
-<script type="text/javascript">
-  $('#rating-single').jqfRating({single:3});
-</script>
+<notextile>
+  <div id="rating-single" title="Single Rating">
+    <input name="stars" title="Hate" type="radio" value="1"/>
+    <input name="stars" title="Don't Like" type="radio" value="2"/>
+    <input name="stars" title="Like" type="radio" value="3"/>
+    <input name="stars" title="Really Like" type="radio" value="4"/>
+    <input name="stars" title="Love" type="radio" value="5"/>
+  </div>
+  <script type="text/javascript">
+    $('#rating-single').jqfRating({single:3});
+  </script>
+</notextile>
 {% highlight html linenos %}
-<div id="rating-single" title="Rating">
+<div id="rating-single" title="Single Rating">
   <input name="stars" title="Hate" type="radio" value="1"/>
   <input name="stars" title="Don't Like" type="radio" value="2"/>
   <input name="stars" title="Like" type="radio" value="3"/>

@@ -4,25 +4,26 @@ title: Drawers
 description: Collapsable containers.
 categories: examples
 ---
-<h2>Drawers</h2>
-<div id="drawers">
-  <div id="drawers-prize" title="What's inside?">A prize!</div>
-  <div id="drawers-confidential" title="Confidential">Yeah, right!</div>
-  <div id="drawers-button" title="History Eraser Button">You fool!</div>
-</div>
-<script type="text/javascript">
-  $('#drawers').jqfDrawers();
-  $(document).ready(function(){
-    $.jqf.waitStart({
-      content:'Opening first drawer in 3 seconds...',
-      object:$('#drawers'),
-      onStop:function(){
-        $.jqf.drawersOpen([$('#drawers-prize')]);
-      },
-      seconds:3
+<notextile>
+  <div id="drawers">
+    <div id="drawers-prize" title="What's inside?">A prize!</div>
+    <div id="drawers-confidential" title="Confidential">Yeah, right!</div>
+    <div id="drawers-button" title="History Eraser Button">You fool!</div>
+  </div>
+  <script type="text/javascript">
+    $('#drawers').jqfDrawers();
+    $(document).ready(function(){
+      $.jqf.waitStart({
+        content:'Opening first drawer in 3 seconds...',
+        object:$('#drawers'),
+        onStop:function(){
+          $.jqf.drawersOpen([$('#drawers-prize')]);
+        },
+        seconds:3
+      });
     });
-  });
-</script>
+  </script>
+</notextile>
 {% highlight html linenos %}
 <div id="drawers">
   <div id="drawers-prize" title="What's inside?">A prize!</div>

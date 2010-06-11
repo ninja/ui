@@ -4,25 +4,26 @@ title: Slider
 description: Form selection control.
 categories: examples
 ---
-<h2>Slider</h2>
-<select id="slider" name="slider" title="Volume">
-  <option value="0,0">0 dB</option>
-  <option selected="selected" value="0,10">10 dB (Light leaf rustling, calm breathing)</option>
-  <option value="20,30">20-30 dB (Very calm room)</option>
-  <option value="40,60">40-60 dB (Normal conversation at 1 m)</option>
-  <option value="60,60">60 dB (TV set at home level at 1 m)</option>
-  <option value="60,80">60-80 dB (Passenger car at 10 m)</option>
-  <option value="78,78">78 dB (Hearing damage over long-term exposure, need not be continuous)</option>
-  <option value="80,90">80-90 dB (Traffic on a busy roadway at 10 m)</option>
-  <option value="100,100">100 dB (Jack hammer at 1 m)</option>
-  <option value="120,120">120 dB (Hearing damage immediately possible)</option>
-  <option value="130,130">130 dB (Threshold of pain)</option>
-  <option value="150,150">150 dB (Jet engine at 30 m)</option>
-  <option value="168,168">168 dB (M1 Garand rifle being fired at 1 m)</option>
-</select>
-<script type="text/javascript">
-  $('#slider').jqfSlider();
-</script>
+<notextile>
+  <select id="slider" name="slider" title="Volume">
+    <option value="0,0">0 dB</option>
+    <option selected="selected" value="0,10">10 dB (Light leaf rustling, calm breathing)</option>
+    <option value="20,30">20-30 dB (Very calm room)</option>
+    <option value="40,60">40-60 dB (Normal conversation at 1 m)</option>
+    <option value="60,60">60 dB (TV set at home level at 1 m)</option>
+    <option value="60,80">60-80 dB (Passenger car at 10 m)</option>
+    <option value="78,78">78 dB (Hearing damage over long-term exposure, need not be continuous)</option>
+    <option value="80,90">80-90 dB (Traffic on a busy roadway at 10 m)</option>
+    <option value="100,100">100 dB (Jack hammer at 1 m)</option>
+    <option value="120,120">120 dB (Hearing damage immediately possible)</option>
+    <option value="130,130">130 dB (Threshold of pain)</option>
+    <option value="150,150">150 dB (Jet engine at 30 m)</option>
+    <option value="168,168">168 dB (M1 Garand rifle being fired at 1 m)</option>
+  </select>
+  <script type="text/javascript">
+    $('#slider').jqfSlider();
+  </script>
+  </notextile>
 {% highlight html linenos %}
 <select id="slider" name="slider" title="Volume">
   <option value="0,0">0 dB</option>
