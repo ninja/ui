@@ -21,6 +21,7 @@
   user-select:none;
     -moz-user-select:none;
     -webkit-user-select:none;
+  vertical-align:middle;
   white-space:nowrap;
 }
 .jqf-drawer-handle.jqf-active,
@@ -36,8 +37,6 @@
 }
 .jqf-drawer-handle .jqf-icon {
   background-position:left -1em;
-  margin:0.75em 0;
-  vertical-align:top;
 }
 .jqf-drawer-handle:active .jqf-icon {
   background-position:left -2em;
