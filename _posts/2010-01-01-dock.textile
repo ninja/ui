@@ -1,0 +1,12 @@
+---
+layout: default
+title: Dock
+description: Dynamic floating container.
+categories: examples
+---
+<h2>Dock</h2>
+<div class="jqf-dock">
+  <div class="jqf-dock-frame">
+    <button class="jqf-button"><span class="jqf-icon jqf-icon-thermometer"></span></button>
+  </div>
+</div>

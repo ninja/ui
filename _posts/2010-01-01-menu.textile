@@ -1,0 +1,18 @@
+---
+layout: default
+title: Menu
+description: Customizable drop-down menu.
+categories: examples
+---
+<h2>Menu</h2>
+<select id="menu" name="menu" title="The President?">
+  <option value="obama">Barrack Obama</option>
+  <option value="bush2">George Bush Jr.</option>
+  <option value="clinton">Bill Clinton</option>
+  <option value="bush1">George Bush Sr.</option>
+  <option value="reagan">Ronald Reagan</option>
+  <option value="carter">Jimmy Carter</option>
+</select>
+<script type="text/javascript">
+  $('#menu').jqfMenu({icon:'profile'});
+</script>
