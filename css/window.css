@@ -80,8 +80,8 @@
 .jqf-window-handle .jqf-icon {
   background-position:-2em -5em;
   position:absolute;
-  right:1em;
-  top:0.5em;
+  right:0.25em;
+  top:0.25em;
 }
 .jqf-window-content .ui-resizable-handle {
   background-position:-2em -4em;

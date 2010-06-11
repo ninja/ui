@@ -44,9 +44,6 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   padding:0 0.5em;
   text-align:center;
   text-shadow:White 0 1px 1px;
-}
-.jqf-button .jqf-icon, .jqf-tab .jqf-icon {
-  margin:0.5em 0;
   vertical-align:middle;
 }
 /* Button */
@@ -108,11 +105,10 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background-image:url('../images/icons.png');
   display:-moz-inline-box;/* Firefox 2 */
   display:inline-block;
-  height:12px;
-	width:12px;
-}
-.jqf-icon {
-  vertical-align:text-bottom;
+  font-size:16px;
+  height:16px;
+  vertical-align:middle;
+	width:16px;
 }
 .jqf-icon-up {
   background-position:left top;

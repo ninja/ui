@@ -40,7 +40,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
 .jqf-tab,
 .ui-resizable-handle
 {
-  *display:inline !important;
+  *display:inline;
   zoom:1;
 }
 .jqf-icon, .ui-resizable-handle {
