@@ -2,4 +2,4 @@
 layout: default
 title: home
 ---
-Load an example by clicking a link to the left.
+<img src="/images/collage.png"/>

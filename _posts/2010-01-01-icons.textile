@@ -5,8 +5,6 @@ description: Icons to compliment text.
 categories: examples
 ---
 <notextile>
-  <button class="jqf-button"><span class="jqf-icon jqf-icon-add"></span></button>
-  <button class="jqf-button"><span class="jqf-icon jqf-icon-subtract"></span></button>
   <button class="jqf-button"><span class="jqf-icon jqf-icon-up"></span></button>
   <button class="jqf-button"><span class="jqf-icon jqf-icon-right"></span></button>
   <button class="jqf-button"><span class="jqf-icon jqf-icon-down"></span></button>
@@ -31,8 +29,6 @@ categories: examples
   <button class="jqf-button"><span class="jqf-icon jqf-icon-refresh"></span></button>
 </notextile>
 {% highlight html linenos %}
-<button class="jqf-button"><span class="jqf-icon jqf-icon-add"></span></button>
-<button class="jqf-button"><span class="jqf-icon jqf-icon-subtract"></span></button>
 <button class="jqf-button"><span class="jqf-icon jqf-icon-up"></span></button>
 <button class="jqf-button"><span class="jqf-icon jqf-icon-right"></span></button>
 <button class="jqf-button"><span class="jqf-icon jqf-icon-down"></span></button>
