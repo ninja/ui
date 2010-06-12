@@ -16,11 +16,16 @@ categories:
     <script src="/js/jquery.min.js" type="text/javascript"> </script>
     <script src="/js/jquery.ui.min.js" type="text/javascript"> </script>
     <script src="/js/jquery.jqf.js" type="text/javascript"> </script>
+    <style>
+      * {
+        font-family:'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+      }
+    </style>
   </head>
   <body style="margin:20px auto; padding:0 20px;">
     <div style="position:relative">
       <img src="/images/jqface.png"/>
-      <div style="position:absolute;right:0;top:0">
+      <div style="font-size:11px;position:absolute;right:0;top:0">
         <div>Source Code</div>
         <a href="http://github.com/uipoet/jqface">http://github.com/uipoet/jqface</a>
       </div>
@@ -30,14 +35,18 @@ categories:
         <td style="width:200px">
           {% for category in (page.categories) %}
             <h3>{{ category | capitalize }}</h3>
-            {% for post in site.posts reversed %}{% if post.categories contains category %}
-              <div style="width:200px"><a href="{{ post.url }}">{{ post.title }}</a></div>
-              <div style="width:200px">{{ post.description }}</div>
-            {% endif %}{% endfor %}
+            {% for post in site.posts reversed %}
+              {% if post.categories contains category %}
+                <div style="padding:5px 0">
+                <div style="width:200px"><a href="{{ post.url }}">{{ post.title }}</a></div>
+                <div style="font-size:11px;width:200px">{{ post.description }}</div>
+              {% endif %}
+              </div>
+            {% endfor %}
           {% endfor %}
         </td>
         <td>
-          <div style="border-bottom:1px solid lightgray;margin-bottom:20px;padding-bottom:10px">
+          <div style="border-bottom:1px solid lightgray;font-size:11px;margin-bottom:20px;padding-bottom:10px">
           {% if page.title != 'home' %}
             <a href="/">Home</a> /
             {{ page.title }}
