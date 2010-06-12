@@ -1,5 +1,5 @@
 ---
 layout: default
-title: jQuery Interface
+title: home
 ---
 Load an example by clicking a link to the left.
