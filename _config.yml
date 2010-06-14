@@ -2,3 +2,4 @@ auto: true
 permalink: none
 pygments: true
 server: false
+version: 0.1
