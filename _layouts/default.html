@@ -20,12 +20,23 @@ categories:
       * {
         font-family:'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
       }
+      a {
+        color:SlateGray;
+      }
       img {
         border:none;
       }
     </style>
   </head>
-  <body style="margin:20px auto; padding:0 20px;">
+  <body style="
+    background-color:Black;
+    background-image:-moz-linear-gradient(top, Black, DarkSlateGray 40%, Black 40%, Black);
+    background-image:-webkit-gradient(linear, left top, left bottom, from(Black), color-stop(40%, DarkSlateGray), color-stop(40%, Black), to(Black));
+    background-repeat:no-repeat;
+    color:White;
+    margin:20px auto;
+    padding:0 20px;
+  ">
     <div style="position:relative">
       <a href="/"><img src="/images/jqface.png"/></a>
       <table style="font-size:11px;position:absolute;right:0;top:0">
@@ -56,14 +67,24 @@ categories:
           {% endfor %}
         </td>
         <td>
-          <div style="border-bottom:1px solid lightgray;font-size:11px;margin-bottom:20px;padding-bottom:10px">
           {% if page.title != 'home' %}
-            <a href="/">Home</a> /
-            {{ page.title }}
+            <div style="font-size:11px;margin-bottom:20px;padding-bottom:10px">
+              <a href="/">Home</a> /
+              {{ page.title }}
+            </div>
+            <div style="
+              background-color:White;
+              border-radius:0.5em;
+              -moz-border-radius:0.5em;
+              -webkit-border-radius:0.5em;
+              padding:20px
+            ">
+              {{ content }}
+            </div>
+          {% else %}
+            {{ content }}
           {% endif %}
-          </div>
-          {{ content }}
-          <div style="border-top:1px solid lightgray;color:gray;font-size:11px;margin-top:20px;padding-top:10px;text-align:center">&copy; 2010 Jamie Hoover</div>
+          <div style="color:DarkSlateGray;font-size:11px;margin-top:20px;padding-top:10px;text-align:center">&copy; 2010 Jamie Hoover</div>
         </td>
       </tr>
     </table>
