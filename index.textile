@@ -3,7 +3,15 @@ layout: default
 title: home
 ---
 <notextile>
-  <div style="text-align:center">
-    <img src="/images/collage.png"/>
-  </div>
+  <table cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+        <img src="/images/collage.png"/>
+      </td>
+      <td style="font-size:11px;padding-left:20px">
+        <p style="max-width:200px">jqface is a collection of interface components that easily integrate with your web pages.</p>
+        <p><a href="http://jquery.com/"><img src="/images/jquery.png" valign="middle"/></a> Built with <a href="http://jquery.com/">jQuery</a>.</p>
+      </td>
+    </tr>
+  </table>
 </notextile>
