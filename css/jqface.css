@@ -56,6 +56,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
     -webkit-border-radius:0.5em;
   margin:0 0.25em 0.5em 0;
 }
+.jqf-button .jqf-icon {
+  margin:4px 0;
+}
 /* Tab */
 .jqf-tab {
   position:relative;

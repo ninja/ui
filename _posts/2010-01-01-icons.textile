@@ -26,7 +26,7 @@ categories: examples
   <button class="jqf-button"><span class="jqf-icon jqf-icon-print"></span></button>
   <button class="jqf-button"><span class="jqf-icon jqf-icon-radio"></span></button>
   <button class="jqf-button"><span class="jqf-icon jqf-icon-movie"></span></button>
-  <button class="jqf-button"><span class="jqf-icon jqf-icon-refresh"></span></button>
+  <a class="jqf-button" href="#"><span class="jqf-icon jqf-icon-refresh"></span></a>
 </notextile>
 {% highlight html linenos %}
 <button class="jqf-button"><span class="jqf-icon jqf-icon-up"></span></button>
