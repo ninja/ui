@@ -459,6 +459,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   display:-moz-inline-box;/* Firefox 2 */
   display:inline-block;
   position:relative;
+  vertical-align:middle;
 }
 .jqf-menu-button {
   background:url('../images/gradients.png') 0 -1em repeat-x;
