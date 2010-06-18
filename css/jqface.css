@@ -211,20 +211,30 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
     -webkit-border-bottom-right-radius:0.5em;
 }
 /* Folders */
-.jqf-folders {
+.jqf-folders-horizontal, .jqf-folders-vertical {
   display:block;
   margin-top:1em;
   position:relative;
 }
+.jqf-folders-vertical {
+  margin-left:15em;
+}
 .jqf-folders-tabs {
   display:block;
   position:absolute;
+  z-index:666;
+}
+.jqf-folders-horizontal .jqf-folders-tabs {
   left:0;
   text-align:center;
   top:-1em;
-  white-space:nowrap;
+  white-space:nowrap;  
   width:100%;
-  z-index:666;
+}
+.jqf-folders-vertical .jqf-folders-tabs {
+  left:-15em;
+  top:1em;
+  width:16em;
 }
 .jqf-folder-tab {
   background:url('../images/gradients.png') 0 -1em repeat-x;
@@ -236,8 +246,6 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
     -webkit-box-shadow:0 0.1em 0.25em Black;
   color:Black;
   cursor:pointer;
-  display:-moz-inline-box;/* Firefox 2 */
-  display:inline-block;
   height:2em;
   line-height:2em;
   padding:0 1em;
@@ -248,6 +256,13 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
     -webkit-user-select:none;
   vertical-align:middle;
   white-space:nowrap;
+}
+.jqf-folders-horizontal .jqf-folder-tab {
+  display:-moz-inline-box;/* Firefox 2 */
+  display:inline-block;
+}
+.jqf-folders-vertical .jqf-folder-tab {
+  display:block;
 }
 .jqf-folder-tab.jqf-active,
 .jqf-folder-tab:active {
@@ -262,20 +277,34 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   text-shadow:Sienna 0 -0.1em 0.1em;
 }
 .jqf-folder-tab.jqf-first {
-  border-radius-bottom-left:0.5em;
   border-radius-top-left:0.5em;
-    -moz-border-radius-bottomleft:0.5em;
     -moz-border-radius-topleft:0.5em;
-    -webkit-border-bottom-left-radius:0.5em;
     -webkit-border-top-left-radius:0.5em;
+}
+.jqf-folders-horizontal .jqf-first {
+  border-radius-bottom-left:0.5em;
+    -moz-border-radius-bottomleft:0.5em;
+    -webkit-border-bottom-left-radius:0.5em;
+}
+.jqf-folders-vertical .jqf-first {
+  border-radius-top-right:0.5em;
+    -moz-border-radius-topright:0.5em;
+    -webkit-border-top-right-radius:0.5em;
 }
 .jqf-folder-tab.jqf-last {
   border-radius-bottom-right:0.5em;
-  border-radius-top-right:0.5em;
     -moz-border-radius-bottomright:0.5em;
-    -moz-border-radius-topright:0.5em;
     -webkit-border-bottom-right-radius:0.5em;
+}
+.jqf-folders-horizontal .jqf-last {
+  border-radius-top-right:0.5em;
+    -moz-border-radius-topright:0.5em;
     -webkit-border-top-right-radius:0.5em;
+}
+.jqf-folders-vertical .jqf-last {
+  border-radius-bottom-left:0.5em;
+    -moz-border-radius-bottomleft:0.5em;
+    -webkit-border-bottom-left-radius:0.5em;
 }
 .jqf-folder {
   background:#f0f0f0;
@@ -291,7 +320,12 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   color:Black;
   display:none;
   margin:0;
+}
+.jqf-folders-horizontal .jqf-folder {
   padding:2em 1em 1em 1em;
+}
+.jqf-folders-vertical .jqf-folder {
+  padding:2em 1em 1em 2em;
 }
 /* Icons */
 .jqf-icon, .ui-resizable-handle {
@@ -461,6 +495,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
 .jqf-menu {
   display:-moz-inline-box;/* Firefox 2 */
   display:inline-block;
+  margin:0 0.25em 0.5em 0;
   position:relative;
   vertical-align:middle;
 }
@@ -477,6 +512,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
     -webkit-box-shadow:0 0.1em 0.25em Black;
   color:Black;
   cursor:pointer;
+  display:inline-block;
   height:2em;
   line-height:2em;
   padding:0 0.5em;
@@ -509,7 +545,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   display:none;
   left:0;
 	list-style:none;
-  margin-top:0.5em;
+  top:2.5em;
   padding:0.5em 0;
   position:absolute;
   z-index:777;

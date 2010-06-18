@@ -209,12 +209,13 @@
     });
   }; // End Drawers
 
-  $.fn.jqfFolders = function() { // Begin Folders
+  $.fn.jqfFolders = function(customOptions) { // Begin Folders
+    var options = $.extend({direction:'horizontal'}, customOptions);
     return this.each(function(i, folders) {
       $(folders).children('div').each(function(i, folder) {
         $(folder).addClass('jqf-folder');
       });
-      $(folders).addClass('jqf jqf-folders').prepend('<div class="jqf-folders-tabs"></div>');
+      $(folders).addClass('jqf jqf-folders-' + options.direction).prepend('<div class="jqf-folders-tabs"></div>');
       var tabs = $('.jqf-folders-tabs', folders);
       $('.jqf-folder', folders).each(function(i, folder) {
         $(tabs).append('<span class="jqf-folder-tab">' + $(folder).attr('title') + '</span>')

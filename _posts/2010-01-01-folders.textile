@@ -4,23 +4,45 @@ title: Folders
 description: Dynamic containers swapped via tabs.
 categories: examples
 ---
+<h1>Horizontal</h1>
 <notextile>
-  <div id="folders">
-    <div id="folder-prize" title="What's inside?">A prize!</div>
-    <div id="folder-confidential" title="Confidential">Yeah, right!</div>
-    <div id="folder-button" title="History Eraser Button">You fool!</div>
+  <div id="folders-horizontal">
+    <div id="folder-horizontal-prize" title="What's inside?">A prize!</div>
+    <div id="folder-horizontal-confidential" title="Confidential">Yeah, right!</div>
+    <div id="folder-horizontal-button" title="History Eraser Button">You fool!</div>
   </div>
   <script type="text/javascript">
-    $('#folders').jqfFolders();
+    $('#folders-horizontal').jqfFolders();
   </script>
 </notextile>
 {% highlight html linenos %}
-<div id="folders">
-  <div id="folder-prize" title="What's inside?">A prize!</div>
-  <div id="folder-confidential" title="Confidential">Yeah, right!</div>
-  <div id="folder-button" title="History Eraser Button">You fool!</div>
+<div id="folders-horizontal">
+  <div id="folder-horizontal-prize" title="What's inside?">A prize!</div>
+  <div id="folder-horizontal-confidential" title="Confidential">Yeah, right!</div>
+  <div id="folder-horizontal-button" title="History Eraser Button">You fool!</div>
 </div>
 <script type="text/javascript">
-  $('#folders').jqfFolders();
+  $('#folders-horizontal').jqfFolders();
+</script>
+{% endhighlight %}
+<h1>Vertical</h1>
+<notextile>
+  <div id="folders-vertical">
+    <div id="folder-vertical-prize" title="What's inside?">A prize!</div>
+    <div id="folder-vertical-confidential" title="Confidential">Yeah, right!</div>
+    <div id="folder-vertical-button" title="History Eraser Button">You fool!</div>
+  </div>
+  <script type="text/javascript">
+    $('#folders-vertical').jqfFolders({direction:'vertical'});
+  </script>
+</notextile>
+{% highlight html linenos %}
+<div id="folders-vertical">
+  <div id="folder-vertical-prize" title="What's inside?">A prize!</div>
+  <div id="folder-vertical-confidential" title="Confidential">Yeah, right!</div>
+  <div id="folder-vertical-button" title="History Eraser Button">You fool!</div>
+</div>
+<script type="text/javascript">
+  $('#folders-vertical').jqfFolders();
 </script>
 {% endhighlight %}
