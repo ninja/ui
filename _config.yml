@@ -1,4 +1,5 @@
 auto: true
+exclude: jqface.less
 permalink: none
 pygments: true
 server: false

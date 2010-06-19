@@ -1,17 +1,9 @@
-button.jqf-button, button.jqf-tab, input.jqf-button {
-  overflow:visible;
-}
 .jqf-button, .jqf-drawer-handle, .jqf-folder-tab, .jqf-menu-button, .jqf-menu-choices, .jqf-slider-button, .jqf-tab {
 	filter:
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=0, Color=#999999)
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=90, Color=#666666)
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=180, Color=#333333)
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=270, Color=#666666);
-}
-.jqf-dock-frame {
-  background:transparent;
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);
-  zoom: 1;
 }
 .jqf-drawer {
 	filter:
@@ -26,25 +18,6 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=90, Color=#666666)
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=180, Color=#999999)
 	  progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=270, Color=#666666);
-}
-/* inline-block for IE 6 and 7 */
-.jqf-button,
-.jqf-folder-tab,
-.jqf-folder-tab.jqf-last,
-.jqf-icon,
-.jqf-menu,
-.jqf-rating,
-.jqf-rating-star,
-.jqf-slider,
-.jqf-slider-bevel,
-.jqf-tab,
-.ui-resizable-handle
-{
-  *display:inline;
-  zoom:1;
-}
-.jqf-icon, .ui-resizable-handle {
-  overflow:hidden;
 }
 .jqf-window {
   background:transparent;

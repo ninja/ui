@@ -3,13 +3,17 @@
   $.jqf = { // Begin Functions
     drawerClose: function(drawer){
       var handle = $(drawer).prev('.jqf-drawer-handle');
+      var icon = $('.jqf-icon', handle);
       $(drawer).slideUp(function() {
         $(handle).removeClass('jqf-active').toggleClass('jqf-last', $(drawer).is('.jqf-last'));
+        $(icon).addClass('jqf-icon-right').removeClass('jqf-icon-down');
       });
     },
     drawerOpen: function(drawer){
       var handle = $(drawer).prev('.jqf-drawer-handle');
+      var icon = $('.jqf-icon', handle);
       $(handle).addClass('jqf-active').removeClass('jqf-last');
+      $(icon).addClass('jqf-icon-down').removeClass('jqf-icon-right');
       $(drawer).slideDown();
     },
     drawersClose: function(drawers){
@@ -132,7 +136,7 @@
       $(document.body).append('<div class="jqf-window"></div>' +
         '<div class="jqf jqf-window-frame">' +
           '<div class="jqf-window-handle"><span class="jqf-window-title">' +
-            options.title + '</span><span class="jqf-icon jqf-window-close"></span>' +
+            options.title + '</span><span class="jqf-icon jqf-icon-close jqf-window-close"></span>' +
           '</div>' +
           '<div class="jqf-window-content"></div><div class="jqf-window-reflection"></div>' +
         '</div>').keyup(function(event) {
@@ -192,7 +196,7 @@
       $(drawers).addClass('jqf jqf-drawers');
       $('.jqf-drawer:last', drawers).addClass('jqf-last');
       $('.jqf-drawer', drawers).each(function(i, drawer) {
-        $(drawer).before('<div class="jqf-drawer-handle"><span class="jqf-icon"></span> ' + $(drawer).attr('title') + '</div>');
+        $(drawer).before('<div class="jqf-drawer-handle"><span class="jqf-icon jqf-icon-right"></span> ' + $(drawer).attr('title') + '</div>');
         var handle = $(drawer).prev('.jqf-drawer-handle');
         $(handle).toggleClass('jqf-last', $(drawer).is('.jqf-last'));
         $(drawer).hide();
