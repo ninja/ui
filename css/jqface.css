@@ -56,14 +56,14 @@
   -webkit-border-top-right-radius: 6px;
 }
 .jqf-box-shadow {
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
 }
 .jqf-box-shadow-inset {
-  box-shadow: 0 -1px 3px Gray;
-  -moz-box-shadow: 0 -1px 3px Gray;
-  -webkit-box-shadow: 0 -1px 3px Gray;
+  box-shadow: 0 -1px 3px gray;
+  -moz-box-shadow: 0 -1px 3px gray;
+  -webkit-box-shadow: 0 -1px 3px gray;
 }
 .jqf-ellipsis {
   overflow: hidden;
@@ -125,9 +125,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   overflow: visible;
 }
 .jqf-button, .jqf-tab {
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   font-face: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background: url('../images/gradients.png') 0 0 repeat-x;
@@ -211,9 +211,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius-top-right: 6px;
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   *display: inline;
   *zoom: 1;
   display: -moz-inline-box;
@@ -230,9 +230,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   display: block;
 }
 .jqf-drawer-handle {
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
@@ -284,13 +284,13 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   -webkit-border-bottom-right-radius: 6px;
 }
 .jqf-drawer {
-  background: White;
-  box-shadow: 0 0 3px Black;
-  -moz-box-shadow: 0 0 3px Black;
-  -webkit-box-shadow: 0 0 3px Black;
-  color: Black;
+  background: white;
+  box-shadow: 0 0 3px dimgray;
+  -moz-box-shadow: 0 0 3px dimgray;
+  -webkit-box-shadow: 0 0 3px dimgray;
+  color: black;
   display: block;
-  margin: 0;
+  margin: 0 1px;
   padding: 5px;
   top: 0;
 }
@@ -328,9 +328,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   width: 195px;
 }
 .jqf-folder-tab {
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
@@ -406,9 +406,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 -1px 3px Gray;
-  -moz-box-shadow: 0 -1px 3px Gray;
-  -webkit-box-shadow: 0 -1px 3px Gray;
+  box-shadow: 0 -1px 3px gray;
+  -moz-box-shadow: 0 -1px 3px gray;
+  -webkit-box-shadow: 0 -1px 3px gray;
   background: white;
   color: black;
   display: none;
@@ -509,9 +509,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
@@ -549,9 +549,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   background-color: white;
   display: none;
   left: 0;
@@ -636,9 +636,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 -1px 3px Gray;
-  -moz-box-shadow: 0 -1px 3px Gray;
-  -webkit-box-shadow: 0 -1px 3px Gray;
+  box-shadow: 0 -1px 3px gray;
+  -moz-box-shadow: 0 -1px 3px gray;
+  -webkit-box-shadow: 0 -1px 3px gray;
   *display: inline;
   *zoom: 1;
   display: -moz-inline-box;
@@ -726,9 +726,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   background: url('../images/wait.gif') 1em center no-repeat;
   background-color: rgba(0, 0, 0, 0.75);
   color: White;
@@ -794,13 +794,13 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius-top-right: 6px;
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
-  background: url('../images/gradients.png') 0 -1em repeat-x;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
+  background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: White;
+  background-color: white;
   color: Black;
   cursor: default;
   height: 30px;
@@ -819,9 +819,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius-bottom-right: 6px;
   -moz-border-radius-bottomright: 6px;
   -webkit-border-bottom-right-radius: 6px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
+  box-shadow: 0 1px 3px dimgray;
+  -moz-box-shadow: 0 1px 3px dimgray;
+  -webkit-box-shadow: 0 1px 3px dimgray;
   background: white;
   background: rgba(255, 255, 255, 0.85);
   color: Black;
