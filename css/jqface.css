@@ -56,14 +56,14 @@
   -webkit-border-top-right-radius: 6px;
 }
 .jqf-box-shadow {
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
 }
 .jqf-box-shadow-inset {
-  box-shadow: 0 -1px 3px gray;
-  -moz-box-shadow: 0 -1px 3px gray;
-  -webkit-box-shadow: 0 -1px 3px gray;
+  box-shadow: 0 -1px 2px gray;
+  -moz-box-shadow: 0 -1px 2px gray;
+  -webkit-box-shadow: 0 -1px 2px gray;
 }
 .jqf-ellipsis {
   overflow: hidden;
@@ -125,15 +125,15 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   overflow: visible;
 }
 .jqf-button, .jqf-tab {
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   font-face: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: White;
+  background-color: #f0f0f0;
   color: Black;
   cursor: pointer;
   height: 30px;
@@ -151,7 +151,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
 }
 .jqf-tab { position: relative; }
 .jqf-button.jqf-submit {
-  background-color: DarkOrange;
+  background-color: #ff8c00;
   color: White;
   text-shadow: Sienna 0 -0.1em 0.1em;
 }
@@ -171,7 +171,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
 }
 .jqf-button.jqf-active, .jqf-tab.jqf-active {
-  background-color: DarkOrange;
+  background-color: #ff8c00;
   color: White;
   text-shadow: Sienna 0 -0.1em 0.1em;
 }
@@ -211,9 +211,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius-top-right: 6px;
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   *display: inline;
   *zoom: 1;
   display: -moz-inline-box;
@@ -230,13 +230,13 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   display: block;
 }
 .jqf-drawer-handle {
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: White;
+  background-color: #f0f0f0;
   color: Black;
   cursor: pointer;
   display: block;
@@ -263,7 +263,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
 }
 .jqf-drawer-handle.jqf-active {
-  background-color: DarkOrange;
+  background-color: #ff8c00;
   color: White;
   text-shadow: Sienna 0 -1px 1px;
 }
@@ -328,13 +328,13 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   width: 195px;
 }
 .jqf-folder-tab {
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: White;
+  background-color: #f0f0f0;
   color: Black;
   cursor: pointer;
   height: 30px;
@@ -368,7 +368,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background-color: white;
 }
 .jqf-folder-tab.jqf-active {
-  background-color: DarkOrange;
+  background-color: #ff8c00;
   color: white;
   text-shadow: Sienna 0 -1px 1px;
 }
@@ -406,9 +406,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 -1px 3px gray;
-  -moz-box-shadow: 0 -1px 3px gray;
-  -webkit-box-shadow: 0 -1px 3px gray;
+  box-shadow: 0 -1px 2px gray;
+  -moz-box-shadow: 0 -1px 2px gray;
+  -webkit-box-shadow: 0 -1px 2px gray;
   background: white;
   color: black;
   display: none;
@@ -509,9 +509,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
@@ -519,7 +519,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
-  background-color: White;
+  background-color: #f0f0f0;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -541,17 +541,17 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
 }
 .jqf-menu-button:active { background-color: White; }
 .jqf-menu-button.jqf-active {
-  background-color: DarkOrange;
-  color: White;
-  text-shadow: Sienna 0 -1px 1px;
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
 }
 .jqf-menu-choices {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background-color: white;
   display: none;
   left: 0;
@@ -562,21 +562,21 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   z-index: 777;
 }
 .jqf-menu-choice {
-  color: Black;
+  color: black;
   cursor: pointer;
-  line-height: 2em;
-  padding: 0 1em;
+  line-height: 20px;
+  padding: 0 10px;
   text-align: left;
-  text-shadow: White 0 1px 1px;
+  text-shadow: white 0 1px 1px;
   white-space: nowrap;
 }
 .jqf-menu-choice:hover {
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: DarkOrange;
-  color: White;
-  text-shadow: Sienna 0 -1px 1px;
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
 }
 .jqf-rating {
   *display: inline;
@@ -593,7 +593,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
 }
 .jqf-rating-label {
   margin-bottom: 5px;
-  text-shadow: #ffffff 0 1px 1px;
+  text-shadow: white 0 1px 1px;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -608,9 +608,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   height: 24px;
   width: 18px;
 }
-.jqf-rating-group { background-position: left -24px; }
-.jqf-rating-star:active { background-position: left -48px; }
-.jqf-rating-single { background-position: left -48px; }
+.jqf-rating-group { background-position: 0 -24px; }
+.jqf-rating-star:active { background-position: 0 -48px; }
+.jqf-rating-single { background-position: 0 -48px; }
 .jqf-slider {
   font-face: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
@@ -618,7 +618,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
-  margin: 0 1em 1em 0;
+  margin: 0 10px 10px 0;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -636,9 +636,9 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 -1px 3px gray;
-  -moz-box-shadow: 0 -1px 3px gray;
-  -webkit-box-shadow: 0 -1px 3px gray;
+  box-shadow: 0 -1px 2px gray;
+  -moz-box-shadow: 0 -1px 2px gray;
+  -webkit-box-shadow: 0 -1px 2px gray;
   *display: inline;
   *zoom: 1;
   display: -moz-inline-box;
@@ -653,7 +653,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background: url('../images/gradients.png') 0 -30px repeat-x;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
-  background-color: lightgray;
+  background-color: #f0f0f0;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -668,7 +668,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: DarkOrange;
+  background-color: #ff8c00;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -681,17 +681,17 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   -webkit-user-select: none;
 }
 .jqf-slider-button {
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: White;
+  background-color: #ff8c00;
   border: none;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  box-shadow: 0 1px 3px Black;
-  -moz-box-shadow: 0 1px 3px Black;
-  -webkit-box-shadow: 0 1px 3px Black;
   cursor: pointer;
   height: 20px;
   position: absolute;
@@ -701,7 +701,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background: url('../images/gradients.png') 0 -30px repeat-x;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
-  background-color: White;
+  background-color: #ff8c00;
   display: block;
 }
 .jqf-slider-text {
@@ -726,14 +726,14 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius: 6px;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background: url('../images/wait.gif') 1em center no-repeat;
   background-color: rgba(0, 0, 0, 0.75);
-  color: White;
+  color: white;
   display: none;
-  padding: 1em 1em 1em 3em;
+  padding: 15px 15px 15px 30px;
   position: absolute;
   text-align: center;
   z-index: 999;
@@ -747,10 +747,10 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   -webkit-border-top-right-radius: 6px;
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0)));
-  height: 2em;
+  height: 30px;
   left: 0;
   position: absolute;
-  bottom: -2em;
+  bottom: -30px;
   width: 100%;
 }
 .jqf-window {
@@ -781,10 +781,10 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   -webkit-border-top-right-radius: 6px;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-  height: 2em;
+  height: 30px;
   left: 0;
   position: absolute;
-  bottom: -2em;
+  bottom: -30px;
   width: 100%;
 }
 .jqf-window-handle {
@@ -794,14 +794,14 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius-top-right: 6px;
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-color: white;
-  color: Black;
+  background-color: #f0f0f0;
+  color: black;
   cursor: default;
   height: 30px;
   line-height: 30px;
@@ -819,12 +819,12 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   border-radius-bottom-right: 6px;
   -moz-border-radius-bottomright: 6px;
   -webkit-border-bottom-right-radius: 6px;
-  box-shadow: 0 1px 3px dimgray;
-  -moz-box-shadow: 0 1px 3px dimgray;
-  -webkit-box-shadow: 0 1px 3px dimgray;
-  background: white;
-  background: rgba(255, 255, 255, 0.85);
-  color: Black;
+  box-shadow: 0 1px 2px dimgray;
+  -moz-box-shadow: 0 1px 2px dimgray;
+  -webkit-box-shadow: 0 1px 2px dimgray;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: black;
   min-height: 180px;
   min-width: 360px;
   overflow: auto;
