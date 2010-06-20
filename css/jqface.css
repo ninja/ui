@@ -91,6 +91,49 @@
   display: -moz-inline-box;
   display: inline-block;
 }
+.jqf-input {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  font-size: 12px;
+  background: url('../images/gradients.png') 0 0 repeat-x;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
+  *display: inline;
+  *zoom: 1;
+  display: -moz-inline-box;
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f0f0f0;
+  border: none;
+  color: black;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  overflow: visible;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: white 0 1px 1px;
+  vertical-align: middle;
+}
+.jqf-input:active {
+  background: url('../images/gradients.png') 0 -30px repeat-x;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-color: #f0f0f0;
+}
+.jqf-input:focus { outline: 0; }
+.jqf-input:hover {
+  color: black;
+  text-decoration: none;
+}
+.jqf-input::-moz-focus-inner {
+  border-color: transparent;
+  padding: 0;
+}
 .jqf { display: none; }
 .jqf-button {
   border-radius: 5px;
@@ -116,13 +159,13 @@
   cursor: pointer;
   height: 30px;
   line-height: 30px;
-  margin: 0 5px 10px 0;
   overflow: visible;
   padding: 0 10px;
   text-align: center;
   text-decoration: none;
   text-shadow: white 0 1px 1px;
   vertical-align: middle;
+  margin: 0 5px 10px 0;
 }
 .jqf-button:active {
   background: url('../images/gradients.png') 0 -30px repeat-x;
@@ -136,54 +179,6 @@
   text-decoration: none;
 }
 .jqf-button::-moz-focus-inner {
-  border-color: transparent;
-  padding: 0;
-}
-.jqf-tab {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
-  font-size: 12px;
-  background: url('../images/gradients.png') 0 0 repeat-x;
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  *display: inline;
-  *zoom: 1;
-  display: -moz-inline-box;
-  display: inline-block;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #f0f0f0;
-  border: none;
-  color: black;
-  cursor: pointer;
-  height: 30px;
-  line-height: 30px;
-  margin: 0 5px 10px 0;
-  overflow: visible;
-  padding: 0 10px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: white 0 1px 1px;
-  vertical-align: middle;
-  position: relative;
-}
-.jqf-tab:active {
-  background: url('../images/gradients.png') 0 -30px repeat-x;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
-  background-color: #f0f0f0;
-}
-.jqf-tab:focus { outline: 0; }
-.jqf-tab:hover {
-  color: black;
-  text-decoration: none;
-}
-.jqf-tab::-moz-focus-inner {
   border-color: transparent;
   padding: 0;
 }
@@ -209,7 +204,70 @@
 }
 .jqf-active:hover { color: white; }
 .jqf-submit:hover { color: white; }
-.jqf-tab.jqf-first {
+.jqf-tabs { font-size: 0; }
+.jqf-tabs .jqf-tab {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  font-size: 12px;
+  background: url('../images/gradients.png') 0 0 repeat-x;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
+  *display: inline;
+  *zoom: 1;
+  display: -moz-inline-box;
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f0f0f0;
+  border: none;
+  color: black;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  overflow: visible;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: white 0 1px 1px;
+  vertical-align: middle;
+  position: relative;
+}
+.jqf-tabs .jqf-tab:active {
+  background: url('../images/gradients.png') 0 -30px repeat-x;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-color: #f0f0f0;
+}
+.jqf-tabs .jqf-tab:focus { outline: 0; }
+.jqf-tabs .jqf-tab:hover {
+  color: black;
+  text-decoration: none;
+}
+.jqf-tabs .jqf-tab::-moz-focus-inner {
+  border-color: transparent;
+  padding: 0;
+}
+.jqf-tabs .jqf-active {
+  background: url('../images/gradients.png') 0 -30px repeat-x;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
+}
+.jqf-tabs .jqf-active:active {
+  background: url('../images/gradients.png') 0 -30px repeat-x;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
+}
+.jqf-tabs .jqf-active:hover { color: white; }
+.jqf-tabs .jqf-submit:hover { color: white; }
+.jqf-tabs .jqf-first {
   border-radius-bottom-left: 5px;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
@@ -217,7 +275,7 @@
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
 }
-.jqf-tab.jqf-last {
+.jqf-tabs .jqf-last {
   border-radius-bottom-right: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
