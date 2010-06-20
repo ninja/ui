@@ -342,7 +342,7 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   cursor: pointer;
   height: 30px;
   line-height: 30px;
-  padding: 0 20px;
+  padding: 0 10px;
   text-align: left;
   text-shadow: White 0 1px 1px;
   user-select: none;
