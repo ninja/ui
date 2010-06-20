@@ -92,39 +92,10 @@
   display: inline-block;
 }
 .jqf { display: none; }
-.jqf-button:focus { outline: 0; }
-.jqf-tab:focus { outline: 0; }
-.jqf-button::-moz-focus-inner {
-  border-color: transparent;
-  padding: 0;
-}
-.jqf-tab::-moz-focus-inner {
-  border-color: transparent;
-  padding: 0;
-}
-a.jqf-button, a.jqf-tab {
-  *display: inline;
-  *zoom: 1;
-  display: -moz-inline-box;
-  display: inline-block;
-  text-decoration: none;
-}
-a.jqf-button:hover {
-  color: Black;
-  text-decoration: none;
-}
-a.jqf-tab:hover {
-  color: Black;
-  text-decoration: none;
-}
-button.jqf-button, button.jqf-tab, input.jqf-button {
-  appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  cursor: pointer;
-  overflow: visible;
-}
-.jqf-button, .jqf-tab {
+.jqf-button {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
@@ -133,50 +104,111 @@ button.jqf-button, button.jqf-tab, input.jqf-button {
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
+  *display: inline;
+  *zoom: 1;
+  display: -moz-inline-box;
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
   background-color: #f0f0f0;
-  color: Black;
+  border: none;
+  color: black;
   cursor: pointer;
   height: 30px;
   line-height: 30px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
   padding: 0 10px;
   text-align: center;
-  text-shadow: White 0 1px 1px;
+  text-decoration: none;
+  text-shadow: white 0 1px 1px;
   vertical-align: middle;
-}
-.jqf-button {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  margin: 0 5px 10px 0;
-}
-.jqf-tab { position: relative; }
-.jqf-button.jqf-submit {
-  background-color: #ff8c00;
-  color: White;
-  text-shadow: Sienna 0 -0.1em 0.1em;
 }
 .jqf-button:active {
   background: url('../images/gradients.png') 0 -30px repeat-x;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-color: #f0f0f0;
+}
+.jqf-button:focus { outline: 0; }
+.jqf-button:hover {
+  color: black;
+  text-decoration: none;
+}
+.jqf-button::-moz-focus-inner {
+  border-color: transparent;
+  padding: 0;
+}
+.jqf-tab {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  font-size: 12px;
+  background: url('../images/gradients.png') 0 0 repeat-x;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
+  *display: inline;
+  *zoom: 1;
+  display: -moz-inline-box;
+  display: inline-block;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f0f0f0;
+  border: none;
+  color: black;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: white 0 1px 1px;
+  vertical-align: middle;
+  position: relative;
 }
 .jqf-tab:active {
   background: url('../images/gradients.png') 0 -30px repeat-x;
   background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-color: #f0f0f0;
 }
-.jqf-button.jqf-active, .jqf-tab.jqf-active {
-  background: url('../images/gradients.png') 0 -30px repeat-x;
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+.jqf-tab:focus { outline: 0; }
+.jqf-tab:hover {
+  color: black;
+  text-decoration: none;
 }
-.jqf-button.jqf-active, .jqf-tab.jqf-active {
+.jqf-tab::-moz-focus-inner {
+  border-color: transparent;
+  padding: 0;
+}
+.jqf-active {
   background-color: #ff8c00;
-  color: White;
-  text-shadow: Sienna 0 -0.1em 0.1em;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
 }
-.jqf-button.jqf-active { color: White; }
-.jqf-tab.jqf-active:hover { color: White; }
+.jqf-active:active {
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
+}
+.jqf-submit {
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
+}
+.jqf-submit:active {
+  background-color: #ff8c00;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
+}
+.jqf-active:hover { color: white; }
+.jqf-submit:hover { color: white; }
 .jqf-tab.jqf-first {
   border-radius-bottom-left: 5px;
   -moz-border-radius-bottomleft: 5px;

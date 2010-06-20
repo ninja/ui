@@ -89,72 +89,65 @@
   display:inline-block;
 }
 
-// Rules
+// Hide placeholder markup
 
 .jqf {
   display:none;
 }
-/* Button */
-.jqf-button:focus, .jqf-tab:focus{
-  outline:0;
-}
-.jqf-button::-moz-focus-inner, .jqf-tab::-moz-focus-inner{
-  border-color:transparent;
-  padding:0;
-}
-a.jqf-button,a.jqf-tab {
-  .jqf-inline-block;
-  text-decoration:none;
-}
-a.jqf-button:hover, a.jqf-tab:hover {
-  color:Black;
-  text-decoration:none;
-}
-button.jqf-button, button.jqf-tab, input.jqf-button {
-  appearance:none;
-  -webkit-appearance:none;
-  border:none;
-  cursor:pointer;
-  overflow:visible;
-}
-.jqf-button,.jqf-tab {
+
+// Button
+
+.jqf-button {
   @height: 30px;
+  .jqf-border-radius;
   .jqf-box-shadow;
   .jqf-font;
   .jqf-gradient-outset;
+  .jqf-inline-block;
+  appearance: none;
+  -webkit-appearance: none;
   background-color: @background-color;
-  color:Black;
-  cursor:pointer;
+  border: none;
+  color: black;
+  cursor: pointer;
   height: @height;
   line-height: @height;
-  padding:0 10px;
-  text-align:center;
-  text-shadow:White 0 1px 1px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 0 10px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: white 0 1px 1px;
   vertical-align:middle;
+  :active {
+    .jqf-gradient-inset;
+    background-color: @background-color;
+  }
+  :focus { outline: 0; }
+  :hover {
+    color: black;
+    text-decoration: none;
+  }
+  ::-moz-focus-inner {
+    border-color:transparent;
+    padding:0;
+  }
 }
-.jqf-button {
-  .jqf-border-radius;
-  margin:0 5px 10px 0;
-}
-/* Tab */
+
+// Tab
+
 .jqf-tab {
+  .jqf-button;
   position:relative;
 }
-.jqf-button.jqf-submit {
+
+.jqf-active, .jqf-active:active, .jqf-submit, .jqf-submit:active {
   background-color: @background-color-active;
-  color:White;
-  text-shadow:Sienna 0 -0.1em 0.1em;
+  color: white;
+  text-shadow: sienna 0 -1px 1px;
 }
-.jqf-button:active, .jqf-tab:active, .jqf-button.jqf-active, .jqf-tab.jqf-active {
-  .jqf-gradient-inset;
-}
-.jqf-button.jqf-active, .jqf-tab.jqf-active {
-  background-color: @background-color-active;
-  color:White;
-  text-shadow:Sienna 0 -0.1em 0.1em;
-}
-.jqf-button.jqf-active, .jqf-tab.jqf-active:hover {
-  color:White;
+.jqf-active:hover, .jqf-submit:hover {
+  color: white;
 }
 .jqf-tab.jqf-first {
   .jqf-border-radius-left;
