@@ -86,10 +86,10 @@
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
 }
 .jqf-inline-block {
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 .jqf-input {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
@@ -100,10 +100,10 @@
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
@@ -147,10 +147,10 @@
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
@@ -219,10 +219,10 @@
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
@@ -312,10 +312,10 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   background-color: rgba(0, 0, 0, 0.75);
   bottom: 0;
   color: White;
@@ -450,10 +450,10 @@
   white-space: nowrap;
 }
 .jqf-folders-horizontal .jqf-folder-tab {
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
 .jqf-folders-vertical .jqf-folder-tab { display: block; }
 .jqf-folder-tab.jqf-active {
@@ -519,10 +519,10 @@
 .jqf-folders-horizontal .jqf-folder { padding: 30px 15px 15px 15px; }
 .jqf-folders-vertical .jqf-folder { padding: 15px 15px 15px 30px; }
 .jqf-icon {
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   background-image: url('../images/icons.png');
   height: 16px;
   overflow: hidden;
@@ -598,10 +598,10 @@
 .jqf-menu {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   margin: 0 5px 10px 0;
   position: relative;
   vertical-align: middle;
@@ -616,10 +616,10 @@
   background: url('../images/gradients.png') 0 0 repeat-x;
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   background-color: #f0f0f0;
   color: black;
   cursor: pointer;
@@ -680,10 +680,10 @@
   text-shadow: sienna 0 -1px 1px;
 }
 .jqf-rating {
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -700,10 +700,10 @@
   -webkit-user-select: none;
 }
 .jqf-rating-star {
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   background-image: url('../images/rating.png');
   cursor: pointer;
   height: 24px;
@@ -715,10 +715,10 @@
 .jqf-slider {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   margin: 0 10px 10px 0;
   user-select: none;
   -moz-user-select: none;
@@ -740,10 +740,10 @@
   box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  *display: inline;
-  *zoom: 1;
   display: -moz-inline-box;
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   background-color: white;
   padding: 5px;
   user-select: none;
