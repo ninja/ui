@@ -3,11 +3,11 @@
 
 @background-color: rgb(240,240,240);
 @background-color-active: rgb(255,140,0);
+@border-color: @background-color * 0.75;
+@border-color-active: @background-color-active * 0.75;
 @font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 @font-size: 12px;
 @radius: 5px;
-@shadow: 0 1px 2px rgba(0,0,0,0.75);
-@shadow-inset: 0 -1px 2px rgba(0,0,0,0.75);
 
 // Mixins
 
@@ -52,16 +52,6 @@
   .jqf-border-radius-top-left;
   .jqf-border-radius-top-right;
 }
-.jqf-box-shadow {
-  box-shadow: @shadow;
-  -moz-box-shadow: @shadow;
-  -webkit-box-shadow: @shadow;
-}
-.jqf-box-shadow-inset {
-  box-shadow: @shadow-inset;
-  -moz-box-shadow: @shadow-inset;
-  -webkit-box-shadow: @shadow-inset;
-}
 .jqf-ellipsis {
   overflow:hidden;
   text-overflow:ellipsis;
@@ -94,14 +84,13 @@
 }
 .jqf-input {
   @height: 30px;
-  .jqf-box-shadow;
   .jqf-font;
   .jqf-gradient-outset;
   .jqf-inline-block;
   appearance: none;
   -webkit-appearance: none;
   background-color: @background-color;
-  border: none;
+  border: 1px solid @border-color;
   color: black;
   cursor: pointer;
   height: @height;
@@ -144,6 +133,7 @@
 }
 .jqf-active, .jqf-active:active, .jqf-submit, .jqf-submit:active {
   background-color: @background-color-active;
+  border-color: @border-color-active;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -166,6 +156,7 @@
   .jqf-active, .jqf-active:active {
     .jqf-gradient-inset;
     background-color: @background-color-active;
+    border-color: @border-color-active;
     color: white;
     text-shadow: sienna 0 -1px 1px;
   }
@@ -193,9 +184,9 @@
 }
 .jqf-dock-frame {
   .jqf-border-radius-top;
-  .jqf-box-shadow;
   .jqf-inline-block;
   background-color:rgba(0,0,0,0.75);
+  border: 1px solid @border-color;
   bottom:0;
   color:White;
   height:1.5em;
@@ -208,9 +199,9 @@
 }
 .jqf-drawer-handle {
   @height: 30px;
-  .jqf-box-shadow;
   .jqf-gradient-outset;
   background-color: @background-color;
+  border: 1px solid @border-color;
   color:Black;
   cursor:pointer;
   display:block;
@@ -234,6 +225,7 @@
 }
 .jqf-drawer-handle.jqf-active {
   background-color: @background-color-active;
+  border-color: @border-color-active;
   color:White;
   text-shadow:Sienna 0 -1px 1px;
 }
@@ -244,14 +236,11 @@
   .jqf-border-radius-bottom;
 }
 .jqf-drawer {
-  @shadow: 0 0 3px dimgray;
   background: white;
-  box-shadow: @shadow;
-  -moz-box-shadow: @shadow;
-  -webkit-box-shadow: @shadow;
+  border-left: 1px solid @border-color;
+  border-right: 1px solid @border-color;
   color: black;
   display: block;
-  margin: 0 1px;
   padding: 5px;
   top: 0;
 }
@@ -287,9 +276,9 @@
 }
 .jqf-folder-tab {
   @height: 30px;
-  .jqf-box-shadow;
   .jqf-gradient-outset;
   background-color: @background-color;
+  border: 1px solid @border-color;
   color:Black;
   cursor:pointer;
   height: @height;
@@ -316,6 +305,7 @@
 }
 .jqf-folder-tab.jqf-active {
   background-color: @background-color-active;
+  border-color: @border-color-active;
   color: white;
   text-shadow:Sienna 0 -1px 1px;
 }
@@ -339,8 +329,8 @@
 }
 .jqf-folder {
   .jqf-border-radius;
-  .jqf-box-shadow-inset;
   background: white;
+  border: 1px solid @border-color;
   color: black;
   display:none;
   margin:0;
@@ -422,10 +412,10 @@
 .jqf-menu-button {
   @height: 30px;
   .jqf-border-radius;
-  .jqf-box-shadow;
   .jqf-gradient-outset;
   .jqf-inline-block;
   background-color: @background-color;
+  border: 1px solid @border-color;
   color: black;
   cursor: pointer;
   height: @height;
@@ -444,13 +434,14 @@
 }
 .jqf-menu-button.jqf-active {
   background-color: @background-color-active;
+  border-color: @border-color-active;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
 .jqf-menu-choices {
   .jqf-border-radius;
-  .jqf-box-shadow;
   background-color: white;
+  border: 1px solid @border-color;
   display:none;
   left:0;
 	list-style:none;
@@ -471,6 +462,7 @@
 .jqf-menu-choice:hover {
   .jqf-gradient-outset;
   background-color: @background-color-active;
+  border-color: @border-color-active;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -525,9 +517,9 @@
 }
 .jqf-slider-bevel {
   .jqf-border-radius;
-  .jqf-box-shadow-inset;
   .jqf-inline-block;
   background-color: white;
+  border: 1px solid @border-color;
   padding: 5px;
   user-select: none;
   -moz-user-select: none;
@@ -551,6 +543,7 @@
   @radius: 4px;
   .jqf-gradient-outset;
   background-color: @background-color-active;
+  border-color: @border-color-active;
   border-radius: @radius;
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
@@ -564,10 +557,9 @@
 }
 .jqf-slider-button {
   @radius: 10px;
-  .jqf-box-shadow;
   .jqf-gradient-outset;
   background-color: @background-color;
-  border:none;
+  border: 1px solid @border-color;
   border-radius: @radius;
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
@@ -602,9 +594,9 @@
 }
 .jqf-wait-frame {
   .jqf-border-radius;
-  .jqf-box-shadow;
   background: url('../images/wait.gif') 1em center no-repeat;
   background-color: rgba(0,0,0,0.75);
+  border: 1px solid @border-color;
   color: white;
   display: none;
   padding: 15px 15px 15px 30px;
@@ -652,9 +644,9 @@
 .jqf-window-handle {
   @height: 30px;
   .jqf-border-radius-top;
-  .jqf-box-shadow;
   .jqf-gradient-outset;
   background-color: @background-color;
+  border: 1px solid @border-color;
   color: black;
   cursor: default;
   height: @height;
@@ -668,9 +660,9 @@
 }
 .jqf-window-content {
   .jqf-border-radius-bottom;
-  .jqf-box-shadow;
   background-color: white;
   background-color: rgba(255,255,255,0.85);
+  border: 1px solid @border-color;
   color: black;
   min-height: 180px;
   min-width: 360px;

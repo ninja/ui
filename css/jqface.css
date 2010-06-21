@@ -55,16 +55,6 @@
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
 }
-.jqf-box-shadow {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-}
-.jqf-box-shadow-inset {
-  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-}
 .jqf-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -96,9 +86,6 @@
   zoom: 1;
 }
 .jqf-input {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-image: url('../images/gradient-outset.png');
@@ -113,7 +100,7 @@
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
-  border: none;
+  border: 1px solid #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -147,9 +134,6 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-image: url('../images/gradient-outset.png');
@@ -164,7 +148,7 @@
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
-  border: none;
+  border: 1px solid #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -198,21 +182,25 @@
 }
 .jqf-active {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
 .jqf-active:active {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
 .jqf-submit {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
 .jqf-submit:active {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -223,9 +211,6 @@
   white-space: nowrap;
 }
 .jqf-tabs .jqf-tab {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-image: url('../images/gradient-outset.png');
@@ -240,7 +225,7 @@
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
-  border: none;
+  border: 1px solid #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -280,6 +265,7 @@
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -290,6 +276,7 @@
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -329,14 +316,12 @@
   border-radius-top-right: 5px;
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
   zoom: 1;
   background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid #b4b4b4;
   bottom: 0;
   color: White;
   height: 1.5em;
@@ -348,15 +333,13 @@
   display: block;
 }
 .jqf-drawer-handle {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-image: url('../images/gradient-outset.png');
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #f0f0f0;
+  border: 1px solid #b4b4b4;
   color: Black;
   cursor: pointer;
   display: block;
@@ -391,6 +374,7 @@
 }
 .jqf-drawer-handle.jqf-active {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: White;
   text-shadow: Sienna 0 -1px 1px;
 }
@@ -412,12 +396,10 @@
 }
 .jqf-drawer {
   background: white;
-  box-shadow: 0 0 3px dimgray;
-  -moz-box-shadow: 0 0 3px dimgray;
-  -webkit-box-shadow: 0 0 3px dimgray;
+  border-left: 1px solid #b4b4b4;
+  border-right: 1px solid #b4b4b4;
   color: black;
   display: block;
-  margin: 0 1px;
   padding: 5px;
   top: 0;
 }
@@ -455,15 +437,13 @@
   width: 195px;
 }
 .jqf-folder-tab {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-image: url('../images/gradient-outset.png');
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #f0f0f0;
+  border: 1px solid #b4b4b4;
   color: Black;
   cursor: pointer;
   height: 30px;
@@ -502,6 +482,7 @@
 }
 .jqf-folder-tab.jqf-active {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: Sienna 0 -1px 1px;
 }
@@ -539,10 +520,8 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
   background: white;
+  border: 1px solid #b4b4b4;
   color: black;
   display: none;
   margin: 0;
@@ -642,9 +621,6 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-image: url('../images/gradient-outset.png');
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
@@ -655,6 +631,7 @@
   *display: inline;
   zoom: 1;
   background-color: #f0f0f0;
+  border: 1px solid #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -681,6 +658,7 @@
 .jqf-menu-button:active { background-color: White; }
 .jqf-menu-button.jqf-active {
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -688,10 +666,8 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-color: white;
+  border: 1px solid #b4b4b4;
   display: none;
   left: 0;
   list-style: none;
@@ -716,6 +692,7 @@
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #ff8c00;
+  border-color: #bf6900;
   color: white;
   text-shadow: sienna 0 -1px 1px;
 }
@@ -777,14 +754,12 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
   zoom: 1;
   background-color: white;
+  border: 1px solid #b4b4b4;
   padding: 5px;
   user-select: none;
   -moz-user-select: none;
@@ -814,6 +789,7 @@
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #ff8c00;
+  border-color: #bf6900;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -826,16 +802,13 @@
   -webkit-user-select: none;
 }
 .jqf-slider-button {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-image: url('../images/gradient-outset.png');
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #f0f0f0;
-  border: none;
+  border: 1px solid #b4b4b4;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -875,11 +848,9 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background: url('../images/wait.gif') 1em center no-repeat;
   background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid #b4b4b4;
   color: white;
   display: none;
   padding: 15px 15px 15px 30px;
@@ -943,15 +914,13 @@
   border-radius-top-right: 5px;
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-image: url('../images/gradient-outset.png');
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
   background-color: #f0f0f0;
+  border: 1px solid #b4b4b4;
   color: black;
   cursor: default;
   height: 30px;
@@ -970,11 +939,9 @@
   border-radius-bottom-right: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
   background-color: white;
   background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #b4b4b4;
   color: black;
   min-height: 180px;
   min-width: 360px;
