@@ -562,6 +562,7 @@
 .jqf-icon-radio { background-position: 0 -304px; }
 .jqf-icon-movie { background-position: 0 -320px; }
 .jqf-icon-refresh { background-position: 0 -336px; }
+.jqf-icon-people { background-position: 0 -352px; }
 .jqf-active .jqf-icon-up { background-position: -16px 0; }
 .jqf-active .jqf-icon-right { background-position: -16px -16px; }
 .jqf-active .jqf-icon-down { background-position: -16px -32px; }
@@ -583,7 +584,7 @@
 .jqf-active .jqf-icon-print { background-position: -16px -288px; }
 .jqf-active .jqf-icon-radio { background-position: -16px -304px; }
 .jqf-active .jqf-icon-movie { background-position: -16px -320px; }
-.jqf-active .jqf-icon-refresh { background-position: -16px -336px; }
+.jqf-active .jqf-icon-people { background-position: -16px -352px; }
 .jqf-submit .jqf-icon-up { background-position: -16px 0; }
 .jqf-submit .jqf-icon-right { background-position: -16px -16px; }
 .jqf-submit .jqf-icon-down { background-position: -16px -32px; }
@@ -605,7 +606,7 @@
 .jqf-submit .jqf-icon-print { background-position: -16px -288px; }
 .jqf-submit .jqf-icon-radio { background-position: -16px -304px; }
 .jqf-submit .jqf-icon-movie { background-position: -16px -320px; }
-.jqf-submit .jqf-icon-refresh { background-position: -16px -336px; }
+.jqf-submit .jqf-icon-people { background-position: -16px -352px; }
 .jqf-menu {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
