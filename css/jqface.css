@@ -111,6 +111,7 @@
   text-decoration: none;
   text-shadow: white 0 1px 1px;
   vertical-align: middle;
+  white-space: nowrap;
 }
 .jqf-input:active {
   background-image: url('../images/gradient-inset.png');
@@ -159,6 +160,7 @@
   text-decoration: none;
   text-shadow: white 0 1px 1px;
   vertical-align: middle;
+  white-space: nowrap;
   appearance: none;
   -webkit-appearance: none;
   margin: 0 5px 10px 0;
@@ -236,6 +238,7 @@
   text-decoration: none;
   text-shadow: white 0 1px 1px;
   vertical-align: middle;
+  white-space: nowrap;
   appearance: none;
   -webkit-appearance: none;
   margin: 0;
