@@ -616,6 +616,7 @@
   margin: 0 5px 10px 0;
   position: relative;
   vertical-align: middle;
+  z-index: 666;
 }
 .jqf-menu-button {
   border-radius: 5px;
