@@ -930,8 +930,8 @@
   cursor: default;
   height: 30px;
   line-height: 30px;
+  min-width: 360px;
   padding: 0 30px 0 10px;
-  position: relative;
   text-shadow: white 0 1px 1px;
   user-select: none;
   -moz-user-select: none;
@@ -945,13 +945,12 @@
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.85);
   border: 1px solid #b4b4b4;
   color: black;
   min-height: 180px;
   min-width: 360px;
   overflow: auto;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
 }
 .jqf-window-close { cursor: pointer; }
 .jqf-window-handle .jqf-icon {
