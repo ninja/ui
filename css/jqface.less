@@ -619,9 +619,10 @@
 }
 /* Window */
 .jqf-window {
-  background-color: rgba(0,0,0,0.75);
+  background-color: black;
   height: 100%;
   left: 0;
+  opacity: 0.75;
   position: fixed;
   top: 0;
   z-index: 888;
@@ -634,9 +635,9 @@
   border: 1px solid @border-color;
   color: black;
   display: none;
+  max-width: 800px;
   min-height: 180px;
   min-width: 360px;
-  padding: 10px;
   position: absolute;
   z-index: 999;
   .jqf-window-handle {
@@ -672,6 +673,7 @@
     }
   }
   .jqf-window-content {
+    padding: 10px;
   }
   .jqf-window-reflection {
     .jqf-border-radius-top;

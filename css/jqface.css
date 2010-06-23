@@ -879,9 +879,10 @@
   width: 100%;
 }
 .jqf-window {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: black;
   height: 100%;
   left: 0;
+  opacity: 0.75;
   position: fixed;
   top: 0;
   z-index: 888;
@@ -900,9 +901,9 @@
   border: 1px solid #b4b4b4;
   color: black;
   display: none;
+  max-width: 800px;
   min-height: 180px;
   min-width: 360px;
-  padding: 10px;
   position: absolute;
   z-index: 999;
 }
@@ -949,6 +950,7 @@
   right: 7px;
   top: 7px;
 }
+.jqf-window-frame .jqf-window-content { padding: 10px; }
 .jqf-window-frame .jqf-window-reflection {
   border-radius-top-left: 5px;
   -moz-border-radius-topleft: 5px;
