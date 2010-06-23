@@ -55,7 +55,7 @@
         var overlayMiddleVertical = parseInt(($(window).height() - $(options.overlay).offset().top) / 2);
       }
       else {
-        var overlayMiddleVertical = parseInt($(options.overlay).height() / 2);
+        var overlayMiddleVertical = parseInt($(options.overlay).height() / 2 + $(options.overlay).offset().top);
       }
       var frameMiddleHorizontal = parseInt($(options.frame).innerWidth() / 2);
       var frameMiddleVertical = parseInt($(options.frame).innerHeight() / 2);
