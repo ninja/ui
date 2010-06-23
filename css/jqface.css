@@ -527,8 +527,9 @@
   border: 1px solid #b4b4b4;
   color: black;
   display: none;
-  margin: 0;
+  margin-bottom: 10px;
   min-height: 180px;
+  width: inherit;
 }
 .jqf-folders-horizontal .jqf-folder { padding: 30px 15px 15px 15px; }
 .jqf-folders-vertical .jqf-folder { padding: 15px 15px 15px 30px; }

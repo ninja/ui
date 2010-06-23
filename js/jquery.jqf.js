@@ -162,7 +162,7 @@
         $('.jqf-window-close', frame).click(function() {
           $.jqf.windowClose(options);
         });
-        $(overlay).fadeIn(function() {
+        $(overlay).css('filter', 'alpha(opacity = 75)').fadeIn(function() {
           $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
           $(frame).fadeIn(function() {
             options.onOpen.call(content);
