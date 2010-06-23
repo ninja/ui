@@ -899,8 +899,6 @@
   background-color: white;
   border: 1px solid #b4b4b4;
   display: none;
-  max-height: 80%;
-  max-width: 80%;
   min-height: 180px;
   min-width: 360px;
   position: absolute;
@@ -951,6 +949,8 @@
 }
 .jqf-window-frame .jqf-window-content {
   color: black;
+  max-height: 80%;
+  max-width: 80%;
   overflow: auto;
   padding: 10px;
   width: inherit;
