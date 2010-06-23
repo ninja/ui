@@ -149,7 +149,6 @@
         $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
       });
       var frame = $('.jqf-window-frame');
-      $(frame).resizable({handles:'se'});
       var handle = $('.jqf-window-handle', frame);
       $(frame).click(function(event) {
         event.stopPropagation();

@@ -632,9 +632,11 @@
   .jqf-font;
   background-color: white;
   border: 1px solid @border-color;
+  color: black;
   display: none;
   min-height: 180px;
   min-width: 360px;
+  padding: 10px;
   position: absolute;
   z-index: 999;
   .jqf-window-handle {
@@ -670,29 +672,11 @@
     }
   }
   .jqf-window-content {
-    color: black;
-    max-height: 80%;
-    max-width: 80%;
-    overflow: auto;
-    padding: 10px;
-    width: inherit;
   }
   .jqf-window-reflection {
     .jqf-border-radius-top;
     background: -moz-linear-gradient(top, rgba(255,255,255,0.25), rgba(255,255,255,0));
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.25)), to(rgba(255,255,255,0)));
     height: 30px;
-  }
-  .ui-resizable-handle {
-    background-image: url('../images/icons.png');
-    background-position: 0 -64px;
-    bottom: 0;
-    cursor: pointer;
-    display: block;
-    height: 16px;
-    overflow:hidden;
-    position: absolute;
-    right: 0;
-  	width: 16px;
   }
 }
