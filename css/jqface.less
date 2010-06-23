@@ -628,66 +628,69 @@
   width: 100%;
 }
 .jqf-window-frame {
-  .jqf-border-radius;
-  .jqf-font;
-  display: none;
-  position: absolute;
-  z-index: 999;
-}
-.jqf-window-reflection {
-  .jqf-border-radius-top;
-  background: -moz-linear-gradient(top, rgba(255,255,255,0.25), rgba(255,255,255,0));
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.25)), to(rgba(255,255,255,0)));
-  height: 30px;
-  left: 0;
-  position:absolute;
-  bottom: -30px;
-  width: 100%;
-}
-.jqf-window-handle {
-  @height: 30px;
-  .jqf-border-radius-top;
-  .jqf-gradient-outset;
-  background-color: @background-color;
-  border: 1px solid @border-color;
-  color: black;
-  cursor: default;
-  height: @height;
-  line-height: @height;
-  min-width: 360px;
-  padding: 0 30px 0 10px;
-  text-shadow: white 0 1px 1px;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-}
-.jqf-window-content {
   .jqf-border-radius-bottom;
+  .jqf-font;
   background-color: white;
   border: 1px solid @border-color;
-  color: black;
+  display: none;
   min-height: 180px;
   min-width: 360px;
-  overflow: auto;
-  padding: 10px 30px 10px 10px;
-}
-.jqf-window-close {
-  cursor: pointer;
-}
-.jqf-window-handle .jqf-icon {
   position: absolute;
-  right: 7px;
-  top: 7px;
-}
-.jqf-window-content .ui-resizable-handle {
-  background-image: url('../images/icons.png');
-  background-position: 0 -64px;
-  bottom: 0;
-  cursor: pointer;
-  display: block;
-  height: 16px;
-  overflow:hidden;
-  position: absolute;
-  right: 0;
-	width: 16px;
+  z-index: 999;
+  .jqf-window-handle {
+    @height: 30px;
+    .jqf-border-radius-top;
+    .jqf-gradient-outset;
+    background-color: @background-color;
+    border: 1px solid @border-color;
+    top: -32px;
+    color: black;
+    cursor: default;
+    height: @height;
+    left: -1px;
+    line-height: @height;
+    padding: 0 10px;
+    position: absolute;
+    right: -1px;
+    text-shadow: white 0 1px 1px;
+    user-select: none;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    .jqf-window-title {
+      .jqf-inline-block;
+      margin-right: 20px;
+    }
+    .jqf-icon-close {
+      cursor: pointer;
+      margin-left: 5px;
+      position:absolute;
+      right: 7px;
+      top: 7px;
+    }
+  }
+  .jqf-window-content {
+    color: black;
+    overflow: auto;
+    padding: 10px;
+    width: inherit;
+  }
+  .jqf-window-reflection {
+    .jqf-border-radius-top;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.25), rgba(255,255,255,0));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0.25)), to(rgba(255,255,255,0)));
+    height: 30px;
+  }
+  .ui-resizable-handle {
+    background-image: url('../images/icons.png');
+    background-position: 0 -64px;
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    overflow:hidden;
+    position: absolute;
+    right: 0;
+  	width: 16px;
+  }
 }

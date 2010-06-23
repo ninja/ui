@@ -127,7 +127,6 @@
     },
     windowOpen: function(customOptions){
       var options = $.extend({
-        maxWidth:'640px',
         onClose:function(){},
         onOpen:function(){},
         title:'Untitled',
@@ -138,7 +137,8 @@
           '<div class="jqf-window-handle"><span class="jqf-window-title">' +
             options.title + '</span><span class="jqf-icon jqf-icon-close jqf-window-close"></span>' +
           '</div>' +
-          '<div class="jqf-window-content"></div><div class="jqf-window-reflection"></div>' +
+          '<div class="jqf-window-content"></div>' +
+          '<div class="jqf-window-reflection"></div>' +
         '</div>').keyup(function(event) {
         if (event.keyCode == 27) { // esc key
           $.jqf.windowClose(options);
@@ -148,10 +148,8 @@
       $(window).resize(function() {
         $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
       });
-      $(overlay).click(function() {
-        $.jqf.windowClose(options);
-      });
       var frame = $('.jqf-window-frame');
+      $(frame).resizable({handles:'se'});
       var handle = $('.jqf-window-handle', frame);
       $(frame).click(function(event) {
         event.stopPropagation();
@@ -161,13 +159,11 @@
         handle:$(handle)
       });
       var content = $('.jqf-window-content', frame);
-      $(content).css('max-width', options.maxWidth).load(options.url, function() {
-        $(content).resizable({handles:'se'});
+      $(content).load(options.url, function() {
         $('.jqf-window-close', frame).click(function() {
           $.jqf.windowClose(options);
         });
         $(overlay).fadeIn(function() {
-          $(overlay).css('filter', 'progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#c0000000, EndColorStr=#c0000000)');
           $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
           $(frame).fadeIn(function() {
             options.onOpen.call(content);
