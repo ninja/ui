@@ -460,6 +460,7 @@
   zoom: 1;
   background-color: white;
   border-color: lightgray;
+  font-size: 11px;
   overflow: hidden;
   padding: 5px;
   margin: 5px 0 5px 5px;
