@@ -445,7 +445,7 @@
   font-size: 0;
   left: 0;
   position: absolute;
-  top: 5px;
+  top: 0;
   white-space: nowrap;
 }
 .jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
@@ -460,7 +460,7 @@
   background-color: white;
   border-color: lightgray;
   padding: 5px;
-  margin-left: 5px;
+  margin: 5px 0 5px 5px;
   white-space: normal;
 }
 .jqf-filmstrip .back {
