@@ -220,7 +220,7 @@
       $(filmstrip).addClass('jqf-filmstrip');
       var frameArray = $(filmstrip).find('> span');
       $(frameArray).wrapAll('<span class="jqf-view"><span class="jqf-reel"/></span>').each(function (i, frame) {
-        $(frame).addClass('jqf-frame');
+        $(frame).addClass('jqf-frame').css({height:options.frameHeight,width:options.frameWidth});
       });
       var view = $(filmstrip).find('> .jqf-view');
       $(view).css('height', frameHeight + 'px').css('width', frameWidth * options.show + 10 + 'px');

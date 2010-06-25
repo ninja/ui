@@ -423,6 +423,7 @@
   font-size: 12px;
   display: block;
   margin: 0 10px 10px 0;
+  white-space: nowrap;
 }
 .jqf-filmstrip .jqf-view {
   border: 1px solid;
