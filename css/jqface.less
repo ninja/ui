@@ -11,6 +11,9 @@
 
 // Mixins
 
+.jqf-border {
+  border: 1px solid;
+}
 .jqf-border-radius {
   border-radius: @radius;
   -moz-border-radius: @radius;
@@ -84,13 +87,14 @@
 }
 .jqf-input {
   @height: 30px;
+  .jqf-border;
   .jqf-font;
   .jqf-gradient-outset;
   .jqf-inline-block;
   appearance: none;
   -webkit-appearance: none;
   background-color: @background-color;
-  border: 1px solid @border-color;
+  border-color: @border-color;
   color: black;
   cursor: pointer;
   height: @height;
@@ -248,6 +252,46 @@
 .jqf-drawer.jqf-last {
   .jqf-border-radius-bottom;
 }
+/* Filmstrip */
+.jqf-filmstrip {
+  margin: 0 10px 10px 0;
+  .jqf-view {
+    .jqf-border;
+    .jqf-border-radius;
+    .jqf-inline-block;
+    background-color: @background-color;
+    border-color: lightgray;
+    margin: 0 10px;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    .jqf-reel {
+      font-size: 0;
+      left: 0;
+      position: absolute;
+      top: 10px;
+      white-space: nowrap;
+      .jqf-frame {
+        .jqf-border;
+        .jqf-border-radius;
+        .jqf-inline-block;
+        background-color: white;
+        border-color: lightgray;
+        padding: 10px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .back {
+    margin: 0;
+    vertical-align: middle;
+  }
+  .forward {
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+
 /* Folders */
 .jqf-folders-horizontal, .jqf-folders-vertical {
   .jqf-font;

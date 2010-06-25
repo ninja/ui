@@ -1,3 +1,4 @@
+.jqf-border { border: 1px solid; }
 .jqf-border-radius {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -86,6 +87,7 @@
   zoom: 1;
 }
 .jqf-input {
+  border: 1px solid;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-image: url('../images/gradient-outset.png');
@@ -100,7 +102,7 @@
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  border-color: #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -135,6 +137,7 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+  border: 1px solid;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-image: url('../images/gradient-outset.png');
@@ -149,7 +152,7 @@
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  border-color: #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -213,6 +216,7 @@
   white-space: nowrap;
 }
 .jqf-tabs .jqf-tab {
+  border: 1px solid;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-image: url('../images/gradient-outset.png');
@@ -227,7 +231,7 @@
   appearance: none;
   -webkit-appearance: none;
   background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  border-color: #b4b4b4;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -413,6 +417,52 @@
   border-radius-bottom-right: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
+}
+.jqf-filmstrip { margin: 0 10px 10px 0; }
+.jqf-filmstrip .jqf-view {
+  border: 1px solid;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  background-color: #f0f0f0;
+  border-color: lightgray;
+  margin: 0 10px;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+}
+.jqf-filmstrip .jqf-view .jqf-reel {
+  font-size: 0;
+  left: 0;
+  position: absolute;
+  top: 10px;
+  white-space: nowrap;
+}
+.jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
+  border: 1px solid;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  background-color: white;
+  border-color: lightgray;
+  padding: 10px;
+  margin-left: 10px;
+}
+.jqf-filmstrip .back {
+  margin: 0;
+  vertical-align: middle;
+}
+.jqf-filmstrip .forward {
+  margin: 0;
+  vertical-align: middle;
 }
 .jqf-folders-horizontal, .jqf-folders-vertical {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;

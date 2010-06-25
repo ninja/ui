@@ -208,6 +208,49 @@
     });
   }; // End Drawers
 
+  $.fn.jqfFilmstrip = function(customOptions) { // Begin Filmstrip
+    var options = $.extend({
+      frameHeight:100,
+      frameWidth:100,
+      show:3
+    }, customOptions);
+    return this.each(function (i, filmstrip) {
+      var frameHeight = options.frameHeight + 42;
+      var frameWidth = options.frameWidth + 32;
+      $(filmstrip).addClass('jqf-filmstrip');
+      var frameArray = $(filmstrip).find('> span');
+      $(frameArray).wrapAll('<span class="jqf-view"><span class="jqf-reel"/></span>').each(function (i, frame) {
+        $(frame).addClass('jqf-frame');
+      });
+      var view = $(filmstrip).find('> .jqf-view');
+      $(view).css('height', frameHeight + 'px').css('width', frameWidth * options.show + 10 + 'px');
+      var reel = $(view).find('> .jqf-reel');
+      var pages = Math.ceil($(frameArray).length / options.show);
+      var currentPage = 1;
+      $(view).before('<button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>').after('<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button>');
+      $('button.back', this).click(function () {
+        if(currentPage == 1){
+          $(reel).animate({left: '-=' + (frameWidth * options.show * (pages -1))});
+          currentPage = pages;
+        }
+        else {
+          $(reel).animate({left: '+=' + (frameWidth * options.show)});
+          --currentPage;
+        }
+      });
+      $('button.forward', this).click(function () {
+        if(currentPage == pages){
+          $(reel).animate({left:0});
+          currentPage = 1;    
+        }
+        else{
+          $(reel).animate({left: '-=' + (frameWidth * options.show)});
+          ++currentPage;
+        }
+      });
+    });
+  };// End Filmstrip
+
   $.fn.jqfFolders = function(customOptions) { // Begin Folders
     var options = $.extend({direction:'horizontal'}, customOptions);
     return this.each(function(i, folders) {

@@ -1,0 +1,44 @@
+---
+layout: default
+title: Filmstrip
+description: Content split into sliding frames.
+categories: examples
+---
+<notextile>
+  <div id="filmstrip">
+    <span><a href="/photos/jamiehoover/2519974940/in/set-72157605164579416/" title="Aqua Man" class="image_link"><img src="http://farm3.static.flickr.com/2094/2519974940_5f7630a003_s.jpg" width="75" height="75" alt="Aqua Man" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519977074/in/set-72157605164579416/" title="Space Charioteer" class="image_link"><img src="http://farm3.static.flickr.com/2014/2519977074_f069e60cb5_s.jpg" width="75" height="75" alt="Space Charioteer" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519976616/in/set-72157605164579416/" title="Beam Us Up" class="image_link"><img src="http://farm3.static.flickr.com/2075/2519976616_f79854691b_s.jpg" width="75" height="75" alt="Beam Us Up" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519157293/in/set-72157605164579416/" title="The Many Textures of Earth Garments" class="image_link"><img src="http://farm3.static.flickr.com/2115/2519157293_c1063496b5_s.jpg" width="75" height="75" alt="The Many Textures of Earth Garments" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519158303/in/set-72157605164579416/" title="Pink" class="image_link"><img src="http://farm3.static.flickr.com/2312/2519158303_a11eececf9_s.jpg" width="75" height="75" alt="Pink" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519158977/in/set-72157605164579416/" title="Shaded from Stars" class="image_link"><img src="http://farm3.static.flickr.com/2091/2519158977_5cec79274b_s.jpg" width="75" height="75" alt="Shaded from Stars" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519981650/in/set-72157605164579416/" title="Pneumatic Dragon" class="image_link"><img src="http://farm4.static.flickr.com/3028/2519981650_7834695459_s.jpg" width="75" height="75" alt="Pneumatic Dragon" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519163545/in/set-72157605164579416/" title="Naturally" class="image_link"><img src="http://farm4.static.flickr.com/3066/2519163545_c7d47c47cf_s.jpg" width="75" height="75" alt="Naturally" class="pc_img" border="0"></a></span>
+  </div>
+  <script type="text/javascript">
+    $('#filmstrip').jqfFilmstrip({
+      frameHeight:75,
+      frameWidth:75,
+      show:3
+    });
+  </script>
+</notextile>
+{% highlight html linenos %}
+  <div id="filmstrip">
+    <span><a href="/photos/jamiehoover/2519974940/in/set-72157605164579416/" title="Aqua Man" class="image_link"><img src="http://farm3.static.flickr.com/2094/2519974940_5f7630a003_s.jpg" width="75" height="75" alt="Aqua Man" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519977074/in/set-72157605164579416/" title="Space Charioteer" class="image_link"><img src="http://farm3.static.flickr.com/2014/2519977074_f069e60cb5_s.jpg" width="75" height="75" alt="Space Charioteer" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519976616/in/set-72157605164579416/" title="Beam Us Up" class="image_link"><img src="http://farm3.static.flickr.com/2075/2519976616_f79854691b_s.jpg" width="75" height="75" alt="Beam Us Up" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519157293/in/set-72157605164579416/" title="The Many Textures of Earth Garments" class="image_link"><img src="http://farm3.static.flickr.com/2115/2519157293_c1063496b5_s.jpg" width="75" height="75" alt="The Many Textures of Earth Garments" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519158303/in/set-72157605164579416/" title="Pink" class="image_link"><img src="http://farm3.static.flickr.com/2312/2519158303_a11eececf9_s.jpg" width="75" height="75" alt="Pink" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519158977/in/set-72157605164579416/" title="Shaded from Stars" class="image_link"><img src="http://farm3.static.flickr.com/2091/2519158977_5cec79274b_s.jpg" width="75" height="75" alt="Shaded from Stars" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519981650/in/set-72157605164579416/" title="Pneumatic Dragon" class="image_link"><img src="http://farm4.static.flickr.com/3028/2519981650_7834695459_s.jpg" width="75" height="75" alt="Pneumatic Dragon" class="pc_img" border="0"></a></span>
+    <span><a href="/photos/jamiehoover/2519163545/in/set-72157605164579416/" title="Naturally" class="image_link"><img src="http://farm4.static.flickr.com/3066/2519163545_c7d47c47cf_s.jpg" width="75" height="75" alt="Naturally" class="pc_img" border="0"></a></span>
+  </div>
+  <script type="text/javascript">
+    $('#filmstrip').jqfFilmstrip({
+      frameHeight:75,
+      frameWidth:75,
+      show:3
+    });
+  </script>
+{% endhighlight %}
