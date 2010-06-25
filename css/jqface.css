@@ -418,7 +418,12 @@
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
 }
-.jqf-filmstrip { margin: 0 10px 10px 0; }
+.jqf-filmstrip {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  font-size: 12px;
+  display: block;
+  margin: 0 10px 10px 0;
+}
 .jqf-filmstrip .jqf-view {
   border: 1px solid;
   border-radius: 5px;
