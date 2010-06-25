@@ -215,15 +215,15 @@
       show:3
     }, customOptions);
     return this.each(function (i, filmstrip) {
-      var frameHeight = options.frameHeight + 42;
-      var frameWidth = options.frameWidth + 32;
+      var frameHeight = options.frameHeight + 22;
+      var frameWidth = options.frameWidth + 17;
       $(filmstrip).addClass('jqf-filmstrip');
       var frameArray = $(filmstrip).find('> span');
       $(frameArray).wrapAll('<span class="jqf-view"><span class="jqf-reel"/></span>').each(function (i, frame) {
         $(frame).addClass('jqf-frame').css({height:options.frameHeight,width:options.frameWidth});
       });
       var view = $(filmstrip).find('> .jqf-view');
-      $(view).css('height', frameHeight + 'px').css('width', frameWidth * options.show + 10 + 'px');
+      $(view).css('height', frameHeight + 'px').css('width', frameWidth * options.show + 5 + 'px');
       var reel = $(view).find('> .jqf-reel');
       var pages = Math.ceil($(frameArray).length / options.show);
       var currentPage = 1;

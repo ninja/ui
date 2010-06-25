@@ -422,7 +422,7 @@
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   display: block;
-  margin: 0 10px 10px 0;
+  margin: 10px 0;
   white-space: nowrap;
 }
 .jqf-filmstrip .jqf-view {
@@ -436,7 +436,7 @@
   zoom: 1;
   background-color: #f0f0f0;
   border-color: lightgray;
-  margin: 0 10px;
+  margin: 0 5px;
   overflow: hidden;
   position: relative;
   vertical-align: middle;
@@ -445,7 +445,7 @@
   font-size: 0;
   left: 0;
   position: absolute;
-  top: 10px;
+  top: 5px;
   white-space: nowrap;
 }
 .jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
@@ -459,8 +459,9 @@
   zoom: 1;
   background-color: white;
   border-color: lightgray;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 5px;
+  margin-left: 5px;
+  white-space: normal;
 }
 .jqf-filmstrip .back {
   margin: 0;
