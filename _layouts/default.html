@@ -8,11 +8,12 @@ categories:
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <title>jqFace</title>
     <link href="/images/favicon.ico" rel="shortcut icon" />
-    <link href="/css/jqface.css?{{ site.version }}" rel="stylesheet" type="text/css" />
+    <link href="/css/jqface.css?{{site.version}}" rel="stylesheet" type="text/css" />
     <link href="/css/highlight.css" rel="stylesheet" type="text/css" />
     <script src="/js/jquery.min.js" type="text/javascript"> </script>
     <script src="/js/jquery.ui.min.js" type="text/javascript"> </script>
-    <script src="/js/jquery.jqf.js?{{ site.version }}" type="text/javascript"> </script>
+    {% if site.develop == true %}<script src="/src/jquery.jqf.js?{{site.version}}" type="text/javascript"> </script>
+    {% else %}<script src="/js/jquery.jqf.min.js?{{site.version}}" type="text/javascript"> </script>{% endif %}
     <style>
       * {
         font-family:'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
@@ -39,7 +40,7 @@ categories:
       <table style="font-size:11px;position:absolute;right:0;top:0">
         <tr valign="top">
           <td>
-            <a class="jqf-button jqf-submit" href="http://github.com/uipoet/jqface/downloads"><span class="jqf-icon jqf-icon-check"></span>Download v{{ site.version }}</a>
+            <a class="jqf-button jqf-submit" href="http://github.com/uipoet/jqface/downloads"><span class="jqf-icon jqf-icon-check"></span>Download v{{site.version}}</a>
           </td>
           <td style="padding-left:20px">
             <div>Source Code</div>

@@ -1,4 +1,5 @@
 auto: true
+develop: false
 permalink: none
 pygments: true
 server: false
