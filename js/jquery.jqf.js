@@ -385,7 +385,7 @@
     var options = $.extend({
       onDrag:function(){},
       onStop:function(){},
-      unit:20,
+      unit:20
     }, customOptions);
     return this.each(function(i, select) {
       $(select).hide();
