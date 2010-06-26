@@ -440,8 +440,8 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background-color: #f0f0f0;
-  border-color: lightgray;
+  background-color: #cccccc;
+  border-color: #bbbbbb;
   margin: 0 5px;
   overflow: hidden;
   position: relative;
@@ -455,7 +455,6 @@
   white-space: nowrap;
 }
 .jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
-  border: 1px solid;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -464,7 +463,6 @@
   *display: inline;
   zoom: 1;
   background-color: white;
-  border-color: lightgray;
   font-size: 11px;
   overflow: hidden;
   padding: 5px;
