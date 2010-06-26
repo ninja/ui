@@ -132,6 +132,11 @@
   border-color: transparent;
   padding: 0;
 }
+.jqf-user-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
 .jqf { display: none; }
 .jqf-button {
   border-radius: 5px;
@@ -804,21 +809,18 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
-  margin: 0 10px 10px 0;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  margin: 0 10px 10px 0;
   vertical-align: top;
 }
-.jqf-slider-label {
+.jqf-slider .jqf-slider-label {
+  display: block;
   margin-bottom: 2px;
   text-align: center;
-  text-shadow: white 0 1px 1px;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
 }
-.jqf-slider-bevel {
+.jqf-slider .jqf-bevel {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -826,81 +828,64 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background-color: white;
-  border: 1px solid #b4b4b4;
-  padding: 5px;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  background-color: white;
+  display: block;
+  border: 1px solid lightgray;
+  padding: 5px;
 }
-.jqf-slider-track {
+.jqf-slider .jqf-bevel .jqf-track {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   background-image: url('../images/gradient-inset.png');
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  height: 10px;
-  margin: 5px 0;
-  position: relative;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  background-color: #f0f0f0;
+  display: block;
+  height: 10px;
+  margin: 5px 0;
+  position: relative;
 }
-.jqf-slider-level {
+.jqf-slider .jqf-bevel .jqf-track .jqf-level {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   background-image: url('../images/gradient-outset.png');
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
   background-color: #ff8c00;
-  border-color: #bf6900;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
+  display: block;
   height: 8px;
   left: 1px;
   position: absolute;
   top: 1px;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
 }
-.jqf-slider-button {
-  background-image: url('../images/gradient-outset.png');
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-position: center center;
-  background-repeat: repeat-x;
-  background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  cursor: pointer;
-  height: 20px;
+.jqf-slider .jqf-bevel .jqf-track .jqf-button {
+  height: 18px;
+  margin: 0;
+  padding: 0;
   position: absolute;
   top: -5px;
 }
-.jqf-slider-button:active {
-  background-image: url('../images/gradient-inset.png');
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
-  background-position: center center;
-  background-repeat: repeat-x;
-  background-color: #f0f0f0;
-  display: block;
-}
-.jqf-slider-text {
-  display: block;
-  font-size: 11px;
-  text-shadow: white 0 1px 1px;
+.jqf-slider .jqf-bevel .jqf-text {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
+  display: block;
+  font-size: 11px;
 }
 .jqf-wait {
   background: rgba(255, 255, 255, 0.5);

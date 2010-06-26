@@ -385,7 +385,7 @@
     var options = $.extend({
       onDrag:function(){},
       onStop:function(){},
-      unit:20
+      unit:20,
     }, customOptions);
     return this.each(function(i, select) {
       $(select).hide();
@@ -394,35 +394,38 @@
       var index = $(':selected', select).index();
       var choice = $(selectArray)[index];
       var choiceText = $(choice).text();
-      $(select).after('<div class="jqf jqf-slider" id="jqf-slider-' + $(select).attr('id') + '">' +
-        '<div class="jqf-slider-label">' + $(select).attr('title') + '</div>' +
-        '<span class="jqf-slider-bevel">' +
-          '<div class="jqf-slider-track"><div class="jqf-slider-level"></div><div class="jqf-slider-button"></div></div>' +
-          '<div class="jqf-slider-text jqf-ellipsis" title="' + choiceText + '">' + choiceText + '</div>' +
+      $(select).after('<span class="jqf jqf-slider" id="jqf-slider-' + $(select).attr('id') + '">' +
+        '<span class="jqf-label">' + $(select).attr('title') + '</span>' +
+        '<span class="jqf-bevel">' +
+          '<span class="jqf-track">' +
+            '<span class="jqf-level"></span>' +
+            '<span class="jqf-button"></span>' +
+          '</span>' +
+          '<span class="jqf-text jqf-ellipsis" title="' + choiceText + '">' + choiceText + '</span>' +
         '</span>' +
-      '</div>');
+      '</span>');
       var slider = $(select).next('.jqf-slider');
-      var bevel = $('.jqf-slider-bevel', slider);
-      var track = $('.jqf-slider-track', slider);
-      var level = $('.jqf-slider-level', slider);
-      var button = $('.jqf-slider-button', slider);
-      var text = $('.jqf-slider-text', slider);
+      var bevel = $('.jqf-bevel', slider);
+      var track = $('.jqf-track', slider);
+      var level = $('.jqf-level', slider);
+      var button = $('.jqf-button', slider);
+      var text = $('.jqf-text', slider);
       $(track).css('width', width + 'px');
       $(text).css('width', width + 'px');
-      $(level).css('width', index * options.unit + options.unit + 'px');
-      $(button).css('left', index * options.unit + 'px').css('width', options.unit);
+      $(level).css('width', index * options.unit + 2 + 'px');
+      $(button).css('left', index * options.unit + 'px').css('width', options.unit - 2);
       $(button).draggable({
         addClasses:false,
         axis:'x',
         containment:bevel,
         drag:function() {
           index = Math.round($(button).position().left/options.unit);
-          $(level).css('width', index * options.unit + options.unit + 'px');
+          $(level).css('width', index * options.unit + 2 + 'px');
           choice = $(selectArray)[index];
           choiceText = $(choice).text();
-          $('.jqf-slider-text', bevel).remove();
-          $(bevel).append('<div class="jqf-slider-text jqf-ellipsis" title="' + choiceText + '">' + choiceText + '</div>');
-          $('.jqf-slider-text', bevel).css('width', width + 'px');
+          $('.jqf-text', bevel).remove();
+          $(bevel).append('<div class="jqf-text jqf-ellipsis" title="' + choiceText + '">' + choiceText + '</div>');
+          $('.jqf-text', bevel).css('width', width + 'px');
           options.onDrag.call($(choice));
         },
         distance:options.unit,
