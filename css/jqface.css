@@ -101,8 +101,8 @@
   zoom: 1;
   appearance: none;
   -webkit-appearance: none;
-  background-color: #f0f0f0;
-  border-color: #b4b4b4;
+  background-color: #ffffff;
+  border-color: #bfbfbf;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -121,7 +121,7 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 .jqf-input:focus { outline: 0; }
 .jqf-input:hover {
@@ -156,8 +156,8 @@
   zoom: 1;
   appearance: none;
   -webkit-appearance: none;
-  background-color: #f0f0f0;
-  border-color: #b4b4b4;
+  background-color: #ffffff;
+  border-color: #bfbfbf;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -179,7 +179,7 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 .jqf-button:focus { outline: 0; }
 .jqf-button:hover {
@@ -235,8 +235,8 @@
   zoom: 1;
   appearance: none;
   -webkit-appearance: none;
-  background-color: #f0f0f0;
-  border-color: #b4b4b4;
+  background-color: #ffffff;
+  border-color: #bfbfbf;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -259,7 +259,7 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
 }
 .jqf-tabs .jqf-tab:focus { outline: 0; }
 .jqf-tabs .jqf-tab:hover {
@@ -333,7 +333,7 @@
   *display: inline;
   zoom: 1;
   background-color: rgba(0, 0, 0, 0.75);
-  border: 1px solid #b4b4b4;
+  border: 1px solid #bfbfbf;
   bottom: 0;
   color: White;
   height: 1.5em;
@@ -350,8 +350,8 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  background-color: #ffffff;
+  border: 1px solid #bfbfbf;
   color: Black;
   cursor: pointer;
   display: block;
@@ -408,8 +408,8 @@
 }
 .jqf-drawer {
   background: white;
-  border-left: 1px solid #b4b4b4;
-  border-right: 1px solid #b4b4b4;
+  border-left: 1px solid #bfbfbf;
+  border-right: 1px solid #bfbfbf;
   color: black;
   display: block;
   padding: 5px;
@@ -510,8 +510,8 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  background-color: #ffffff;
+  border: 1px solid #bfbfbf;
   color: Black;
   cursor: pointer;
   height: 30px;
@@ -589,7 +589,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   background: white;
-  border: 1px solid #b4b4b4;
+  border: 1px solid #bfbfbf;
   color: black;
   display: none;
   margin-bottom: 10px;
@@ -701,8 +701,8 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  background-color: #ffffff;
+  border: 1px solid #bfbfbf;
   color: black;
   cursor: pointer;
   height: 30px;
@@ -738,7 +738,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   background-color: white;
-  border: 1px solid #b4b4b4;
+  border: 1px solid #bfbfbf;
   display: none;
   left: 0;
   list-style: none;
@@ -846,7 +846,7 @@
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   display: block;
   height: 10px;
   margin: 5px 0;
@@ -901,7 +901,7 @@
   -webkit-border-radius: 5px;
   background: url('../images/wait.gif') 1em center no-repeat;
   background-color: rgba(0, 0, 0, 0.75);
-  border: 1px solid #b4b4b4;
+  border: 1px solid #bfbfbf;
   color: white;
   display: none;
   padding: 15px 15px 15px 30px;
@@ -944,7 +944,7 @@
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
   background-color: white;
-  border: 1px solid #b4b4b4;
+  border: 1px solid #bfbfbf;
   color: black;
   display: none;
   max-width: 800px;
@@ -965,8 +965,8 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: center center;
   background-repeat: repeat-x;
-  background-color: #f0f0f0;
-  border: 1px solid #b4b4b4;
+  background-color: #ffffff;
+  border: 1px solid #bfbfbf;
   top: -32px;
   color: black;
   cursor: default;
