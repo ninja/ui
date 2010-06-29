@@ -48,7 +48,7 @@
     framePosition: function(customOptions){
       var options = $.extend({
         frame:$('.jqf-window-frame'),
-        overlay:$(window)
+        overlay:$('.jqf-window')
       }, customOptions);
       var overlayMiddleHorizontal = parseInt($(options.overlay).width() / 2);
       if($(window).height() < $(options.overlay).height()) {
