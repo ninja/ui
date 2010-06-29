@@ -680,51 +680,6 @@
   vertical-align: middle;
   z-index: 666;
 }
-.jqf-menu-button {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  background-image: url('../images/gradient-outset.png');
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
-  background-position: center center;
-  background-repeat: repeat-x;
-  display: -moz-inline-box;
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  background-color: #ffffff;
-  border: 1px solid #bfbfbf;
-  color: black;
-  cursor: pointer;
-  height: 30px;
-  line-height: 30px;
-  padding: 0 10px;
-  text-align: center;
-  text-shadow: white 0 1px 1px;
-  white-space: nowrap;
-}
-.jqf-menu-button.jqf-active {
-  background-image: url('../images/gradient-inset.png');
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
-  background-position: center center;
-  background-repeat: repeat-x;
-}
-.jqf-menu-button:active {
-  background-image: url('../images/gradient-inset.png');
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
-  background-position: center center;
-  background-repeat: repeat-x;
-}
-.jqf-menu-button:active { background-color: White; }
-.jqf-menu-button.jqf-active {
-  background-color: #ff8c00;
-  border-color: #bf6900;
-  color: white;
-  text-shadow: sienna 0 -1px 1px;
-}
 .jqf-menu-choices {
   border-radius: 5px;
   -moz-border-radius: 5px;

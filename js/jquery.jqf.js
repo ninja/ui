@@ -284,12 +284,12 @@
         iconHTML = '<span class="jqf-icon jqf-icon-' + options.icon + '"></span> ';
       }
       var selectArray = $('option', select);
-      $(select).after('<div class="jqf jqf-menu"><div class="jqf-menu-button">' + iconHTML +
+      $(select).after('<div class="jqf jqf-menu"><div class="jqf-button">' + iconHTML +
         $(select).attr('title') + ' <span class="jqf-icon jqf-icon-down"></span></div>' +
         '<div class="jqf-menu-choices"></div>' +
       '</div>');
       var menu = $(select).next('.jqf-menu');
-      var button = $('.jqf-menu-button', menu);
+      var button = $('.jqf-button', menu);
       var choices = $('.jqf-menu-choices', menu);
       var closeMenu = function() {
         $(choices).slideUp();
