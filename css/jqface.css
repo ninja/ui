@@ -680,6 +680,7 @@
   vertical-align: middle;
   z-index: 666;
 }
+.jqf-menu .jqf-button { margin: 0; }
 .jqf-menu-choices {
   border-radius: 5px;
   -moz-border-radius: 5px;
