@@ -19,6 +19,11 @@
   -moz-border-radius: @radius;
   -webkit-border-radius: @radius;
 }
+.jqf-border-radius-none {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
 .jqf-border-radius-bottom-left {
   border-radius-bottom-left: @radius;
 	-moz-border-radius-bottomleft: @radius;
@@ -256,17 +261,50 @@
 /* Filmstrip */
 .jqf-filmstrip {
   .jqf-font;
-  display:block;
+  .jqf-inline-block;
   margin: 10px 0;
-  text-align: center;
   white-space: nowrap;
+  .jqf-bar {
+    .jqf-border;
+    .jqf-border-radius-top;
+    .jqf-ellipsis;
+    .jqf-font;
+    .jqf-gradient-outset;
+    background-color: @background-color;
+    border-color: @border-color;
+    color: black;
+    display:block;
+    line-height: 16px;
+    padding: 5px 0;
+    position: relative;
+    text-align: center;
+    text-shadow: white 0 1px 1px;
+    vertical-align: middle;
+    .jqf-button {
+      margin: -1px;
+    }
+    .back {
+      .jqf-border-radius-none;
+      .jqf-border-radius-top-left;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+    .forward {
+      .jqf-border-radius-none;
+      .jqf-border-radius-top-right;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
   .jqf-view {
     .jqf-border;
-    .jqf-border-radius;
+    .jqf-border-radius-bottom;
+    .jqf-gradient-inset;
     .jqf-inline-block;
-    background-color: #ccc;
-    border-color: #bbb;
-    margin: 0 5px;
+    background-color: @background-color * 0.85;
+    border-color: @border-color;
     overflow: hidden;
     position: relative;
     vertical-align: middle;
@@ -289,14 +327,6 @@
         white-space: normal;
       }
     }
-  }
-  .back {
-    margin: 0;
-    vertical-align: middle;
-  }
-  .forward {
-    margin: 0;
-    vertical-align: middle;
   }
 }
 

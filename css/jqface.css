@@ -4,6 +4,11 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+.jqf-border-radius-none {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
 .jqf-border-radius-bottom-left {
   border-radius-bottom-left: 5px;
   -moz-border-radius-bottomleft: 5px;
@@ -417,23 +422,85 @@
 .jqf-filmstrip {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 12px;
-  display: block;
-  margin: 10px 0;
-  text-align: center;
-  white-space: nowrap;
-}
-.jqf-filmstrip .jqf-view {
-  border: 1px solid;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background-color: #cccccc;
-  border-color: #bbbbbb;
-  margin: 0 5px;
+  margin: 10px 0;
+  white-space: nowrap;
+}
+.jqf-filmstrip .jqf-bar {
+  border: 1px solid;
+  border-radius-top-left: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  border-radius-top-right: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  font-size: 12px;
+  background-image: url('../images/gradient-outset.png');
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-color: #ffffff;
+  border-color: #bfbfbf;
+  color: black;
+  display: block;
+  line-height: 16px;
+  padding: 5px 0;
+  position: relative;
+  text-align: center;
+  text-shadow: white 0 1px 1px;
+  vertical-align: middle;
+}
+.jqf-filmstrip .jqf-bar .jqf-button { margin: -1px; }
+.jqf-filmstrip .jqf-bar .back {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius-top-left: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+.jqf-filmstrip .jqf-bar .forward {
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius-top-right: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.jqf-filmstrip .jqf-view {
+  border: 1px solid;
+  border-radius-bottom-left: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  border-radius-bottom-right: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  background-image: url('../images/gradient-inset.png');
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
+  background-position: center center;
+  background-repeat: repeat-x;
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  background-color: #d8d8d8;
+  border-color: #bfbfbf;
   overflow: hidden;
   position: relative;
   vertical-align: middle;
@@ -461,14 +528,6 @@
   text-align: left;
   vertical-align: middle;
   white-space: normal;
-}
-.jqf-filmstrip .back {
-  margin: 0;
-  vertical-align: middle;
-}
-.jqf-filmstrip .forward {
-  margin: 0;
-  vertical-align: middle;
 }
 .jqf-folders-horizontal, .jqf-folders-vertical {
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;

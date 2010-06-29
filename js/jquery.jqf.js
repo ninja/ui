@@ -212,7 +212,8 @@
     var options = $.extend({
       frameHeight:100,
       frameWidth:100,
-      show:3
+      show:3,
+      title:''
     }, customOptions);
     return this.each(function (i, filmstrip) {
       $(filmstrip).addClass('jqf-filmstrip');
@@ -229,7 +230,7 @@
       $(view).css('height', (frameOuterHeight) + 'px').css('width', (frameOuterWidth) * options.show + 5 + 'px');
       var pages = Math.ceil($(frameArray).length / options.show);
       var currentPage = 1;
-      $(view).before('<button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>').after('<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button>');
+      $(filmstrip).prepend('<span class="jqf-bar"><button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>' + options.title + '<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button></span>');
       $('button.back', this).click(function () {
         if(currentPage == 1){
           $(reel).animate({left: '-=' + (frameOuterWidth * options.show * (pages -1))});
