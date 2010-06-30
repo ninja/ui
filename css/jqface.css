@@ -543,8 +543,8 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.25)));
   background-position: bottom center;
   background-repeat: repeat-x;
-  background-color: gray;
-  border-color: #6c6c6c;
+  background-color: #ff9900;
+  border-color: #d88200;
   color: white;
   text-shadow: sienna 0 -1px 1px; }
 
@@ -644,7 +644,7 @@
         -moz-user-select: none;
         -webkit-user-select: none;
         user-select: none;
-        background-color: gray;
+        background-color: #ff9900;
         display: block;
         height: 8px;
         left: 1px;
@@ -815,17 +815,17 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(255, 255, 255, 0.25)));
   background-position: top center;
   background-repeat: repeat-x;
-  background-color: gray;
-  border-color: #6c6c6c;
+  background-color: #ff9900;
+  border-color: #d88200;
   color: white;
-  text-shadow: #404040 0 -1px 1px; }
+  text-shadow: #7f4c00 0 -1px 1px; }
   .jqf-active:hover, .jqf-tabs .jqf-tab.jqf-active:hover {
     color: white; }
 
 .jqf-submit {
-  background-color: gray;
-  border-color: #6c6c6c;
+  background-color: #ff9900;
+  border-color: #d88200;
   color: white;
-  text-shadow: #404040 0 -1px 1px; }
+  text-shadow: #7f4c00 0 -1px 1px; }
   .jqf-submit:hover {
     color: white; }
