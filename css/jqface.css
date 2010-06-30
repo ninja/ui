@@ -248,8 +248,6 @@
 .jqf-tabs {
   font-size: 0;
   white-space: nowrap; }
-  .jqf-tabs .jqf-button {
-    margin: 0; }
   .jqf-tabs .jqf-tab {
     border: 1px solid;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
@@ -275,6 +273,7 @@
     text-shadow: white 0 1px 1px;
     vertical-align: middle;
     white-space: nowrap;
+    margin: 0;
     position: relative; }
     .jqf-tabs .jqf-tab:active {
       background-image: url("/jqface/images/gradient-inset.png");
