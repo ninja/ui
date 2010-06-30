@@ -27,8 +27,8 @@
       });
     },
     folderToggle: function(position, folders){
-      var tabs = $('.jqf-folders-tabs', folders);
-      $('.jqf-folder-tab', tabs).each(function(i, tab) {
+      var tabs = $('.jqf-tabs', folders);
+      $('.jqf-tab', tabs).each(function(i, tab) {
         if(i == position) {
           $(tab).addClass('jqf-active');
         }
@@ -51,11 +51,12 @@
         overlay:$('.jqf-window')
       }, customOptions);
       var overlayMiddleHorizontal = parseInt($(options.overlay).width() / 2);
-      if($(window).height() < $(options.overlay).height()) {
-        var overlayMiddleVertical = parseInt(($(window).height() - $(options.overlay).offset().top) / 2);
+      var top = $(window).scrollTop();
+      if(top > 0) {
+        var overlayMiddleVertical = parseInt(($(options.overlay).height() / 2) + top);
       }
       else {
-        var overlayMiddleVertical = parseInt($(options.overlay).height() / 2 + $(options.overlay).offset().top);
+        var overlayMiddleVertical = parseInt($(options.overlay).height() / 2);
       }
       var frameMiddleHorizontal = parseInt($(options.frame).innerWidth() / 2);
       var frameMiddleVertical = parseInt($(options.frame).innerHeight() / 2);
@@ -260,14 +261,14 @@
       $(folders).children('div').each(function(i, folder) {
         $(folder).addClass('jqf-folder');
       });
-      $(folders).addClass('jqf jqf-folders-' + options.direction).prepend('<div class="jqf-folders-tabs"></div>');
-      var tabs = $('.jqf-folders-tabs', folders);
+      $(folders).addClass('jqf jqf-folders jqf-' + options.direction).prepend('<div class="jqf-tabs"></div>');
+      var tabs = $('.jqf-tabs', folders);
       $('.jqf-folder', folders).each(function(i, folder) {
-        $(tabs).append('<span class="jqf-folder-tab">' + $(folder).attr('title') + '</span>')
+        $(tabs).append('<span class="jqf-tab">' + $(folder).attr('title') + '</span>')
       });
-      $('.jqf-folder-tab:first-child', tabs).addClass('jqf-first');
-      $('.jqf-folder-tab:last-child', tabs).addClass('jqf-last');
-      $('.jqf-folder-tab', tabs).each(function(i, tab) {
+      $('.jqf-tab:first-child', tabs).addClass('jqf-first');
+      $('.jqf-tab:last-child', tabs).addClass('jqf-last');
+      $('.jqf-tab', tabs).each(function(i, tab) {
         $(tab).click(function() {
           $.jqf.folderToggle(i, folders);
         });

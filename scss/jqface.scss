@@ -1,0 +1,628 @@
+$color: white;
+$color-active: gray;
+$color-border: $color * 0.85;
+$color-border-active: $color-active * 0.85;
+$color-text: black;
+$color-text-active: white;
+$font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+$font-size: 12px;
+$radius: 5px;
+$text-shadow: $color 0 1px 1px;
+$text-shadow-active: $color-active * 0.5 0 -1px 1px;
+
+@mixin border {
+  border: 1px solid;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin border-radius-corner($vertical, $horizontal, $radius) {
+  -moz-border-radius-#{$vertical}#{$horizontal}: $radius;
+  -webkit-border-#{$vertical}-#{$horizontal}-radius: $radius;
+  border-radius-#{$vertical}-#{$horizontal}: $radius;
+}
+@mixin border-radius-bottom-left($radius) {
+  @include border-radius-corner(bottom, left, $radius);
+}
+@mixin border-radius-bottom-right($radius) {
+  @include border-radius-corner(bottom, right, $radius);
+}
+@mixin border-radius-top-left($radius) {
+  @include border-radius-corner(top, left, $radius);
+}
+@mixin border-radius-top-right($radius) {
+  @include border-radius-corner(top, right, $radius);
+}
+@mixin border-radius-bottom($radius) {
+  @include border-radius-bottom-left($radius);
+  @include border-radius-bottom-right($radius);
+}
+@mixin border-radius-left($radius) {
+  @include border-radius-bottom-left($radius);
+  @include border-radius-top-left($radius);
+}
+@mixin border-radius-right($radius) {
+  @include border-radius-bottom-right($radius);
+  @include border-radius-top-right($radius);
+}
+@mixin border-radius-top($radius) {
+  @include border-radius-top-left($radius);
+  @include border-radius-top-right($radius);
+}
+
+@mixin font {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+@mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.25), $direction: bottom) {
+  background-image: url("/jqface/images/gradient-#{$type}.png");
+  background-image: -moz-linear-gradient(top, $color-top, $color-bottom);
+  background-image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
+  background-position: $direction center;
+  background-repeat: repeat-x;
+}
+@mixin gradient-inset {
+  @include gradient(inset, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25), top)
+}
+@mixin gradient-outset {
+  @include gradient()
+}
+
+@mixin inline-block {
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+@mixin text-overflow($type: ellipsis) {
+  overflow: hidden;
+  -o-text-overflow: $type;
+  text-overflow: $type;
+  white-space: nowrap;
+}
+
+@mixin input {
+  @include border;
+  @include font;
+  @include gradient-outset;
+  @include inline-block;
+  background-color: $color;
+  border-color: $color-border;
+  color: $color-text;
+  cursor: pointer;
+  line-height: 16px;
+  overflow: visible;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: $text-shadow;
+  vertical-align: middle;
+  white-space: nowrap;
+  &:active {
+    @include gradient-inset;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    color: $color-text;
+    text-decoration: none;
+  }
+  &::-moz-focus-inner {
+    border-color: transparent;
+    padding: 0;
+  }
+}
+
+@mixin user-select($type: none) {
+  -moz-user-select: $type;
+  -webkit-user-select: $type;
+  user-select: $type;
+}
+
+.jqf {
+  display: none;
+}
+
+.jqf-button {
+  @include border-radius;
+  @include input;
+  margin: 0 5px 10px 0;
+}
+
+.jqf-drawers {
+  @include font;
+  display: block;
+}
+
+.jqf-drawer-handle {
+  @include input;
+  @include user-select;
+  display: block;
+  position: relative;
+  text-align: left;
+  z-index: 222;
+}
+
+.jqf-drawer-handle.jqf-active, .jqf-drawer-handle:active {
+  @include gradient-inset;
+  z-index: 111;
+}
+
+.jqf-drawer-handle.jqf-first {
+  @include border-radius-top;
+}
+
+.jqf-drawer-handle.jqf-last {
+  @include border-radius-bottom;
+}
+
+.jqf-drawer {
+  background: white;
+  border-left: 1px solid $color-border;
+  border-right: 1px solid $color-border;
+  color: $color-text;
+  display: block;
+  padding: 5px;
+}
+
+.jqf-drawer.jqf-last {
+  @include border-radius-bottom;
+}
+
+.jqf-filmstrip {
+  @include font;
+  @include inline-block;
+  margin: 10px 0;
+  white-space: nowrap;
+  .jqf-bar {
+    @include border;
+    @include border-radius-top;
+    @include text-overflow;
+    @include font;
+    @include gradient-outset;
+    background-color: $color;
+    border-color: $color-border;
+    color: $color-text;
+    display: block;
+    line-height: 16px;
+    padding: 5px 0;
+    position: relative;
+    text-align: center;
+    text-shadow: white 0 1px 1px;
+    vertical-align: middle;
+    .jqf-button {
+      margin: -1px;
+    }
+    .back {
+      @include border-radius(0);
+      @include border-radius-top-left;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+    .forward {
+      @include border-radius(0);
+      @include border-radius-top-right;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  .jqf-view {
+    @include border;
+    @include border-radius-bottom;
+    @include inline-block;
+    background-color: $color;
+    border-top: none;
+    border-color: $color-border;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    .jqf-reel {
+      display: block;
+      font-size: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      white-space: nowrap;
+      .jqf-frame {
+        @include border;
+        @include border-radius;
+        @include gradient-outset;
+        @include inline-block;
+        border-color: $color-border;
+        font-size: 11px;
+        overflow: hidden;
+        padding: 5px;
+        margin: 5px 0 5px 5px;
+        text-align: left;
+        vertical-align: middle;
+        white-space: normal;
+      }
+    }
+  }
+}
+
+.jqf-tabs {
+  font-size: 0;
+  white-space: nowrap;
+  .jqf-button {
+    margin: 0;
+  }
+  .jqf-tab {
+    @include input;
+    position: relative;
+  }
+  .jqf-tab.jqf-active {
+    @extend .jqf-active;
+  }
+  .jqf-first {
+    @include border-radius-left;
+  }
+  .jqf-last {
+    @include border-radius-right;
+  }
+}
+
+.jqf-folders {
+  @include font;
+  display: block;
+  margin-top: 14px;
+  position: relative;
+  &.jqf-horizontal {
+    .jqf-tabs {
+      display: block;
+      position: absolute;
+      left: 0;
+      text-align: center;
+      top: -15px;
+      white-space: nowrap;
+      width: 100%;
+      .jqf-tab {
+        @include inline-block;
+      }
+    }
+    .jqf-folder {
+      padding: 30px 15px 15px 15px;
+    }
+  }
+  &.jqf-vertical {
+    .jqf-tabs {
+      @include inline-block;
+      left: 0;
+      position: absolute;
+      top: 14px;
+      width: 194px;
+      .jqf-tab {
+        display: block;
+        text-align: left;
+        &.jqf-first {
+          @include border-radius(0);
+          @include border-radius-top;
+        }
+        &.jqf-last {
+          @include border-radius(0);
+          @include border-radius-bottom;
+        }
+      }
+    }
+    .jqf-folder {
+      margin-left: 180px;
+      padding: 15px 15px 15px 30px;
+    }
+  }
+}
+
+.jqf-folder {
+  @include border-radius;
+  background: white;
+  border: 1px solid $color-border;
+  color: $color-text;
+  display: none;
+  margin-bottom: 10px;
+  min-height: 180px;
+  width: inherit;
+}
+
+.jqf-icon {
+  $size: 16px;
+  @include inline-block;
+  background-image: url("/jqface/images/icons.png");
+  height: $size;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: middle;
+  width: $size;
+}
+$background-position-x: 0;
+$background-position-y: -16px;
+.jqf-icon-up { background-position: $background-position-x 0; }
+.jqf-icon-right { background-position: $background-position-x $background-position-y; }
+.jqf-icon-down { background-position: $background-position-x $background-position-y * 2; }
+.jqf-icon-left { background-position: $background-position-x $background-position-y * 3; }
+.jqf-icon-drag { background-position: $background-position-x $background-position-y * 4; }
+.jqf-icon-close { background-position: $background-position-x $background-position-y * 5; }
+.jqf-icon-check { background-position: $background-position-x $background-position-y * 6; }
+.jqf-icon-subtract { background-position: $background-position-x $background-position-y * 7; }
+.jqf-icon-add { background-position: $background-position-x $background-position-y * 8; }
+.jqf-icon-search { background-position: $background-position-x $background-position-y * 9; }
+.jqf-icon-warning { background-position: $background-position-x $background-position-y * 10; }
+.jqf-icon-home { background-position: $background-position-x $background-position-y * 11; }
+.jqf-icon-gear { background-position: $background-position-x $background-position-y * 12; }
+.jqf-icon-apple { background-position: $background-position-x $background-position-y * 13; }
+.jqf-icon-heart { background-position: $background-position-x $background-position-y * 14; }
+.jqf-icon-target { background-position: $background-position-x $background-position-y * 15; }
+.jqf-icon-profile { background-position: $background-position-x $background-position-y * 16; }
+.jqf-icon-photo { background-position: $background-position-x $background-position-y * 17; }
+.jqf-icon-print { background-position: $background-position-x $background-position-y * 18; }
+.jqf-icon-radio { background-position: $background-position-x $background-position-y * 19; }
+.jqf-icon-movie { background-position: $background-position-x $background-position-y * 20; }
+.jqf-icon-refresh { background-position: $background-position-x $background-position-y * 21; }
+.jqf-icon-people { background-position: $background-position-x $background-position-y * 22; }
+.jqf-active, .jqf-submit {
+  $background-position-x: -16px;
+  .jqf-icon-up { background-position: $background-position-x 0; }
+  .jqf-icon-right { background-position: $background-position-x $background-position-y; }
+  .jqf-icon-down { background-position: $background-position-x $background-position-y * 2; }
+  .jqf-icon-left { background-position: $background-position-x $background-position-y * 3; }
+  .jqf-icon-drag { background-position: $background-position-x $background-position-y * 4; }
+  .jqf-icon-close { background-position: $background-position-x $background-position-y * 5; }
+  .jqf-icon-check { background-position: $background-position-x $background-position-y * 6; }
+  .jqf-icon-subtract { background-position: $background-position-x $background-position-y * 7; }
+  .jqf-icon-add { background-position: $background-position-x $background-position-y * 8; }
+  .jqf-icon-search { background-position: $background-position-x $background-position-y * 9; }
+  .jqf-icon-warning { background-position: $background-position-x $background-position-y * 10; }
+  .jqf-icon-home { background-position: $background-position-x $background-position-y * 11; }
+  .jqf-icon-gear { background-position: $background-position-x $background-position-y * 12; }
+  .jqf-icon-apple { background-position: $background-position-x $background-position-y * 13; }
+  .jqf-icon-heart { background-position: $background-position-x $background-position-y * 14; }
+  .jqf-icon-target { background-position: $background-position-x $background-position-y * 15; }
+  .jqf-icon-profile { background-position: $background-position-x $background-position-y * 16; }
+  .jqf-icon-photo { background-position: $background-position-x $background-position-y * 17; }
+  .jqf-icon-print { background-position: $background-position-x $background-position-y * 18; }
+  .jqf-icon-radio { background-position: $background-position-x $background-position-y * 19; }
+  .jqf-icon-movie { background-position: $background-position-x $background-position-y * 20; }
+  .jqf-icon-people { background-position: $background-position-x $background-position-y * 22; }
+}
+
+.jqf-menu {
+  @include font;
+  @include inline-block;
+  margin: 0 5px 10px 0;
+  position: relative;
+  vertical-align: middle;
+  z-index: 666;
+  .jqf-button {
+    margin: 0;
+  }
+}
+
+.jqf-menu-choices {
+  @include border-radius;
+  background-color: $color;
+  border: 1px solid $color-border;
+  display: none;
+  left: 0;
+  list-style: none;
+  top: 35px;
+  padding: 10px 0;
+  position: absolute;
+  z-index: 777;
+}
+
+.jqf-menu-choice {
+  color: $color-text;
+  cursor: pointer;
+  line-height: 20px;
+  padding: 0 10px;
+  text-align: left;
+  text-shadow: white 0 1px 1px;
+  white-space: nowrap;
+}
+
+.jqf-menu-choice:hover {
+  @include gradient-outset;
+  background-color: $color-active;
+  border-color: $color-border-active;
+  color: $color-text-active;
+  text-shadow: sienna 0 -1px 1px;
+}
+
+.jqf-rating {
+  @include inline-block;
+  @include user-select;
+  margin: 5px 10px 5px 0;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.jqf-rating-label {
+  @include user-select;
+  margin-bottom: 5px;
+  text-shadow: white 0 1px 1px;
+}
+
+.jqf-rating-star {
+  @include inline-block;
+  background-image: url("/jqface/images/rating.png");
+  cursor: pointer;
+  height: 24px;
+  width: 18px;
+}
+
+.jqf-rating-group {
+  background-position: 0 -24px;
+}
+
+.jqf-rating-star:active, .jqf-rating-single {
+  background-position: 0 -48px;
+}
+
+.jqf-slider {
+  @include font;
+  @include inline-block;
+  @include user-select;
+  margin: 0 10px 10px 0;
+  vertical-align: top;
+  .jqf-slider-label {
+    display: block;
+    margin-bottom: 2px;
+    text-align: center; }
+  .jqf-bevel {
+    @include border-radius;
+    @include inline-block;
+    @include user-select;
+    background-color: $color;
+    display: block;
+    border: 1px solid lightgray;
+    padding: 5px;
+    .jqf-track {
+      @include border-radius;
+      @include gradient-inset;
+      @include user-select;
+      background-color: $color;
+      display: block;
+      height: 10px;
+      margin: 5px 0;
+      position: relative;
+      .jqf-level {
+        @include border-radius;
+        @include gradient-outset;
+        @include user-select;
+        background-color: $color-active;
+        display: block;
+        height: 8px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+      }
+      .jqf-button {
+        height: 18px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: -5px;
+      }
+    }
+    .jqf-text {
+      @include text-overflow;
+      @include user-select;
+      display: block;
+      font-size: 11px;
+    }
+  }
+}
+
+.jqf-wait {
+  background: rgba(255, 255, 255, 0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 888;
+  width: 100%;
+}
+
+.jqf-wait-frame {
+  @include border-radius;
+  background: url("/jqface/images/wait.gif") 10px center no-repeat;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: $color-text-active;
+  display: none;
+  padding: 15px 15px 15px 30px;
+  position: absolute;
+  text-align: center;
+  z-index: 999;
+}
+
+.jqf-wait-reflection {
+  @include border-radius-top;
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0)));
+  height: 30px;
+  left: 0;
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+.jqf-window {
+  background-color: black;
+  height: 100%;
+  left: 0;
+  opacity: 0.75;
+  position: fixed;
+  top: 0;
+  z-index: 888;
+  width: 100%;
+}
+
+.jqf-window-frame {
+  @include border-radius-bottom;
+  @include font;
+  background-color: $color;
+  color: $color-text;
+  display: none;
+  max-width: 800px;
+  min-height: 180px;
+  min-width: 360px;
+  position: absolute;
+  z-index: 999;
+  .jqf-window-handle {
+    @include border-radius-top;
+    @include input;
+    @include user-select;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -28px;
+    .jqf-window-title {
+      @include inline-block;
+      margin-right: 20px; }
+    .jqf-icon-close {
+      cursor: pointer;
+      margin-left: 5px;
+      position: absolute;
+      right: 10px;
+      top: 5px;
+    }
+  }
+  .jqf-window-content {
+    padding: 10px;
+  }
+  .jqf-window-reflection {
+    @include border-radius-top;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+    height: 30px;
+  }
+}
+
+.jqf-active {
+  @include gradient-inset;
+  background-color: $color-active;
+  border-color: $color-border-active;
+  color: $color-text-active;
+  text-shadow: $text-shadow-active;
+  &:hover {
+    color: $color-text-active;
+  }
+}
+
+.jqf-submit {
+  background-color: $color-active;
+  border-color: $color-border-active;
+  color: $color-text-active;
+  text-shadow: $text-shadow-active;
+  &:hover {
+    color: $color-text-active;
+  }
+}
