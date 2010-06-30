@@ -58,7 +58,7 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   font-size: $font-size;
 }
 
-@mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.25), $direction: bottom) {
+@mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.125), $direction: bottom) {
   background-image: url("/jqface/images/gradient-#{$type}.png");
   background-image: -moz-linear-gradient(top, $color-top, $color-bottom);
   background-image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
@@ -66,7 +66,7 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   background-repeat: repeat-x;
 }
 @mixin gradient-inset {
-  @include gradient(inset, rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.25), top)
+  @include gradient(inset, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25), top)
 }
 @mixin gradient-outset {
   @include gradient()
