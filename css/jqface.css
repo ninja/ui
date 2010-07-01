@@ -139,12 +139,14 @@
   padding: 5px; }
 
 .jqf-drawer.jqf-last {
+  border: 1px solid #d8d8d8;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
   border-radius-bottom-left: 5px;
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
-  border-radius-bottom-right: 5px; }
+  border-radius-bottom-right: 5px;
+  border-top: none; }
 
 .jqf-filmstrip {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;

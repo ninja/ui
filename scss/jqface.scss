@@ -188,7 +188,9 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 }
 
 .jqf-drawer.jqf-last {
+  @include border($color);
   @include border-radius-bottom;
+  border-top: none;
 }
 
 .jqf-filmstrip {
