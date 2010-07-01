@@ -6,6 +6,10 @@
   -webkit-border-radius: 5px;
   border-radius: 5px;
   border: 1px solid #d8d8d8;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   background-image: url("../images/gradient-outset.png");
@@ -18,16 +22,13 @@
   *display: inline;
   zoom: 1;
   background-color: white;
-  -ms-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
   color: black;
   cursor: pointer;
   height: 26px;
   line-height: 26px;
   overflow: visible;
   padding: 0 10px;
+  position: relative;
   text-align: center;
   text-decoration: none;
   text-shadow: white 0 1px 1px;
@@ -48,6 +49,8 @@
   .jqf-button::-moz-focus-inner {
     border: 0;
     padding: 0; }
+  .jqf-button .jqf-icon {
+    margin: 5px 0; }
 
 .jqf-drawers {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
@@ -56,6 +59,10 @@
 
 .jqf-drawer-handle {
   border: 1px solid #d8d8d8;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   background-image: url("../images/gradient-outset.png");
@@ -68,16 +75,13 @@
   *display: inline;
   zoom: 1;
   background-color: white;
-  -ms-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
   color: black;
   cursor: pointer;
   height: 26px;
   line-height: 26px;
   overflow: visible;
   padding: 0 10px;
+  position: relative;
   text-align: center;
   text-decoration: none;
   text-shadow: white 0 1px 1px;
@@ -104,6 +108,8 @@
   .jqf-drawer-handle::-moz-focus-inner {
     border: 0;
     padding: 0; }
+  .jqf-drawer-handle .jqf-icon {
+    margin: 5px 0; }
 
 .jqf-drawer-handle.jqf-active, .jqf-tabs .jqf-drawer-handle.jqf-tab.jqf-active, .jqf-drawer-handle:active {
   background-image: url("../images/gradient-inset.png");
@@ -237,8 +243,8 @@
         -webkit-border-radius: 5px;
         border-radius: 5px;
         background-image: url("../images/gradient-outset.png");
-        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.05));
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.05)));
         background-position: bottom center;
         background-repeat: repeat-x;
         display: -moz-inline-box;
@@ -258,6 +264,10 @@
   white-space: nowrap; }
   .jqf-tabs .jqf-tab {
     border: 1px solid #d8d8d8;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
     background-image: url("../images/gradient-outset.png");
@@ -270,16 +280,13 @@
     *display: inline;
     zoom: 1;
     background-color: white;
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
     color: black;
     cursor: pointer;
     height: 26px;
     line-height: 26px;
     overflow: visible;
     padding: 0 10px;
+    position: relative;
     text-align: center;
     text-decoration: none;
     text-shadow: white 0 1px 1px;
@@ -301,6 +308,8 @@
     .jqf-tabs .jqf-tab::-moz-focus-inner {
       border: 0;
       padding: 0; }
+    .jqf-tabs .jqf-tab .jqf-icon {
+      margin: 5px 0; }
   .jqf-tabs .jqf-first {
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-bottom-left-radius: 5px;
@@ -386,6 +395,10 @@
   width: inherit; }
 
 .jqf-icon {
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
@@ -393,6 +406,7 @@
   background-image: url("../images/icons.png");
   font-size: 0;
   height: 16px;
+  line-height: 16px;
   overflow: hidden;
   vertical-align: middle;
   width: 16px; }
@@ -541,6 +555,10 @@
     z-index: 777; }
     .jqf-menu .jqf-menu-choices .jqf-menu-choice {
       border: 1px solid #d8d8d8;
+      -ms-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
       font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
       font-size: 12px;
       background-image: url("../images/gradient-outset.png");
@@ -553,16 +571,13 @@
       *display: inline;
       zoom: 1;
       background-color: white;
-      -ms-box-sizing: content-box;
-      -moz-box-sizing: content-box;
-      -webkit-box-sizing: content-box;
-      box-sizing: content-box;
       color: black;
       cursor: pointer;
       height: 26px;
       line-height: 26px;
       overflow: visible;
       padding: 0 10px;
+      position: relative;
       text-align: center;
       text-decoration: none;
       text-shadow: white 0 1px 1px;
@@ -586,6 +601,8 @@
       .jqf-menu .jqf-menu-choices .jqf-menu-choice::-moz-focus-inner {
         border: 0;
         padding: 0; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice .jqf-icon {
+        margin: 5px 0; }
       .jqf-menu .jqf-menu-choices .jqf-menu-choice:first-child {
         -moz-border-radius-topleft: 5px;
         -webkit-border-top-left-radius: 5px;
@@ -799,6 +816,10 @@
     -webkit-border-top-right-radius: 5px;
     border-radius-top-right: 5px;
     border: 1px solid #d8d8d8;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
     background-image: url("../images/gradient-outset.png");
@@ -811,16 +832,13 @@
     *display: inline;
     zoom: 1;
     background-color: white;
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
     color: black;
     cursor: pointer;
     height: 26px;
     line-height: 26px;
     overflow: visible;
     padding: 0 10px;
+    position: relative;
     text-align: center;
     text-decoration: none;
     text-shadow: white 0 1px 1px;
@@ -847,6 +865,8 @@
     .jqf-window-frame .jqf-window-handle::-moz-focus-inner {
       border: 0;
       padding: 0; }
+    .jqf-window-frame .jqf-window-handle .jqf-icon {
+      margin: 5px 0; }
     .jqf-window-frame .jqf-window-handle .jqf-window-title {
       display: -moz-inline-box;
       display: inline-block;
@@ -858,7 +878,7 @@
       margin-left: 5px;
       position: absolute;
       right: 10px;
-      top: 5px; }
+      top: 0; }
   .jqf-window-frame .jqf-window-content {
     padding: 10px; }
   .jqf-window-frame .jqf-window-reflection {

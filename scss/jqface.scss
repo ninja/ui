@@ -92,23 +92,28 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   white-space: nowrap;
 }
 
-@mixin input {
-  $size: 26px;
-  @include border($color);
-  @include font;
-  @include gradient-outset;
-  @include inline-block;
-  background-color: $color;
+@mixin box-sizing {
   -ms-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
+}
+
+@mixin input {
+  $size: 26px;
+  @include border($color);
+  @include box-sizing;
+  @include font;
+  @include gradient-outset;
+  @include inline-block;
+  background-color: $color;
   color: $color-text;
   cursor: pointer;
   height: $size;
   line-height: $size;
   overflow: visible;
   padding: 0 10px;
+  position: relative;
   text: {
     align: center;
     decoration: none;
@@ -129,6 +134,9 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
+  }
+  .jqf-icon {
+    margin: 5px 0;
   }
 }
 
@@ -252,7 +260,7 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
       .jqf-frame {
         @include border($color);
         @include border-radius;
-        @include gradient-outset;
+        @include gradient(outset, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.05), bottom);
         @include inline-block;
         font-size: 11px;
         overflow: hidden;
@@ -347,10 +355,12 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 
 .jqf-icon {
   $size: 16px;
+  @include box-sizing;
   @include inline-block;
   background-image: url("../images/icons.png");
   font-size: 0;
   height: $size;
+  line-height: $size;
   overflow: hidden;
   vertical-align: middle;
   width: $size;
@@ -605,7 +615,7 @@ $background-position-y: -16px;
       margin-left: 5px;
       position: absolute;
       right: 10px;
-      top: 5px;
+      top: 0;
     }
   }
   .jqf-window-content {
