@@ -1,0 +1,54 @@
+.jqf-slider {
+  @include font;
+  @include inline-block;
+  @include user-select;
+  margin: 0 10px 10px 0;
+  vertical-align: top;
+  .jqf-slider-label {
+    display: block;
+    margin-bottom: 2px;
+    text-align: center; }
+  .jqf-bevel {
+    @include border-radius;
+    @include inline-block;
+    @include user-select;
+    background-color: $color;
+    display: block;
+    border: 1px solid lightgray;
+    padding: 5px;
+    .jqf-track {
+      @include border-radius;
+      @include gradient-inset;
+      @include user-select;
+      background-color: $color;
+      display: block;
+      height: 10px;
+      margin: 5px 0;
+      position: relative;
+      .jqf-level {
+        @include border-radius;
+        @include gradient-outset;
+        @include user-select;
+        background-color: $color-active;
+        display: block;
+        height: 8px;
+        left: 1px;
+        position: absolute;
+        top: 1px;
+      }
+      .jqf-button {
+        height: 18px;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: -5px;
+      }
+    }
+    .jqf-text {
+      @include text-overflow;
+      @include user-select;
+      display: block;
+      font-size: 11px;
+    }
+  }
+}

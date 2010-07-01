@@ -1,0 +1,72 @@
+.jqf-filmstrip {
+  @include font;
+  @include inline-block;
+  margin: 10px 0;
+  white-space: nowrap;
+  .jqf-bar {
+    @include border($color);
+    @include border-radius-top;
+    @include text-overflow;
+    @include font;
+    @include gradient-outset;
+    background-color: $color;
+    color: $color-text;
+    display: block;
+    line-height: 16px;
+    padding: 5px 0;
+    position: relative;
+    text: {
+      align: center;
+      shadow: white 0 1px 1px;
+    }
+    vertical-align: middle;
+    .jqf-button {
+      margin: -1px;
+    }
+    .back {
+      @include border-radius(0);
+      @include border-radius-top-left;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+    .forward {
+      @include border-radius(0);
+      @include border-radius-top-right;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  .jqf-view {
+    @include border($color);
+    @include border-radius-bottom;
+    @include inline-block;
+    background-color: $color;
+    border-top: none;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    .jqf-reel {
+      display: block;
+      font-size: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      white-space: nowrap;
+      .jqf-frame {
+        @include border($color);
+        @include border-radius;
+        @include gradient(outset, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.05), bottom);
+        @include inline-block;
+        font-size: 11px;
+        overflow: hidden;
+        padding: 5px;
+        margin: 5px 0 5px 5px;
+        text-align: left;
+        vertical-align: middle;
+        white-space: normal;
+      }
+    }
+  }
+}

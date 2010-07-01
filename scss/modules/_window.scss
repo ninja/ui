@@ -1,0 +1,51 @@
+.jqf-window {
+  background-color: black;
+  height: 100%;
+  left: 0;
+  opacity: 0.75;
+  position: fixed;
+  top: 0;
+  z-index: 888;
+  width: 100%;
+}
+
+.jqf-window-frame {
+  @include border-radius-bottom;
+  @include font;
+  background-color: $color;
+  color: $color-text;
+  display: none;
+  max-width: 800px;
+  min-height: 180px;
+  min-width: 360px;
+  position: absolute;
+  z-index: 999;
+  .jqf-window-handle {
+    @include border-radius-top;
+    @include input;
+    @include user-select;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -28px;
+    .jqf-window-title {
+      @include inline-block;
+      margin-right: 20px; }
+    .jqf-icon-close {
+      cursor: pointer;
+      margin-left: 5px;
+      position: absolute;
+      right: 10px;
+      top: 0;
+    }
+  }
+  .jqf-window-content {
+    padding: 10px;
+  }
+  .jqf-window-reflection {
+    @include border-radius-top;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+    height: 30px;
+  }
+}

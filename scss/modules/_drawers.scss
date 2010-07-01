@@ -1,0 +1,42 @@
+.jqf-drawers {
+  @include font;
+  display: block;
+  .jqf-drawer-handle {
+    @include input;
+    @include user-select;
+    display: block;
+    position: relative;
+    text-align: left;
+    z-index: 222;
+  }
+  .jqf-drawer-handle.jqf-active, .jqf-drawer-handle:active {
+    @include gradient-inset;
+    z-index: 111;
+  }
+  .jqf-drawer-handle.jqf-active {
+    @extend .jqf-active;
+  }
+  .jqf-drawer-handle.jqf-first {
+    @include border-radius-top;
+  }
+  
+  .jqf-drawer-handle.jqf-last {
+    @include border-radius-bottom;
+  }
+  .jqf-drawer {
+    @include border($color);
+    background: white;
+    border: {
+      bottom: none;
+      top: none;
+    }
+    color: $color-text;
+    display: block;
+    padding: 5px;
+  }
+  .jqf-drawer.jqf-last {
+    @include border($color);
+    @include border-radius-bottom;
+    border-top: none;
+  }
+}

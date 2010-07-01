@@ -1,0 +1,59 @@
+.jqf-folders {
+  @include font;
+  display: block;
+  margin-top: 14px;
+  position: relative;
+  &.jqf-horizontal {
+    .jqf-tabs {
+      display: block;
+      position: absolute;
+      left: 0;
+      text-align: center;
+      top: -15px;
+      white-space: nowrap;
+      width: 100%;
+      .jqf-tab {
+        @include inline-block;
+      }
+    }
+    .jqf-folder {
+      padding: 30px 15px 15px 15px;
+    }
+  }
+  &.jqf-vertical {
+    .jqf-tabs {
+      @include inline-block;
+      left: 0;
+      position: absolute;
+      top: 14px;
+      width: 194px;
+      .jqf-tab {
+        display: block;
+        text-align: left;
+        &.jqf-first {
+          @include border-radius(0);
+          @include border-radius-top;
+        }
+        &.jqf-last {
+          @include border-radius(0);
+          @include border-radius-bottom;
+        }
+      }
+    }
+    .jqf-folder {
+      margin-left: 180px;
+      padding: 15px 15px 15px 30px;
+    }
+  }
+}
+
+.jqf-folder {
+  @include border($color);
+  @include border-radius;
+  background: white;
+  color: $color-text;
+  display: none;
+  margin-bottom: 10px;
+  min-height: 180px;
+  width: inherit;
+}

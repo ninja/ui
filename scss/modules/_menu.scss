@@ -1,0 +1,40 @@
+.jqf-menu {
+  @include font;
+  @include inline-block;
+  margin: 0 5px 10px 0;
+  position: relative;
+  vertical-align: middle;
+  z-index: 666;
+  .jqf-button {
+    margin: 0;
+  }
+  .jqf-menu-choices {
+    @include border;
+    @include border-radius;
+    @include box-shadow;
+    background-color: $color;
+    display: none;
+    left: 0;
+    list-style: none;
+    top: 30px;
+    position: absolute;
+    z-index: 777;
+    .jqf-menu-choice {
+      @include input;
+      background: none;
+      border-color: $color;
+      display: block;
+      text-align: left;
+      &:first-child {
+        @include border-radius-top;
+      }
+      &:hover {
+        @include gradient-outset;
+        @extend .jqf-submit;
+      }
+      &:last-child {
+        @include border-radius-bottom;
+      }
+    }
+  }  
+}

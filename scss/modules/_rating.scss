@@ -1,0 +1,30 @@
+.jqf-rating {
+  @include inline-block;
+  @include user-select;
+  margin: 5px 10px 5px 0;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.jqf-rating-label {
+  @include user-select;
+  margin-bottom: 5px;
+  text-shadow: white 0 1px 1px;
+}
+
+.jqf-rating-star {
+  @include inline-block;
+  background-image: url("../images/rating.png");
+  cursor: pointer;
+  height: 24px;
+  width: 18px;
+}
+
+.jqf-rating-group {
+  background-position: 0 -24px;
+}
+
+.jqf-rating-star:active, .jqf-rating-single {
+  background-position: 0 -48px;
+}

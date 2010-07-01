@@ -1,0 +1,137 @@
+@mixin border($color) {
+  border: 1px solid $color * 0.85;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin border-radius-corner($vertical, $horizontal, $radius) {
+  -moz-border-radius-#{$vertical}#{$horizontal}: $radius;
+  -webkit-border-#{$vertical}-#{$horizontal}-radius: $radius;
+  border-radius-#{$vertical}-#{$horizontal}: $radius;
+}
+@mixin border-radius-bottom-left($radius) {
+  @include border-radius-corner(bottom, left, $radius);
+}
+@mixin border-radius-bottom-right($radius) {
+  @include border-radius-corner(bottom, right, $radius);
+}
+@mixin border-radius-top-left($radius) {
+  @include border-radius-corner(top, left, $radius);
+}
+@mixin border-radius-top-right($radius) {
+  @include border-radius-corner(top, right, $radius);
+}
+@mixin border-radius-bottom($radius) {
+  @include border-radius-bottom-left($radius);
+  @include border-radius-bottom-right($radius);
+}
+@mixin border-radius-left($radius) {
+  @include border-radius-bottom-left($radius);
+  @include border-radius-top-left($radius);
+}
+@mixin border-radius-right($radius) {
+  @include border-radius-bottom-right($radius);
+  @include border-radius-top-right($radius);
+}
+@mixin border-radius-top($radius) {
+  @include border-radius-top-left($radius);
+  @include border-radius-top-right($radius);
+}
+
+@mixin box-shadow($style: 0 10px 10px rgba(0, 0, 0, 0.25)) {
+  -moz-box-shadow: $style;
+  -webkit-box-shadow: $style;
+  box-shadow: $style;
+}
+
+@mixin font {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+@mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.125), $direction: bottom) {
+  background: {
+    image: url("../images/gradient-#{$type}.png");
+    image: -moz-linear-gradient(top, $color-top, $color-bottom);
+    image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
+    position: $direction center;
+    repeat: repeat-x;
+  }
+}
+@mixin gradient-inset {
+  @include gradient(inset, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25), top)
+}
+@mixin gradient-outset {
+  @include gradient()
+}
+
+@mixin inline-block {
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+@mixin text-overflow($type: ellipsis) {
+  overflow: hidden;
+  -o-text-overflow: $type;
+  text-overflow: $type;
+  white-space: nowrap;
+}
+
+@mixin box-sizing {
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+@mixin input {
+  $size: 26px;
+  @include border($color);
+  @include box-sizing;
+  @include font;
+  @include gradient-outset;
+  @include inline-block;
+  background-color: $color;
+  color: $color-text;
+  cursor: pointer;
+  height: $size;
+  line-height: $size;
+  overflow: visible;
+  padding: 0 10px;
+  position: relative;
+  text: {
+    align: center;
+    decoration: none;
+    shadow: $text-shadow;
+  }
+  vertical-align: middle;
+  white-space: nowrap;
+  &:active {
+    @include gradient-inset;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    color: $color-text;
+    text-decoration: none;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  .jqf-icon {
+    margin: 5px 0;
+  }
+}
+
+@mixin user-select($type: none) {
+  -moz-user-select: $type;
+  -webkit-user-select: $type;
+  user-select: $type;
+}

@@ -1,0 +1,18 @@
+.jqf-tabs {
+  font-size: 0;
+  white-space: nowrap;
+  .jqf-tab {
+    @include input;
+    margin: 0;
+    position: relative;
+  }
+  .jqf-tab.jqf-active {
+    @extend .jqf-active;
+  }
+  .jqf-first {
+    @include border-radius-left;
+  }
+  .jqf-last {
+    @include border-radius-right;
+  }
+}
