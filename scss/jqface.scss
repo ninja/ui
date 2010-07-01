@@ -1,7 +1,5 @@
 $color: white;
 $color-active: #f90;
-$color-border: $color * 0.85;
-$color-border-active: $color-active * 0.85;
 $color-text: black;
 $color-text-active: white;
 $font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
@@ -10,8 +8,8 @@ $radius: 5px;
 $text-shadow: $color 0 1px 1px;
 $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 
-@mixin border {
-  border: 1px solid;
+@mixin border($color) {
+  border: 1px solid $color * 0.85;
 }
 
 @mixin border-radius($radius) {
@@ -53,17 +51,25 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   @include border-radius-top-right($radius);
 }
 
+@mixin box-shadow($style: 0 10px 10px rgba(0, 0, 0, 0.25)) {
+  -moz-box-shadow: $style;
+  -webkit-box-shadow: $style;
+  box-shadow: $style;
+}
+
 @mixin font {
   font-family: $font-family;
   font-size: $font-size;
 }
 
 @mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.125), $direction: bottom) {
-  background-image: url("../images/gradient-#{$type}.png");
-  background-image: -moz-linear-gradient(top, $color-top, $color-bottom);
-  background-image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
-  background-position: $direction center;
-  background-repeat: repeat-x;
+  background: {
+    image: url("../images/gradient-#{$type}.png");
+    image: -moz-linear-gradient(top, $color-top, $color-bottom);
+    image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
+    position: $direction center;
+    repeat: repeat-x;
+  }
 }
 @mixin gradient-inset {
   @include gradient(inset, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25), top)
@@ -88,12 +94,11 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 
 @mixin input {
   $size: 26px;
-  @include border;
+  @include border($color);
   @include font;
   @include gradient-outset;
   @include inline-block;
   background-color: $color;
-  border-color: $color-border;
   -ms-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -104,9 +109,11 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   line-height: $size;
   overflow: visible;
   padding: 0 10px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: $text-shadow;
+  text: {
+    align: center;
+    decoration: none;
+    shadow: $text-shadow;
+  }
   vertical-align: middle;
   white-space: nowrap;
   &:active {
@@ -169,9 +176,12 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 }
 
 .jqf-drawer {
+  @include border($color);
   background: white;
-  border-left: 1px solid $color-border;
-  border-right: 1px solid $color-border;
+  border: {
+    bottom: none;
+    top: none;
+  }
   color: $color-text;
   display: block;
   padding: 5px;
@@ -187,20 +197,21 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   margin: 10px 0;
   white-space: nowrap;
   .jqf-bar {
-    @include border;
+    @include border($color);
     @include border-radius-top;
     @include text-overflow;
     @include font;
     @include gradient-outset;
     background-color: $color;
-    border-color: $color-border;
     color: $color-text;
     display: block;
     line-height: 16px;
     padding: 5px 0;
     position: relative;
-    text-align: center;
-    text-shadow: white 0 1px 1px;
+    text: {
+      align: center;
+      shadow: white 0 1px 1px;
+    }
     vertical-align: middle;
     .jqf-button {
       margin: -1px;
@@ -221,12 +232,11 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
     }
   }
   .jqf-view {
-    @include border;
+    @include border($color);
     @include border-radius-bottom;
     @include inline-block;
     background-color: $color;
     border-top: none;
-    border-color: $color-border;
     overflow: hidden;
     position: relative;
     vertical-align: middle;
@@ -238,11 +248,10 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
       top: 0;
       white-space: nowrap;
       .jqf-frame {
-        @include border;
+        @include border($color);
         @include border-radius;
         @include gradient-outset;
         @include inline-block;
-        border-color: $color-border;
         font-size: 11px;
         overflow: hidden;
         padding: 5px;
@@ -324,9 +333,9 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 }
 
 .jqf-folder {
+  @include border($color);
   @include border-radius;
   background: white;
-  border: 1px solid $color-border;
   color: $color-text;
   display: none;
   margin-bottom: 10px;
@@ -405,37 +414,35 @@ $background-position-y: -16px;
   .jqf-button {
     margin: 0;
   }
-}
-
-.jqf-menu-choices {
-  @include border-radius;
-  background-color: $color;
-  border: 1px solid $color-border;
-  display: none;
-  left: 0;
-  list-style: none;
-  top: 35px;
-  padding: 10px 0;
-  position: absolute;
-  z-index: 777;
-}
-
-.jqf-menu-choice {
-  color: $color-text;
-  cursor: pointer;
-  line-height: 20px;
-  padding: 0 10px;
-  text-align: left;
-  text-shadow: white 0 1px 1px;
-  white-space: nowrap;
-}
-
-.jqf-menu-choice:hover {
-  @include gradient-outset;
-  background-color: $color-active;
-  border-color: $color-border-active;
-  color: $color-text-active;
-  text-shadow: sienna 0 -1px 1px;
+  .jqf-menu-choices {
+    @include border;
+    @include border-radius;
+    @include box-shadow;
+    background-color: $color;
+    display: none;
+    left: 0;
+    list-style: none;
+    top: 30px;
+    position: absolute;
+    z-index: 777;
+    .jqf-menu-choice {
+      @include input;
+      background: none;
+      border-color: $color;
+      display: block;
+      text-align: left;
+      &:first-child {
+        @include border-radius-top;
+      }
+      &:hover {
+        @include gradient-outset;
+        @extend .jqf-submit;
+      }
+      &:last-child {
+        @include border-radius-bottom;
+      }
+    }
+  }  
 }
 
 .jqf-rating {
@@ -611,9 +618,9 @@ $background-position-y: -16px;
 }
 
 .jqf-active {
+  @include border($color-active);
   @include gradient-inset;
   background-color: $color-active;
-  border-color: $color-border-active;
   color: $color-text-active;
   text-shadow: $text-shadow-active;
   &:hover {
@@ -622,8 +629,8 @@ $background-position-y: -16px;
 }
 
 .jqf-submit {
+  @include border($color-active);
   background-color: $color-active;
-  border-color: $color-border-active;
   color: $color-text-active;
   text-shadow: $text-shadow-active;
   &:hover {

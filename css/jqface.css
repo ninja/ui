@@ -5,7 +5,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid;
+  border: 1px solid #d8d8d8;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   background-image: url("../images/gradient-outset.png");
@@ -18,7 +18,6 @@
   *display: inline;
   zoom: 1;
   background-color: white;
-  border-color: #d8d8d8;
   -ms-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -56,7 +55,7 @@
   display: block; }
 
 .jqf-drawer-handle {
-  border: 1px solid;
+  border: 1px solid #d8d8d8;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   background-image: url("../images/gradient-outset.png");
@@ -69,7 +68,6 @@
   *display: inline;
   zoom: 1;
   background-color: white;
-  border-color: #d8d8d8;
   -ms-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -132,9 +130,10 @@
   border-radius-bottom-right: 5px; }
 
 .jqf-drawer {
+  border: 1px solid #d8d8d8;
   background: white;
-  border-left: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8;
+  border-bottom: none;
+  border-top: none;
   color: black;
   display: block;
   padding: 5px; }
@@ -157,7 +156,7 @@
   margin: 10px 0;
   white-space: nowrap; }
   .jqf-filmstrip .jqf-bar {
-    border: 1px solid;
+    border: 1px solid #d8d8d8;
     -moz-border-radius-topleft: 5px;
     -webkit-border-top-left-radius: 5px;
     border-radius-top-left: 5px;
@@ -176,7 +175,6 @@
     background-position: bottom center;
     background-repeat: repeat-x;
     background-color: white;
-    border-color: #d8d8d8;
     color: black;
     display: block;
     line-height: 16px;
@@ -208,7 +206,7 @@
       right: 0;
       top: 0; }
   .jqf-filmstrip .jqf-view {
-    border: 1px solid;
+    border: 1px solid #d8d8d8;
     -moz-border-radius-bottomleft: 5px;
     -webkit-border-bottom-left-radius: 5px;
     border-radius-bottom-left: 5px;
@@ -221,7 +219,6 @@
     zoom: 1;
     background-color: white;
     border-top: none;
-    border-color: #d8d8d8;
     overflow: hidden;
     position: relative;
     vertical-align: middle; }
@@ -233,7 +230,7 @@
       top: 0;
       white-space: nowrap; }
       .jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
-        border: 1px solid;
+        border: 1px solid #d8d8d8;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
         border-radius: 5px;
@@ -246,7 +243,6 @@
         display: inline-block;
         *display: inline;
         zoom: 1;
-        border-color: #d8d8d8;
         font-size: 11px;
         overflow: hidden;
         padding: 5px;
@@ -259,7 +255,7 @@
   font-size: 0;
   white-space: nowrap; }
   .jqf-tabs .jqf-tab {
-    border: 1px solid;
+    border: 1px solid #d8d8d8;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
     background-image: url("../images/gradient-outset.png");
@@ -272,7 +268,6 @@
     *display: inline;
     zoom: 1;
     background-color: white;
-    border-color: #d8d8d8;
     -ms-box-sizing: content-box;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -377,11 +372,11 @@
     padding: 15px 15px 15px 30px; }
 
 .jqf-folder {
+  border: 1px solid #d8d8d8;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   background: white;
-  border: 1px solid #d8d8d8;
   color: black;
   display: none;
   margin-bottom: 10px;
@@ -469,49 +464,49 @@
 .jqf-icon-people {
   background-position: 0 -352px; }
 
-.jqf-active .jqf-icon-up, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-up, .jqf-submit .jqf-icon-up {
+.jqf-active .jqf-icon-up, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-up, .jqf-submit .jqf-icon-up, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-up {
   background-position: -16px 0; }
-.jqf-active .jqf-icon-right, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-right, .jqf-submit .jqf-icon-right {
+.jqf-active .jqf-icon-right, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-right, .jqf-submit .jqf-icon-right, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-right {
   background-position: -16px -16px; }
-.jqf-active .jqf-icon-down, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-down, .jqf-submit .jqf-icon-down {
+.jqf-active .jqf-icon-down, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-down, .jqf-submit .jqf-icon-down, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-down {
   background-position: -16px -32px; }
-.jqf-active .jqf-icon-left, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-left, .jqf-submit .jqf-icon-left {
+.jqf-active .jqf-icon-left, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-left, .jqf-submit .jqf-icon-left, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-left {
   background-position: -16px -48px; }
-.jqf-active .jqf-icon-drag, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-drag, .jqf-submit .jqf-icon-drag {
+.jqf-active .jqf-icon-drag, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-drag, .jqf-submit .jqf-icon-drag, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-drag {
   background-position: -16px -64px; }
-.jqf-active .jqf-icon-close, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-close, .jqf-submit .jqf-icon-close {
+.jqf-active .jqf-icon-close, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-close, .jqf-submit .jqf-icon-close, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-close {
   background-position: -16px -80px; }
-.jqf-active .jqf-icon-check, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-check, .jqf-submit .jqf-icon-check {
+.jqf-active .jqf-icon-check, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-check, .jqf-submit .jqf-icon-check, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-check {
   background-position: -16px -96px; }
-.jqf-active .jqf-icon-subtract, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-subtract, .jqf-submit .jqf-icon-subtract {
+.jqf-active .jqf-icon-subtract, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-subtract, .jqf-submit .jqf-icon-subtract, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-subtract {
   background-position: -16px -112px; }
-.jqf-active .jqf-icon-add, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-add, .jqf-submit .jqf-icon-add {
+.jqf-active .jqf-icon-add, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-add, .jqf-submit .jqf-icon-add, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-add {
   background-position: -16px -128px; }
-.jqf-active .jqf-icon-search, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-search, .jqf-submit .jqf-icon-search {
+.jqf-active .jqf-icon-search, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-search, .jqf-submit .jqf-icon-search, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-search {
   background-position: -16px -144px; }
-.jqf-active .jqf-icon-warning, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-warning, .jqf-submit .jqf-icon-warning {
+.jqf-active .jqf-icon-warning, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-warning, .jqf-submit .jqf-icon-warning, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-warning {
   background-position: -16px -160px; }
-.jqf-active .jqf-icon-home, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-home, .jqf-submit .jqf-icon-home {
+.jqf-active .jqf-icon-home, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-home, .jqf-submit .jqf-icon-home, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-home {
   background-position: -16px -176px; }
-.jqf-active .jqf-icon-gear, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-gear, .jqf-submit .jqf-icon-gear {
+.jqf-active .jqf-icon-gear, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-gear, .jqf-submit .jqf-icon-gear, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-gear {
   background-position: -16px -192px; }
-.jqf-active .jqf-icon-apple, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-apple, .jqf-submit .jqf-icon-apple {
+.jqf-active .jqf-icon-apple, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-apple, .jqf-submit .jqf-icon-apple, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-apple {
   background-position: -16px -208px; }
-.jqf-active .jqf-icon-heart, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-heart, .jqf-submit .jqf-icon-heart {
+.jqf-active .jqf-icon-heart, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-heart, .jqf-submit .jqf-icon-heart, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-heart {
   background-position: -16px -224px; }
-.jqf-active .jqf-icon-target, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-target, .jqf-submit .jqf-icon-target {
+.jqf-active .jqf-icon-target, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-target, .jqf-submit .jqf-icon-target, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-target {
   background-position: -16px -240px; }
-.jqf-active .jqf-icon-profile, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-profile, .jqf-submit .jqf-icon-profile {
+.jqf-active .jqf-icon-profile, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-profile, .jqf-submit .jqf-icon-profile, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-profile {
   background-position: -16px -256px; }
-.jqf-active .jqf-icon-photo, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-photo, .jqf-submit .jqf-icon-photo {
+.jqf-active .jqf-icon-photo, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-photo, .jqf-submit .jqf-icon-photo, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-photo {
   background-position: -16px -272px; }
-.jqf-active .jqf-icon-print, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-print, .jqf-submit .jqf-icon-print {
+.jqf-active .jqf-icon-print, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-print, .jqf-submit .jqf-icon-print, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-print {
   background-position: -16px -288px; }
-.jqf-active .jqf-icon-radio, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-radio, .jqf-submit .jqf-icon-radio {
+.jqf-active .jqf-icon-radio, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-radio, .jqf-submit .jqf-icon-radio, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-radio {
   background-position: -16px -304px; }
-.jqf-active .jqf-icon-movie, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-movie, .jqf-submit .jqf-icon-movie {
+.jqf-active .jqf-icon-movie, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-movie, .jqf-submit .jqf-icon-movie, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-movie {
   background-position: -16px -320px; }
-.jqf-active .jqf-icon-people, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-people, .jqf-submit .jqf-icon-people {
+.jqf-active .jqf-icon-people, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-people, .jqf-submit .jqf-icon-people, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-people {
   background-position: -16px -352px; }
 
 .jqf-menu {
@@ -527,40 +522,88 @@
   z-index: 666; }
   .jqf-menu .jqf-button {
     margin: 0; }
-
-.jqf-menu-choices {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background-color: white;
-  border: 1px solid #d8d8d8;
-  display: none;
-  left: 0;
-  list-style: none;
-  top: 35px;
-  padding: 10px 0;
-  position: absolute;
-  z-index: 777; }
-
-.jqf-menu-choice {
-  color: black;
-  cursor: pointer;
-  line-height: 20px;
-  padding: 0 10px;
-  text-align: left;
-  text-shadow: white 0 1px 1px;
-  white-space: nowrap; }
-
-.jqf-menu-choice:hover {
-  background-image: url("../images/gradient-outset.png");
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
-  background-position: bottom center;
-  background-repeat: repeat-x;
-  background-color: #ff9900;
-  border-color: #d88200;
-  color: white;
-  text-shadow: sienna 0 -1px 1px; }
+  .jqf-menu .jqf-menu-choices {
+    border: 1px solid #d8d8d8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    background-color: white;
+    display: none;
+    left: 0;
+    list-style: none;
+    top: 30px;
+    position: absolute;
+    z-index: 777; }
+    .jqf-menu .jqf-menu-choices .jqf-menu-choice {
+      border: 1px solid #d8d8d8;
+      font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+      font-size: 12px;
+      background-image: url("../images/gradient-outset.png");
+      background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+      background-position: bottom center;
+      background-repeat: repeat-x;
+      display: -moz-inline-box;
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      background-color: white;
+      -ms-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      color: black;
+      cursor: pointer;
+      height: 26px;
+      line-height: 26px;
+      overflow: visible;
+      padding: 0 10px;
+      text-align: center;
+      text-decoration: none;
+      text-shadow: white 0 1px 1px;
+      vertical-align: middle;
+      white-space: nowrap;
+      background: none;
+      border-color: white;
+      display: block;
+      text-align: left; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice:active {
+        background-image: url("../images/gradient-inset.png");
+        background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
+        background-position: top center;
+        background-repeat: repeat-x; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice:focus {
+        outline: 0; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+        color: black;
+        text-decoration: none; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice::-moz-focus-inner {
+        border: 0;
+        padding: 0; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice:first-child {
+        -moz-border-radius-topleft: 5px;
+        -webkit-border-top-left-radius: 5px;
+        border-radius-top-left: 5px;
+        -moz-border-radius-topright: 5px;
+        -webkit-border-top-right-radius: 5px;
+        border-radius-top-right: 5px; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+        background-image: url("../images/gradient-outset.png");
+        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+        background-position: bottom center;
+        background-repeat: repeat-x; }
+      .jqf-menu .jqf-menu-choices .jqf-menu-choice:last-child {
+        -moz-border-radius-bottomleft: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        border-radius-bottom-left: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-radius-bottom-right: 5px; }
 
 .jqf-rating {
   display: -moz-inline-box;
@@ -753,7 +796,7 @@
     -moz-border-radius-topright: 5px;
     -webkit-border-top-right-radius: 5px;
     border-radius-top-right: 5px;
-    border: 1px solid;
+    border: 1px solid #d8d8d8;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
     background-image: url("../images/gradient-outset.png");
@@ -766,7 +809,6 @@
     *display: inline;
     zoom: 1;
     background-color: white;
-    border-color: #d8d8d8;
     -ms-box-sizing: content-box;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
@@ -829,22 +871,22 @@
     height: 30px; }
 
 .jqf-active, .jqf-tabs .jqf-tab.jqf-active {
+  border: 1px solid #d88200;
   background-image: url("../images/gradient-inset.png");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
   background-position: top center;
   background-repeat: repeat-x;
   background-color: #ff9900;
-  border-color: #d88200;
   color: white;
   text-shadow: #7f4c00 0 -1px 1px; }
   .jqf-active:hover, .jqf-tabs .jqf-tab.jqf-active:hover {
     color: white; }
 
-.jqf-submit {
+.jqf-submit, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+  border: 1px solid #d88200;
   background-color: #ff9900;
-  border-color: #d88200;
   color: white;
   text-shadow: #7f4c00 0 -1px 1px; }
-  .jqf-submit:hover {
+  .jqf-submit:hover, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
     color: white; }
