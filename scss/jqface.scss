@@ -59,7 +59,7 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 }
 
 @mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.125), $direction: bottom) {
-  background-image: url("/jqface/images/gradient-#{$type}.png");
+  background-image: url("../images/gradient-#{$type}.png");
   background-image: -moz-linear-gradient(top, $color-top, $color-bottom);
   background-image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
   background-position: $direction center;
@@ -330,7 +330,7 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 .jqf-icon {
   $size: 16px;
   @include inline-block;
-  background-image: url("/jqface/images/icons.png");
+  background-image: url("../images/icons.png");
   height: $size;
   line-height: 1;
   overflow: hidden;
@@ -448,7 +448,7 @@ $background-position-y: -16px;
 
 .jqf-rating-star {
   @include inline-block;
-  background-image: url("/jqface/images/rating.png");
+  background-image: url("../images/rating.png");
   cursor: pointer;
   height: 24px;
   width: 18px;
@@ -530,7 +530,7 @@ $background-position-y: -16px;
 
 .jqf-wait-frame {
   @include border-radius;
-  background: url("/jqface/images/wait.gif") 10px center no-repeat;
+  background: url("../images/wait.gif") 10px center no-repeat;
   background-color: rgba(0, 0, 0, 0.75);
   color: $color-text-active;
   display: none;
