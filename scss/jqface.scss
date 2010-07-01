@@ -95,7 +95,6 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   border-color: $color-border;
   color: $color-text;
   cursor: pointer;
-  line-height: 16px;
   overflow: visible;
   padding: 5px 10px;
   text-align: center;
@@ -114,7 +113,7 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
     text-decoration: none;
   }
   &::-moz-focus-inner {
-    border-color: transparent;
+    border: 0;
     padding: 0;
   }
 }

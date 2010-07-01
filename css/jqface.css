@@ -21,7 +21,6 @@
   border-color: #d8d8d8;
   color: black;
   cursor: pointer;
-  line-height: 16px;
   overflow: visible;
   padding: 5px 10px;
   text-align: center;
@@ -42,7 +41,7 @@
     color: black;
     text-decoration: none; }
   .jqf-button::-moz-focus-inner {
-    border-color: transparent;
+    border: 0;
     padding: 0; }
 
 .jqf-drawers {
@@ -67,7 +66,6 @@
   border-color: #d8d8d8;
   color: black;
   cursor: pointer;
-  line-height: 16px;
   overflow: visible;
   padding: 5px 10px;
   text-align: center;
@@ -94,7 +92,7 @@
     color: black;
     text-decoration: none; }
   .jqf-drawer-handle::-moz-focus-inner {
-    border-color: transparent;
+    border: 0;
     padding: 0; }
 
 .jqf-drawer-handle.jqf-active, .jqf-tabs .jqf-drawer-handle.jqf-tab.jqf-active, .jqf-drawer-handle:active {
@@ -265,7 +263,6 @@
     border-color: #d8d8d8;
     color: black;
     cursor: pointer;
-    line-height: 16px;
     overflow: visible;
     padding: 5px 10px;
     text-align: center;
@@ -287,7 +284,7 @@
       color: black;
       text-decoration: none; }
     .jqf-tabs .jqf-tab::-moz-focus-inner {
-      border-color: transparent;
+      border: 0;
       padding: 0; }
   .jqf-tabs .jqf-first {
     -moz-border-radius-bottomleft: 5px;
@@ -754,7 +751,6 @@
     border-color: #d8d8d8;
     color: black;
     cursor: pointer;
-    line-height: 16px;
     overflow: visible;
     padding: 5px 10px;
     text-align: center;
@@ -781,7 +777,7 @@
       color: black;
       text-decoration: none; }
     .jqf-window-frame .jqf-window-handle::-moz-focus-inner {
-      border-color: transparent;
+      border: 0;
       padding: 0; }
     .jqf-window-frame .jqf-window-handle .jqf-window-title {
       display: -moz-inline-box;
