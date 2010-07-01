@@ -87,16 +87,23 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
 }
 
 @mixin input {
+  $size: 26px;
   @include border;
   @include font;
   @include gradient-outset;
   @include inline-block;
   background-color: $color;
   border-color: $color-border;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   color: $color-text;
   cursor: pointer;
+  height: $size;
+  line-height: $size;
   overflow: visible;
-  padding: 5px 10px;
+  padding: 0 10px;
   text-align: center;
   text-decoration: none;
   text-shadow: $text-shadow;
@@ -331,8 +338,8 @@ $text-shadow-active: $color-active * 0.5 0 -1px 1px;
   $size: 16px;
   @include inline-block;
   background-image: url("../images/icons.png");
+  font-size: 0;
   height: $size;
-  line-height: 1;
   overflow: hidden;
   vertical-align: middle;
   width: $size;
