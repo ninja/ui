@@ -251,6 +251,7 @@
         overflow: hidden;
         padding: 5px;
         text-align: left;
+        vertical-align: top;
         white-space: normal; }
 
 .jqf-folders {
