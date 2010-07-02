@@ -49,7 +49,6 @@
   }
   .jqf-view {
     @include border($color);
-    @include border-radius-bottom;
     background-color: $color;
     border-top: none;
     display: block;
@@ -64,16 +63,12 @@
       top: 0;
       white-space: nowrap;
       .jqf-frame {
-        @include border($color);
-        @include border-radius;
-        @include gradient(outset, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.05), bottom);
         @include inline-block;
+        border-right: 1px solid $color * 0.85;
         font-size: 11px;
         overflow: hidden;
         padding: 5px;
-        margin: 5px 0 5px 5px;
         text-align: left;
-        vertical-align: middle;
         white-space: normal;
       }
     }

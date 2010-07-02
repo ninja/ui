@@ -224,15 +224,15 @@
       });
       var view = $(filmstrip).find('> .jqf-view');
       var reel = $(view).find('> .jqf-reel');
-      var frameOuterHeight = options.frameHeight + 22;
-      var frameOuterWidth = options.frameWidth + 17;
+      var frameOuterHeight = options.frameHeight + 10;
+      var frameOuterWidth = options.frameWidth + 11;
       $(reel).height(frameOuterHeight + 'px');
-      $(view).height(frameOuterHeight + 'px').width((frameOuterWidth * options.show) + 5 + 'px');
+      $(view).height(frameOuterHeight + 'px').width((frameOuterWidth * options.show) - 1 + 'px');
       var pages = Math.ceil($(frameArray).length / options.show);
       var currentPage = 1;
       $(filmstrip).prepend('<span class="jqf-bar"><button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>' + options.title + '<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button></span>');
       var bar = $(filmstrip).find('> .jqf-bar');
-      $(bar).width((frameOuterWidth * options.show) + 5 + 'px');
+      $(bar).width((frameOuterWidth * options.show) - 1 + 'px');
       $('button.back', this).click(function () {
         if(currentPage == 1){
           $(reel).animate({left: '-=' + (frameOuterWidth * options.show * (pages -1))});

@@ -228,12 +228,6 @@
       top: 0; }
   .jqf-filmstrip .jqf-view {
     border: 1px solid #d8d8d8;
-    -moz-border-radius-bottomleft: 6px;
-    -webkit-border-bottom-left-radius: 6px;
-    border-radius-bottom-left: 6px;
-    -moz-border-radius-bottomright: 6px;
-    -webkit-border-bottom-right-radius: 6px;
-    border-radius-bottom-right: 6px;
     background-color: white;
     border-top: none;
     display: block;
@@ -248,25 +242,15 @@
       top: 0;
       white-space: nowrap; }
       .jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
-        border: 1px solid #d8d8d8;
-        -moz-border-radius: 6px;
-        -webkit-border-radius: 6px;
-        border-radius: 6px;
-        background-image: url("../images/gradient-outset.png");
-        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.05));
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.05)));
-        background-position: bottom center;
-        background-repeat: repeat-x;
         display: -moz-inline-box;
         display: inline-block;
         *display: inline;
         zoom: 1;
+        border-right: 1px solid #d8d8d8;
         font-size: 11px;
         overflow: hidden;
         padding: 5px;
-        margin: 5px 0 5px 5px;
         text-align: left;
-        vertical-align: middle;
         white-space: normal; }
 
 .jqf-folders {
