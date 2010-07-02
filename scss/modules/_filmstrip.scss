@@ -4,22 +4,31 @@
   margin: 10px 0;
   white-space: nowrap;
   .jqf-bar {
+    @include gradient-outset;
+    $size: 26px;
     @include border($color);
+    @include border-radius(0);
     @include border-radius-top;
-    @include text-overflow;
+    @include box-sizing;
     @include font;
     @include gradient-outset;
+    @include text-overflow;
+    @include text-shadow;
     background-color: $color;
     color: $color-text;
     display: block;
-    line-height: 16px;
-    padding: 5px 0;
+    height: $size;
+    line-height: $size;
     position: relative;
-    text: {
-      align: center;
-      shadow: white 0 1px 1px;
-    }
+    text-align: center;
     vertical-align: middle;
+    white-space: nowrap;
+    &:focus {
+      outline: 0;
+    }
+    .jqf-icon {
+      margin: 5px 0;
+    }
     .jqf-button {
       margin: -1px;
     }
@@ -41,9 +50,9 @@
   .jqf-view {
     @include border($color);
     @include border-radius-bottom;
-    @include inline-block;
     background-color: $color;
     border-top: none;
+    display: block;
     overflow: hidden;
     position: relative;
     vertical-align: middle;

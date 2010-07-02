@@ -21,17 +21,18 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
+  text-shadow: white 0 1px 1px;
   background-color: white;
   color: black;
   cursor: pointer;
   height: 26px;
   line-height: 26px;
+  outline: 0;
   overflow: visible;
   padding: 0 10px;
   position: relative;
   text-align: center;
   text-decoration: none;
-  text-shadow: white 0 1px 1px;
   vertical-align: middle;
   white-space: nowrap;
   margin: 0 5px 10px 0; }
@@ -73,17 +74,18 @@
     display: inline-block;
     *display: inline;
     zoom: 1;
+    text-shadow: white 0 1px 1px;
     background-color: white;
     color: black;
     cursor: pointer;
     height: 26px;
     line-height: 26px;
+    outline: 0;
     overflow: visible;
     padding: 0 10px;
     position: relative;
     text-align: center;
     text-decoration: none;
-    text-shadow: white 0 1px 1px;
     vertical-align: middle;
     white-space: nowrap;
     -moz-user-select: none;
@@ -158,17 +160,25 @@
   margin: 10px 0;
   white-space: nowrap; }
   .jqf-filmstrip .jqf-bar {
+    background-image: url("../images/gradient-outset.png");
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+    background-position: bottom center;
+    background-repeat: repeat-x;
     border: 1px solid #d8d8d8;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     border-radius-top-left: 6px;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     border-radius-top-right: 6px;
-    overflow: hidden;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    -ms-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
     background-image: url("../images/gradient-outset.png");
@@ -176,15 +186,24 @@
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
     background-position: bottom center;
     background-repeat: repeat-x;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: white 0 1px 1px;
     background-color: white;
     color: black;
     display: block;
-    line-height: 16px;
-    padding: 5px 0;
+    height: 26px;
+    line-height: 26px;
     position: relative;
     text-align: center;
-    text-shadow: white 0 1px 1px;
-    vertical-align: middle; }
+    vertical-align: middle;
+    white-space: nowrap; }
+    .jqf-filmstrip .jqf-bar:focus {
+      outline: 0; }
+    .jqf-filmstrip .jqf-bar .jqf-icon {
+      margin: 5px 0; }
     .jqf-filmstrip .jqf-bar .jqf-button {
       margin: -1px; }
     .jqf-filmstrip .jqf-bar .back {
@@ -215,12 +234,9 @@
     -moz-border-radius-bottomright: 6px;
     -webkit-border-bottom-right-radius: 6px;
     border-radius-bottom-right: 6px;
-    display: -moz-inline-box;
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
     background-color: white;
     border-top: none;
+    display: block;
     overflow: hidden;
     position: relative;
     vertical-align: middle; }
@@ -498,17 +514,18 @@
       display: inline-block;
       *display: inline;
       zoom: 1;
+      text-shadow: white 0 1px 1px;
       background-color: white;
       color: black;
       cursor: pointer;
       height: 26px;
       line-height: 26px;
+      outline: 0;
       overflow: visible;
       padding: 0 10px;
       position: relative;
       text-align: center;
       text-decoration: none;
-      text-shadow: white 0 1px 1px;
       vertical-align: middle;
       white-space: nowrap;
       background: none;
@@ -691,17 +708,18 @@
     display: inline-block;
     *display: inline;
     zoom: 1;
+    text-shadow: white 0 1px 1px;
     background-color: white;
     color: black;
     cursor: pointer;
     height: 26px;
     line-height: 26px;
+    outline: 0;
     overflow: visible;
     padding: 0 10px;
     position: relative;
     text-align: center;
     text-decoration: none;
-    text-shadow: white 0 1px 1px;
     vertical-align: middle;
     white-space: nowrap;
     margin: 0;
@@ -825,17 +843,18 @@
     display: inline-block;
     *display: inline;
     zoom: 1;
+    text-shadow: white 0 1px 1px;
     background-color: white;
     color: black;
     cursor: pointer;
     height: 26px;
     line-height: 26px;
+    outline: 0;
     overflow: visible;
     padding: 0 10px;
     position: relative;
     text-align: center;
     text-decoration: none;
-    text-shadow: white 0 1px 1px;
     vertical-align: middle;
     white-space: nowrap;
     -moz-user-select: none;
@@ -893,16 +912,16 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
   background-position: top center;
   background-repeat: repeat-x;
+  text-shadow: #7f4c00 0 -1px 1px;
   background-color: #ff9900;
-  color: white;
-  text-shadow: #404040 0 -1px 1px; }
+  color: white; }
   .jqf-active:hover, .jqf-drawers .jqf-drawer-handle.jqf-active:hover, .jqf-tabs .jqf-tab.jqf-active:hover {
     color: white; }
 
 .jqf-submit, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
   border: 1px solid #d88200;
+  text-shadow: #7f4c00 0 -1px 1px;
   background-color: #ff9900;
-  color: white;
-  text-shadow: #404040 0 -1px 1px; }
+  color: white; }
   .jqf-submit:hover, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
     color: white; }

@@ -23,9 +23,9 @@ $color-active: #f90;
 .jqf-active {
   @include border($color-active);
   @include gradient-inset;
+  @include text-shadow-active;
   background-color: $color-active;
   color: $color-text-active;
-  text-shadow: $text-shadow-active;
   &:hover {
     color: $color-text-active;
   }
@@ -33,9 +33,9 @@ $color-active: #f90;
 
 .jqf-submit {
   @include border($color-active);
+  @include text-shadow-active;
   background-color: $color-active;
   color: $color-text-active;
-  text-shadow: $text-shadow-active;
   &:hover {
     color: $color-text-active;
   }

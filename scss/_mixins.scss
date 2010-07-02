@@ -96,18 +96,19 @@
   @include font;
   @include gradient-outset;
   @include inline-block;
+  @include text-shadow;
   background-color: $color;
   color: $color-text;
   cursor: pointer;
   height: $size;
   line-height: $size;
+  outline: 0;
   overflow: visible;
   padding: 0 10px;
   position: relative;
   text: {
     align: center;
     decoration: none;
-    shadow: $text-shadow;
   }
   vertical-align: middle;
   white-space: nowrap;
@@ -128,6 +129,13 @@
   .jqf-icon {
     margin: 5px 0;
   }
+}
+
+@mixin text-shadow {
+  text-shadow: $color 0 1px 1px;
+}
+@mixin text-shadow-active {
+  text-shadow: $color-active * 0.5 0 -1px 1px;
 }
 
 @mixin user-select($type: none) {

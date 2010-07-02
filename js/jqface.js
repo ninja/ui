@@ -224,14 +224,15 @@
       });
       var view = $(filmstrip).find('> .jqf-view');
       var reel = $(view).find('> .jqf-reel');
-      var firstFrame = $(reel).find('> :first-child.jqf-frame');
-      var frameOuterHeight = $(firstFrame).outerHeight(true);
-      var frameOuterWidth = $(firstFrame).outerWidth(true);
-      $(reel).css('height', (frameOuterHeight) + 'px');
-      $(view).css('height', (frameOuterHeight) + 'px').css('width', (frameOuterWidth) * options.show + 5 + 'px');
+      var frameOuterHeight = options.frameHeight + 22;
+      var frameOuterWidth = options.frameWidth + 17;
+      $(reel).height(frameOuterHeight + 'px');
+      $(view).height(frameOuterHeight + 'px').width((frameOuterWidth * options.show) + 5 + 'px');
       var pages = Math.ceil($(frameArray).length / options.show);
       var currentPage = 1;
       $(filmstrip).prepend('<span class="jqf-bar"><button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>' + options.title + '<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button></span>');
+      var bar = $(filmstrip).find('> .jqf-bar');
+      $(bar).width((frameOuterWidth * options.show) + 5 + 'px');
       $('button.back', this).click(function () {
         if(currentPage == 1){
           $(reel).animate({left: '-=' + (frameOuterWidth * options.show * (pages -1))});
