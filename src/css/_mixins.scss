@@ -1,3 +1,7 @@
+@mixin background-color($color) {
+  background-color: $color;
+}
+
 @mixin border($color) {
   border: 1px solid $color * 0.85;
 }
