@@ -15,7 +15,7 @@
 
 .jqf-rating-star {
   @include inline-block;
-  background-image: url("../images/rating.png");
+  background-image: url("#{$image-path}/rating.png");
   cursor: pointer;
   height: 24px;
   width: 18px;

@@ -650,7 +650,7 @@
         -moz-user-select: none;
         -webkit-user-select: none;
         user-select: none;
-        background-color: #ff9900;
+        background-color: #999999;
         display: block;
         height: 8px;
         left: 1px;
@@ -891,22 +891,22 @@
     height: 30px; }
 
 .jqf-active, .jqf-drawers .jqf-drawer-handle.jqf-active, .jqf-tabs .jqf-tab.jqf-active {
-  border: 1px solid #d88200;
+  border: 1px solid #828282;
   background-image: url("../images/gradient-inset.png");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
   background-position: top center;
   background-repeat: repeat-x;
-  text-shadow: #7f4c00 0 -1px 1px;
-  background-color: #ff9900;
+  text-shadow: #4c4c4c 0 -1px 1px;
+  background-color: #999999;
   color: white; }
   .jqf-active:hover, .jqf-drawers .jqf-drawer-handle.jqf-active:hover, .jqf-tabs .jqf-tab.jqf-active:hover {
     color: white; }
 
 .jqf-submit, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
-  border: 1px solid #d88200;
-  text-shadow: #7f4c00 0 -1px 1px;
-  background-color: #ff9900;
+  border: 1px solid #828282;
+  text-shadow: #4c4c4c 0 -1px 1px;
+  background-color: #999999;
   color: white; }
   .jqf-submit:hover, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
     color: white; }

@@ -2,7 +2,7 @@
   $size: 16px;
   @include box-sizing;
   @include inline-block;
-  background-image: url("../images/icons.png");
+  background-image: url("#{$image-path}/icons.png");
   font-size: 0;
   height: $size;
   line-height: $size;
