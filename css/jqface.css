@@ -1,6 +1,54 @@
 .jqf {
   display: none; }
 
+.jqf-bar, .jqf-panel .jqf-bar {
+  background-image: url("../images/gradient-outset.png");
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  border: 1px solid #d8d8d8;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-radius-top-left: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-radius-top-right: 6px;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-size: 12px;
+  background-image: url("../images/gradient-outset.png");
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+  background-position: bottom center;
+  background-repeat: repeat-x;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: white 0 1px 1px;
+  background-color: white;
+  color: black;
+  display: block;
+  height: 26px;
+  line-height: 26px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap; }
+  .jqf-bar:focus, .jqf-panel .jqf-bar:focus {
+    outline: 0; }
+  .jqf-bar .jqf-icon, .jqf-panel .jqf-bar .jqf-icon {
+    margin: 5px 0; }
+  .jqf-bar .jqf-button, .jqf-panel .jqf-bar .jqf-button {
+    margin: -1px; }
+
 .jqf-button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -159,73 +207,26 @@
   zoom: 1;
   margin: 10px 0;
   white-space: nowrap; }
-  .jqf-filmstrip .jqf-bar {
-    background-image: url("../images/gradient-outset.png");
-    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
-    background-position: bottom center;
-    background-repeat: repeat-x;
-    border: 1px solid #d8d8d8;
+  .jqf-filmstrip .jqf-bar .back, .jqf-filmstrip .jqf-panel .jqf-bar .back, .jqf-panel .jqf-filmstrip .jqf-bar .back {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     border-radius-top-left: 6px;
+    left: 0;
+    position: absolute;
+    top: 0; }
+  .jqf-filmstrip .jqf-bar .forward, .jqf-filmstrip .jqf-panel .jqf-bar .forward, .jqf-panel .jqf-filmstrip .jqf-bar .forward {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     border-radius-top-right: 6px;
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-    font-size: 12px;
-    background-image: url("../images/gradient-outset.png");
-    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
-    background-position: bottom center;
-    background-repeat: repeat-x;
-    overflow: hidden;
-    -o-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-shadow: white 0 1px 1px;
-    background-color: white;
-    color: black;
-    display: block;
-    height: 26px;
-    line-height: 26px;
-    position: relative;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap; }
-    .jqf-filmstrip .jqf-bar:focus {
-      outline: 0; }
-    .jqf-filmstrip .jqf-bar .jqf-icon {
-      margin: 5px 0; }
-    .jqf-filmstrip .jqf-bar .jqf-button {
-      margin: -1px; }
-    .jqf-filmstrip .jqf-bar .back {
-      -moz-border-radius: 0;
-      -webkit-border-radius: 0;
-      border-radius: 0;
-      -moz-border-radius-topleft: 6px;
-      -webkit-border-top-left-radius: 6px;
-      border-radius-top-left: 6px;
-      left: 0;
-      position: absolute;
-      top: 0; }
-    .jqf-filmstrip .jqf-bar .forward {
-      -moz-border-radius: 0;
-      -webkit-border-radius: 0;
-      border-radius: 0;
-      -moz-border-radius-topright: 6px;
-      -webkit-border-top-right-radius: 6px;
-      border-radius-top-right: 6px;
-      position: absolute;
-      right: 0;
-      top: 0; }
+    position: absolute;
+    right: 0;
+    top: 0; }
   .jqf-filmstrip .jqf-view {
     border: 1px solid #d8d8d8;
     background-color: white;
@@ -553,6 +554,26 @@
         -moz-border-radius-bottomright: 6px;
         -webkit-border-bottom-right-radius: 6px;
         border-radius-bottom-right: 6px; }
+
+.jqf-panel {
+  background-color: white;
+  border: 1px solid #d8d8d8;
+  -moz-border-radius-topleft: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-radius-top-left: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-radius-top-right: 6px;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-size: 12px;
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 10px;
+  margin: 0 10px 10px 0; }
+  .jqf-panel .jqf-bar, .jqf-panel .jqf-bar {
+    margin: -11px -11px 10px -11px; }
 
 .jqf-rating {
   display: -moz-inline-box;

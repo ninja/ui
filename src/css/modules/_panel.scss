@@ -1,0 +1,13 @@
+.jqf-panel {
+  @include background-color;
+  @include border;
+  @include border-radius-top;
+  @include font;
+  @include inline-block;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  .jqf-bar {
+    @extend .jqf-bar;
+    margin: -11px -11px 10px -11px;
+  }
+}

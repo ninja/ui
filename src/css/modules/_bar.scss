@@ -1,0 +1,30 @@
+.jqf-bar {
+  @include gradient-outset;
+  $size: 26px;
+  @include border($color);
+  @include border-radius(0);
+  @include border-radius-top;
+  @include box-sizing;
+  @include font;
+  @include gradient-outset;
+  @include text-overflow;
+  @include text-shadow;
+  background-color: $color;
+  color: $color-text;
+  display: block;
+  height: $size;
+  line-height: $size;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  &:focus {
+    outline: 0;
+  }
+  .jqf-icon {
+    margin: 5px 0;
+  }
+  .jqf-button {
+    margin: -1px;
+  }
+}

@@ -8,12 +8,14 @@ $color-active: #999;
   display: none;
 }
 
+@import 'modules/bar';
 @import 'modules/button';
 @import 'modules/drawers';
 @import 'modules/filmstrip';
 @import 'modules/folders';
 @import 'modules/icons';
 @import 'modules/menu';
+@import 'modules/panel';
 @import 'modules/rating';
 @import 'modules/slider';
 @import 'modules/tabs';
