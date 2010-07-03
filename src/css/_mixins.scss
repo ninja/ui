@@ -58,7 +58,7 @@
 
 @mixin gradient($type: outset, $color-top: rgba(255, 255, 255, 0.25), $color-bottom: rgba(0, 0, 0, 0.125), $direction: bottom) {
   background: {
-    image: url("../images/gradient-#{$type}.png");
+    image: url("#{$image-path}/gradient-#{$type}.png");
     image: -moz-linear-gradient(top, $color-top, $color-bottom);
     image: -webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
     position: $direction center;
