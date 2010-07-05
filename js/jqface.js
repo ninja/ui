@@ -399,7 +399,7 @@
       '</span>');
       $(select).wrap('<span class="jqf-bevel"/>');
       if(touchDevice) {
-        $(select).css('width', width + 'px').change(function() {
+        $(select).css('width', width + 'px').show().change(function() {
           options.onStop.call($(':selected', select));
         });
       }
