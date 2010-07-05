@@ -393,7 +393,7 @@
     return this.each(function(i, select) {
       var selectArray = $('option', select);
       var width = selectArray.length * options.unit;
-      var touchDevice = navigator.userAgent.toLowerCase().match(/(safari|iphone|ipod|ipad)/);
+      var touchDevice = navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad)/);
       $(select).wrap('<span class="jqf-slider" id="jqf-slider-' + $(select).attr('id') + '">' +
         '<span class="jqf-label">' + $(select).attr('title') + '</span>' +
       '</span>');
