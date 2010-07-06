@@ -52,11 +52,15 @@
       }, customOptions);
       var overlayMiddleHorizontal = parseInt($(options.overlay).width() / 2);
       var top = $(window).scrollTop();
+      var overlayHeight = $(options.overlay).height();
       if(top > 0) {
-        var overlayMiddleVertical = parseInt(($(options.overlay).height() / 2) + top);
+        var overlayMiddleVertical = parseInt((overlayHeight / 2) + top);
+      }
+      else if(overlayHeight > $(window).height()) {
+        var overlayMiddleVertical = parseInt($(window).height() / 2);
       }
       else {
-        var overlayMiddleVertical = parseInt($(options.overlay).height() / 2 + 28);
+        var overlayMiddleVertical = parseInt(overlayHeight / 2);
       }
       var frameMiddleHorizontal = parseInt($(options.frame).innerWidth() / 2);
       var frameMiddleVertical = parseInt($(options.frame).innerHeight() / 2);
