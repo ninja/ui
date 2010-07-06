@@ -213,6 +213,7 @@
     var options = $.extend({
       frameHeight:100,
       frameWidth:100,
+      seconds:0,
       show:3,
       title:''
     }, customOptions);
@@ -233,7 +234,7 @@
       $(filmstrip).prepend('<span class="jqf-bar"><button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>' + options.title + '<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button></span>');
       var bar = $(filmstrip).find('> .jqf-bar');
       $(bar).width((frameOuterWidth * options.show) - 1 + 'px');
-      $('button.back', this).click(function () {
+      $('button.back', filmstrip).click(function () {
         if(currentPage == 1){
           $(reel).animate({left: '-=' + (frameOuterWidth * options.show * (pages -1))});
           currentPage = pages;
@@ -243,7 +244,7 @@
           --currentPage;
         }
       });
-      $('button.forward', this).click(function () {
+      $('button.forward', filmstrip).click(function () {
         if(currentPage == pages){
           $(reel).animate({left:0});
           currentPage = 1;    
@@ -253,6 +254,18 @@
           ++currentPage;
         }
       });
+      if(options.seconds > 0) {
+        var milliseconds = options.seconds * 1000;
+        var page = 0;
+        (function advance() {
+          setTimeout(function() {
+            if (page++ < pages) {
+              $('button.forward', filmstrip).click();
+              advance();
+            }
+          }, milliseconds);
+        })();
+      }
     });
   };// End Filmstrip
 
