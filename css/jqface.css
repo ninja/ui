@@ -321,7 +321,6 @@
   color: black;
   display: none;
   margin-bottom: 10px;
-  min-height: 180px;
   width: inherit; }
 
 .jqf-icon {
@@ -570,6 +569,7 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
+  color: black;
   padding: 10px;
   margin: 0 10px 10px 0; }
   .jqf-panel .jqf-bar, .jqf-panel .jqf-bar {

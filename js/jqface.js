@@ -281,11 +281,15 @@
       });
       $(folders).addClass('jqf jqf-folders jqf-' + options.direction).prepend('<div class="jqf-tabs"></div>');
       var tabs = $('.jqf-tabs', folders);
-      $('.jqf-folder', folders).each(function(i, folder) {
+      var folderArray = $('.jqf-folder', folders);
+      $(folderArray).each(function(i, folder) {
         $(tabs).append('<span class="jqf-tab">' + $(folder).attr('title') + '</span>')
       });
       $('.jqf-tab:first-child', tabs).addClass('jqf-first');
       $('.jqf-tab:last-child', tabs).addClass('jqf-last');
+      $(folderArray).each(function(i, folder) {
+        $(folder).css('min-height', $(tabs).height());
+      });
       $('.jqf-tab', tabs).each(function(i, tab) {
         $(tab).click(function() {
           $.jqf.folderToggle(i, folders);

@@ -4,6 +4,7 @@
   @include border-radius-top;
   @include font;
   @include inline-block;
+  color: $color-text;
   padding: 10px;
   margin: 0 10px 10px 0;
   .jqf-bar {
