@@ -139,8 +139,8 @@
       }, customOptions);
       $(document.body).append('<div class="jqf-window"></div>' +
         '<div class="jqf jqf-window-frame">' +
-          '<div class="jqf-window-handle"><span class="jqf-window-title">' +
-            options.title + '</span><span class="jqf-icon jqf-icon-close jqf-window-close"></span>' +
+          '<div class="jqf-bar"><span class="jqf-window-title">' +
+            options.title + '</span><button class="jqf-button jqf-window-close"><span class="jqf-icon jqf-icon-close"></span></button>' +
           '</div>' +
           '<div class="jqf-window-content"></div>' +
           '<div class="jqf-window-reflection"></div>' +

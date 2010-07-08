@@ -1,7 +1,7 @@
 .jqf {
   display: none; }
 
-.jqf-bar, .jqf-panel .jqf-bar {
+.jqf-bar, .jqf-panel .jqf-bar, .jqf-window-frame .jqf-bar {
   background-image: url("../images/gradient-outset.png");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
@@ -42,11 +42,11 @@
   text-align: center;
   vertical-align: middle;
   white-space: nowrap; }
-  .jqf-bar:focus, .jqf-panel .jqf-bar:focus {
+  .jqf-bar:focus, .jqf-panel .jqf-bar:focus, .jqf-window-frame .jqf-bar:focus {
     outline: 0; }
-  .jqf-bar .jqf-icon, .jqf-panel .jqf-bar .jqf-icon {
+  .jqf-bar .jqf-icon, .jqf-panel .jqf-bar .jqf-icon, .jqf-window-frame .jqf-bar .jqf-icon {
     margin: 5px 0; }
-  .jqf-bar .jqf-button, .jqf-panel .jqf-bar .jqf-button {
+  .jqf-bar .jqf-button, .jqf-panel .jqf-bar .jqf-button, .jqf-window-frame .jqf-bar .jqf-button {
     margin: -1px; }
 
 .jqf-button {
@@ -207,7 +207,7 @@
   zoom: 1;
   margin: 10px 0;
   white-space: nowrap; }
-  .jqf-filmstrip .jqf-bar .back, .jqf-filmstrip .jqf-panel .jqf-bar .back, .jqf-panel .jqf-filmstrip .jqf-bar .back {
+  .jqf-filmstrip .jqf-bar .back, .jqf-filmstrip .jqf-panel .jqf-bar .back, .jqf-panel .jqf-filmstrip .jqf-bar .back, .jqf-filmstrip .jqf-window-frame .jqf-bar .back, .jqf-window-frame .jqf-filmstrip .jqf-bar .back {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -217,7 +217,7 @@
     left: 0;
     position: absolute;
     top: 0; }
-  .jqf-filmstrip .jqf-bar .forward, .jqf-filmstrip .jqf-panel .jqf-bar .forward, .jqf-panel .jqf-filmstrip .jqf-bar .forward {
+  .jqf-filmstrip .jqf-bar .forward, .jqf-filmstrip .jqf-panel .jqf-bar .forward, .jqf-panel .jqf-filmstrip .jqf-bar .forward, .jqf-filmstrip .jqf-window-frame .jqf-bar .forward, .jqf-window-frame .jqf-filmstrip .jqf-bar .forward {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -409,6 +409,9 @@
 .jqf-icon-people {
   background-position: 0 -352px; }
 
+.jqf-icon-mail {
+  background-position: 0 -368px; }
+
 .jqf-active .jqf-icon-up, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-up, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-up, .jqf-submit .jqf-icon-up, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-up {
   background-position: -16px 0; }
 .jqf-active .jqf-icon-right, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-right, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-right, .jqf-submit .jqf-icon-right, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-right {
@@ -453,6 +456,8 @@
   background-position: -16px -320px; }
 .jqf-active .jqf-icon-people, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-people, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-people, .jqf-submit .jqf-icon-people, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-people {
   background-position: -16px -352px; }
+.jqf-active .jqf-icon-mail, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-mail, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-mail, .jqf-submit .jqf-icon-mail, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-mail {
+  background-position: -16px -368px; }
 
 .jqf-menu {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
@@ -572,7 +577,7 @@
   color: black;
   padding: 10px;
   margin: 0 10px 10px 0; }
-  .jqf-panel .jqf-bar, .jqf-panel .jqf-bar {
+  .jqf-panel .jqf-bar, .jqf-panel .jqf-bar, .jqf-panel .jqf-window-frame .jqf-bar, .jqf-window-frame .jqf-panel .jqf-bar {
     margin: -11px -11px 10px -11px; }
 
 .jqf-rating {
@@ -810,106 +815,43 @@
   width: 100%; }
 
 .jqf-window-frame {
-  -moz-border-radius-bottomleft: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  border-radius-bottom-left: 6px;
-  -moz-border-radius-bottomright: 6px;
-  -webkit-border-bottom-right-radius: 6px;
-  border-radius-bottom-right: 6px;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-  font-size: 12px;
-  background-color: white;
-  color: black;
   display: none;
-  max-width: 800px;
-  min-height: 180px;
-  min-width: 360px;
   position: absolute;
   z-index: 999; }
-  .jqf-window-frame .jqf-window-handle {
-    -moz-border-radius-topleft: 6px;
-    -webkit-border-top-left-radius: 6px;
-    border-radius-top-left: 6px;
-    -moz-border-radius-topright: 6px;
-    -webkit-border-top-right-radius: 6px;
-    border-radius-top-right: 6px;
-    border: 1px solid #d8d8d8;
-    -ms-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-    font-size: 12px;
-    background-image: url("../images/gradient-outset.png");
-    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
-    background-position: bottom center;
-    background-repeat: repeat-x;
+  .jqf-window-frame .jqf-bar .jqf-window-title, .jqf-window-frame .jqf-panel .jqf-bar .jqf-window-title, .jqf-panel .jqf-window-frame .jqf-bar .jqf-window-title, .jqf-window-frame .jqf-bar .jqf-window-title {
     display: -moz-inline-box;
     display: inline-block;
     *display: inline;
     zoom: 1;
-    text-shadow: white 0 1px 1px;
-    background-color: white;
-    color: black;
-    cursor: pointer;
-    height: 26px;
-    line-height: 26px;
-    outline: 0;
-    overflow: visible;
-    padding: 0 10px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: -28px; }
-    .jqf-window-frame .jqf-window-handle:active {
-      background-image: url("../images/gradient-inset.png");
-      background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
-      background-position: top center;
-      background-repeat: repeat-x; }
-    .jqf-window-frame .jqf-window-handle:focus {
-      outline: 0; }
-    .jqf-window-frame .jqf-window-handle:hover {
-      color: black;
-      text-decoration: none; }
-    .jqf-window-frame .jqf-window-handle::-moz-focus-inner {
-      border: 0;
-      padding: 0; }
-    .jqf-window-frame .jqf-window-handle .jqf-icon {
-      margin: 5px 0; }
-    .jqf-window-frame .jqf-window-handle .jqf-window-title {
-      display: -moz-inline-box;
-      display: inline-block;
-      *display: inline;
-      zoom: 1;
-      margin-right: 20px; }
-    .jqf-window-frame .jqf-window-handle .jqf-icon-close {
-      cursor: pointer;
-      margin-left: 5px;
-      position: absolute;
-      right: 10px;
-      top: 0; }
-  .jqf-window-frame .jqf-window-content {
-    padding: 10px; }
-  .jqf-window-frame .jqf-window-reflection {
-    -moz-border-radius-topleft: 6px;
-    -webkit-border-top-left-radius: 6px;
-    border-radius-top-left: 6px;
+    margin-right: 20px; }
+  .jqf-window-frame .jqf-bar .jqf-window-close, .jqf-window-frame .jqf-panel .jqf-bar .jqf-window-close, .jqf-panel .jqf-window-frame .jqf-bar .jqf-window-close, .jqf-window-frame .jqf-bar .jqf-window-close {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     border-radius-top-right: 6px;
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .jqf-window-frame .jqf-window-content {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    max-width: 800px;
+    min-height: 180px;
+    min-width: 360px;
+    overflow: auto;
+    padding: 10px; }
+  .jqf-window-frame .jqf-window-reflection {
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-    height: 30px; }
+    height: 30px;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%; }
 
 .jqf-active, .jqf-drawers .jqf-drawer-handle.jqf-active, .jqf-tabs .jqf-tab.jqf-active {
   border: 1px solid #565656;
