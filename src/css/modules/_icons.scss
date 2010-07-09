@@ -34,6 +34,7 @@
 .jqf-icon-refresh { background-position: $background-position-x $background-position-y * 21; }
 .jqf-icon-people { background-position: $background-position-x $background-position-y * 22; }
 .jqf-icon-mail { background-position: $background-position-x $background-position-y * 23; }
+.jqf-icon-star { background-position: $background-position-x $background-position-y * 24; }
 .jqf-active, .jqf-submit {
   $background-position-x: -16px;
   .jqf-icon-up { background-position: $background-position-x 0; }
@@ -59,4 +60,5 @@
   .jqf-icon-movie { background-position: $background-position-x $background-position-y * 20; }
   .jqf-icon-people { background-position: $background-position-x $background-position-y * 22; }
   .jqf-icon-mail { background-position: $background-position-x $background-position-y * 23; }
+  .jqf-icon-star { background-position: $background-position-x $background-position-y * 24; }
 }
