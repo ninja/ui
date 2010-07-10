@@ -412,6 +412,9 @@
 .jqf-icon-mail {
   background-position: 0 -368px; }
 
+.jqf-icon-star {
+  background-position: 0 -384px; }
+
 .jqf-active .jqf-icon-up, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-up, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-up, .jqf-submit .jqf-icon-up, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-up {
   background-position: -16px 0; }
 .jqf-active .jqf-icon-right, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-right, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-right, .jqf-submit .jqf-icon-right, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-right {
@@ -458,6 +461,8 @@
   background-position: -16px -352px; }
 .jqf-active .jqf-icon-mail, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-mail, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-mail, .jqf-submit .jqf-icon-mail, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-mail {
   background-position: -16px -368px; }
+.jqf-active .jqf-icon-star, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-star, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-star, .jqf-submit .jqf-icon-star, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-star {
+  background-position: -16px -384px; }
 
 .jqf-menu {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
