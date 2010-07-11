@@ -1,4 +1,4 @@
-(function($) { // Begin jqFace
+(function($) { // Begin Ninja ui
 
   $.jqf = { // Begin Functions
     drawerClose: function(drawer){
