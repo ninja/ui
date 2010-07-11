@@ -1,4 +1,4 @@
-.jqf-window {
+.nui-window {
   background-color: black;
   height: 100%;
   left: 0;
@@ -9,16 +9,16 @@
   width: 100%;
 }
 
-.jqf-window-frame {
+.nui-window-frame {
   display: none;
   position: absolute;
   z-index: 999;
-  .jqf-bar {
-    @extend .jqf-bar;
-    .jqf-window-title {
+  .nui-bar {
+    @extend .nui-bar;
+    .nui-window-title {
       @include inline-block;
       margin-right: 20px; }
-    .jqf-window-close {
+    .nui-window-close {
       @include border-radius(0);
       @include border-radius-top-right;
       position: absolute;
@@ -26,7 +26,7 @@
       top: 0;
     }
   }
-  .jqf-window-content {
+  .nui-window-content {
     @include font;
     background-color: $color;
     color: $color-text;
@@ -36,7 +36,7 @@
     overflow: auto;
     padding: 10px;
   }
-  .jqf-window-reflection {
+  .nui-window-reflection {
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
     height: 30px;

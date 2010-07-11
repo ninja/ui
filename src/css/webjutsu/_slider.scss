@@ -1,14 +1,14 @@
-.jqf-slider {
+.nui-slider {
   @include font;
   @include inline-block;
   @include user-select;
   margin: 0 10px 10px 0;
   vertical-align: top;
-  .jqf-slider-label {
+  .nui-slider-label {
     display: block;
     margin-bottom: 2px;
     text-align: center; }
-  .jqf-bevel {
+  .nui-bevel {
     @include border-radius;
     @include inline-block;
     @include user-select;
@@ -16,7 +16,7 @@
     display: block;
     border: 1px solid lightgray;
     padding: 5px;
-    .jqf-track {
+    .nui-track {
       @include border-radius;
       @include gradient-inset;
       @include user-select;
@@ -25,7 +25,7 @@
       height: 10px;
       margin: 5px 0;
       position: relative;
-      .jqf-level {
+      .nui-level {
         @include border-radius;
         @include gradient-outset;
         @include user-select;
@@ -36,7 +36,7 @@
         position: absolute;
         top: 1px;
       }
-      .jqf-button {
+      .nui-button {
         height: 18px;
         margin: 0;
         padding: 0;
@@ -44,7 +44,7 @@
         top: -5px;
       }
     }
-    .jqf-text {
+    .nui-text {
       @include text-overflow;
       @include user-select;
       display: block;

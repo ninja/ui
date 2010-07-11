@@ -1,10 +1,10 @@
-.jqf-folders {
+.nui-folders {
   @include font;
   display: block;
   margin-top: 14px;
   position: relative;
-  &.jqf-horizontal {
-    .jqf-tabs {
+  &.nui-horizontal {
+    .nui-tabs {
       display: block;
       position: absolute;
       left: 0;
@@ -12,42 +12,42 @@
       top: -15px;
       white-space: nowrap;
       width: 100%;
-      .jqf-tab {
+      .nui-tab {
         @include inline-block;
       }
     }
-    .jqf-folder {
+    .nui-folder {
       padding: 30px 15px 15px 15px;
     }
   }
-  &.jqf-vertical {
-    .jqf-tabs {
+  &.nui-vertical {
+    .nui-tabs {
       @include inline-block;
       left: 0;
       position: absolute;
       top: 14px;
       width: 194px;
-      .jqf-tab {
+      .nui-tab {
         display: block;
         text-align: left;
-        &.jqf-first {
+        &.nui-first {
           @include border-radius(0);
           @include border-radius-top;
         }
-        &.jqf-last {
+        &.nui-last {
           @include border-radius(0);
           @include border-radius-bottom;
         }
       }
     }
-    .jqf-folder {
+    .nui-folder {
       margin-left: 180px;
       padding: 15px 15px 15px 30px;
     }
   }
 }
 
-.jqf-folder {
+.nui-folder {
   @include border($color);
   @include border-radius;
   background: white;

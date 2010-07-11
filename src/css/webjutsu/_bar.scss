@@ -1,4 +1,4 @@
-.jqf-bar {
+.nui-bar {
   @include gradient-outset;
   $size: 26px;
   @include border($color);
@@ -22,10 +22,10 @@
   &:focus {
     outline: 0;
   }
-  .jqf-icon {
+  .nui-icon {
     margin: 5px 0;
   }
-  .jqf-button {
+  .nui-button {
     margin: -1px;
   }
 }

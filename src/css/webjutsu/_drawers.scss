@@ -1,7 +1,7 @@
-.jqf-drawers {
+.nui-drawers {
   @include font;
   display: block;
-  .jqf-drawer-handle {
+  .nui-drawer-handle {
     @include input;
     @include user-select;
     display: block;
@@ -9,21 +9,21 @@
     text-align: left;
     z-index: 222;
   }
-  .jqf-drawer-handle.jqf-active, .jqf-drawer-handle:active {
+  .nui-drawer-handle.nui-active, .nui-drawer-handle:active {
     @include gradient-inset;
     z-index: 111;
   }
-  .jqf-drawer-handle.jqf-active {
-    @extend .jqf-active;
+  .nui-drawer-handle.nui-active {
+    @extend .nui-active;
   }
-  .jqf-drawer-handle.jqf-first {
+  .nui-drawer-handle.nui-first {
     @include border-radius-top;
   }
   
-  .jqf-drawer-handle.jqf-last {
+  .nui-drawer-handle.nui-last {
     @include border-radius-bottom;
   }
-  .jqf-drawer {
+  .nui-drawer {
     @include border($color);
     background: white;
     border: {
@@ -34,7 +34,7 @@
     display: block;
     padding: 5px;
   }
-  .jqf-drawer.jqf-last {
+  .nui-drawer.nui-last {
     @include border($color);
     @include border-radius-bottom;
     border-top: none;

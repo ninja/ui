@@ -1,14 +1,14 @@
-.jqf-menu {
+.nui-menu {
   @include font;
   @include inline-block;
   margin: 0 5px 10px 0;
   position: relative;
   vertical-align: middle;
   z-index: 666;
-  .jqf-button {
+  .nui-button {
     margin: 0;
   }
-  .jqf-menu-choices {
+  .nui-menu-choices {
     @include border;
     @include border-radius;
     @include box-shadow;
@@ -19,7 +19,7 @@
     top: 30px;
     position: absolute;
     z-index: 777;
-    .jqf-menu-choice {
+    .nui-menu-choice {
       @include input;
       background: none;
       border-color: $color;
@@ -30,7 +30,7 @@
       }
       &:hover {
         @include gradient-outset;
-        @extend .jqf-submit;
+        @extend .nui-submit;
       }
       &:last-child {
         @include border-radius-bottom;

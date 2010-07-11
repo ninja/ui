@@ -1,7 +1,7 @@
 @import 'variables';
 @import 'mixins';
 
-.jqf {
+.nui {
   display: none;
 }
 
@@ -19,7 +19,7 @@
 @import 'webjutsu/wait';
 @import 'webjutsu/window';
 
-.jqf-active {
+.nui-active {
   @include border($color-active);
   @include gradient-inset;
   @include text-shadow-active;
@@ -30,7 +30,7 @@
   }
 }
 
-.jqf-submit {
+.nui-submit {
   @include border($color-active);
   @include text-shadow-active;
   background-color: $color-active;

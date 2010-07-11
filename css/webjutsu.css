@@ -1,7 +1,7 @@
-.jqf {
+.nui {
   display: none; }
 
-.jqf-bar, .jqf-panel .jqf-bar, .jqf-window-frame .jqf-bar {
+.nui-bar, .nui-panel .nui-bar, .nui-window-frame .nui-bar {
   background-image: url("../images/gradient-outset.png");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
@@ -43,14 +43,14 @@
   text-align: center;
   vertical-align: middle;
   white-space: nowrap; }
-  .jqf-bar:focus, .jqf-panel .jqf-bar:focus, .jqf-window-frame .jqf-bar:focus {
+  .nui-bar:focus, .nui-panel .nui-bar:focus, .nui-window-frame .nui-bar:focus {
     outline: 0; }
-  .jqf-bar .jqf-icon, .jqf-panel .jqf-bar .jqf-icon, .jqf-window-frame .jqf-bar .jqf-icon {
+  .nui-bar .nui-icon, .nui-panel .nui-bar .nui-icon, .nui-window-frame .nui-bar .nui-icon {
     margin: 5px 0; }
-  .jqf-bar .jqf-button, .jqf-panel .jqf-bar .jqf-button, .jqf-window-frame .jqf-bar .jqf-button {
+  .nui-bar .nui-button, .nui-panel .nui-bar .nui-button, .nui-window-frame .nui-bar .nui-button {
     margin: -1px; }
 
-.jqf-button {
+.nui-button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
@@ -85,28 +85,28 @@
   vertical-align: middle;
   white-space: nowrap;
   margin: 0 5px 10px 0; }
-  .jqf-button:active {
+  .nui-button:active {
     background-image: url("../images/gradient-inset.png");
     background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
     background-position: top center;
     background-repeat: repeat-x; }
-  .jqf-button:focus {
+  .nui-button:focus {
     outline: 0; }
-  .jqf-button:hover {
+  .nui-button:hover {
     color: black;
     text-decoration: none; }
-  .jqf-button::-moz-focus-inner {
+  .nui-button::-moz-focus-inner {
     border: 0;
     padding: 0; }
-  .jqf-button .jqf-icon {
+  .nui-button .nui-icon {
     margin: 5px 0; }
 
-.jqf-drawers {
+.nui-drawers {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   display: block; }
-  .jqf-drawers .jqf-drawer-handle {
+  .nui-drawers .nui-drawer-handle {
     border: 1px solid #d8d8d8;
     -ms-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -144,44 +144,44 @@
     position: relative;
     text-align: left;
     z-index: 222; }
-    .jqf-drawers .jqf-drawer-handle:active {
+    .nui-drawers .nui-drawer-handle:active {
       background-image: url("../images/gradient-inset.png");
       background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
       background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
       background-position: top center;
       background-repeat: repeat-x; }
-    .jqf-drawers .jqf-drawer-handle:focus {
+    .nui-drawers .nui-drawer-handle:focus {
       outline: 0; }
-    .jqf-drawers .jqf-drawer-handle:hover {
+    .nui-drawers .nui-drawer-handle:hover {
       color: black;
       text-decoration: none; }
-    .jqf-drawers .jqf-drawer-handle::-moz-focus-inner {
+    .nui-drawers .nui-drawer-handle::-moz-focus-inner {
       border: 0;
       padding: 0; }
-    .jqf-drawers .jqf-drawer-handle .jqf-icon {
+    .nui-drawers .nui-drawer-handle .nui-icon {
       margin: 5px 0; }
-  .jqf-drawers .jqf-drawer-handle.jqf-active, .jqf-drawers .jqf-drawer-handle.jqf-active, .jqf-drawers .jqf-tabs .jqf-drawer-handle.jqf-tab.jqf-active, .jqf-tabs .jqf-drawers .jqf-drawer-handle.jqf-tab.jqf-active, .jqf-drawers .jqf-drawer-handle:active {
+  .nui-drawers .nui-drawer-handle.nui-active, .nui-drawers .nui-drawer-handle.nui-active, .nui-drawers .nui-tabs .nui-drawer-handle.nui-tab.nui-active, .nui-tabs .nui-drawers .nui-drawer-handle.nui-tab.nui-active, .nui-drawers .nui-drawer-handle:active {
     background-image: url("../images/gradient-inset.png");
     background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
     background-position: top center;
     background-repeat: repeat-x;
     z-index: 111; }
-  .jqf-drawers .jqf-drawer-handle.jqf-first {
+  .nui-drawers .nui-drawer-handle.nui-first {
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     border-radius-top-left: 6px;
     -moz-border-radius-topright: 6px;
     -webkit-border-top-right-radius: 6px;
     border-radius-top-right: 6px; }
-  .jqf-drawers .jqf-drawer-handle.jqf-last {
+  .nui-drawers .nui-drawer-handle.nui-last {
     -moz-border-radius-bottomleft: 6px;
     -webkit-border-bottom-left-radius: 6px;
     border-radius-bottom-left: 6px;
     -moz-border-radius-bottomright: 6px;
     -webkit-border-bottom-right-radius: 6px;
     border-radius-bottom-right: 6px; }
-  .jqf-drawers .jqf-drawer {
+  .nui-drawers .nui-drawer {
     border: 1px solid #d8d8d8;
     background: white;
     border-bottom: none;
@@ -189,7 +189,7 @@
     color: black;
     display: block;
     padding: 5px; }
-  .jqf-drawers .jqf-drawer.jqf-last {
+  .nui-drawers .nui-drawer.nui-last {
     border: 1px solid #d8d8d8;
     -moz-border-radius-bottomleft: 6px;
     -webkit-border-bottom-left-radius: 6px;
@@ -199,7 +199,7 @@
     border-radius-bottom-right: 6px;
     border-top: none; }
 
-.jqf-filmstrip {
+.nui-filmstrip {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   display: -moz-inline-box;
@@ -208,27 +208,29 @@
   zoom: 1;
   margin: 10px 0;
   white-space: nowrap; }
-  .jqf-filmstrip .jqf-bar .back, .jqf-filmstrip .jqf-panel .jqf-bar .back, .jqf-panel .jqf-filmstrip .jqf-bar .back, .jqf-filmstrip .jqf-window-frame .jqf-bar .back, .jqf-window-frame .jqf-filmstrip .jqf-bar .back {
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    -moz-border-radius-topleft: 6px;
-    -webkit-border-top-left-radius: 6px;
-    border-radius-top-left: 6px;
-    left: 0;
-    position: absolute;
-    top: 0; }
-  .jqf-filmstrip .jqf-bar .forward, .jqf-filmstrip .jqf-panel .jqf-bar .forward, .jqf-panel .jqf-filmstrip .jqf-bar .forward, .jqf-filmstrip .jqf-window-frame .jqf-bar .forward, .jqf-window-frame .jqf-filmstrip .jqf-bar .forward {
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    -moz-border-radius-topright: 6px;
-    -webkit-border-top-right-radius: 6px;
-    border-radius-top-right: 6px;
-    position: absolute;
-    right: 0;
-    top: 0; }
-  .jqf-filmstrip .jqf-view {
+  .nui-filmstrip .nui-bar, .nui-filmstrip .nui-panel .nui-bar, .nui-panel .nui-filmstrip .nui-bar, .nui-filmstrip .nui-window-frame .nui-bar, .nui-window-frame .nui-filmstrip .nui-bar {
+    padding: 0; }
+    .nui-filmstrip .nui-bar .back, .nui-filmstrip .nui-panel .nui-bar .back, .nui-panel .nui-filmstrip .nui-bar .back, .nui-filmstrip .nui-window-frame .nui-bar .back, .nui-window-frame .nui-filmstrip .nui-bar .back {
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      -moz-border-radius-topleft: 6px;
+      -webkit-border-top-left-radius: 6px;
+      border-radius-top-left: 6px;
+      left: 0;
+      position: absolute;
+      top: 0; }
+    .nui-filmstrip .nui-bar .forward, .nui-filmstrip .nui-panel .nui-bar .forward, .nui-panel .nui-filmstrip .nui-bar .forward, .nui-filmstrip .nui-window-frame .nui-bar .forward, .nui-window-frame .nui-filmstrip .nui-bar .forward {
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      -moz-border-radius-topright: 6px;
+      -webkit-border-top-right-radius: 6px;
+      border-radius-top-right: 6px;
+      position: absolute;
+      right: 0;
+      top: 0; }
+  .nui-filmstrip .nui-view {
     border: 1px solid #d8d8d8;
     background-color: white;
     border-top: none;
@@ -236,14 +238,14 @@
     overflow: hidden;
     position: relative;
     vertical-align: middle; }
-    .jqf-filmstrip .jqf-view .jqf-reel {
+    .nui-filmstrip .nui-view .nui-reel {
       display: block;
       font-size: 0;
       left: 0;
       position: absolute;
       top: 0;
       white-space: nowrap; }
-      .jqf-filmstrip .jqf-view .jqf-reel .jqf-frame {
+      .nui-filmstrip .nui-view .nui-reel .nui-frame {
         display: -moz-inline-box;
         display: inline-block;
         *display: inline;
@@ -256,13 +258,13 @@
         vertical-align: top;
         white-space: normal; }
 
-.jqf-folders {
+.nui-folders {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   display: block;
   margin-top: 14px;
   position: relative; }
-  .jqf-folders.jqf-horizontal .jqf-tabs {
+  .nui-folders.nui-horizontal .nui-tabs {
     display: block;
     position: absolute;
     left: 0;
@@ -270,14 +272,14 @@
     top: -15px;
     white-space: nowrap;
     width: 100%; }
-    .jqf-folders.jqf-horizontal .jqf-tabs .jqf-tab {
+    .nui-folders.nui-horizontal .nui-tabs .nui-tab {
       display: -moz-inline-box;
       display: inline-block;
       *display: inline;
       zoom: 1; }
-  .jqf-folders.jqf-horizontal .jqf-folder {
+  .nui-folders.nui-horizontal .nui-folder {
     padding: 30px 15px 15px 15px; }
-  .jqf-folders.jqf-vertical .jqf-tabs {
+  .nui-folders.nui-vertical .nui-tabs {
     display: -moz-inline-box;
     display: inline-block;
     *display: inline;
@@ -286,10 +288,10 @@
     position: absolute;
     top: 14px;
     width: 194px; }
-    .jqf-folders.jqf-vertical .jqf-tabs .jqf-tab {
+    .nui-folders.nui-vertical .nui-tabs .nui-tab {
       display: block;
       text-align: left; }
-      .jqf-folders.jqf-vertical .jqf-tabs .jqf-tab.jqf-first {
+      .nui-folders.nui-vertical .nui-tabs .nui-tab.nui-first {
         -moz-border-radius: 0;
         -webkit-border-radius: 0;
         border-radius: 0;
@@ -299,7 +301,7 @@
         -moz-border-radius-topright: 6px;
         -webkit-border-top-right-radius: 6px;
         border-radius-top-right: 6px; }
-      .jqf-folders.jqf-vertical .jqf-tabs .jqf-tab.jqf-last {
+      .nui-folders.nui-vertical .nui-tabs .nui-tab.nui-last {
         -moz-border-radius: 0;
         -webkit-border-radius: 0;
         border-radius: 0;
@@ -309,11 +311,11 @@
         -moz-border-radius-bottomright: 6px;
         -webkit-border-bottom-right-radius: 6px;
         border-radius-bottom-right: 6px; }
-  .jqf-folders.jqf-vertical .jqf-folder {
+  .nui-folders.nui-vertical .nui-folder {
     margin-left: 180px;
     padding: 15px 15px 15px 30px; }
 
-.jqf-folder {
+.nui-folder {
   border: 1px solid #d8d8d8;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -324,7 +326,7 @@
   margin-bottom: 10px;
   width: inherit; }
 
-.jqf-icon {
+.nui-icon {
   -ms-box-sizing: content-box;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -341,131 +343,131 @@
   vertical-align: middle;
   width: 16px; }
 
-.jqf-icon-up {
+.nui-icon-up {
   background-position: 0 0; }
 
-.jqf-icon-right {
+.nui-icon-right {
   background-position: 0 -16px; }
 
-.jqf-icon-down {
+.nui-icon-down {
   background-position: 0 -32px; }
 
-.jqf-icon-left {
+.nui-icon-left {
   background-position: 0 -48px; }
 
-.jqf-icon-drag {
+.nui-icon-drag {
   background-position: 0 -64px; }
 
-.jqf-icon-close {
+.nui-icon-close {
   background-position: 0 -80px; }
 
-.jqf-icon-check {
+.nui-icon-check {
   background-position: 0 -96px; }
 
-.jqf-icon-subtract {
+.nui-icon-subtract {
   background-position: 0 -112px; }
 
-.jqf-icon-add {
+.nui-icon-add {
   background-position: 0 -128px; }
 
-.jqf-icon-search {
+.nui-icon-search {
   background-position: 0 -144px; }
 
-.jqf-icon-warning {
+.nui-icon-warning {
   background-position: 0 -160px; }
 
-.jqf-icon-home {
+.nui-icon-home {
   background-position: 0 -176px; }
 
-.jqf-icon-gear {
+.nui-icon-gear {
   background-position: 0 -192px; }
 
-.jqf-icon-apple {
+.nui-icon-apple {
   background-position: 0 -208px; }
 
-.jqf-icon-heart {
+.nui-icon-heart {
   background-position: 0 -224px; }
 
-.jqf-icon-target {
+.nui-icon-target {
   background-position: 0 -240px; }
 
-.jqf-icon-profile {
+.nui-icon-profile {
   background-position: 0 -256px; }
 
-.jqf-icon-photo {
+.nui-icon-photo {
   background-position: 0 -272px; }
 
-.jqf-icon-print {
+.nui-icon-print {
   background-position: 0 -288px; }
 
-.jqf-icon-radio {
+.nui-icon-radio {
   background-position: 0 -304px; }
 
-.jqf-icon-movie {
+.nui-icon-movie {
   background-position: 0 -320px; }
 
-.jqf-icon-refresh {
+.nui-icon-refresh {
   background-position: 0 -336px; }
 
-.jqf-icon-people {
+.nui-icon-people {
   background-position: 0 -352px; }
 
-.jqf-icon-mail {
+.nui-icon-mail {
   background-position: 0 -368px; }
 
-.jqf-icon-star {
+.nui-icon-star {
   background-position: 0 -384px; }
 
-.jqf-active .jqf-icon-up, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-up, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-up, .jqf-submit .jqf-icon-up, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-up {
+.nui-active .nui-icon-up, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-up, .nui-tabs .nui-tab.nui-active .nui-icon-up, .nui-submit .nui-icon-up, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-up {
   background-position: -16px 0; }
-.jqf-active .jqf-icon-right, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-right, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-right, .jqf-submit .jqf-icon-right, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-right {
+.nui-active .nui-icon-right, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-right, .nui-tabs .nui-tab.nui-active .nui-icon-right, .nui-submit .nui-icon-right, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-right {
   background-position: -16px -16px; }
-.jqf-active .jqf-icon-down, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-down, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-down, .jqf-submit .jqf-icon-down, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-down {
+.nui-active .nui-icon-down, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-down, .nui-tabs .nui-tab.nui-active .nui-icon-down, .nui-submit .nui-icon-down, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-down {
   background-position: -16px -32px; }
-.jqf-active .jqf-icon-left, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-left, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-left, .jqf-submit .jqf-icon-left, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-left {
+.nui-active .nui-icon-left, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-left, .nui-tabs .nui-tab.nui-active .nui-icon-left, .nui-submit .nui-icon-left, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-left {
   background-position: -16px -48px; }
-.jqf-active .jqf-icon-drag, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-drag, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-drag, .jqf-submit .jqf-icon-drag, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-drag {
+.nui-active .nui-icon-drag, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-drag, .nui-tabs .nui-tab.nui-active .nui-icon-drag, .nui-submit .nui-icon-drag, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-drag {
   background-position: -16px -64px; }
-.jqf-active .jqf-icon-close, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-close, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-close, .jqf-submit .jqf-icon-close, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-close {
+.nui-active .nui-icon-close, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-close, .nui-tabs .nui-tab.nui-active .nui-icon-close, .nui-submit .nui-icon-close, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-close {
   background-position: -16px -80px; }
-.jqf-active .jqf-icon-check, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-check, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-check, .jqf-submit .jqf-icon-check, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-check {
+.nui-active .nui-icon-check, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-check, .nui-tabs .nui-tab.nui-active .nui-icon-check, .nui-submit .nui-icon-check, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-check {
   background-position: -16px -96px; }
-.jqf-active .jqf-icon-subtract, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-subtract, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-subtract, .jqf-submit .jqf-icon-subtract, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-subtract {
+.nui-active .nui-icon-subtract, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-subtract, .nui-tabs .nui-tab.nui-active .nui-icon-subtract, .nui-submit .nui-icon-subtract, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-subtract {
   background-position: -16px -112px; }
-.jqf-active .jqf-icon-add, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-add, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-add, .jqf-submit .jqf-icon-add, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-add {
+.nui-active .nui-icon-add, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-add, .nui-tabs .nui-tab.nui-active .nui-icon-add, .nui-submit .nui-icon-add, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-add {
   background-position: -16px -128px; }
-.jqf-active .jqf-icon-search, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-search, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-search, .jqf-submit .jqf-icon-search, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-search {
+.nui-active .nui-icon-search, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-search, .nui-tabs .nui-tab.nui-active .nui-icon-search, .nui-submit .nui-icon-search, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-search {
   background-position: -16px -144px; }
-.jqf-active .jqf-icon-warning, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-warning, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-warning, .jqf-submit .jqf-icon-warning, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-warning {
+.nui-active .nui-icon-warning, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-warning, .nui-tabs .nui-tab.nui-active .nui-icon-warning, .nui-submit .nui-icon-warning, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-warning {
   background-position: -16px -160px; }
-.jqf-active .jqf-icon-home, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-home, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-home, .jqf-submit .jqf-icon-home, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-home {
+.nui-active .nui-icon-home, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-home, .nui-tabs .nui-tab.nui-active .nui-icon-home, .nui-submit .nui-icon-home, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-home {
   background-position: -16px -176px; }
-.jqf-active .jqf-icon-gear, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-gear, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-gear, .jqf-submit .jqf-icon-gear, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-gear {
+.nui-active .nui-icon-gear, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-gear, .nui-tabs .nui-tab.nui-active .nui-icon-gear, .nui-submit .nui-icon-gear, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-gear {
   background-position: -16px -192px; }
-.jqf-active .jqf-icon-apple, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-apple, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-apple, .jqf-submit .jqf-icon-apple, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-apple {
+.nui-active .nui-icon-apple, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-apple, .nui-tabs .nui-tab.nui-active .nui-icon-apple, .nui-submit .nui-icon-apple, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-apple {
   background-position: -16px -208px; }
-.jqf-active .jqf-icon-heart, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-heart, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-heart, .jqf-submit .jqf-icon-heart, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-heart {
+.nui-active .nui-icon-heart, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-heart, .nui-tabs .nui-tab.nui-active .nui-icon-heart, .nui-submit .nui-icon-heart, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-heart {
   background-position: -16px -224px; }
-.jqf-active .jqf-icon-target, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-target, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-target, .jqf-submit .jqf-icon-target, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-target {
+.nui-active .nui-icon-target, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-target, .nui-tabs .nui-tab.nui-active .nui-icon-target, .nui-submit .nui-icon-target, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-target {
   background-position: -16px -240px; }
-.jqf-active .jqf-icon-profile, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-profile, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-profile, .jqf-submit .jqf-icon-profile, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-profile {
+.nui-active .nui-icon-profile, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-profile, .nui-tabs .nui-tab.nui-active .nui-icon-profile, .nui-submit .nui-icon-profile, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-profile {
   background-position: -16px -256px; }
-.jqf-active .jqf-icon-photo, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-photo, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-photo, .jqf-submit .jqf-icon-photo, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-photo {
+.nui-active .nui-icon-photo, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-photo, .nui-tabs .nui-tab.nui-active .nui-icon-photo, .nui-submit .nui-icon-photo, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-photo {
   background-position: -16px -272px; }
-.jqf-active .jqf-icon-print, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-print, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-print, .jqf-submit .jqf-icon-print, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-print {
+.nui-active .nui-icon-print, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-print, .nui-tabs .nui-tab.nui-active .nui-icon-print, .nui-submit .nui-icon-print, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-print {
   background-position: -16px -288px; }
-.jqf-active .jqf-icon-radio, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-radio, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-radio, .jqf-submit .jqf-icon-radio, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-radio {
+.nui-active .nui-icon-radio, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-radio, .nui-tabs .nui-tab.nui-active .nui-icon-radio, .nui-submit .nui-icon-radio, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-radio {
   background-position: -16px -304px; }
-.jqf-active .jqf-icon-movie, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-movie, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-movie, .jqf-submit .jqf-icon-movie, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-movie {
+.nui-active .nui-icon-movie, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-movie, .nui-tabs .nui-tab.nui-active .nui-icon-movie, .nui-submit .nui-icon-movie, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-movie {
   background-position: -16px -320px; }
-.jqf-active .jqf-icon-people, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-people, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-people, .jqf-submit .jqf-icon-people, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-people {
+.nui-active .nui-icon-people, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-people, .nui-tabs .nui-tab.nui-active .nui-icon-people, .nui-submit .nui-icon-people, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-people {
   background-position: -16px -352px; }
-.jqf-active .jqf-icon-mail, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-mail, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-mail, .jqf-submit .jqf-icon-mail, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-mail {
+.nui-active .nui-icon-mail, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-mail, .nui-tabs .nui-tab.nui-active .nui-icon-mail, .nui-submit .nui-icon-mail, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-mail {
   background-position: -16px -368px; }
-.jqf-active .jqf-icon-star, .jqf-drawers .jqf-drawer-handle.jqf-active .jqf-icon-star, .jqf-tabs .jqf-tab.jqf-active .jqf-icon-star, .jqf-submit .jqf-icon-star, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover .jqf-icon-star {
+.nui-active .nui-icon-star, .nui-drawers .nui-drawer-handle.nui-active .nui-icon-star, .nui-tabs .nui-tab.nui-active .nui-icon-star, .nui-submit .nui-icon-star, .nui-menu .nui-menu-choices .nui-menu-choice:hover .nui-icon-star {
   background-position: -16px -384px; }
 
-.jqf-menu {
+.nui-menu {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   display: -moz-inline-box;
@@ -476,9 +478,9 @@
   position: relative;
   vertical-align: middle;
   z-index: 666; }
-  .jqf-menu .jqf-button {
+  .nui-menu .nui-button {
     margin: 0; }
-  .jqf-menu .jqf-menu-choices {
+  .nui-menu .nui-menu-choices {
     border: 1px solid #d8d8d8;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
@@ -493,7 +495,7 @@
     top: 30px;
     position: absolute;
     z-index: 777; }
-    .jqf-menu .jqf-menu-choices .jqf-menu-choice {
+    .nui-menu .nui-menu-choices .nui-menu-choice {
       border: 1px solid #d8d8d8;
       -ms-box-sizing: content-box;
       -moz-box-sizing: content-box;
@@ -528,36 +530,36 @@
       border-color: white;
       display: block;
       text-align: left; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice:active {
+      .nui-menu .nui-menu-choices .nui-menu-choice:active {
         background-image: url("../images/gradient-inset.png");
         background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
         background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
         background-position: top center;
         background-repeat: repeat-x; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice:focus {
+      .nui-menu .nui-menu-choices .nui-menu-choice:focus {
         outline: 0; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+      .nui-menu .nui-menu-choices .nui-menu-choice:hover {
         color: black;
         text-decoration: none; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice::-moz-focus-inner {
+      .nui-menu .nui-menu-choices .nui-menu-choice::-moz-focus-inner {
         border: 0;
         padding: 0; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice .jqf-icon {
+      .nui-menu .nui-menu-choices .nui-menu-choice .nui-icon {
         margin: 5px 0; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice:first-child {
+      .nui-menu .nui-menu-choices .nui-menu-choice:first-child {
         -moz-border-radius-topleft: 6px;
         -webkit-border-top-left-radius: 6px;
         border-radius-top-left: 6px;
         -moz-border-radius-topright: 6px;
         -webkit-border-top-right-radius: 6px;
         border-radius-top-right: 6px; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+      .nui-menu .nui-menu-choices .nui-menu-choice:hover {
         background-image: url("../images/gradient-outset.png");
         background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
         background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
         background-position: bottom center;
         background-repeat: repeat-x; }
-      .jqf-menu .jqf-menu-choices .jqf-menu-choice:last-child {
+      .nui-menu .nui-menu-choices .nui-menu-choice:last-child {
         -moz-border-radius-bottomleft: 6px;
         -webkit-border-bottom-left-radius: 6px;
         border-radius-bottom-left: 6px;
@@ -565,7 +567,7 @@
         -webkit-border-bottom-right-radius: 6px;
         border-radius-bottom-right: 6px; }
 
-.jqf-panel {
+.nui-panel {
   background-color: white;
   border: 1px solid #d8d8d8;
   -moz-border-radius-topleft: 6px;
@@ -584,10 +586,10 @@
   display: block;
   padding: 10px;
   margin: 0 10px 10px 0; }
-  .jqf-panel .jqf-bar, .jqf-panel .jqf-bar, .jqf-panel .jqf-window-frame .jqf-bar, .jqf-window-frame .jqf-panel .jqf-bar {
+  .nui-panel .nui-bar, .nui-panel .nui-bar, .nui-panel .nui-window-frame .nui-bar, .nui-window-frame .nui-panel .nui-bar {
     margin: -11px -11px 10px -11px; }
 
-.jqf-rating {
+.nui-rating {
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
@@ -600,14 +602,14 @@
   vertical-align: top;
   white-space: nowrap; }
 
-.jqf-rating-label {
+.nui-rating-label {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   margin-bottom: 5px;
   text-shadow: white 0 1px 1px; }
 
-.jqf-rating-star {
+.nui-rating-star {
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
@@ -617,13 +619,13 @@
   height: 24px;
   width: 18px; }
 
-.jqf-rating-group {
+.nui-rating-group {
   background-position: 0 -24px; }
 
-.jqf-rating-star:active, .jqf-rating-single {
+.nui-rating-star:active, .nui-rating-single {
   background-position: 0 -48px; }
 
-.jqf-slider {
+.nui-slider {
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
   display: -moz-inline-box;
@@ -635,11 +637,11 @@
   user-select: none;
   margin: 0 10px 10px 0;
   vertical-align: top; }
-  .jqf-slider .jqf-slider-label {
+  .nui-slider .nui-slider-label {
     display: block;
     margin-bottom: 2px;
     text-align: center; }
-  .jqf-slider .jqf-bevel {
+  .nui-slider .nui-bevel {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -654,7 +656,7 @@
     display: block;
     border: 1px solid lightgray;
     padding: 5px; }
-    .jqf-slider .jqf-bevel .jqf-track {
+    .nui-slider .nui-bevel .nui-track {
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px;
       border-radius: 6px;
@@ -671,7 +673,7 @@
       height: 10px;
       margin: 5px 0;
       position: relative; }
-      .jqf-slider .jqf-bevel .jqf-track .jqf-level {
+      .nui-slider .nui-bevel .nui-track .nui-level {
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
         border-radius: 6px;
@@ -689,13 +691,13 @@
         left: 1px;
         position: absolute;
         top: 1px; }
-      .jqf-slider .jqf-bevel .jqf-track .jqf-button {
+      .nui-slider .nui-bevel .nui-track .nui-button {
         height: 18px;
         margin: 0;
         padding: 0;
         position: absolute;
         top: -5px; }
-    .jqf-slider .jqf-bevel .jqf-text {
+    .nui-slider .nui-bevel .nui-text {
       overflow: hidden;
       -o-text-overflow: ellipsis;
       text-overflow: ellipsis;
@@ -706,10 +708,10 @@
       display: block;
       font-size: 11px; }
 
-.jqf-tabs {
+.nui-tabs {
   font-size: 0;
   white-space: nowrap; }
-  .jqf-tabs .jqf-tab {
+  .nui-tabs .nui-tab {
     border: 1px solid #d8d8d8;
     -ms-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -742,30 +744,30 @@
     white-space: nowrap;
     margin: 0;
     position: relative; }
-    .jqf-tabs .jqf-tab:active {
+    .nui-tabs .nui-tab:active {
       background-image: url("../images/gradient-inset.png");
       background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
       background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
       background-position: top center;
       background-repeat: repeat-x; }
-    .jqf-tabs .jqf-tab:focus {
+    .nui-tabs .nui-tab:focus {
       outline: 0; }
-    .jqf-tabs .jqf-tab:hover {
+    .nui-tabs .nui-tab:hover {
       color: black;
       text-decoration: none; }
-    .jqf-tabs .jqf-tab::-moz-focus-inner {
+    .nui-tabs .nui-tab::-moz-focus-inner {
       border: 0;
       padding: 0; }
-    .jqf-tabs .jqf-tab .jqf-icon {
+    .nui-tabs .nui-tab .nui-icon {
       margin: 5px 0; }
-  .jqf-tabs .jqf-first {
+  .nui-tabs .nui-first {
     -moz-border-radius-bottomleft: 6px;
     -webkit-border-bottom-left-radius: 6px;
     border-radius-bottom-left: 6px;
     -moz-border-radius-topleft: 6px;
     -webkit-border-top-left-radius: 6px;
     border-radius-top-left: 6px; }
-  .jqf-tabs .jqf-last {
+  .nui-tabs .nui-last {
     -moz-border-radius-bottomright: 6px;
     -webkit-border-bottom-right-radius: 6px;
     border-radius-bottom-right: 6px;
@@ -773,7 +775,7 @@
     -webkit-border-top-right-radius: 6px;
     border-radius-top-right: 6px; }
 
-.jqf-wait {
+.nui-wait {
   background: rgba(255, 255, 255, 0.5);
   display: none;
   height: 100%;
@@ -783,7 +785,7 @@
   z-index: 888;
   width: 100%; }
 
-.jqf-wait-frame {
+.nui-wait-frame {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
@@ -796,7 +798,7 @@
   text-align: center;
   z-index: 999; }
 
-.jqf-wait-reflection {
+.nui-wait-reflection {
   -moz-border-radius-topleft: 6px;
   -webkit-border-top-left-radius: 6px;
   border-radius-top-left: 6px;
@@ -811,7 +813,7 @@
   bottom: -30px;
   width: 100%; }
 
-.jqf-window {
+.nui-window {
   background-color: black;
   height: 100%;
   left: 0;
@@ -821,17 +823,17 @@
   z-index: 888;
   width: 100%; }
 
-.jqf-window-frame {
+.nui-window-frame {
   display: none;
   position: absolute;
   z-index: 999; }
-  .jqf-window-frame .jqf-bar .jqf-window-title, .jqf-window-frame .jqf-panel .jqf-bar .jqf-window-title, .jqf-panel .jqf-window-frame .jqf-bar .jqf-window-title, .jqf-window-frame .jqf-bar .jqf-window-title {
+  .nui-window-frame .nui-bar .nui-window-title, .nui-window-frame .nui-panel .nui-bar .nui-window-title, .nui-panel .nui-window-frame .nui-bar .nui-window-title, .nui-window-frame .nui-bar .nui-window-title {
     display: -moz-inline-box;
     display: inline-block;
     *display: inline;
     zoom: 1;
     margin-right: 20px; }
-  .jqf-window-frame .jqf-bar .jqf-window-close, .jqf-window-frame .jqf-panel .jqf-bar .jqf-window-close, .jqf-panel .jqf-window-frame .jqf-bar .jqf-window-close, .jqf-window-frame .jqf-bar .jqf-window-close {
+  .nui-window-frame .nui-bar .nui-window-close, .nui-window-frame .nui-panel .nui-bar .nui-window-close, .nui-panel .nui-window-frame .nui-bar .nui-window-close, .nui-window-frame .nui-bar .nui-window-close {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -841,7 +843,7 @@
     position: absolute;
     right: 0;
     top: 0; }
-  .jqf-window-frame .jqf-window-content {
+  .nui-window-frame .nui-window-content {
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
     background-color: white;
@@ -851,7 +853,7 @@
     min-width: 360px;
     overflow: auto;
     padding: 10px; }
-  .jqf-window-frame .jqf-window-reflection {
+  .nui-window-frame .nui-window-reflection {
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
     height: 30px;
@@ -860,7 +862,7 @@
     left: 0;
     width: 100%; }
 
-.jqf-active, .jqf-drawers .jqf-drawer-handle.jqf-active, .jqf-tabs .jqf-tab.jqf-active {
+.nui-active, .nui-drawers .nui-drawer-handle.nui-active, .nui-tabs .nui-tab.nui-active {
   border: 1px solid #565656;
   background-image: url("../images/gradient-inset.png");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
@@ -870,13 +872,13 @@
   text-shadow: #333333 0 -1px 1px;
   background-color: #666666;
   color: white; }
-  .jqf-active:hover, .jqf-drawers .jqf-drawer-handle.jqf-active:hover, .jqf-tabs .jqf-tab.jqf-active:hover {
+  .nui-active:hover, .nui-drawers .nui-drawer-handle.nui-active:hover, .nui-tabs .nui-tab.nui-active:hover {
     color: white; }
 
-.jqf-submit, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+.nui-submit, .nui-menu .nui-menu-choices .nui-menu-choice:hover {
   border: 1px solid #565656;
   text-shadow: #333333 0 -1px 1px;
   background-color: #666666;
   color: white; }
-  .jqf-submit:hover, .jqf-menu .jqf-menu-choices .jqf-menu-choice:hover {
+  .nui-submit:hover, .nui-menu .nui-menu-choices .nui-menu-choice:hover {
     color: white; }

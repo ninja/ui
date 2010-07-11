@@ -1,4 +1,4 @@
-.jqf-rating {
+.nui-rating {
   @include inline-block;
   @include user-select;
   margin: 5px 10px 5px 0;
@@ -7,13 +7,13 @@
   white-space: nowrap;
 }
 
-.jqf-rating-label {
+.nui-rating-label {
   @include user-select;
   margin-bottom: 5px;
   text-shadow: white 0 1px 1px;
 }
 
-.jqf-rating-star {
+.nui-rating-star {
   @include inline-block;
   background-image: url("#{$image-path}/rating.png");
   cursor: pointer;
@@ -21,10 +21,10 @@
   width: 18px;
 }
 
-.jqf-rating-group {
+.nui-rating-group {
   background-position: 0 -24px;
 }
 
-.jqf-rating-star:active, .jqf-rating-single {
+.nui-rating-star:active, .nui-rating-single {
   background-position: 0 -48px;
 }

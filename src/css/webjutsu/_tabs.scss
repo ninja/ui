@@ -1,18 +1,18 @@
-.jqf-tabs {
+.nui-tabs {
   font-size: 0;
   white-space: nowrap;
-  .jqf-tab {
+  .nui-tab {
     @include input;
     margin: 0;
     position: relative;
   }
-  .jqf-tab.jqf-active {
-    @extend .jqf-active;
+  .nui-tab.nui-active {
+    @extend .nui-active;
   }
-  .jqf-first {
+  .nui-first {
     @include border-radius-left;
   }
-  .jqf-last {
+  .nui-last {
     @include border-radius-right;
   }
 }

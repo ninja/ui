@@ -1,10 +1,11 @@
-.jqf-filmstrip {
+.nui-filmstrip {
   @include font;
   @include inline-block;
   margin: 10px 0;
   white-space: nowrap;
-  .jqf-bar {
-    @extend jqf-bar;
+  .nui-bar {
+    @extend nui-bar;
+    padding: 0;
     .back {
       @include border-radius(0);
       @include border-radius-top-left;
@@ -20,7 +21,7 @@
       top: 0;
     }
   }
-  .jqf-view {
+  .nui-view {
     @include border($color);
     background-color: $color;
     border-top: none;
@@ -28,14 +29,14 @@
     overflow: hidden;
     position: relative;
     vertical-align: middle;
-    .jqf-reel {
+    .nui-reel {
       display: block;
       font-size: 0;
       left: 0;
       position: absolute;
       top: 0;
       white-space: nowrap;
-      .jqf-frame {
+      .nui-frame {
         @include inline-block;
         border-right: 1px solid $color * 0.85;
         font-size: 11px;

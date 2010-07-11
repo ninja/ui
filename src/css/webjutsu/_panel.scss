@@ -1,4 +1,4 @@
-.jqf-panel {
+.nui-panel {
   @include background-color;
   @include border;
   @include border-radius-top;
@@ -8,8 +8,8 @@
   display: block;
   padding: 10px;
   margin: 0 10px 10px 0;
-  .jqf-bar {
-    @extend .jqf-bar;
+  .nui-bar {
+    @extend .nui-bar;
     margin: -11px -11px 10px -11px;
   }
 }

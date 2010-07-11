@@ -1,42 +1,42 @@
-(function($) { // Begin Webjutsu
+(function($) {
 
-  $.jqf = { // Begin Functions
+  $.nui = { // Begin Functions
     drawerClose: function(drawer){
-      var handle = $(drawer).prev('.jqf-drawer-handle');
-      var icon = $('.jqf-icon', handle);
+      var handle = $(drawer).prev('.nui-drawer-handle');
+      var icon = $('.nui-icon', handle);
       $(drawer).slideUp(function() {
-        $(handle).removeClass('jqf-active').toggleClass('jqf-last', $(drawer).is('.jqf-last'));
-        $(icon).addClass('jqf-icon-right').removeClass('jqf-icon-down');
+        $(handle).removeClass('nui-active').toggleClass('nui-last', $(drawer).is('.nui-last'));
+        $(icon).addClass('nui-icon-right').removeClass('nui-icon-down');
       });
     },
     drawerOpen: function(drawer){
-      var handle = $(drawer).prev('.jqf-drawer-handle');
-      var icon = $('.jqf-icon', handle);
-      $(handle).addClass('jqf-active').removeClass('jqf-last');
-      $(icon).addClass('jqf-icon-down').removeClass('jqf-icon-right');
+      var handle = $(drawer).prev('.nui-drawer-handle');
+      var icon = $('.nui-icon', handle);
+      $(handle).addClass('nui-active').removeClass('nui-last');
+      $(icon).addClass('nui-icon-down').removeClass('nui-icon-right');
       $(drawer).slideDown();
     },
     drawersClose: function(drawers){
       $.each(drawers, function(i, drawer) {
-        $.jqf.drawerClose(drawer);
+        $.nui.drawerClose(drawer);
       });
     },
     drawersOpen: function(drawers){
       $.each(drawers, function(i, drawer) {
-        $.jqf.drawerOpen(drawer);
+        $.nui.drawerOpen(drawer);
       });
     },
     folderToggle: function(position, folders){
-      var tabs = $('.jqf-tabs', folders);
-      $('.jqf-tab', tabs).each(function(i, tab) {
+      var tabs = $('.nui-tabs', folders);
+      $('.nui-tab', tabs).each(function(i, tab) {
         if(i == position) {
-          $(tab).addClass('jqf-active');
+          $(tab).addClass('nui-active');
         }
         else {
-          $(tab).removeClass('jqf-active');
+          $(tab).removeClass('nui-active');
         }
       });
-      $('.jqf-folder', folders).each(function(i, folder) {
+      $('.nui-folder', folders).each(function(i, folder) {
         if(i == position) {
           $(folder).show();
         }
@@ -47,8 +47,8 @@
     },
     framePosition: function(customOptions){
       var options = $.extend({
-        frame:$('.jqf-window-frame'),
-        overlay:$('.jqf-window')
+        frame:$('.nui-window-frame'),
+        overlay:$('.nui-window')
       }, customOptions);
       var overlayMiddleHorizontal = parseInt($(options.overlay).width() / 2);
       var top = $(window).scrollTop();
@@ -78,22 +78,22 @@
         onStop:function(){},
         seconds:0
       }, customOptions);
-      $(options.object).css('position', 'relative').append('<div class="jqf jqf-wait">' +
-        '<div class="jqf-wait-frame">' +
-          options.content + '<div class="jqf-wait-reflection"></div>' +
+      $(options.object).css('position', 'relative').append('<div class="nui nui-wait">' +
+        '<div class="nui-wait-frame">' +
+          options.content + '<div class="nui-wait-reflection"></div>' +
         '</div>' +
       '</div>');
-      var overlay = $('.jqf-wait', options.object);
-      var frame = $('.jqf-wait-frame', overlay);
+      var overlay = $('.nui-wait', options.object);
+      var frame = $('.nui-wait-frame', overlay);
       $(overlay).fadeIn(function() {
         $(overlay).css('filter', 'progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#80ffffff, EndColorStr=#80ffffff)');
-        $.jqf.framePosition({frame:frame, overlay:overlay});
+        $.nui.framePosition({frame:frame, overlay:overlay});
         $(frame).fadeIn(function() {
           $(frame).css('filter', 'progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#c0000000, EndColorStr=#c0000000)');
           if(options.seconds > 0) {
             var milliseconds = options.seconds * 1000;
             setTimeout(function() {
-              $.jqf.waitStop({
+              $.nui.waitStop({
                 object:$(options.object),
                 onStop:options.onStop
               });
@@ -107,8 +107,8 @@
         object:$(document.body),
         onStop:function(){}
       }, customOptions);
-      var overlay = $('.jqf-wait', options.object);
-      var frame = $('.jqf-wait-frame', overlay);
+      var overlay = $('.nui-wait', options.object);
+      var frame = $('.nui-wait-frame', overlay);
       $(frame).fadeOut(function() {
         $(overlay).fadeOut(function() {
           options.onStop.call();
@@ -120,8 +120,8 @@
       var options = $.extend({
         onClose:function(){}
       }, customOptions);
-      var overlay = $('.jqf-window');
-      var frame = $('.jqf-window-frame');
+      var overlay = $('.nui-window');
+      var frame = $('.nui-window-frame');
       $(frame).fadeOut(function() {
         $(overlay).fadeOut(function() {
           options.onClose.call();
@@ -137,24 +137,24 @@
         title:'Untitled',
         url:''
       }, customOptions);
-      $(document.body).append('<div class="jqf-window"></div>' +
-        '<div class="jqf jqf-window-frame">' +
-          '<div class="jqf-bar"><span class="jqf-window-title">' +
-            options.title + '</span><button class="jqf-button jqf-window-close"><span class="jqf-icon jqf-icon-close"></span></button>' +
+      $(document.body).append('<div class="nui-window"></div>' +
+        '<div class="nui nui-window-frame">' +
+          '<div class="nui-bar"><span class="nui-window-title">' +
+            options.title + '</span><button class="nui-button nui-window-close"><span class="nui-icon nui-icon-close"></span></button>' +
           '</div>' +
-          '<div class="jqf-window-content"></div>' +
-          '<div class="jqf-window-reflection"></div>' +
+          '<div class="nui-window-content"></div>' +
+          '<div class="nui-window-reflection"></div>' +
         '</div>').keyup(function(event) {
         if (event.keyCode == 27) { // esc key
-          $.jqf.windowClose(options);
+          $.nui.windowClose(options);
         }
       });
-      var overlay = $('.jqf-window');
+      var overlay = $('.nui-window');
       $(window).resize(function() {
-        $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
+        $.nui.framePosition({frame:$(frame), overlay:$(overlay)});
       });
-      var frame = $('.jqf-window-frame');
-      var handle = $('.jqf-window-handle', frame);
+      var frame = $('.nui-window-frame');
+      var handle = $('.nui-window-handle', frame);
       $(frame).click(function(event) {
         event.stopPropagation();
       }).draggable({
@@ -162,13 +162,13 @@
         cursor:'pointer',
         handle:$(handle)
       });
-      var content = $('.jqf-window-content', frame);
+      var content = $('.nui-window-content', frame);
       $(content).load(options.url, function() {
-        $('.jqf-window-close', frame).click(function() {
-          $.jqf.windowClose(options);
+        $('.nui-window-close', frame).click(function() {
+          $.nui.windowClose(options);
         });
         $(overlay).css('filter', 'alpha(opacity = 75)').fadeIn(function() {
-          $.jqf.framePosition({frame:$(frame), overlay:$(overlay)});
+          $.nui.framePosition({frame:$(frame), overlay:$(overlay)});
           $(frame).fadeIn(function() {
             options.onOpen.call(content);
           });
@@ -180,40 +180,40 @@
         onRetitle:function(){},
         title:'Untitled'
       }, customOptions);
-      var title = $('.jqf-window-title');
+      var title = $('.nui-window-title');
       $(title).text(options.title, function() {
         options.onRetitle.call();
       });
     }
   }; // End Functions
 
-  $.fn.jqfDrawers = function(customOptions) { // Begin Drawers
+  $.fn.nuiDrawers = function(customOptions) { // Begin Drawers
     var options = $.extend({}, customOptions);
     return this.each(function(i, drawers) {
       $(drawers).children('div').each(function(i, newDrawer) {
-        $(newDrawer).addClass('jqf-drawer');
+        $(newDrawer).addClass('nui-drawer');
       });
-      $(drawers).addClass('jqf jqf-drawers');
-      $('.jqf-drawer:last', drawers).addClass('jqf-last');
-      $('.jqf-drawer', drawers).each(function(i, drawer) {
-        $(drawer).before('<div class="jqf-drawer-handle"><span class="jqf-icon jqf-icon-right"></span> ' + $(drawer).attr('title') + '</div>');
-        var handle = $(drawer).prev('.jqf-drawer-handle');
-        $(handle).toggleClass('jqf-last', $(drawer).is('.jqf-last'));
+      $(drawers).addClass('nui nui-drawers');
+      $('.nui-drawer:last', drawers).addClass('nui-last');
+      $('.nui-drawer', drawers).each(function(i, drawer) {
+        $(drawer).before('<div class="nui-drawer-handle"><span class="nui-icon nui-icon-right"></span> ' + $(drawer).attr('title') + '</div>');
+        var handle = $(drawer).prev('.nui-drawer-handle');
+        $(handle).toggleClass('nui-last', $(drawer).is('.nui-last'));
         $(drawer).hide();
         $(handle).click(function() {
-          if($(handle).hasClass('jqf-active')) {
-            $.jqf.drawerClose(drawer);
+          if($(handle).hasClass('nui-active')) {
+            $.nui.drawerClose(drawer);
           }
           else {
-            $.jqf.drawerOpen(drawer);
+            $.nui.drawerOpen(drawer);
           }
         });
       });
-      $('.jqf-drawer-handle:first-child', drawers).addClass('jqf-first');
+      $('.nui-drawer-handle:first-child', drawers).addClass('nui-first');
     });
   }; // End Drawers
 
-  $.fn.jqfFilmstrip = function(customOptions) { // Begin Filmstrip
+  $.fn.nuiFilmstrip = function(customOptions) { // Begin Filmstrip
     var options = $.extend({
       frameHeight:100,
       frameWidth:100,
@@ -222,21 +222,21 @@
       title:''
     }, customOptions);
     return this.each(function (i, filmstrip) {
-      $(filmstrip).addClass('jqf-filmstrip');
+      $(filmstrip).addClass('nui-filmstrip');
       var frameArray = $(filmstrip).find('> span');
-      $(frameArray).wrapAll('<span class="jqf-view"><span class="jqf-reel"/></span>').each(function (i, frame) {
-        $(frame).addClass('jqf-frame').css({height:options.frameHeight,width:options.frameWidth});
+      $(frameArray).wrapAll('<span class="nui-view"><span class="nui-reel"/></span>').each(function (i, frame) {
+        $(frame).addClass('nui-frame').css({height:options.frameHeight,width:options.frameWidth});
       });
-      var view = $(filmstrip).find('> .jqf-view');
-      var reel = $(view).find('> .jqf-reel');
+      var view = $(filmstrip).find('> .nui-view');
+      var reel = $(view).find('> .nui-reel');
       var frameOuterHeight = options.frameHeight + 10;
       var frameOuterWidth = options.frameWidth + 11;
       $(reel).height(frameOuterHeight + 'px');
       $(view).height(frameOuterHeight + 'px').width((frameOuterWidth * options.show) - 1 + 'px');
       var pages = Math.ceil($(frameArray).length / options.show);
       var currentPage = 1;
-      $(filmstrip).prepend('<span class="jqf-bar"><button class="jqf-button back"><span class="jqf-icon jqf-icon-left"></span></button>' + options.title + '<button class="jqf-button forward"><span class="jqf-icon jqf-icon-right"></span></button></span>');
-      var bar = $(filmstrip).find('> .jqf-bar');
+      $(filmstrip).prepend('<span class="nui-bar"><button class="nui-button back"><span class="nui-icon nui-icon-left"></span></button>' + options.title + '<button class="nui-button forward"><span class="nui-icon nui-icon-right"></span></button></span>');
+      var bar = $(filmstrip).find('> .nui-bar');
       $(bar).width((frameOuterWidth * options.show) - 1 + 'px');
       $('button.back', filmstrip).click(function () {
         if(currentPage == 1){
@@ -273,63 +273,63 @@
     });
   };// End Filmstrip
 
-  $.fn.jqfFolders = function(customOptions) { // Begin Folders
+  $.fn.nuiFolders = function(customOptions) { // Begin Folders
     var options = $.extend({direction:'horizontal'}, customOptions);
     return this.each(function(i, folders) {
       $(folders).children('div').each(function(i, folder) {
-        $(folder).addClass('jqf-folder');
+        $(folder).addClass('nui-folder');
       });
-      $(folders).addClass('jqf jqf-folders jqf-' + options.direction).prepend('<div class="jqf-tabs"></div>');
-      var tabs = $('.jqf-tabs', folders);
-      var folderArray = $('.jqf-folder', folders);
+      $(folders).addClass('nui nui-folders nui-' + options.direction).prepend('<div class="nui-tabs"></div>');
+      var tabs = $('.nui-tabs', folders);
+      var folderArray = $('.nui-folder', folders);
       $(folderArray).each(function(i, folder) {
-        $(tabs).append('<span class="jqf-tab">' + $(folder).attr('title') + '</span>')
+        $(tabs).append('<span class="nui-tab">' + $(folder).attr('title') + '</span>')
       });
-      $('.jqf-tab:first-child', tabs).addClass('jqf-first');
-      $('.jqf-tab:last-child', tabs).addClass('jqf-last');
+      $('.nui-tab:first-child', tabs).addClass('nui-first');
+      $('.nui-tab:last-child', tabs).addClass('nui-last');
       $(folderArray).each(function(i, folder) {
         $(folder).css('min-height', $(tabs).height());
       });
-      $('.jqf-tab', tabs).each(function(i, tab) {
+      $('.nui-tab', tabs).each(function(i, tab) {
         $(tab).click(function() {
-          $.jqf.folderToggle(i, folders);
+          $.nui.folderToggle(i, folders);
         });
       });
-      $.jqf.folderToggle(0, folders);
+      $.nui.folderToggle(0, folders);
     });
   }; // End Folders
 
-  $.fn.jqfMenu = function(customOptions) { // Begin Menu
+  $.fn.nuiMenu = function(customOptions) { // Begin Menu
     var options = $.extend({icon:''}, customOptions);
     return this.each(function(i, select) {
       $(select).hide();
       var iconHTML = '';
       if(options.icon != '') {
-        iconHTML = '<span class="jqf-icon jqf-icon-' + options.icon + '"></span> ';
+        iconHTML = '<span class="nui-icon nui-icon-' + options.icon + '"></span> ';
       }
       var selectArray = $('option', select);
-      $(select).after('<div class="jqf jqf-menu"><div class="jqf-button">' + iconHTML +
-        $(select).attr('title') + ' <span class="jqf-icon jqf-icon-down"></span></div>' +
-        '<div class="jqf-menu-choices"></div>' +
+      $(select).after('<div class="nui nui-menu"><div class="nui-button">' + iconHTML +
+        $(select).attr('title') + ' <span class="nui-icon nui-icon-down"></span></div>' +
+        '<div class="nui-menu-choices"></div>' +
       '</div>');
-      var menu = $(select).next('.jqf-menu');
-      var button = $('.jqf-button', menu);
-      var choices = $('.jqf-menu-choices', menu);
+      var menu = $(select).next('.nui-menu');
+      var button = $('.nui-button', menu);
+      var choices = $('.nui-menu-choices', menu);
       var closeMenu = function() {
         $(choices).slideUp();
-        $(button).removeClass('jqf-active');
+        $(button).removeClass('nui-active');
       };
       $('option', select).each(function(i, option) {
-        $(choices).append('<div class="jqf-menu-choice" id="' + $(option).attr('value') + '">' + $(option).text() + '</div>');
+        $(choices).append('<div class="nui-menu-choice" id="' + $(option).attr('value') + '">' + $(option).text() + '</div>');
       });
-      $.each($('.jqf-menu-choice', choices), function(i, choice) {
+      $.each($('.nui-menu-choice', choices), function(i, choice) {
         $(choice).click(function() {
           closeMenu();
         });
       });
       $(button).click(function() {
         $(choices).slideToggle();
-        $(button).toggleClass('jqf-active');
+        $(button).toggleClass('nui-active');
         $(document).keyup(function(event) {
           if (event.keyCode == 27) { // esc key
             closeMenu();
@@ -342,7 +342,7 @@
     });
   }; // End Menu
 
-  $.fn.jqfRating = function(customOptions) { // Begin Rating
+  $.fn.nuiRating = function(customOptions) { // Begin Rating
     var options = $.extend({
       group:0,
       single:0,
@@ -354,32 +354,32 @@
       var title = $(div).attr('title');
       var titleHTML = '';
       if(title != '') {
-        titleHTML = '<div class="jqf-rating-label">' + title + '</div>'
+        titleHTML = '<div class="nui-rating-label">' + title + '</div>'
       }
-      $(div).after('<div class="jqf jqf-rating">' + titleHTML +
-        '<div class="jqf-rating-stars"></div>' +
+      $(div).after('<div class="nui nui-rating">' + titleHTML +
+        '<div class="nui-rating-stars"></div>' +
       '</div>');
-      var rating = $(div).next('.jqf-rating');
-      var stars = $('.jqf-rating-stars', rating);
+      var rating = $(div).next('.nui-rating');
+      var stars = $('.nui-rating-stars', rating);
       $(radioArray).each(function(i, radio) {
         var active = '';
         if(options.single > i) {
-          active = ' jqf-rating-single';
+          active = ' nui-rating-single';
         }
         else if(options.group > i) {
-          active = ' jqf-rating-group';
+          active = ' nui-rating-group';
         }
-        $(stars).append('<span class="jqf-rating-star' + active + '" title ="' + $(radio).attr('title') + '"></span>');
+        $(stars).append('<span class="nui-rating-star' + active + '" title ="' + $(radio).attr('title') + '"></span>');
       });
       var starChange = function(changedStarCount, starType) {
-        $('.jqf-rating-star', stars).each(function(i, star) {
-          $(star).removeClass('jqf-rating-single').removeClass('jqf-rating-group');
+        $('.nui-rating-star', stars).each(function(i, star) {
+          $(star).removeClass('nui-rating-single').removeClass('nui-rating-group');
           if(changedStarCount > i) {
-            $(star).addClass('jqf-rating-' + starType);
+            $(star).addClass('nui-rating-' + starType);
           }
         });
       }
-      $('.jqf-rating-star', stars).each(function(i, star) {
+      $('.nui-rating-star', stars).each(function(i, star) {
         $(star).hover(function() {
           starChange(i + 1, 'single');
         },
@@ -405,7 +405,7 @@
     });
   }; // End Rating
 
-  $.fn.jqfSlider = function(customOptions) { // Begin Slider
+  $.fn.nuiSlider = function(customOptions) { // Begin Slider
     var options = $.extend({
       onDrag:function(){},
       onStop:function(){},
@@ -415,10 +415,10 @@
       var selectArray = $('option', select);
       var width = selectArray.length * options.unit;
       var touchDevice = navigator.userAgent.toLowerCase().match(/(iphone|ipod|ipad)/);
-      $(select).wrap('<span class="jqf-slider" id="jqf-slider-' + $(select).attr('id') + '">' +
-        '<span class="jqf-label">' + $(select).attr('title') + '</span>' +
+      $(select).wrap('<span class="nui-slider" id="nui-slider-' + $(select).attr('id') + '">' +
+        '<span class="nui-label">' + $(select).attr('title') + '</span>' +
       '</span>');
-      $(select).wrap('<span class="jqf-bevel"/>');
+      $(select).wrap('<span class="nui-bevel"/>');
       if(touchDevice) {
         $(select).css('width', width + 'px').show().change(function() {
           options.onStop.call($(':selected', select));
@@ -429,17 +429,17 @@
         var index = $(':selected', select).index();
         var choice = $(selectArray)[index];
         var choiceText = $(choice).text();
-        $(select).after('<span class="jqf-track">' +
-          '<span class="jqf-level"></span>' +
-          '<span class="jqf-button"></span>' +
+        $(select).after('<span class="nui-track">' +
+          '<span class="nui-level"></span>' +
+          '<span class="nui-button"></span>' +
         '</span>' +
-        '<span class="jqf-text jqf-ellipsis" title="' + choiceText + '">' + choiceText + '</span>');
-        var slider = $(select).parents('.jqf-slider');
-        var bevel = $('.jqf-bevel', slider);
-        var track = $('.jqf-track', slider);
-        var level = $('.jqf-level', slider);
-        var button = $('.jqf-button', slider);
-        var text = $('.jqf-text', slider);
+        '<span class="nui-text nui-ellipsis" title="' + choiceText + '">' + choiceText + '</span>');
+        var slider = $(select).parents('.nui-slider');
+        var bevel = $('.nui-bevel', slider);
+        var track = $('.nui-track', slider);
+        var level = $('.nui-level', slider);
+        var button = $('.nui-button', slider);
+        var text = $('.nui-text', slider);
         $(track).css('width', width + 'px');
         $(text).css('width', width + 'px');
         $(level).css('width', index * options.unit + 2 + 'px');
@@ -453,9 +453,9 @@
             $(level).css('width', index * options.unit + 2 + 'px');
             choice = $(selectArray)[index];
             choiceText = $(choice).text();
-            $('.jqf-text', bevel).remove();
-            $(bevel).append('<div class="jqf-text jqf-ellipsis" title="' + choiceText + '">' + choiceText + '</div>');
-            $('.jqf-text', bevel).css('width', width + 'px');
+            $('.nui-text', bevel).remove();
+            $(bevel).append('<div class="nui-text nui-ellipsis" title="' + choiceText + '">' + choiceText + '</div>');
+            $('.nui-text', bevel).css('width', width + 'px');
             options.onDrag.call($(choice));
           },
           distance:options.unit,
@@ -470,7 +470,7 @@
     });
   }; // End Slider
 
-  $.fn.jqfWindow = function(customOptions) { // Begin Window
+  $.fn.nuiWindow = function(customOptions) { // Begin Window
     var options = $.extend({}, customOptions);
     return this.each(function(i, opener) {
       $(opener).click(function(event) {
@@ -482,9 +482,9 @@
           options.url = $(opener).attr('name');
         }
         options.title = $(opener).attr('title');
-        $.jqf.windowOpen(options);
+        $.nui.windowOpen(options);
       });
     });
   }; // End Window
 
-})(jQuery); // End Webjutsu
+})(jQuery);
