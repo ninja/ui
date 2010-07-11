@@ -38,6 +38,7 @@
   display: block;
   height: 26px;
   line-height: 26px;
+  padding: 0 10px;
   position: relative;
   text-align: center;
   vertical-align: middle;
@@ -573,13 +574,14 @@
   -moz-border-radius-topright: 6px;
   -webkit-border-top-right-radius: 6px;
   border-radius-top-right: 6px;
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
-  display: -moz-inline-box;
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
   color: black;
+  display: block;
   padding: 10px;
   margin: 0 10px 10px 0; }
   .jqf-panel .jqf-bar, .jqf-panel .jqf-bar, .jqf-panel .jqf-window-frame .jqf-bar, .jqf-window-frame .jqf-panel .jqf-bar {

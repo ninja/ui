@@ -1,4 +1,4 @@
-(function($) { // Begin Ninja ui
+(function($) { // Begin Webjutsu
 
   $.jqf = { // Begin Functions
     drawerClose: function(drawer){
@@ -487,4 +487,4 @@
     });
   }; // End Window
 
-})(jQuery); // End jqFace
+})(jQuery); // End Webjutsu

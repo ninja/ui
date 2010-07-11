@@ -5,19 +5,19 @@
   display: none;
 }
 
-@import 'modules/bar';
-@import 'modules/button';
-@import 'modules/drawers';
-@import 'modules/filmstrip';
-@import 'modules/folders';
-@import 'modules/icons';
-@import 'modules/menu';
-@import 'modules/panel';
-@import 'modules/rating';
-@import 'modules/slider';
-@import 'modules/tabs';
-@import 'modules/wait';
-@import 'modules/window';
+@import 'webjutsu/bar';
+@import 'webjutsu/button';
+@import 'webjutsu/drawers';
+@import 'webjutsu/filmstrip';
+@import 'webjutsu/folders';
+@import 'webjutsu/icons';
+@import 'webjutsu/menu';
+@import 'webjutsu/panel';
+@import 'webjutsu/rating';
+@import 'webjutsu/slider';
+@import 'webjutsu/tabs';
+@import 'webjutsu/wait';
+@import 'webjutsu/window';
 
 .jqf-active {
   @include border($color-active);

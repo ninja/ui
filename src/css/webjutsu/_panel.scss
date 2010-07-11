@@ -2,9 +2,10 @@
   @include background-color;
   @include border;
   @include border-radius-top;
+  @include box-sizing;
   @include font;
-  @include inline-block;
   color: $color-text;
+  display: block;
   padding: 10px;
   margin: 0 10px 10px 0;
   .jqf-bar {
