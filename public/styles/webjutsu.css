@@ -2,7 +2,7 @@
   display: none; }
 
 .nui-bar, .nui-panel .nui-bar, .nui-window-frame .nui-bar {
-  background-image: url("../images/gradient-outset.png");
+  background-image: url("../public/images/gradient-outset.png");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
   background-position: bottom center;
@@ -23,7 +23,7 @@
   box-sizing: content-box;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
-  background-image: url("../images/gradient-outset.png");
+  background-image: url("../public/images/gradient-outset.png");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
   background-position: bottom center;
@@ -61,7 +61,7 @@
   box-sizing: content-box;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 12px;
-  background-image: url("../images/gradient-outset.png");
+  background-image: url("../public/images/gradient-outset.png");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
   background-position: bottom center;
@@ -86,7 +86,7 @@
   white-space: nowrap;
   margin: 0 5px 10px 0; }
   .nui-button:active {
-    background-image: url("../images/gradient-inset.png");
+    background-image: url("../public/images/gradient-inset.png");
     background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
     background-position: top center;
@@ -114,7 +114,7 @@
     box-sizing: content-box;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
-    background-image: url("../images/gradient-outset.png");
+    background-image: url("../public/images/gradient-outset.png");
     background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
     background-position: bottom center;
@@ -145,7 +145,7 @@
     text-align: left;
     z-index: 222; }
     .nui-drawers .nui-drawer-handle:active {
-      background-image: url("../images/gradient-inset.png");
+      background-image: url("../public/images/gradient-inset.png");
       background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
       background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
       background-position: top center;
@@ -161,7 +161,7 @@
     .nui-drawers .nui-drawer-handle .nui-icon {
       margin: 5px 0; }
   .nui-drawers .nui-drawer-handle.nui-active, .nui-drawers .nui-drawer-handle.nui-active, .nui-drawers .nui-tabs .nui-drawer-handle.nui-tab.nui-active, .nui-tabs .nui-drawers .nui-drawer-handle.nui-tab.nui-active, .nui-drawers .nui-drawer-handle:active {
-    background-image: url("../images/gradient-inset.png");
+    background-image: url("../public/images/gradient-inset.png");
     background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
     background-position: top center;
@@ -335,7 +335,7 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background-image: url("../images/icons.png");
+  background-image: url("../public/images/icons.png");
   font-size: 0;
   height: 16px;
   line-height: 16px;
@@ -503,7 +503,7 @@
       box-sizing: content-box;
       font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
       font-size: 12px;
-      background-image: url("../images/gradient-outset.png");
+      background-image: url("../public/images/gradient-outset.png");
       background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
       background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
       background-position: bottom center;
@@ -531,7 +531,7 @@
       display: block;
       text-align: left; }
       .nui-menu .nui-menu-choices .nui-menu-choice:active {
-        background-image: url("../images/gradient-inset.png");
+        background-image: url("../public/images/gradient-inset.png");
         background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
         background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
         background-position: top center;
@@ -554,7 +554,7 @@
         -webkit-border-top-right-radius: 6px;
         border-radius-top-right: 6px; }
       .nui-menu .nui-menu-choices .nui-menu-choice:hover {
-        background-image: url("../images/gradient-outset.png");
+        background-image: url("../public/images/gradient-outset.png");
         background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
         background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
         background-position: bottom center;
@@ -614,7 +614,7 @@
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background-image: url("../images/rating.png");
+  background-image: url("../public/images/rating.png");
   cursor: pointer;
   height: 24px;
   width: 18px; }
@@ -660,7 +660,7 @@
       -moz-border-radius: 6px;
       -webkit-border-radius: 6px;
       border-radius: 6px;
-      background-image: url("../images/gradient-inset.png");
+      background-image: url("../public/images/gradient-inset.png");
       background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
       background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
       background-position: top center;
@@ -677,7 +677,7 @@
         -moz-border-radius: 6px;
         -webkit-border-radius: 6px;
         border-radius: 6px;
-        background-image: url("../images/gradient-outset.png");
+        background-image: url("../public/images/gradient-outset.png");
         background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
         background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
         background-position: bottom center;
@@ -719,7 +719,7 @@
     box-sizing: content-box;
     font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
     font-size: 12px;
-    background-image: url("../images/gradient-outset.png");
+    background-image: url("../public/images/gradient-outset.png");
     background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
     background-position: bottom center;
@@ -745,7 +745,7 @@
     margin: 0;
     position: relative; }
     .nui-tabs .nui-tab:active {
-      background-image: url("../images/gradient-inset.png");
+      background-image: url("../public/images/gradient-inset.png");
       background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
       background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
       background-position: top center;
@@ -789,7 +789,7 @@
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
-  background: url("../images/wait.gif") 10px center no-repeat;
+  background: url("../public/images/wait.gif") 10px center no-repeat;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
   display: none;
@@ -864,7 +864,7 @@
 
 .nui-active, .nui-drawers .nui-drawer-handle.nui-active, .nui-tabs .nui-tab.nui-active {
   border: 1px solid #565656;
-  background-image: url("../images/gradient-inset.png");
+  background-image: url("../public/images/gradient-inset.png");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
   background-position: top center;

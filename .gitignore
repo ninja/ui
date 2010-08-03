@@ -1,2 +1,25 @@
-_site/
+## Mac OS
+.DS_Store
+
+## RubyMine, IDEA, etc.
+.idea
+
+## MacVim, GVim, Vim
+*.swp
+
+## Emacs
+*~
+\#*
+.\#*
+
+# Textmate
+*.tmproj
+tmtags
+
+### Project::General
+coverage
+rdoc
+pkg
+
+## Project::Specific
 .sass-cache/
