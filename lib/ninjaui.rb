@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby -w
 # encoding: UTF-8
 
+require 'fileutils'
 require 'sass'
 require 'sprockets'
 
@@ -21,7 +22,7 @@ module Ninjaui
 
       # Create clean ninjaui directory under public
       path_assets = 'public/ninjaui'
-      Dir.rmdir path_assets if !File.exists?(path_assets)
+      FileUtils.rm_rf path_assets if File.exists?(path_assets)
       Dir.mkdir path_assets
 
       # Compile scss sources to file under assets

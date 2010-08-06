@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.description = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project = 'ninjaui'
-  s.add_dependency 'sprockets'
   s.add_dependency 'haml'
+  s.add_dependency 'sprockets'
   s.files = Dir.glob("{bin,lib}/**/*") + %w(readme.rdoc license.rdoc)
   s.require_path = 'lib'
   s.bindir = 'bin'
