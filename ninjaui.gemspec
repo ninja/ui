@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = 'ninjaui'
   s.add_dependency 'sprockets'
   s.add_dependency 'haml'
-  s.files = Dir.glob("{bin,lib}/**/*") + %w(readme license)
+  s.files = Dir.glob("{bin,lib}/**/*") + %w(readme.rdoc license.rdoc)
   s.require_path = 'lib'
   s.bindir = 'bin'
   s.executables = 'ninjaui'

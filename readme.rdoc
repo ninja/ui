@@ -1,0 +1,11 @@
+= ninjaui
+
+Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.
+
+= Install
+
+* gem install ninjaui
+
+== Copyright
+
+Copyright (c) 2010 Jamie Hoover. See license.rdoc for details.

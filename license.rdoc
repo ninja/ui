@@ -1,4 +1,4 @@
-Ninja ui
+= Ninja ui
 
 Copyright (c) 2010, Jamie Hoover
 All rights reserved.
