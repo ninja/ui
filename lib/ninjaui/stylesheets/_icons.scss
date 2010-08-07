@@ -10,6 +10,8 @@
   vertical-align: middle;
   width: $size;
 }
+$background-position-x: 0;
+$background-position-y: -16px;
 .nui-icon-up { background-position: $background-position-x 0; }
 .nui-icon-right { background-position: $background-position-x $background-position-y; }
 .nui-icon-down { background-position: $background-position-x $background-position-y * 2; }
