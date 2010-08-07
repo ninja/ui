@@ -1,10 +1,15 @@
-@import 'variables';
+$background-position-x: 0;
+$background-position-y: -16px;
+$color: #fff;
+$color-active: #666;
+$color-text: #000;
+$color-text-active: #fff;
+$font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+$font-size: 12px;
+$image-path: 'images';
+$radius: 6px;
+
 @import 'mixins';
-
-.nui {
-  display: none;
-}
-
 @import 'webjutsu/bar';
 @import 'webjutsu/button';
 @import 'webjutsu/drawers';
@@ -18,24 +23,3 @@
 @import 'webjutsu/tabs';
 @import 'webjutsu/wait';
 @import 'webjutsu/window';
-
-.nui-active {
-  @include border($color-active);
-  @include gradient-inset;
-  @include text-shadow-active;
-  background-color: $color-active;
-  color: $color-text-active;
-  &:hover {
-    color: $color-text-active;
-  }
-}
-
-.nui-submit {
-  @include border($color-active);
-  @include text-shadow-active;
-  background-color: $color-active;
-  color: $color-text-active;
-  &:hover {
-    color: $color-text-active;
-  }
-}

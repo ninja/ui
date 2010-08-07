@@ -147,3 +147,26 @@
   -webkit-user-select: $type;
   user-select: $type;
 }
+
+.nui-hidden {
+  display: none;
+}
+.nui-active {
+  @include border($color-active);
+  @include gradient-inset;
+  @include text-shadow-active;
+  background-color: $color-active;
+  color: $color-text-active;
+  &:hover {
+    color: $color-text-active;
+  }
+}
+.nui-submit {
+  @include border($color-active);
+  @include text-shadow-active;
+  background-color: $color-active;
+  color: $color-text-active;
+  &:hover {
+    color: $color-text-active;
+  }
+}
