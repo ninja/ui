@@ -30,7 +30,7 @@
       }
       &:hover {
         @include gradient-outset;
-        @extend .nui-submit;
+        @include submit;
       }
       &:last-child {
         @include border-radius-bottom;

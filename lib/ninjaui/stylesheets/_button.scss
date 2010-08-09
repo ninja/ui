@@ -3,3 +3,9 @@
   @include input;
   margin: 0 5px 10px 0;
 }
+.nui-submit {
+  @include submit;
+}
+.nui-active {
+  @include active;
+}

@@ -14,7 +14,7 @@
     z-index: 111;
   }
   .nui-drawer-handle.nui-active {
-    @extend .nui-active;
+    @include active;
   }
   .nui-drawer-handle.nui-first {
     @include border-radius-top;

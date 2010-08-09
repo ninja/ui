@@ -8,7 +8,7 @@
     position: relative;
   }
   .nui-tab.nui-active {
-    @extend .nui-active;
+    @include active;
   }
   .nui-first {
     @include border-radius-left;
