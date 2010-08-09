@@ -2,21 +2,20 @@
 
 Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.
 
-= Assumption
-
-You have a webapp that serves static assets from a directory called 'public'.
-
-= Install
-
 1. gem install ninjaui
-2. cd <yourwebapp>/
+2. cd path/to/your/webapp (assuming your webapp serves static files from 'public' directory)
 3. ninjaui
 
-= Sinatra helpers
+= Sinatra helper
 
 require 'sinatra/ninjaui'
 
-<%= ninjaui %> outputs link and script tags for the current version of Ninja ui.
+<html>
+  <head>
+    <%= ninjaui %> (outputs link and script tags for the current version of Ninja ui)
+  </head>
+  ..
+</html>
 
 == Copyright
 
