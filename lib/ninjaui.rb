@@ -20,17 +20,21 @@ module Ninjaui
     def install
       path_source = File.dirname(__FILE__) + '/ninjaui'
 
-      # Create clean ninjaui directory under public
+      # Create ninjaui directory under public
       path_assets = 'public/ninjaui'
-      FileUtils.rm_rf path_assets if File.exists?(path_assets)
-      Dir.mkdir path_assets
-      Dir.mkdir "#{path_assets}/javascripts"
+      FileUtils.mkdir_p "#{path_assets}/images"
+      FileUtils.mkdir_p "#{path_assets}/javascripts"
+      FileUtils.mkdir_p "#{path_assets}/stylesheets"
+
+      # Copy webjutsu.scss to ninjaui directory to allow user customization
+      path_stylesheet = "#{path_source}/stylesheets"
+      FileUtils.cp("#{path_stylesheet}/webjutsu.scss", "#{path_assets}/webjutsu.scss") unless File.exist?("#{path_assets}/webjutsu.scss")
 
       # Compile scss sources to file under assets
-      path_stylesheet = "#{path_source}/stylesheets"
-      File.open("#{path_source}/assets/webjutsu.css", 'w+:UTF-8') do |stylesheet|
+      FileUtils.mkdir_p "#{path_source}/assets/stylesheets"
+      File.open("#{path_source}/assets/stylesheets/webjutsu.css", 'w+:UTF-8') do |stylesheet|
         stylesheet.write Sass::Engine.new(
-          File.read("#{path_stylesheet}/webjutsu.scss"),
+          File.read("#{path_assets}/webjutsu.scss"),
           :cache => false,
           :load_paths => [path_stylesheet],
           :style => :compressed,
