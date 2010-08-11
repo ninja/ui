@@ -24,6 +24,7 @@ module Ninjaui
       path_assets = 'public/ninjaui'
       FileUtils.rm_rf path_assets if File.exists?(path_assets)
       Dir.mkdir path_assets
+      Dir.mkdir "#{path_assets}/javascripts"
 
       # Compile scss sources to file under assets
       path_stylesheet = "#{path_source}/stylesheets"
@@ -42,7 +43,7 @@ module Ninjaui
         :asset_root => path_assets,
         :source_files => ["#{path_source}/javascripts/webjutsu.js"]
       )
-      javascript.concatenation.save_to("#{path_assets}/webjutsu.js")
+      javascript.concatenation.save_to("#{path_assets}/javascripts/webjutsu.js")
 
       # Copy compiled css and images from assets to public
       javascript.install_assets

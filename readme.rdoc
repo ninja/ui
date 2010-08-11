@@ -12,7 +12,9 @@ require 'sinatra/ninjaui'
 
 <html>
   <head>
-    <%= ninjaui %> (outputs link and script tags for the current version of Ninja ui)
+    ..
+    <%= nui_head %> (outputs link and script tags for the current version of Ninja ui)
+    ..
   </head>
   ..
 </html>
