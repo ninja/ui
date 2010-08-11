@@ -6,7 +6,7 @@ Ninja user interface is skilled in the techniques of JavaScript and CSS, going u
 2. cd PATH/TO/YOUR/WEBAPP
 3. ninjaui
 
-Visit http://ninjaui.com[http://ninjaui.com/] for how to include, use, and customize.
+Visit ninjaui.com[http://ninjaui.com/] for how to include, use, and customize.
 
 == Copyright
 
