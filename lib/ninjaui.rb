@@ -19,17 +19,27 @@ module Ninjaui
 
     def install
       lib = File.dirname(__FILE__) + '/ninjaui'
-
-      # Create ninjaui directory under public
-      public = 'public/ninjaui'
-      FileUtils.mkdir_p "#{public}/images"
-      FileUtils.mkdir_p "#{public}/javascripts"
-      FileUtils.mkdir_p "#{public}/stylesheets"
-
-      # Copy ninjaui.scss to ninjaui directory to allow user customization
+      lib_javascripts = "#{lib}/javascripts"
       lib_stylesheets = "#{lib}/stylesheets"
-      public_scss = "#{public}/ninjaui.scss"
-      FileUtils.cp("#{lib_stylesheets}/ninjaui.scss", public_scss) unless File.exist?(public_scss)
+
+      public = 'public/ninjaui'
+      public_images = "#{public}/images"
+      public_javascripts = "#{public}/javascripts"
+      public_stylesheets = "#{public}/stylesheets"
+      public_scss = "#{public}/webjutsu.scss"
+
+      # Remove outdated files
+      FileUtils.rm_rf public_images unless !File.exists?(public_images)
+      FileUtils.rm_rf public_javascripts unless !File.exists?(public_javascripts)
+      FileUtils.rm_rf public_stylesheets unless !File.exists?(public_stylesheets)
+
+      # Create ninjaui directories under public
+      FileUtils.mkdir_p public_images
+      FileUtils.mkdir_p public_javascripts
+      FileUtils.mkdir_p public_stylesheets
+
+      # Copy webjutsu.scss to ninjaui directory to allow user customization
+      FileUtils.cp("#{lib_stylesheets}/webjutsu.scss", public_scss) unless File.exist?(public_scss)
 
       # Compile scss sources to file under assets
       FileUtils.mkdir_p "#{lib}/assets/stylesheets"
@@ -44,8 +54,6 @@ module Ninjaui
       end
 
       # Compile javascript sources to file under public
-      lib_javascripts = "#{lib}/javascripts"
-      public_javascripts = "#{public}/javascripts"
       javascript = Sprockets::Secretary.new(
         :asset_root => public,
         :source_files => ["#{lib_javascripts}/jquery.ninjaui.core.js"]
