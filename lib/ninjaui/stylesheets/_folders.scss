@@ -50,7 +50,7 @@
 .nui-folder {
   @include border($color);
   @include border-radius;
-  background: white;
+  background: $color;
   color: $color-text;
   display: none;
   margin-bottom: 10px;

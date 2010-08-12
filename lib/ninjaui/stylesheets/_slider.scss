@@ -13,8 +13,9 @@
     @include inline-block;
     @include user-select;
     background-color: $color;
-    display: block;
     border: 1px solid lightgray;
+    color: $color-text;
+    display: block;
     padding: 5px;
     .nui-track {
       @include border-radius;

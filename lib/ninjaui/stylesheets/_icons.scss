@@ -10,7 +10,7 @@
   vertical-align: middle;
   width: $size;
 }
-$background-position-x: 0;
+$background-position-x: $icon;
 $background-position-y: -16px;
 .nui-icon-up { background-position: $background-position-x 0; }
 .nui-icon-right { background-position: $background-position-x $background-position-y; }
@@ -38,7 +38,7 @@ $background-position-y: -16px;
 .nui-icon-mail { background-position: $background-position-x $background-position-y * 23; }
 .nui-icon-star { background-position: $background-position-x $background-position-y * 24; }
 .nui-active, .nui-submit {
-  $background-position-x: -16px;
+  $background-position-x: $icon-active;
   .nui-icon-up { background-position: $background-position-x 0; }
   .nui-icon-right { background-position: $background-position-x $background-position-y; }
   .nui-icon-down { background-position: $background-position-x $background-position-y * 2; }

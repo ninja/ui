@@ -28,8 +28,8 @@
   }
   .nui-window-content {
     @include font;
-    background-color: $color;
-    color: $color-text;
+    background-color: #fff;
+    color: #000;
     max-width: 800px;
     min-height: 180px;
     min-width: 360px;

@@ -25,7 +25,7 @@
   }
   .nui-drawer {
     @include border($color);
-    background: white;
+    background: $color;
     border: {
       bottom: none;
       top: none;
