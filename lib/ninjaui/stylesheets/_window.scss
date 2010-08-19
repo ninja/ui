@@ -1,48 +1,50 @@
 .nui-window {
-  background-color: black;
-  height: 100%;
-  left: 0;
-  opacity: 0.75;
-  position: fixed;
-  top: 0;
-  z-index: 888;
-  width: 100%;
+  background-color:black;
+  height:100%;
+  left:0;
+  opacity:0.75;
+  position:fixed;
+  top:0;
+  z-index:888;
+  width:100%;
 }
 
 .nui-window-frame {
-  display: none;
-  position: absolute;
-  z-index: 999;
+  display:none;
+  position:absolute;
+  z-index:999;
   .nui-bar {
-    @extend .nui-bar;
+    @include draggable;
+    @include border-radius-top;
     .nui-window-title {
       @include inline-block;
       margin-right: 20px; }
     .nui-window-close {
       @include border-radius(0);
       @include border-radius-top-right;
-      position: absolute;
-      right: 0;
-      top: 0;
+      margin:-1px;
+      position:absolute;
+      right:0;
+      top:0;
     }
   }
   .nui-window-content {
     @include font;
-    background-color: #fff;
-    color: #000;
-    max-width: 800px;
-    min-height: 180px;
-    min-width: 360px;
-    overflow: auto;
-    padding: 10px;
+    background-color:#fff;
+    color:#000;
+    max-width:800px;
+    min-height:180px;
+    min-width:360px;
+    overflow:auto;
+    padding:10px;
   }
   .nui-window-reflection {
     background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-    height: 30px;
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    width: 100%;
+    height:30px;
+    position:absolute;
+    bottom:-30px;
+    left:0;
+    width:100%;
   }
 }

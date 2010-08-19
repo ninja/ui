@@ -9,7 +9,8 @@
   padding: 10px;
   margin: 0 10px 10px 0;
   .nui-bar {
-    @extend .nui-bar;
+    @include bar;
+    @include border-radius-top;
     margin: -11px -11px 10px -11px;
   }
 }

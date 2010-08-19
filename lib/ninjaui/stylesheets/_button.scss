@@ -1,6 +1,7 @@
 .nui-button {
+  @include clickable;
   @include border-radius;
-  @include input;
+  @include inline-block;
   margin: 0 5px 10px 0;
 }
 .nui-submit {

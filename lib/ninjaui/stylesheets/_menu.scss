@@ -20,7 +20,7 @@
     position: absolute;
     z-index: 777;
     .nui-menu-choice {
-      @include input;
+      @include clickable;
       background: none;
       border-color: $color;
       display: block;
@@ -36,5 +36,5 @@
         @include border-radius-bottom;
       }
     }
-  }  
+  }
 }

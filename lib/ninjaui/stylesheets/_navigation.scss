@@ -1,0 +1,21 @@
+.nui-navigation {
+  @include bar(48px);
+  @include border-radius;
+  @include font;
+  padding:0;
+  .nui-button {
+    margin:-1px;
+  }
+  .nui-tabs {
+    height:inherit;
+    margin:-1px;
+    text-align:left;
+    .nui-tab {
+      @include tab(48px);
+      @include font;
+      &.nui-last {
+        @include border-radius(0);
+    }
+    }
+  }
+}

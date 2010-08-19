@@ -1,21 +1,24 @@
 .nui-filmstrip {
   @include font;
   @include inline-block;
-  margin: 10px 0;
-  white-space: nowrap;
+  margin:10px 0;
+  white-space:nowrap;
   .nui-bar {
-    @extend nui-bar;
+    @include bar;
+    @include border-radius-top;
     padding: 0;
     .back {
       @include border-radius(0);
       @include border-radius-top-left;
       left: 0;
+      margin:-1px;
       position: absolute;
       top: 0;
     }
     .forward {
       @include border-radius(0);
       @include border-radius-top-right;
+      margin:-1px;
       position: absolute;
       right: 0;
       top: 0;

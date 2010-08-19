@@ -3,17 +3,6 @@
   text-align: center;
   white-space: nowrap;
   .nui-tab {
-    @include input;
-    margin: 0;
-    position: relative;
-  }
-  .nui-tab.nui-active {
-    @include active;
-  }
-  .nui-first {
-    @include border-radius-left;
-  }
-  .nui-last {
-    @include border-radius-right;
+    @include tab;
   }
 }

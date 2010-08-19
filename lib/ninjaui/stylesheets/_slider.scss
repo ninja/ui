@@ -9,11 +9,11 @@
     margin-bottom: 2px;
     text-align: center; }
   .nui-bevel {
+    @include border($color);
     @include border-radius;
     @include inline-block;
     @include user-select;
     background-color: $color;
-    border: 1px solid lightgray;
     color: $color-text;
     display: block;
     padding: 5px;

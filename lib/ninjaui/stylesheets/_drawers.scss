@@ -2,7 +2,7 @@
   @include font;
   display: block;
   .nui-drawer-handle {
-    @include input;
+    @include clickable;
     @include user-select;
     display: block;
     position: relative;
@@ -19,7 +19,7 @@
   .nui-drawer-handle.nui-first {
     @include border-radius-top;
   }
-  
+
   .nui-drawer-handle.nui-last {
     @include border-radius-bottom;
   }

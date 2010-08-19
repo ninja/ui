@@ -1,12 +1,19 @@
 require 'ninjaui/version'
+require 'erubis'
 require 'sinatra/base'
 
 module Sinatra
   module NinjauiHelpers
-    def nui_head(options={:jquery_path => '/ninjaui/javascripts/jquery-1.4.2.min.js', :version => Ninjaui::VERSION})
-      "<link href=\"/ninjaui/stylesheets/ninjaui.css?#{options[:version]}\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" />
-    <script src=\"#{options[:jquery_path]}\" type=\"text/javascript\"> </script>
-    <script src=\"/ninjaui/javascripts/jquery.ninjaui.js?#{options[:version]}\" type=\"text/javascript\"> </script>"
+    def nui(template)
+      @version = Ninjaui::VERSION
+      template_array = template.to_s.split('/')
+      template = template_array[0..-2].join('/') + "/_#{template_array[-1]}"
+      erubis(:"#{template}", :layout => false, :views => "#{File.dirname(__FILE__)}/views")
+    end
+    def partial(template)
+      template_array = template.to_s.split('/')
+      template = template_array[0..-2].join('/') + "/_#{template_array[-1]}"
+      erubis(:"#{template}", :layout => false)
     end
   end
   helpers NinjauiHelpers
