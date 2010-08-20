@@ -77,6 +77,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight:bold;
   text-rendering:optimizeLegibility;
 }
+h1 {
+  font-size:xx-large;
+}
+h2 {
+  font-size:x-large;
+}
+h3 {
+  font-size:large;
+}
+h4 {
+  font-size:small;
+}
+h5 {
+  font-size:x-small;
+}
+h6 {
+  font-size:xx-small;
+}
 
 hr {
   display:block;
@@ -112,10 +130,8 @@ mark {
 }
 
 pre {
-  padding: 15px;
   white-space: pre; /* CSS 2 */
   white-space: pre-wrap; /* CSS 2.1 */
-  white-space: pre-line; /* CSS 3 */
 }
 
 select, input, textarea {

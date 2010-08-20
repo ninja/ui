@@ -2,72 +2,71 @@ $icon-size: 12px;
 .nui-icon {
   @include box-sizing;
   @include inline-block;
-  background-image: url("#{$image-path}/icons.png");
-  font-size: 0;
-  height: $icon-size;
-  overflow: hidden;
+  background-repeat:no-repeat;
+  font-size:$icon-size;
+  height:$icon-size;
+  line-height:$icon-size;
+  padding-left:$icon-size;
+  text-indent:2px;
   vertical-align:middle;
-  width: $icon-size;
 }
 @if $color-icon == 'light' {
-  $color-icon: -($icon-size);
+  $color-icon:url("#{$image-path}/icons-light.png");
 } @else {
-  $color-icon: 0;
+  $color-icon:url("#{$image-path}/icons-dark.png");
 }
 @if $color-icon-active == 'light' {
-  $color-icon-active: -($icon-size);
+  $color-icon-active:url("#{$image-path}/icons-light.png");
 } @else {
-  $color-icon-active: 0;
+  $color-icon-active:url("#{$image-path}/icons-dark.png");
 }
 
-$background-position-x: $color-icon;
 $background-position-y: -($icon-size);
-.nui-icon-up { background-position: $background-position-x 0; }
-.nui-icon-right { background-position: $background-position-x $background-position-y; }
-.nui-icon-down { background-position: $background-position-x $background-position-y * 2; }
-.nui-icon-left { background-position: $background-position-x $background-position-y * 3; }
-.nui-icon-close { background-position: $background-position-x $background-position-y * 4; }
-.nui-icon-check { background-position: $background-position-x $background-position-y * 5; }
-.nui-icon-subtract { background-position: $background-position-x $background-position-y * 6; }
-.nui-icon-add { background-position: $background-position-x $background-position-y * 7; }
-.nui-icon-search { background-position: $background-position-x $background-position-y * 8; }
-.nui-icon-warning { background-position: $background-position-x $background-position-y * 9; }
-.nui-icon-home { background-position: $background-position-x $background-position-y * 10; }
-.nui-icon-gear { background-position: $background-position-x $background-position-y * 11; }
-.nui-icon-apple { background-position: $background-position-x $background-position-y * 12; }
-.nui-icon-heart { background-position: $background-position-x $background-position-y * 13; }
-.nui-icon-target { background-position: $background-position-x $background-position-y * 14; }
-.nui-icon-profile { background-position: $background-position-x $background-position-y * 15; }
-.nui-icon-people { background-position: $background-position-x $background-position-y * 16; }
-.nui-icon-photo { background-position: $background-position-x $background-position-y * 17; }
-.nui-icon-print { background-position: $background-position-x $background-position-y * 18; }
-.nui-icon-radio { background-position: $background-position-x $background-position-y * 19; }
-.nui-icon-movie { background-position: $background-position-x $background-position-y * 20; }
-.nui-icon-refresh { background-position: $background-position-x $background-position-y * 21; }
-.nui-icon-mail { background-position: $background-position-x $background-position-y * 22; }
-$background-position-x: $color-icon-active;
+.nui-icon-up { background-image:$color-icon; background-position:0 0; }
+.nui-icon-right { background-image:$color-icon; background-position:0 $background-position-y; }
+.nui-icon-down { background-image:$color-icon; background-position:0 $background-position-y * 2; }
+.nui-icon-left { background-image:$color-icon; background-position:0 $background-position-y * 3; }
+.nui-icon-close { background-image:$color-icon; background-position:0 $background-position-y * 4; }
+.nui-icon-check { background-image:$color-icon; background-position:0 $background-position-y * 5; }
+.nui-icon-subtract { background-image:$color-icon; background-position:0 $background-position-y * 6; }
+.nui-icon-add { background-image:$color-icon; background-position:0 $background-position-y * 7; }
+.nui-icon-search { background-image:$color-icon; background-position:0 $background-position-y * 8; }
+.nui-icon-warning { background-image:$color-icon; background-position:0 $background-position-y * 9; }
+.nui-icon-home { background-image:$color-icon; background-position:0 $background-position-y * 10; }
+.nui-icon-gear { background-image:$color-icon; background-position:0 $background-position-y * 11; }
+.nui-icon-apple { background-image:$color-icon; background-position:0 $background-position-y * 12; }
+.nui-icon-heart { background-image:$color-icon; background-position:0 $background-position-y * 13; }
+.nui-icon-target { background-image:$color-icon; background-position:0 $background-position-y * 14; }
+.nui-icon-profile { background-image:$color-icon; background-position:0 $background-position-y * 15; }
+.nui-icon-people { background-image:$color-icon; background-position:0 $background-position-y * 16; }
+.nui-icon-photo { background-image:$color-icon; background-position:0 $background-position-y * 17; }
+.nui-icon-print { background-image:$color-icon; background-position:0 $background-position-y * 18; }
+.nui-icon-radio { background-image:$color-icon; background-position:0 $background-position-y * 19; }
+.nui-icon-movie { background-image:$color-icon; background-position:0 $background-position-y * 20; }
+.nui-icon-refresh { background-image:$color-icon; background-position:0 $background-position-y * 21; }
+.nui-icon-mail { background-image:$color-icon; background-position:0 $background-position-y * 22; }
 .nui-active, .nui-submit {
-  .nui-icon-up { background-position: $background-position-x 0; }
-  .nui-icon-right { background-position: $background-position-x $background-position-y; }
-  .nui-icon-down { background-position: $background-position-x $background-position-y * 2; }
-  .nui-icon-left { background-position: $background-position-x $background-position-y * 3; }
-  .nui-icon-close { background-position: $background-position-x $background-position-y * 4; }
-  .nui-icon-check { background-position: $background-position-x $background-position-y * 5; }
-  .nui-icon-subtract { background-position: $background-position-x $background-position-y * 6; }
-  .nui-icon-add { background-position: $background-position-x $background-position-y * 7; }
-  .nui-icon-search { background-position: $background-position-x $background-position-y * 8; }
-  .nui-icon-warning { background-position: $background-position-x $background-position-y * 9; }
-  .nui-icon-home { background-position: $background-position-x $background-position-y * 10; }
-  .nui-icon-gear { background-position: $background-position-x $background-position-y * 11; }
-  .nui-icon-apple { background-position: $background-position-x $background-position-y * 12; }
-  .nui-icon-heart { background-position: $background-position-x $background-position-y * 13; }
-  .nui-icon-target { background-position: $background-position-x $background-position-y * 14; }
-  .nui-icon-profile { background-position: $background-position-x $background-position-y * 15; }
-  .nui-icon-people { background-position: $background-position-x $background-position-y * 16; }
-  .nui-icon-photo { background-position: $background-position-x $background-position-y * 17; }
-  .nui-icon-print { background-position: $background-position-x $background-position-y * 18; }
-  .nui-icon-radio { background-position: $background-position-x $background-position-y * 19; }
-  .nui-icon-movie { background-position: $background-position-x $background-position-y * 20; }
-  .nui-icon-refresh { background-position: $background-position-x $background-position-y * 21; }
-  .nui-icon-mail { background-position: $background-position-x $background-position-y * 22; }
+  .nui-icon-up { background-image:$color-icon-active; background-position:0 0; }
+  .nui-icon-right { background-image:$color-icon-active; background-position:0 $background-position-y; }
+  .nui-icon-down { background-image:$color-icon-active; background-position:0 $background-position-y * 2; }
+  .nui-icon-left { background-image:$color-icon-active; background-position:0 $background-position-y * 3; }
+  .nui-icon-close { background-image:$color-icon-active; background-position:0 $background-position-y * 4; }
+  .nui-icon-check { background-image:$color-icon-active; background-position:0 $background-position-y * 5; }
+  .nui-icon-subtract { background-image:$color-icon-active; background-position:0 $background-position-y * 6; }
+  .nui-icon-add { background-image:$color-icon-active; background-position:0 $background-position-y * 7; }
+  .nui-icon-search { background-image:$color-icon-active; background-position:0 $background-position-y * 8; }
+  .nui-icon-warning { background-image:$color-icon-active; background-position:0 $background-position-y * 9; }
+  .nui-icon-home { background-image:$color-icon-active; background-position:0 $background-position-y * 10; }
+  .nui-icon-gear { background-image:$color-icon-active; background-position:0 $background-position-y * 11; }
+  .nui-icon-apple { background-image:$color-icon-active; background-position:0 $background-position-y * 12; }
+  .nui-icon-heart { background-image:$color-icon-active; background-position:0 $background-position-y * 13; }
+  .nui-icon-target { background-image:$color-icon-active; background-position:0 $background-position-y * 14; }
+  .nui-icon-profile { background-image:$color-icon-active; background-position:0 $background-position-y * 15; }
+  .nui-icon-people { background-image:$color-icon-active; background-position:0 $background-position-y * 16; }
+  .nui-icon-photo { background-image:$color-icon-active; background-position:0 $background-position-y * 17; }
+  .nui-icon-print { background-image:$color-icon-active; background-position:0 $background-position-y * 18; }
+  .nui-icon-radio { background-image:$color-icon-active; background-position:0 $background-position-y * 19; }
+  .nui-icon-movie { background-image:$color-icon-active; background-position:0 $background-position-y * 20; }
+  .nui-icon-refresh { background-image:$color-icon-active; background-position:0 $background-position-y * 21; }
+  .nui-icon-mail { background-image:$color-icon-active; background-position:0 $background-position-y * 22; }
 }

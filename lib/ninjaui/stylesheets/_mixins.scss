@@ -16,7 +16,6 @@
 @mixin bar($height: 24px) {
   $font-height: $height / 2;
   $padding-width: $height / 3;
-  $icon-margin: ($height - 12) / 2;
   @include border($color);
   @include box-sizing;
   @include font;
@@ -37,9 +36,6 @@
   }
   vertical-align: middle;
   white-space: nowrap;
-  .nui-icon {
-    margin: $icon-margin 0;
-  }
 }
 
 @mixin border($color) {
