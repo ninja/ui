@@ -1,8 +1,8 @@
 .nui-button {
-  @include clickable;
+  $button-height:24px;
+  @include clickable($button-height);
   @include border-radius;
   @include inline-block;
-  margin: 0 5px 10px 0;
 }
 .nui-submit {
   @include submit;

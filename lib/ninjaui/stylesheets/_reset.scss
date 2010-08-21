@@ -28,8 +28,6 @@ body, input, select, textarea {
 }
 body {
   font:13px sans-serif;
-  *font-size:small;
-  *font:x-small;
   line-height:1.22;
 }
 
@@ -63,6 +61,9 @@ blockquote:after, blockquote:before, q:after, q:before {
 
 button, input[type=button], input[type=submit], label {
   cursor: pointer;
+}
+button {
+  margin:0;
 }
 
 code, kbd, pre, samp {
@@ -113,7 +114,6 @@ input[type="radio"] {
 }
 input[type="checkbox"] {
   vertical-align:bottom;
-  *vertical-align:baseline;
 }
 
 ins, mark {
@@ -195,6 +195,9 @@ ol {
 .ie7 {
   img {
     -ms-interpolation-mode:bicubic;
+  }
+  input[type="checkbox"] {
+    vertical-align:baseline;
   }
 }
 

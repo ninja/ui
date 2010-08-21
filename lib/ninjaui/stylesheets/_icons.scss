@@ -7,8 +7,10 @@ $icon-size: 12px;
   height:$icon-size;
   line-height:$icon-size;
   padding-left:$icon-size;
-  text-indent:2px;
-  vertical-align:middle;
+  text-indent:1px;
+}
+.nui-icon::before {
+  content:'\200C'
 }
 @if $color-icon == 'light' {
   $color-icon:url("#{$image-path}/icons-light.png");
