@@ -1,20 +1,31 @@
 require 'ninjaui/version'
+require 'pathname'
 require 'erubis'
 require 'sinatra/base'
 
 module Sinatra
   module NinjauiHelpers
+    
     def nui(template)
       @version = Ninjaui::VERSION
-      template_array = template.to_s.split('/')
-      template = template_array[0..-2].join('/') + "/_#{template_array[-1]}"
-      erubis(:"#{template}", :layout => false, :views => "#{File.dirname(__FILE__)}/views")
+      erubis(:"#{path_partial(template)}", :layout => false, :views => private_views)
     end
+    
     def partial(template)
-      template_array = template.to_s.split('/')
-      template = template_array[0..-2].join('/') + "/_#{template_array[-1]}"
-      erubis(:"#{template}", :layout => false)
+      erubis(:"#{path_partial(template)}", :layout => false)
     end
+    
+    private
+    
+    def path_partial(template)
+      path = Pathname.new(template.to_s)
+      path.dirname.to_s + '/_' + path.basename.to_s
+    end
+    
+    def private_views
+      Pathname.new(__FILE__).parent + 'views'
+    end
+    
   end
   helpers NinjauiHelpers
 end

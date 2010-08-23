@@ -1,5 +1,3 @@
-<!-- Load Modernizr for css feature detection. -->
-<script src="/ninjaui/javascripts/modernizr-1.5.min.js"></script>
 <!-- Check if jQuery 1.4.2 is already loaded. If not, load copy from Ninja ui. -->
 <script>
   var version = '1.4.2';

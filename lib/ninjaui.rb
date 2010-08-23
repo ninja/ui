@@ -2,6 +2,7 @@
 # encoding: UTF-8
 
 require 'fileutils'
+require 'pathname'
 require 'sass'
 require 'sprockets'
 
@@ -18,55 +19,62 @@ module Ninjaui
   class Application
 
     def install
-      lib = File.dirname(__FILE__) + '/ninjaui'
-      lib_javascripts = "#{lib}/javascripts"
-      lib_stylesheets = "#{lib}/stylesheets"
-
-      public = 'public/ninjaui'
-      public_images = "#{public}/images"
-      public_javascripts = "#{public}/javascripts"
-      public_stylesheets = "#{public}/stylesheets"
-      public_scss = "#{public}/webjutsu.scss"
+      public_images = public_root + 'images'
+      public_javascripts = public_root + 'javascripts'
+      public_stylesheets = public_root + 'stylesheets'
 
       # Remove outdated files
       FileUtils.rm_rf public_images unless !File.exists?(public_images)
       FileUtils.rm_rf public_javascripts unless !File.exists?(public_javascripts)
       FileUtils.rm_rf public_stylesheets unless !File.exists?(public_stylesheets)
 
-      # Create ninjaui directories under public
+      # Create directories under public
       FileUtils.mkdir_p public_images
       FileUtils.mkdir_p public_javascripts
       FileUtils.mkdir_p public_stylesheets
 
-      # Copy webjutsu.scss to ninjaui directory to allow user customization
-      FileUtils.cp("#{lib_stylesheets}/webjutsu.scss", public_scss) unless File.exist?(public_scss)
+      # Copy webjutsu.scss to public directory to allow user customization
+      private_webjutsu = private_root + 'stylesheets/webjutsu.scss'
+      public_webjutsu = public_root + 'webjutsu.scss'
+      FileUtils.cp(private_webjutsu, public_webjutsu) unless File.exist?(public_webjutsu)
 
-      # Compile scss sources to file under assets
-      FileUtils.mkdir_p "#{lib}/assets/stylesheets"
-      File.open("#{lib}/assets/stylesheets/ninjaui.css", 'w+:UTF-8') do |stylesheet|
+      # Compile SCSS sources to file under assets
+      File.open(public_stylesheets + 'ninjaui.css', 'w+:UTF-8') do |stylesheet|
         stylesheet.write Sass::Engine.new(
-          File.read(public_scss),
+          File.read(public_webjutsu),
           :cache => false,
-          :load_paths => [lib_stylesheets],
+          :load_paths => [private_root + 'stylesheets'],
           :style => :compressed,
           :syntax => :scss
         ).render
       end
 
-      # Compile javascript sources to file under public
+      # Compile JavaScript sources to file under public
+      private_javascript = private_root + 'javascripts/jquery.ninjaui.core.js'
+      public_javascript = public_javascripts + 'jquery.ninjaui.js'
       javascript = Sprockets::Secretary.new(
-        :asset_root => public,
-        :source_files => ["#{lib_javascripts}/jquery.ninjaui.core.js"]
+        :asset_root => public_root.to_s,
+        :source_files => [private_javascript.to_s]
       )
-      javascript.concatenation.save_to("#{public_javascripts}/jquery.ninjaui.js")
+      javascript.concatenation.save_to(public_javascript.to_s)
 
-      # Copy compiled css and images from assets to public
+      # Copy compiled CSS and images from assets to public
       javascript.install_assets
 
-      puts "Ninja ui can be found here: #{public}"
+      puts "Ninja ui can be found here: #{public_root}"
 
     end
-
+    
+    private
+    
+    def private_root
+      Pathname.new(__FILE__).parent + 'ninjaui'
+    end
+    
+    def public_root
+      Pathname.new 'public/ninjaui'
+    end
+    
   end
 
 end
