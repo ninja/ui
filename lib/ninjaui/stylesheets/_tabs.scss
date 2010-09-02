@@ -1,8 +1,8 @@
-.nui-tabs {
-  font-size: 0;
-  text-align: center;
-  white-space: nowrap;
-  .nui-tab {
+.ninjauiTabs {
+  font-size:0;
+  text-align:center;
+  white-space:nowrap;
+  .ninjauiTab {
     @include tab;
   }
 }

@@ -1,36 +1,21 @@
-@mixin active {
-  @include border($color-active);
-  @include gradient-inset;
-  @include text-shadow-active;
-  background-color:$color-active;
-  color:$color-text-active;
-  &:hover {
-    color:$color-text-active;
-  }
-}
-
-@mixin background-color($color) {
-  background-color:$color;
-}
-
 @mixin bar($height:24px) {
-  $font-height:$height / 2;
-  $icon-margin-height:($height - 12) / 2;
-  $padding-width:$height / 3;
-  @include border($color);
-  @include box-sizing;
+  $fontHeight:$height / 2;
+  $iconMarginHeight:($height - 12) / 2;
+  $paddingWidth:$height / 3;
+  @include border($backgroundColor);
+  @include boxSizing;
   @include font;
-  @include gradient-outset;
-  @include text-shadow;
-  background-color:$color;
-  color:$color-text;
-  font-size:$font-height;
+  @include gradientOutset;
+  @include textShadow;
+  background-color:$backgroundColor;
+  color:$textColor;
+  font-size:$fontHeight;
   height:$height;
   line-height:$height;
   margin:0;
   outline:0;
   overflow:visible;
-  padding:0 $padding-width;
+  padding:0 $paddingWidth;
   position:relative;
   text:{
     align:center;
@@ -40,56 +25,56 @@
   white-space:nowrap;
 }
 
-@mixin border($color) {
-  border:1px solid $color * 0.85;
+@mixin border($borderColor:$backgroundColor) {
+  border:1px solid $borderColor * 0.85;
 }
 
-@mixin border-radius($radius) {
+@mixin borderRadius($radius) {
   -moz-border-radius:$radius;
   -webkit-border-radius:$radius;
   border-radius:$radius;
 }
-@mixin border-radius-corner($vertical, $horizontal, $radius) {
+@mixin borderRadiusCorner($vertical, $horizontal, $radius) {
   -moz-border-radius-#{$vertical}#{$horizontal}:$radius;
   -webkit-border-#{$vertical}-#{$horizontal}-radius:$radius;
   border-radius-#{$vertical}-#{$horizontal}:$radius;
 }
-@mixin border-radius-bottom-left($radius) {
-  @include border-radius-corner(bottom, left, $radius);
+@mixin borderRadiusBottomLeft($radius) {
+  @include borderRadiusCorner(bottom, left, $radius);
 }
-@mixin border-radius-bottom-right($radius) {
-  @include border-radius-corner(bottom, right, $radius);
+@mixin borderRadiusBottomRight($radius) {
+  @include borderRadiusCorner(bottom, right, $radius);
 }
-@mixin border-radius-top-left($radius) {
-  @include border-radius-corner(top, left, $radius);
+@mixin borderRadiusTopLeft($radius) {
+  @include borderRadiusCorner(top, left, $radius);
 }
-@mixin border-radius-top-right($radius) {
-  @include border-radius-corner(top, right, $radius);
+@mixin borderRadiusTopRight($radius) {
+  @include borderRadiusCorner(top, right, $radius);
 }
-@mixin border-radius-bottom($radius) {
-  @include border-radius-bottom-left($radius);
-  @include border-radius-bottom-right($radius);
+@mixin borderRadiusBottom($radius) {
+  @include borderRadiusBottomLeft($radius);
+  @include borderRadiusBottomRight($radius);
 }
-@mixin border-radius-left($radius) {
-  @include border-radius-bottom-left($radius);
-  @include border-radius-top-left($radius);
+@mixin borderRadiusLeft($radius) {
+  @include borderRadiusBottomLeft($radius);
+  @include borderRadiusTopLeft($radius);
 }
-@mixin border-radius-right($radius) {
-  @include border-radius-bottom-right($radius);
-  @include border-radius-top-right($radius);
+@mixin borderRadiusRight($radius) {
+  @include borderRadiusBottomRight($radius);
+  @include borderRadiusTopRight($radius);
 }
-@mixin border-radius-top($radius) {
-  @include border-radius-top-left($radius);
-  @include border-radius-top-right($radius);
+@mixin borderRadiusTop($radius) {
+  @include borderRadiusTopLeft($radius);
+  @include borderRadiusTopRight($radius);
 }
 
-@mixin box-shadow($style:0 10px 10px rgba(0, 0, 0, 0.25)) {
+@mixin boxShadow($style:0 10px 10px rgba(0, 0, 0, 0.25)) {
   -moz-box-shadow:$style;
   -webkit-box-shadow:$style;
   box-shadow:$style;
 }
 
-@mixin box-sizing {
+@mixin boxSizing {
   -ms-box-sizing:content-box;
   -moz-box-sizing:content-box;
   -webkit-box-sizing:content-box;
@@ -100,18 +85,46 @@
   @include bar($height);
   cursor:pointer;
   &:active {
-    @include gradient-inset;
+    @include gradientInset;
   }
   &:focus {
     outline:0;
   }
   &:hover {
-    color:$color-text;
+    color:$textColor;
     text-decoration:none;
   }
   &::-moz-focus-inner {
     border:0;
     padding:0;
+  }
+}
+
+@mixin clicked {
+  @include border($backgroundColorClicked);
+  @include gradientInset;
+  @include textShadowClicked;
+  background-color:$backgroundColorClicked;
+  color:$textColorClicked;
+  &:hover {
+    color:$textColorClicked;
+  }
+}
+
+@mixin disabled {
+  $backgroundColorDisabled:grayscale($backgroundColor);
+  $textColorDisabled:grayscale($textColor);
+  @include border($backgroundColorDisabled);
+  @include gradientInset;
+  @include textShadowClicked;
+  background-color:$backgroundColorDisabled;
+  color:$textColorDisabled;
+  cursor:default;
+  opacity:0.5;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+  &:hover {
+    color:$textColorDisabled;
   }
 }
 
@@ -122,7 +135,7 @@
     outline:0;
   }
   &:hover {
-    color:$color-text;
+    color:$textColor;
     text-decoration:none;
   }
   &::-moz-focus-inner {
@@ -132,23 +145,23 @@
 }
 
 @mixin font {
-  font-family:$font-family;
-  font-size:$font-size;
+  font-family:$fontFamily;
+  font-size:$fontSize;
 }
 
-@mixin gradient($type:outset, $color-top:rgba(255, 255, 255, 0.25), $color-bottom:rgba(0, 0, 0, 0.125), $direction:bottom) {
+@mixin gradient($type:outset, $gradientColorTop:rgba(255, 255, 255, 0.25), $gradientColorBottom:rgba(0, 0, 0, 0.125), $direction:bottom) {
   background:{
-    image:url("#{$image-path}/gradient-#{$type}.png");
-    image:-moz-linear-gradient(top, $color-top, $color-bottom);
-    image:-webkit-gradient(linear, left top, left bottom, from($color-top), to($color-bottom));
+    image:url("#{$imagePath}/gradient-#{$type}.png");
+    image:-moz-linear-gradient(top, $gradientColorTop, $gradientColorBottom);
+    image:-webkit-gradient(linear, left top, left bottom, from($gradientColorTop), to($gradientColorBottom));
     position:$direction center;
     repeat:repeat-x;
   }
 }
-@mixin gradient-inset {
+@mixin gradientInset {
   @include gradient(inset, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25), top)
 }
-@mixin gradient-outset {
+@mixin gradientOutset {
   @include gradient()
 }
 
@@ -156,55 +169,61 @@
   display:none;
 }
 
-@mixin inline-block {
+@mixin inlineBlock {
   display:-moz-inline-box;
   display:inline-block;
   *display:inline;
   zoom:1;
 }
 
-@mixin tab($height:24px) {
-  @include clickable($height);
-  @include inline-block;
-  border-left:none;
-  margin:0;
-  &.nui-first {
-    @include border;
-    @include border-radius-left;
-  }
-  &.nui-last {
-    @include border-radius-right;
-  }
-  &.nui-active {
-    @include active;
+@mixin submittable {
+  @include border($backgroundColorSubmittable);
+  @include textShadowSubmittable;
+  background-color:$backgroundColorSubmittable;
+  color:$textColorSubmittable;
+  &:hover {
+    color:$textColorSubmittable;
   }
 }
 
-@mixin text-overflow($type:ellipsis) {
+@mixin tab($height:24px) {
+  @include clickable($height);
+  @include inlineBlock;
+  border-left:none;
+  margin:0;
+  &.ninjauiFirst {
+    @include border;
+    @include borderRadiusLeft;
+  }
+  &.ninjauiLast {
+    @include borderRadiusRight;
+  }
+  &.ninjauiClicked {
+    @include clicked;
+  }
+}
+
+@mixin textOverflow($type:ellipsis) {
   overflow:hidden;
   -o-text-overflow:$type;
   text-overflow:$type;
   white-space:nowrap;
 }
 
-@mixin submit {
-  @include border($color-active);
-  @include text-shadow-active;
-  background-color:$color-active;
-  color:$color-text-active;
-  &:hover {
-    color:$color-text-active;
-  }
+@mixin textShadow {
+  text-shadow:$backgroundColor 0 1px 1px;
+}
+@mixin textShadowDisabled {
+  text-shadow:$backgroundColorDisabled 0 1px 1px;
+}
+@mixin textShadowClicked {
+  text-shadow:$backgroundColorClicked * 0.5 0 -1px 1px;
+}
+@mixin textShadowSubmittable {
+  text-shadow:$backgroundColorSubmittable * 0.5 0 -1px 1px;
 }
 
-@mixin text-shadow {
-  text-shadow:$color 0 1px 1px;
-}
-@mixin text-shadow-active {
-  text-shadow:$color-active * 0.5 0 -1px 1px;
-}
-
-@mixin user-select($type:none) {
+@mixin userSelect($type:none) {
   -moz-user-select:$type;
   -webkit-user-select:$type;
   user-select:$type;

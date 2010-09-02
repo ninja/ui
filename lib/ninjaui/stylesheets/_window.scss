@@ -1,4 +1,4 @@
-.nui-window {
+.ninjauiWindow {
   background-color:black;
   height:100%;
   left:0;
@@ -9,26 +9,26 @@
   width:100%;
 }
 
-.nui-window-frame {
+.ninjauiWindowFrame {
   display:none;
   position:absolute;
   z-index:999;
-  .nui-bar {
+  .ninjauiBar {
     @include draggable;
-    @include border-radius-top;
-    .nui-window-title {
-      @include inline-block;
+    @include borderRadiusTop;
+    .ninjauiWindowTitle {
+      @include inlineBlock;
       margin-right: 20px; }
-    .nui-window-close {
-      @include border-radius(0);
-      @include border-radius-top-right;
+    .ninjauiWindowClose {
+      @include borderRadius(0);
+      @include borderRadiusTopRight;
       margin:-1px;
       position:absolute;
       right:0;
       top:0;
     }
   }
-  .nui-window-content {
+  .ninjauiWindowContent {
     @include font;
     background-color:#fff;
     color:#000;
@@ -38,9 +38,9 @@
     overflow:auto;
     padding:10px;
   }
-  .nui-window-reflection {
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+  .ninjauiWindowReflection {
+    background:-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    background:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
     height:30px;
     position:absolute;
     bottom:-30px;

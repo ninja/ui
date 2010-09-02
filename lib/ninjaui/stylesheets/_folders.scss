@@ -1,57 +1,57 @@
-.nui-folders {
+.ninjauiFolders {
   @include font;
-  display: block;
-  margin-top: 14px;
-  position: relative;
-  &.nui-horizontal {
-    .nui-tabs {
-      display: block;
-      position: absolute;
-      left: 0;
-      text-align: center;
-      top: -15px;
-      white-space: nowrap;
-      width: 100%;
-      .nui-tab {
-        @include inline-block;
+  display:block;
+  margin-top:14px;
+  position:relative;
+  &.ninjauiHorizontal {
+    .ninjauiTabs {
+      display:block;
+      position:absolute;
+      left:0;
+      text-align:center;
+      top:-15px;
+      white-space:nowrap;
+      width:100%;
+      .ninjauiTab {
+        @include inlineBlock;
       }
     }
-    .nui-folder {
-      padding: 30px 15px 15px 15px;
+    .ninjauiFolder {
+      padding:30px 15px 15px 15px;
     }
   }
-  &.nui-vertical {
-    .nui-tabs {
-      @include inline-block;
-      left: 0;
-      position: absolute;
-      top: 14px;
-      width: 194px;
+  &.ninjauiVertical {
+    .ninjauiTabs {
+      @include inlineBlock;
+      left:0;
+      position:absolute;
+      top:14px;
+      width:194px;
       .nui-tab {
-        display: block;
-        text-align: left;
+        display:block;
+        text-align:left;
         &.nui-first {
-          @include border-radius(0);
-          @include border-radius-top;
+          @include borderRadius(0);
+          @include borderRadiusTop;
         }
         &.nui-last {
-          @include border-radius(0);
-          @include border-radius-bottom;
+          @include borderRadius(0);
+          @include borderRadiusBottom;
         }
       }
     }
-    .nui-folder {
-      margin-left: 180px;
-      padding: 15px 15px 15px 30px;
+    .ninjauiFolder {
+      margin-left:180px;
+      padding:15px 15px 15px 30px;
     }
   }
 }
 
 .nui-folder {
-  @include border($color);
-  @include border-radius;
-  background: $color;
-  color: $color-text;
-  margin-bottom: 10px;
-  width: inherit;
+  @include border($backgroundColor);
+  @include borderRadius;
+  background:$backgroundColor;
+  color:$textColor;
+  margin-bottom:10px;
+  width:inherit;
 }

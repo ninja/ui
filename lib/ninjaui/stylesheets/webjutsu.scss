@@ -1,13 +1,13 @@
-$color: #fff;
-$color-active: #666;
-$color-icon: 'light';// 'light' or 'dark'
-$color-icon-active: 'light';// 'light' or 'dark'
-$color-text: #000;
-$color-text-active: #fff;
-$font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-$font-size: 12px;
-$image-path: '../images';
-$radius: 6px;
+$backgroundColor:#fff;
+$backgroundColorClicked:#666;
+$backgroundColorSubmittable:#00c;
+$fontFamily:"Lucida Grande", "Lucida Sans Unicode", sans-serif;
+$fontSize:12px;
+$imagePath:'../images';
+$radius:6px;
+$textColor:#000;
+$textColorClicked:#fff;
+$textColorSubmittable:#fff;
 
 @import 'reset';
 @import 'mixins';

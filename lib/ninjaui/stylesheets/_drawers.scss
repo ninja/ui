@@ -1,42 +1,43 @@
-.nui-drawers {
+.ninjauiDrawers {
   @include font;
-  display: block;
-  .nui-drawer-handle {
+  display:block;
+  margin:3px 0;
+  .ninjauiDrawerHandle {
     @include clickable;
-    @include user-select;
-    display: block;
-    position: relative;
-    text-align: left;
-    z-index: 222;
+    @include userSelect;
+    display:block;
+    position:relative;
+    text-align:left;
+    z-index:222;
   }
-  .nui-drawer-handle.nui-active, .nui-drawer-handle:active {
-    @include gradient-inset;
+  .ninjauiDrawerHandle.ninjauiClicked, .ninjauiDrawerHandle:active {
+    @include gradientInset;
     z-index: 111;
   }
-  .nui-drawer-handle.nui-active {
-    @include active;
+  .ninjauiDrawerHandle.ninjauiClicked {
+    @include clicked;
   }
-  .nui-drawer-handle.nui-first {
-    @include border-radius-top;
+  .ninjauiDrawerHandle.ninjauiFirst {
+    @include borderRadiusTop;
   }
 
-  .nui-drawer-handle.nui-last {
-    @include border-radius-bottom;
+  .ninjauiDrawerHandle.ninjauiLast {
+    @include borderRadiusBottom;
   }
-  .nui-drawer {
-    @include border($color);
-    background: $color;
-    border: {
-      bottom: none;
-      top: none;
+  .ninjauiDrawer {
+    @include border($backgroundColor);
+    background:$backgroundColor;
+    border:{
+      bottom:none;
+      top:none;
     }
-    color: $color-text;
-    display: block;
-    padding: 5px;
+    color:$textColor;
+    display:block;
+    padding:10px;
   }
-  .nui-drawer.nui-last {
-    @include border($color);
-    @include border-radius-bottom;
-    border-top: none;
+  .ninjauiDrawer.ninjauiLast {
+    @include border($backgroundColor);
+    @include borderRadiusBottom;
+    border-top:none;
   }
 }

@@ -1,16 +1,16 @@
-.nui-panel {
-  @include background-color;
+.ninjauiPanel {
   @include border;
-  @include border-radius-top;
-  @include box-sizing;
+  @include borderRadiusTop;
+  @include boxSizing;
   @include font;
-  color: $color-text;
-  display: block;
-  padding: 10px;
-  margin: 0 10px 10px 0;
-  .nui-bar {
+  background-color:$backgroundColor;
+  color:$textColor;
+  display:block;
+  padding:10px;
+  margin:6px 0;
+  .ninjauiBar {
     @include bar;
-    @include border-radius-top;
-    margin: -11px -11px 10px -11px;
+    @include borderRadiusTop;
+    margin:-11px -11px 10px -11px;
   }
 }

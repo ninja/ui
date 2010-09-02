@@ -1,12 +1,16 @@
-.nui-button {
-  $button-height:24px;
-  @include clickable($button-height);
-  @include border-radius;
-  @include inline-block;
+.ninjauiButton {
+  $buttonHeight:24px;
+  @include clickable($buttonHeight);
+  @include borderRadius;
+  @include inlineBlock;
+  margin:3px 0;
 }
-.nui-submit {
-  @include submit;
+.ninjauiSubmittable {
+  @include submittable;
 }
-.nui-active {
-  @include active;
+.ninjauiClicked {
+  @include clicked;
+}
+.ninjauiDisabled {
+  @include disabled;
 }

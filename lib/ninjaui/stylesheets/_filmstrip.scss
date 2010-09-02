@@ -1,53 +1,53 @@
-.nui-filmstrip {
+.ninjauiFilmstrip {
   @include font;
-  @include inline-block;
+  @include inlineBlock;
   margin:10px 0;
   white-space:nowrap;
-  .nui-bar {
+  .ninjauiFilmstripBar {
     @include bar;
-    @include border-radius-top;
-    padding: 0;
-    .back {
-      @include border-radius(0);
-      @include border-radius-top-left;
-      left: 0;
+    @include borderRadiusTop;
+    padding:0;
+    .ninjauiFilmstripBack {
+      @include borderRadius(0);
+      @include borderRadiusTopLeft;
+      left:0;
       margin:-1px;
-      position: absolute;
-      top: 0;
+      position:absolute;
+      top:0;
     }
-    .forward {
-      @include border-radius(0);
-      @include border-radius-top-right;
+    .ninjauiFilmstripForward {
+      @include borderRadius(0);
+      @include borderRadiusTopRight;
       margin:-1px;
-      position: absolute;
-      right: 0;
-      top: 0;
+      position:absolute;
+      right:0;
+      top:0;
     }
   }
-  .nui-view {
-    @include border($color);
-    background-color: $color;
-    border-top: none;
-    display: block;
-    overflow: hidden;
-    position: relative;
-    vertical-align: middle;
-    .nui-reel {
-      display: block;
-      font-size: 0;
-      left: 0;
-      position: absolute;
-      top: 0;
-      white-space: nowrap;
-      .nui-frame {
-        @include inline-block;
-        border-right: 1px solid $color * 0.85;
-        font-size: 11px;
-        overflow: hidden;
-        padding: 5px;
-        text-align: left;
-        vertical-align: top;
-        white-space: normal;
+  .ninjauiFilmstripView {
+    @include border($backgroundColor);
+    background-color: $backgroundColor;
+    border-top:none;
+    display:block;
+    overflow:hidden;
+    position:relative;
+    vertical-align:middle;
+    .ninjauiFilmstripReel {
+      display:block;
+      font-size:0;
+      left:0;
+      position:absolute;
+      top:0;
+      white-space:nowrap;
+      .ninjauiFilmstripFrame {
+        @include inlineBlock;
+        border-right:1px solid $backgroundColor * 0.85;
+        font-size:11px;
+        overflow:hidden;
+        padding:5px;
+        text-align:left;
+        vertical-align:top;
+        white-space:normal;
       }
     }
   }

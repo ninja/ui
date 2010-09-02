@@ -1,55 +1,55 @@
-.nui-slider {
+.ninjauiSlider {
   @include font;
-  @include inline-block;
-  @include user-select;
-  margin: 0 10px 10px 0;
-  vertical-align: top;
-  .nui-slider-label {
-    display: block;
-    margin-bottom: 2px;
-    text-align: center; }
-  .nui-bevel {
-    @include border($color);
-    @include border-radius;
-    @include inline-block;
-    @include user-select;
-    background-color: $color;
-    color: $color-text;
-    display: block;
-    padding: 5px;
-    .nui-track {
-      @include border-radius;
-      @include gradient-inset;
-      @include user-select;
-      background-color: $color;
-      display: block;
-      height: 10px;
-      margin: 5px 0;
-      position: relative;
-      .nui-level {
-        @include border-radius;
-        @include gradient-outset;
-        @include user-select;
-        background-color: $color-active;
-        display: block;
-        height: 8px;
-        left: 1px;
-        position: absolute;
-        top: 1px;
+  @include inlineBlock;
+  @include userSelect;
+  margin:0 10px 10px 0;
+  vertical-align:top;
+  .ninjauiSliderLabel {
+    display:block;
+    margin-bottom:2px;
+    text-align:center; }
+  .ninjauiBevel {
+    @include border($backgroundColor);
+    @include borderRadius;
+    @include inlineBlock;
+    @include userSelect;
+    background-color:$backgroundColor;
+    color:$textColor;
+    display:block;
+    padding:5px;
+    .ninjauiTrack {
+      @include borderRadius;
+      @include gradientInset;
+      @include userSelect;
+      background-color:$backgroundColor;
+      display:block;
+      height:10px;
+      margin:5px 0;
+      position:relative;
+      .ninjauiLevel {
+        @include borderRadius;
+        @include gradientOutset;
+        @include userSelect;
+        background-color:$backgroundColorClicked;
+        display:block;
+        height:8px;
+        left:1px;
+        position:absolute;
+        top:1px;
       }
-      .nui-button {
-        height: 18px;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        top: -5px;
+      .ninjauiButton {
+        height:18px;
+        margin:0;
+        padding:0;
+        position:absolute;
+        top:-5px;
       }
     }
-    .nui-text {
-      @include text-overflow;
-      @include user-select;
-      display: block;
-      font-size: 11px;
+    .ninjauiText {
+      @include textOverflow;
+      @include userSelect;
+      display:block;
+      font-size:11px;
     }
   }
 }

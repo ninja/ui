@@ -1,33 +1,33 @@
-.nui-wait {
-  background: rgba(255, 255, 255, 0.5);
-  display: none;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  z-index: 888;
-  width: 100%;
+.ninjauiWait {
+  background:rgba(255, 255, 255, 0.5);
+  display:none;
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  z-index:888;
+  width:100%;
 }
 
-.nui-wait-frame {
-  @include border-radius;
-  background: url("#{$image-path}/wait.gif") 10px center no-repeat;
-  background-color: rgba(0, 0, 0, 0.75);
-  color: $color-text-active;
-  display: none;
-  padding: 15px 15px 15px 30px;
-  position: absolute;
-  text-align: center;
-  z-index: 999;
+.ninjauiWaitFrame {
+  @include borderRadius;
+  background:url("#{$imagePath}/wait.gif") 10px center no-repeat;
+  background-color:rgba(0, 0, 0, 0.75);
+  color:$textColorClicked;
+  display:none;
+  padding:15px 15px 15px 30px;
+  position:absolute;
+  text-align:center;
+  z-index:999;
 }
 
-.nui-wait-reflection {
-  @include border-radius-top;
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0)));
-  height: 30px;
-  left: 0;
-  position: absolute;
-  bottom: -30px;
-  width: 100%;
+.ninjauiWaitReflection {
+  @include borderRadiusTop;
+  background-image:-moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+  background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0)));
+  height:30px;
+  left:0;
+  position:absolute;
+  bottom:-30px;
+  width:100%;
 }

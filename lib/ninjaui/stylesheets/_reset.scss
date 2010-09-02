@@ -67,7 +67,7 @@ button {
 }
 
 code, kbd, pre, samp {
-  font-family:monospace, sans-serif;
+  font-family:'Menlo', 'Courier', monospace, sans-serif;
 }
 
 del {
@@ -76,7 +76,6 @@ del {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight:bold;
-  text-rendering:optimizeLegibility;
 }
 h1 {
   font-size:xx-large;
@@ -101,8 +100,9 @@ hr {
   display:block;
   height:1px;
   border:0;
-  border-top:1px solid #ccc;
-  margin:1em 0;
+  border-top:1px solid $backgroundColor;
+  margin:2em 0;
+  opacity:0.5;
   padding:0;
 }
 

@@ -1,0 +1,11 @@
+<script>
+  $('<%= objects %>').ninjaui.filmstripCreate({<%= "id:'#{id}', " unless !defined? id -%>
+<%= "frameHeight:#{frameHeight}, " unless !defined? frameHeight -%>
+<%= "frameWidth:#{frameWidth}, " unless !defined? frameWidth -%>
+<%= "icon:'#{icon}', " unless !defined? icon -%>
+<%= "onBack:#{onBack}, " unless !defined? onBack -%>
+<%= "onForward:#{onForward}, " unless !defined? onForward -%>
+<%= "seconds:'#{seconds}', " unless !defined? seconds -%>
+<%= "show:#{show}, " unless !defined? show -%>
+<%= "title:'#{title}'" -%>});
+</script>

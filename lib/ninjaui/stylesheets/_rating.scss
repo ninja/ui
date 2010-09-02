@@ -1,30 +1,30 @@
-.nui-rating {
-  @include inline-block;
-  @include user-select;
-  margin: 5px 10px 5px 0;
-  text-align: center;
-  vertical-align: top;
-  white-space: nowrap;
+.ninjauiRating {
+  @include inlineBlock;
+  @include userSelect;
+  margin:5px 10px 5px 0;
+  text-align:center;
+  vertical-align:top;
+  white-space:nowrap;
 }
 
-.nui-rating-label {
-  @include user-select;
-  margin-bottom: 5px;
-  text-shadow: white 0 1px 1px;
+.ninjauiRatingLabel {
+  @include userSelect;
+  margin-bottom:5px;
+  text-shadow:white 0 1px 1px;
 }
 
-.nui-rating-star {
-  @include inline-block;
-  background-image: url("#{$image-path}/rating.png");
-  cursor: pointer;
-  height: 24px;
-  width: 18px;
+.ninjauiRatingStar {
+  @include inlineBlock;
+  background-image:url("#{$imagePath}/rating.png");
+  cursor:pointer;
+  height:24px;
+  width:18px;
 }
 
-.nui-rating-group {
-  background-position: 0 -24px;
+.ninjauiRatingGroup {
+  background-position:0 -24px;
 }
 
-.nui-rating-star:active, .nui-rating-single {
-  background-position: 0 -48px;
+.ninjauiRatingStar:active, .ninjauiRatingSingle {
+  background-position:0 -48px;
 }
