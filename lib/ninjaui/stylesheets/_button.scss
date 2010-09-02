@@ -4,13 +4,13 @@
   @include borderRadius;
   @include inlineBlock;
   margin:3px 0;
-}
-.ninjauiSubmittable {
-  @include submittable;
-}
-.ninjauiClicked {
-  @include clicked;
-}
-.ninjauiDisabled {
-  @include disabled;
+  &.ninjauiButtonSubmittable {
+    @include submittable;
+  }
+  &.ninjauiButtonClicked {
+    @include clicked;
+  }
+  &.ninjauiButtonDisabled {
+    @include disabled;
+  }
 }

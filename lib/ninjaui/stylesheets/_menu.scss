@@ -1,12 +1,20 @@
 .ninjauiMenu {
   @include font;
   @include inlineBlock;
-  margin:0 5px 10px 0;
+  margin:3px 0;
   position:relative;
   vertical-align:middle;
   z-index:666;
-  .ninjauiButton {
-    margin:0;
+  .ninjauiMenuButton {
+    @include clickable(24px);
+    @include borderRadius;
+    display:block;
+    &.ninjauiMenuButtonClicked {
+      @include clicked;
+    }
+    &.ninjauiMenuButtonDisabled {
+      @include disabled;
+    }
   }
   .ninjauiMenuChoices {
     @include border;
@@ -31,6 +39,9 @@
       &:hover {
         @include gradientOutset;
         @include clickable;
+        background-color:$backgroundColorClicked;
+        color:$textColorClicked;
+        text-align:left;
       }
       &:last-child {
         @include borderRadiusBottom;

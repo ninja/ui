@@ -1,0 +1,6 @@
+<span id="<%= id %>"></span>
+<script>
+  $('#<%= id %>').ninjaui.iconCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
+<%= "id:'#{id}'" -%>
+<%= "title:'#{title}'" unless !defined? title -%>});
+</script>
