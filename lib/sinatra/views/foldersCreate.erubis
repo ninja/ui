@@ -1,0 +1,6 @@
+<script>
+  $('<%= objects %>').ninjaui.foldersCreate({<%= "direction:'#{direction}', " unless !defined? direction -%>
+<%= "id:'#{id}', " unless !defined? id -%>
+<%= "onChange:#{onChange}, " unless !defined? onChange -%>
+<%= "selected:'#{selected}'" unless !defined? selected -%>});
+</script>

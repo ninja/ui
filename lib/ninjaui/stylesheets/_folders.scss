@@ -3,8 +3,8 @@
   display:block;
   margin-top:14px;
   position:relative;
-  &.ninjauiHorizontal {
-    .ninjauiTabs {
+  &.ninjauiFolders-horizontal {
+    .ninjauiFoldersTabs {
       display:block;
       position:absolute;
       left:0;
@@ -12,42 +12,43 @@
       top:-15px;
       white-space:nowrap;
       width:100%;
-      .ninjauiTab {
-        @include inlineBlock;
+      .ninjauiFoldersTab {
+        @include tab;
       }
     }
-    .ninjauiFolder {
+    .ninjauiFoldersFolder {
       padding:30px 15px 15px 15px;
     }
   }
-  &.ninjauiVertical {
-    .ninjauiTabs {
+  &.ninjauiFolders-vertical {
+    .ninjauiFoldersTabs {
       @include inlineBlock;
       left:0;
       position:absolute;
       top:14px;
       width:194px;
-      .nui-tab {
+      .ninjauiFoldersTab {
+        @include tab;
         display:block;
         text-align:left;
-        &.nui-first {
+        &.ninjauiFirst {
           @include borderRadius(0);
           @include borderRadiusTop;
         }
-        &.nui-last {
+        &.ninjauiLast {
           @include borderRadius(0);
           @include borderRadiusBottom;
         }
       }
     }
-    .ninjauiFolder {
+    .ninjauiFoldersFolder {
       margin-left:180px;
       padding:15px 15px 15px 30px;
     }
   }
 }
 
-.nui-folder {
+.ninjauiFoldersFolder {
   @include border($backgroundColor);
   @include borderRadius;
   background:$backgroundColor;

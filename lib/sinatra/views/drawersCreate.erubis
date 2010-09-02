@@ -1,6 +1,4 @@
 <script>
-  $('<%= objects %>').ninjaui.drawersCreate({
-    <%= "onClose:#{onClose}, " unless !defined? onClose -%>
-    <%= "onOpen:#{onOpen}" unless !defined? onOpen -%>
-  });
+  $('<%= objects %>').ninjaui.drawersCreate({<%= "onClose:#{onClose}, " unless !defined? onClose -%>
+<%= "onOpen:#{onOpen}" unless !defined? onOpen -%>});
 </script>
