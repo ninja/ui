@@ -1,0 +1,4 @@
+<script>
+  $('#<%= id %>').ninjaui.panelCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
+<%= "title:'#{title}'" unless !defined? title -%>});
+</script>

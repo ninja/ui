@@ -7,5 +7,5 @@
 <%= "onForward:#{onForward}, " unless !defined? onForward -%>
 <%= "seconds:'#{seconds}', " unless !defined? seconds -%>
 <%= "show:#{show}, " unless !defined? show -%>
-<%= "title:'#{title}'" -%>});
+<%= "title:'#{title}'" unless !defined? title -%>});
 </script>
