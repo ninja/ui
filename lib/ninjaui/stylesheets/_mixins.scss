@@ -191,14 +191,14 @@
   @include inlineBlock;
   border-left:none;
   margin:0;
-  &.ninjauiFirst {
+  &.ninjauiTabsFirst {
     @include border;
     @include borderRadiusLeft;
   }
-  &.ninjauiLast {
+  &.ninjauiTabsLast {
     @include borderRadiusRight;
   }
-  &.ninjauiClicked {
+  &.ninjauiTabsClicked {
     @include clicked;
   }
 }

@@ -10,10 +10,10 @@
     height:inherit;
     margin:-1px;
     text-align:left;
-    .ninjauiTab {
+    .ninjauiTabsTab {
       @include tab(48px);
       @include font;
-      &.ninjauiLast {
+      &.ninjauiTabsLast {
         @include borderRadius(0);
       }
     }
