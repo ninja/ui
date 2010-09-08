@@ -1,0 +1,9 @@
+function(){
+    $.ninjaui.windowOpen({
+<%= "      icon:'#{icon}', \n" unless !defined? icon -%>
+<%= "      onClose:#{onClose}, \n" unless !defined? onClose -%>
+<%= "      onOpen:#{onOpen}, \n" unless !defined? onOpen -%>
+<%= "      title:'#{title}', \n" unless !defined? title -%>
+<%= "      url:'#{url}'\n" unless !defined? url -%>
+    });
+}

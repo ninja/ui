@@ -1,20 +1,16 @@
-.ninjauiWindow {
-  background-color:black;
-  height:100%;
+.ninjauiWindowOverlay {
+  background-color:#000;
   left:0;
-  opacity:0.75;
-  position:fixed;
+  position:absolute;
   top:0;
   z-index:888;
-  width:100%;
 }
-
 .ninjauiWindowFrame {
   display:none;
   position:absolute;
   z-index:999;
-  .ninjauiBar {
-    @include draggable;
+  .ninjauiWindowHandle {
+    @include bar;
     @include borderRadiusTop;
     .ninjauiWindowTitle {
       @include inlineBlock;
@@ -41,10 +37,10 @@
   .ninjauiWindowReflection {
     background:-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     background:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-    height:30px;
-    position:absolute;
     bottom:-30px;
+    height:30px;
     left:0;
+    position:absolute;
     width:100%;
   }
 }

@@ -1,0 +1,7 @@
+function(){
+    $.ninjaui.waitStart({
+<%= "      onStop:#{onStop}, \n" unless !defined? onStop -%>
+<%= "      seconds:#{seconds}, \n" unless !defined? seconds -%>
+<%= "      text:'#{text}'\n" unless !defined? text -%>
+    });
+}

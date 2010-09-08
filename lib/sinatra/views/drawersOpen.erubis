@@ -1,0 +1,1 @@
+function(){$.ninjaui.drawersOpen($('<%= objects %>'));}
