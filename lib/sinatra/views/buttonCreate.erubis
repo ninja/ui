@@ -1,6 +1,6 @@
 <span id="<%= id %>"></span>
 <script>
-  $('#<%= id %>').ninjaui.buttonCreate({<%= "clicked:#{clicked}, " unless !defined? clicked -%>
+  $('#<%= id %>').ninjaButtonCreate({<%= "clicked:#{clicked}, " unless !defined? clicked -%>
 <%= "disabled:#{disabled}, " unless !defined? disabled -%>
 <%= "icon:'#{icon}', " unless !defined? icon -%>
 <%= "onClick:#{onClick}, " unless !defined? onClick -%>

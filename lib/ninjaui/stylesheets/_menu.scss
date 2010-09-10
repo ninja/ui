@@ -1,22 +1,22 @@
-.ninjauiMenu {
+.ninjaMenu {
   @include font;
   @include inlineBlock;
   margin:3px 0;
   position:relative;
   vertical-align:middle;
   z-index:666;
-  .ninjauiMenuButton {
+  .ninjaMenuButton {
     @include clickable(24px);
     @include borderRadius;
     display:block;
-    &.ninjauiMenuButtonClicked {
+    &.ninjaMenuButtonClicked {
       @include clicked;
     }
-    &.ninjauiMenuButtonDisabled {
+    &.ninjaMenuButtonDisabled {
       @include disabled;
     }
   }
-  .ninjauiMenuChoices {
+  .ninjaMenuChoices {
     @include border;
     @include borderRadius;
     @include boxShadow;
@@ -27,7 +27,7 @@
     top:30px;
     position:absolute;
     z-index:777;
-    .ninjauiMenuChoice {
+    .ninjaMenuChoice {
       @include clickable;
       background:none;
       border-color:$backgroundColor;

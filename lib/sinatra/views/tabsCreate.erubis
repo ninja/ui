@@ -1,5 +1,5 @@
 <script>
-  $('<%= objects %>').ninjaui.tabsCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
+  $('<%= objects %>').ninjaTabsCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
 <%= "id:'#{id}', " unless !defined? id -%>
 <%= "onChange:#{onChange}, " unless !defined? onChange -%>
 <%= "selected:'#{selected}'" unless !defined? selected -%>});

@@ -1,19 +1,19 @@
-.ninjauiNavigation {
+.ninjaNavigation {
   @include bar(48px);
   @include borderRadius;
   @include font;
   padding:0;
-  .ninjauiButton {
+  .ninjaButton {
     margin:-1px;
   }
-  .ninjauiTabs {
+  .ninjaTabs {
     height:inherit;
     margin:-1px;
     text-align:left;
-    .ninjauiTabsTab {
+    .ninjaTabsTab {
       @include tab(48px);
       @include font;
-      &.ninjauiTabsLast {
+      &.ninjaTabsLast {
         @include borderRadius(0);
       }
     }

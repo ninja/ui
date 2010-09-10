@@ -1,21 +1,21 @@
-.ninjauiWindowOverlay {
+.ninjaWindowOverlay {
   background-color:#000;
   left:0;
   position:absolute;
   top:0;
   z-index:888;
 }
-.ninjauiWindowFrame {
+.ninjaWindowFrame {
   display:none;
   position:absolute;
   z-index:999;
-  .ninjauiWindowHandle {
+  .ninjaWindowHandle {
     @include bar;
     @include borderRadiusTop;
-    .ninjauiWindowTitle {
+    .ninjaWindowTitle {
       @include inlineBlock;
       margin-right: 20px; }
-    .ninjauiWindowClose {
+    .ninjaWindowClose {
       @include borderRadius(0);
       @include borderRadiusTopRight;
       margin:-1px;
@@ -24,7 +24,7 @@
       top:0;
     }
   }
-  .ninjauiWindowContent {
+  .ninjaWindowContent {
     @include font;
     background-color:#fff;
     color:#000;
@@ -34,7 +34,7 @@
     overflow:auto;
     padding:10px;
   }
-  .ninjauiWindowReflection {
+  .ninjaWindowReflection {
     background:-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
     background:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
     bottom:-30px;

@@ -1,16 +1,16 @@
-.ninjauiButton {
+.ninjaButton {
   $buttonHeight:24px;
   @include clickable($buttonHeight);
   @include borderRadius;
   @include inlineBlock;
   margin:3px 0;
-  &.ninjauiButtonSubmittable {
+  &.ninjaButtonSubmittable {
     @include submittable;
   }
-  &.ninjauiButtonClicked {
+  &.ninjaButtonClicked {
     @include clicked;
   }
-  &.ninjauiButtonDisabled {
+  &.ninjaButtonDisabled {
     @include disabled;
   }
 }

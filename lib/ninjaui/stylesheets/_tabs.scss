@@ -1,8 +1,8 @@
-.ninjauiTabs {
+.ninjaTabs {
   font-size:0;
   text-align:center;
   white-space:nowrap;
-  .ninjauiTabsTab {
+  .ninjaTabsTab {
     @include tab;
   }
 }

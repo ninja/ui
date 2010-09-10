@@ -1,8 +1,8 @@
-.ninjauiDrawers {
+.ninjaDrawers {
   @include font;
   display:block;
   margin:3px 0;
-  .ninjauiDrawerHandle {
+  .ninjaDrawersHandle {
     @include clickable;
     @include userSelect;
     display:block;
@@ -10,21 +10,24 @@
     text-align:left;
     z-index:222;
   }
-  .ninjauiDrawerHandle.ninjauiClicked, .ninjauiDrawerHandle:active {
+  .ninjaDrawersHandleClicked, .ninjaDrawerHandle:active {
     @include gradientInset;
     z-index: 111;
   }
-  .ninjauiDrawerHandle.ninjauiClicked {
+  .ninjaDrawersHandleClicked {
     @include clicked;
   }
-  .ninjauiDrawerHandle.ninjauiFirst {
+  .ninjaDrawersHandleFirst {
     @include borderRadiusTop;
   }
 
-  .ninjauiDrawerHandle.ninjauiLast {
+  .ninjaDrawersHandleLast {
     @include borderRadiusBottom;
+    &.ninjaDrawersHandleClicked {
+      @include borderRadius(0);
+    }
   }
-  .ninjauiDrawer {
+  .ninjaDrawersDrawer {
     @include border($backgroundColor);
     background:$backgroundColor;
     border:{
@@ -35,7 +38,7 @@
     display:block;
     padding:10px;
   }
-  .ninjauiDrawer.ninjauiLast {
+  .ninjaDrawersDrawerLast {
     @include border($backgroundColor);
     @include borderRadiusBottom;
     border-top:none;

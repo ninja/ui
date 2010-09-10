@@ -1,5 +1,5 @@
 <script>
-  $('<%= objects %>').ninjaui.filmstripCreate({<%= "id:'#{id}', " unless !defined? id -%>
+  $('<%= objects %>').ninjaFilmstripCreate({<%= "id:'#{id}', " unless !defined? id -%>
 <%= "frameHeight:#{frameHeight}, " unless !defined? frameHeight -%>
 <%= "frameWidth:#{frameWidth}, " unless !defined? frameWidth -%>
 <%= "icon:'#{icon}', " unless !defined? icon -%>

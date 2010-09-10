@@ -1,9 +1,9 @@
-.ninjauiFolders {
+.ninjaFolders {
   @include font;
   display:block;
   margin-top:14px;
   position:relative;
-  .ninjauiFoldersFolder {
+  .ninjaFoldersFolder {
     @include border($backgroundColor);
     @include borderRadius;
     background:$backgroundColor;
@@ -11,14 +11,14 @@
     margin-bottom:10px;
     width:inherit;
   }
-  .ninjauiFoldersTab {
+  .ninjaFoldersTab {
     @include tab;
-    &.ninjauiFoldersTabClicked {
+    &.ninjaFoldersTabClicked {
       @include clicked;
     }
   }
-  &.ninjauiFolders-horizontal {
-    .ninjauiFoldersTabs {
+  &.ninjaFolders-horizontal {
+    .ninjaFoldersTabs {
       display:block;
       position:absolute;
       left:0;
@@ -26,38 +26,38 @@
       top:-15px;
       white-space:nowrap;
       width:100%;
-      .ninjauiFoldersTab {
-        &.ninjauiFoldersTabFirst {
+      .ninjaFoldersTab {
+        &.ninjaFoldersTabFirst {
           @include borderRadiusLeft;
         }
-        &.ninjauiFoldersTabLast {
+        &.ninjaFoldersTabLast {
           @include borderRadiusRight;
         }
       }
     }
-    .ninjauiFoldersFolder {
+    .ninjaFoldersFolder {
       padding:30px 15px 15px 15px;
     }
   }
-  &.ninjauiFolders-vertical {
-    .ninjauiFoldersTabs {
+  &.ninjaFolders-vertical {
+    .ninjaFoldersTabs {
       @include inlineBlock;
       left:0;
       position:absolute;
       top:14px;
       width:194px;
-      .ninjauiFoldersTab {
+      .ninjaFoldersTab {
         display:block;
         text-align:left;
-        &.ninjauiFoldersTabFirst {
+        &.ninjaFoldersTabFirst {
           @include borderRadiusTop;
         }
-        &.ninjauiFoldersTabLast {
+        &.ninjaFoldersTabLast {
           @include borderRadiusBottom;
         }
       }
     }
-    .ninjauiFoldersFolder {
+    .ninjaFoldersFolder {
       margin-left:180px;
       padding:15px 15px 15px 30px;
     }

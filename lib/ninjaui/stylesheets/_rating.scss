@@ -1,4 +1,4 @@
-.ninjauiRating {
+.ninjaRating {
   @include inlineBlock;
   @include userSelect;
   margin:5px 10px 5px 0;
@@ -7,13 +7,13 @@
   white-space:nowrap;
 }
 
-.ninjauiRatingLabel {
+.ninjaRatingLabel {
   @include userSelect;
   margin-bottom:5px;
   text-shadow:white 0 1px 1px;
 }
 
-.ninjauiRatingStar {
+.ninjaRatingStar {
   @include inlineBlock;
   background-image:url("#{$imagePath}/rating.png");
   cursor:pointer;
@@ -21,10 +21,10 @@
   width:18px;
 }
 
-.ninjauiRatingGroup {
+.ninjaRatingGroup {
   background-position:0 -24px;
 }
 
-.ninjauiRatingStar:active, .ninjauiRatingSingle {
+.ninjaRatingStar:active, .ninjaRatingSingle {
   background-position:0 -48px;
 }

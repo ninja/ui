@@ -1,14 +1,14 @@
-.ninjauiSlider {
+.ninjaSlider {
   @include font;
   @include inlineBlock;
   @include userSelect;
   margin:0 10px 10px 0;
   vertical-align:top;
-  .ninjauiSliderLabel {
+  .ninjaSliderLabel {
     display:block;
     margin-bottom:2px;
     text-align:center; }
-  .ninjauiBevel {
+  .ninjaBevel {
     @include border($backgroundColor);
     @include borderRadius;
     @include inlineBlock;
@@ -17,7 +17,7 @@
     color:$textColor;
     display:block;
     padding:5px;
-    .ninjauiTrack {
+    .ninjaTrack {
       @include borderRadius;
       @include gradientInset;
       @include userSelect;
@@ -26,7 +26,7 @@
       height:10px;
       margin:5px 0;
       position:relative;
-      .ninjauiLevel {
+      .ninjaLevel {
         @include borderRadius;
         @include gradientOutset;
         @include userSelect;
@@ -37,7 +37,7 @@
         position:absolute;
         top:1px;
       }
-      .ninjauiButton {
+      .ninjaButton {
         height:18px;
         margin:0;
         padding:0;
@@ -45,7 +45,7 @@
         top:-5px;
       }
     }
-    .ninjauiText {
+    .ninjaText {
       @include textOverflow;
       @include userSelect;
       display:block;
