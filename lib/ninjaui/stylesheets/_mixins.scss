@@ -213,6 +213,9 @@
 @mixin textShadow {
   text-shadow:$backgroundColor 0 1px 1px;
 }
+@mixin textShadowInset {
+  text-shadow:$backgroundColor * 0.5 0 -1px 1px;
+}
 @mixin textShadowDisabled {
   text-shadow:$backgroundColorDisabled 0 1px 1px;
 }

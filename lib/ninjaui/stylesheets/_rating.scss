@@ -1,30 +1,23 @@
 .ninjaRating {
   @include inlineBlock;
   @include userSelect;
-  margin:5px 10px 5px 0;
-  text-align:center;
-  vertical-align:top;
+  margin:6px 0;
   white-space:nowrap;
-}
-
-.ninjaRatingLabel {
-  @include userSelect;
-  margin-bottom:5px;
-  text-shadow:white 0 1px 1px;
-}
-
-.ninjaRatingStar {
-  @include inlineBlock;
-  background-image:url("#{$imagePath}/rating.png");
-  cursor:pointer;
-  height:24px;
-  width:18px;
-}
-
-.ninjaRatingGroup {
-  background-position:0 -24px;
-}
-
-.ninjaRatingStar:active, .ninjaRatingSingle {
-  background-position:0 -48px;
+  .ninjaRatingStar {
+    @include inlineBlock;
+    @include textShadowInset;
+    color:$ratingStarColor;
+    cursor:pointer;
+    font-family:'Menlo', 'Courier', monospace, sans-serif;
+    font-size:30px;
+    height:18px;
+    line-height:18px;
+    vertical-align:middle;
+    &.ninjaRatingStarGroup {
+      color:$ratingStarGroupColor;
+    }
+    &.ninjaRatingStarSingle {
+      color:$ratingStarSingleColor;
+    }
+  }
 }
