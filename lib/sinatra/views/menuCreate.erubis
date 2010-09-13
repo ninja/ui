@@ -1,6 +1,6 @@
 <script>
-  $('<%= objects %>').ninjaMenuCreate({<%= "id:'#{id}', " unless !defined? id -%>
-<%= "icon:'#{icon}', " unless !defined? icon -%>
+  $('#<%= id %>').ninjaMenuCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
 <%= "onSelect:#{onSelect}, " unless !defined? onSelect -%>
-<%= "title:'#{title}'" -%>});
+<%= "title:'#{title}', " -%>
+<%= "values:#{values}" -%>});
 </script>

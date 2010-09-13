@@ -1,55 +1,51 @@
 .ninjaSlider {
+  @include border($backgroundColor);
+  @include borderRadius;
   @include font;
   @include inlineBlock;
   @include userSelect;
-  margin:0 10px 10px 0;
+  background-color:$backgroundColor;
+  color:$textColor;
+  margin:6px 0;
+  padding:6px;
   vertical-align:top;
   .ninjaSliderLabel {
     display:block;
     margin-bottom:2px;
     text-align:center; }
-  .ninjaBevel {
-    @include border($backgroundColor);
+  .ninjaSliderTrack {
     @include borderRadius;
-    @include inlineBlock;
+    @include gradientInset;
     @include userSelect;
     background-color:$backgroundColor;
-    color:$textColor;
     display:block;
-    padding:5px;
-    .ninjaTrack {
+    height:10px;
+    margin:5px 0;
+    position:relative;
+    .ninjaSliderLevel {
       @include borderRadius;
-      @include gradientInset;
+      @include gradientOutset;
       @include userSelect;
-      background-color:$backgroundColor;
+      background-color:$backgroundColorClicked;
       display:block;
-      height:10px;
-      margin:5px 0;
-      position:relative;
-      .ninjaLevel {
-        @include borderRadius;
-        @include gradientOutset;
-        @include userSelect;
-        background-color:$backgroundColorClicked;
-        display:block;
-        height:8px;
-        left:1px;
-        position:absolute;
-        top:1px;
-      }
-      .ninjaButton {
-        height:18px;
-        margin:0;
-        padding:0;
-        position:absolute;
-        top:-5px;
-      }
+      height:8px;
+      left:1px;
+      position:absolute;
+      top:1px;
     }
-    .ninjaText {
-      @include textOverflow;
-      @include userSelect;
-      display:block;
-      font-size:11px;
+    .ninjaSliderButton {
+      @include clickable(16px);
+      @include borderRadius(8px);
+      @include inlineBlock;
+      position:absolute;
+      top:-4px;
+      width:6px;
     }
+  }
+  .ninjaSliderText {
+    @include textOverflow;
+    @include userSelect;
+    display:block;
+    font-size:11px;
   }
 }
