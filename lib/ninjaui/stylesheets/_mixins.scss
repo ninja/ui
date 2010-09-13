@@ -1,7 +1,7 @@
 @mixin bar($height:24px) {
   $fontHeight:$height / 2;
-  $iconMarginHeight:($height - 12) / 2;
   $paddingWidth:$height / 3;
+  $iconMargin:$height / 4;
   @include border($backgroundColor);
   @include boxSizing;
   @include font;

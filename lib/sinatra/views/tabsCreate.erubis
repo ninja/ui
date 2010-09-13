@@ -1,6 +1,6 @@
 <script>
-  $('<%= objects %>').ninjaTabsCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
-<%= "id:'#{id}', " unless !defined? id -%>
-<%= "onChange:#{onChange}, " unless !defined? onChange -%>
-<%= "selected:'#{selected}'" unless !defined? selected -%>});
+  $('<%= objects %>').ninjaTabsCreate({<%= "id:'#{id}'" -%>
+<%= ", icon:'#{icon}'" unless !defined? icon -%>
+<%= ", onChange:#{onChange}" unless !defined? onChange -%>
+<%= ", selected:'#{selected}'" unless !defined? selected -%>});
 </script>

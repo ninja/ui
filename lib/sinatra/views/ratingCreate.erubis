@@ -1,8 +1,9 @@
 <span id="<%= id %>"></span>
 <script>
-  $('#<%= id %>').ninjaRatingCreate({<%= "entity:#{entity}, " unless !defined? entity -%>
-<%= "selectedGroup:#{selectedGroup}, " unless !defined? selectedGroup -%>
-<%= "maximum:#{maximum}, " unless !defined? maximum -%>
-<%= "onChange:#{onChange}, " unless !defined? onChange -%>
-<%= "selectedSingle:#{selectedSingle}" unless !defined? selectedSingle -%>});
+  $('#<%= id %>').ninjaRatingCreate({<%= "id:#{id}" -%>
+<%= ", entity:#{entity}" unless !defined? entity -%>
+<%= ", maximum:#{maximum}" unless !defined? maximum -%>
+<%= ", onChange:#{onChange}" unless !defined? onChange -%>
+<%= ", selectedGroup:#{selectedGroup}" unless !defined? selectedGroup -%>
+<%= ", selectedSingle:#{selectedSingle}" unless !defined? selectedSingle -%>});
 </script>

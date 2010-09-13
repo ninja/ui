@@ -8,6 +8,7 @@
   color:$textColor;
   margin:6px 0;
   padding:6px;
+  text-align:center;
   vertical-align:top;
   .ninjaSliderLabel {
     display:block;
@@ -19,8 +20,8 @@
     @include userSelect;
     background-color:$backgroundColor;
     display:block;
-    height:10px;
-    margin:5px 0;
+    height:6px;
+    margin:6px 0;
     position:relative;
     .ninjaSliderLevel {
       @include borderRadius;
@@ -28,7 +29,7 @@
       @include userSelect;
       background-color:$backgroundColorClicked;
       display:block;
-      height:8px;
+      height:4px;
       left:1px;
       position:absolute;
       top:1px;
@@ -38,7 +39,7 @@
       @include borderRadius(8px);
       @include inlineBlock;
       position:absolute;
-      top:-4px;
+      top:-6px;
       width:6px;
     }
   }

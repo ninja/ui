@@ -6,8 +6,10 @@ $Icon-size:12px;
   font-size:$Icon-size;
   height:$Icon-size;
   line-height:$Icon-size;
+  margin:6px 0;
   padding-left:$Icon-size;
   text-indent:3px;
+  vertical-align:top;
 }
 .ninjaIcon::before {
   content:'\200C'

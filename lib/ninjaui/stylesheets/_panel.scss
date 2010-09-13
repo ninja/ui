@@ -6,11 +6,10 @@
   background-color:$backgroundColor;
   color:$textColor;
   display:block;
-  padding:10px;
   margin:6px 0;
   .ninjaPanelBar {
     @include bar;
     @include borderRadiusTop;
-    margin:-11px -11px 10px -11px;
+    margin:-1px -1px 0 -1px;
   }
 }

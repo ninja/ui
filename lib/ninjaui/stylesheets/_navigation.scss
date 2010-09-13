@@ -1,17 +1,27 @@
 .ninjaNavigation {
-  @include bar(48px);
+  $height:48px;
+  @include border($backgroundColor);
   @include borderRadius;
+  @include boxSizing;
   @include font;
-  padding:0;
-  .ninjaButton {
-    margin:-1px;
-  }
+  @include gradientOutset;
+  @include textShadow;
+  background-color:$backgroundColor;
+  color:$textColor;
+  font-size:12px;
+  height:$height;
+  line-height:$height;
+  margin:0;
+  outline:0;
+  overflow:visible;
+  position:relative;
+  vertical-align:middle;
+  white-space:nowrap;
   .ninjaTabs {
-    height:inherit;
     margin:-1px;
     text-align:left;
     .ninjaTabsTab {
-      @include tab(48px);
+      @include tab($height);
       @include font;
       &.ninjaTabsLast {
         @include borderRadius(0);

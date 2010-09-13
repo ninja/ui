@@ -1,4 +1,5 @@
 <script>
-  $('#<%= id %>').ninjaPanelCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
-<%= "title:'#{title}'" unless !defined? title -%>});
+  $('#<%= id %>').ninjaPanelCreate({<%= "id:'#{id}'" -%>
+<%= ", icon:'#{icon}'" unless !defined? icon -%>
+<%= ", title:'#{title}'" unless !defined? title -%>});
 </script>

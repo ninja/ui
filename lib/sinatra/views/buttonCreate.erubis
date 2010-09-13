@@ -1,9 +1,10 @@
 <span id="<%= id %>"></span>
 <script>
-  $('#<%= id %>').ninjaButtonCreate({<%= "clicked:#{clicked}, " unless !defined? clicked -%>
-<%= "disabled:#{disabled}, " unless !defined? disabled -%>
-<%= "icon:'#{icon}', " unless !defined? icon -%>
-<%= "onClick:#{onClick}, " unless !defined? onClick -%>
-<%= "submittable:#{submittable}, " unless !defined? submittable -%>
-<%= "title:'#{title}'" -%>});
+  $('#<%= id %>').ninjaButtonCreate({<%= "id:'#{id}'" -%>
+<%= ", clicked:#{clicked}" unless !defined? clicked -%>
+<%= ", disabled:#{disabled}" unless !defined? disabled -%>
+<%= ", icon:'#{icon}'" unless !defined? icon -%>
+<%= ", onClick:#{onClick}" unless !defined? onClick -%>
+<%= ", submittable:#{submittable}" unless !defined? submittable -%>
+<%= ", title:'#{title}'" -%>});
 </script>

@@ -1,6 +1,6 @@
 <span id="<%= id %>"></span>
 <script>
-  $('#<%= id %>').ninjaIconCreate({<%= "icon:'#{icon}', " unless !defined? icon -%>
-<%= "id:'#{id}'" -%>
-<%= "title:'#{title}'" unless !defined? title -%>});
+  $('#<%= id %>').ninjaIconCreate({<%= "id:'#{id}'" -%>
+<%= ", icon:'#{icon}'" unless !defined? icon -%>
+<%= ", title:'#{title}'" unless !defined? title -%>});
 </script>

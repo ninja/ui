@@ -1,6 +1,6 @@
 <script>
-  $('<%= objects %>').ninjaFoldersCreate({<%= "direction:'#{direction}', " unless !defined? direction -%>
-<%= "id:'#{id}', " unless !defined? id -%>
-<%= "onChange:#{onChange}, " unless !defined? onChange -%>
-<%= "selected:'#{selected}'" unless !defined? selected -%>});
+  $('<%= objects %>').ninjaFoldersCreate({<%= "id:'#{id}'" -%>
+<%= ", direction:'#{direction}'" unless !defined? direction -%>
+<%= ", onChange:#{onChange}" unless !defined? onChange -%>
+<%= ", selected:'#{selected}'" unless !defined? selected -%>});
 </script>
