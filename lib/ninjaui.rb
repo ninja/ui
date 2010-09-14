@@ -72,7 +72,7 @@ module Ninjaui
     end
     
     def public_root
-      Pathname.new 'public/ninjaui'
+      Pathname.new "#{ARGV[0] ||= 'public'}/ninjaui"
     end
     
   end
