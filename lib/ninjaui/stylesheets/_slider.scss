@@ -10,10 +10,9 @@
   padding:6px;
   text-align:center;
   vertical-align:top;
-  .ninjaSliderLabel {
+  .ninjaSliderTitle {
     display:block;
-    margin-bottom:2px;
-    text-align:center; }
+  }
   .ninjaSliderTrack {
     @include borderRadius;
     @include gradientInset;
