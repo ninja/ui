@@ -3,7 +3,7 @@
   @include clickable($buttonHeight);
   @include borderRadius;
   @include inlineBlock;
-  margin:3px 0;
+  margin:6px 0;
   &.ninjaButtonSubmittable {
     @include submittable;
   }

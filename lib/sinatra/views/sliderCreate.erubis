@@ -1,8 +1,0 @@
-<script>
-  $('#<%= id %>').ninjaSliderCreate({<%= "id:'#{id}'" -%>
-<%= ", onStop:#{onStop}" unless !defined? onStop -%>
-<%= ", selected:'#{selected}'" unless !defined? selected -%>
-<%= ", title:'#{title}'" unless !defined? title -%>
-<%= ", values:#{values}" unless !defined? values -%>
-<%= ", width:#{width}" unless !defined? width -%>});
-</script>

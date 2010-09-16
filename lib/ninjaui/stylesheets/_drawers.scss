@@ -1,7 +1,7 @@
 .ninjaDrawers {
   @include font;
   display:block;
-  margin:3px 0;
+  margin:6px 0;
   .ninjaDrawersHandle {
     @include clickable;
     @include userSelect;

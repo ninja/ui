@@ -1,7 +1,0 @@
-<script>
-  $('#<%= id %>').ninjaMenuCreate({<%= "id:'#{id}'" -%>
-<%= ", icon:'#{icon}'" unless !defined? icon -%>
-<%= ", onSelect:#{onSelect}" unless !defined? onSelect -%>
-<%= ", title:'#{title}'" -%>
-<%= ", values:#{values}" -%>});
-</script>

@@ -1,6 +1,0 @@
-<script>
-  $('<%= objects %>').ninjaDrawersCreate({<%= "id:'#{id}'" -%>
-<%= ", onClose:#{onClose}" unless !defined? onClose -%>
-<%= ", onOpen:#{onOpen}" unless !defined? onOpen -%>
-<%= ", selected:'#{selected}'" unless !defined? selected -%>});
-</script>

@@ -1,7 +1,7 @@
 .ninjaFilmstrip {
   @include font;
   @include inlineBlock;
-  margin:10px 0;
+  margin:6px 0;
   white-space:nowrap;
   .ninjaFilmstripBar {
     @include bar;
