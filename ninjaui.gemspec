@@ -2,17 +2,17 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'ninjaui/version'
+require 'ninjaui'
 
 Gem::Specification.new do |s|
   s.name = 'ninjaui'
   s.version = Ninjaui::VERSION
   s.platform = Gem::Platform::RUBY
-  s.authors = ['Jamie Hoover']
+  s.authors = [Ninjaui::AUTHOR]
   s.email = 'dont.tase@me.com'
   s.homepage = 'http://ninjaui.com'
-  s.summary = 'Ninja user interface'
-  s.description = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
+  s.summary = 'Ninja ui'
+  s.description = Ninjaui::DESCRIPTION
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project = 'ninjaui'
   s.add_dependency 'haml'

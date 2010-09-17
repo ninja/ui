@@ -3,10 +3,9 @@
 Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.
 
 1. gem install ninjaui
-2. cd PATH/TO/YOUR/WEBAPP
-3. ninjaui
+2. ninjaui /PATH/TO/WEBAPP/PUBLIC
 
-Visit ninjaui.com[http://ninjaui.com/] for how to include, use, and customize.
+Visit ninjaui.com[http://ninjaui.com/] for examples and documentation.
 
 == Copyright
 
