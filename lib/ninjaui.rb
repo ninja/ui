@@ -10,7 +10,7 @@ module Ninjaui
 
   AUTHOR = 'Jamie Hoover'
   DESCRIPTION = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
-  VERSION = '0.9.9.2' unless defined?(::Ninjaui::VERSION)
+  VERSION = '0.9.9.3' unless defined?(::Ninjaui::VERSION)
 
   class << self
 
