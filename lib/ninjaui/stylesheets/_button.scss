@@ -4,10 +4,10 @@
   @include borderRadius;
   @include inlineBlock;
   margin:6px 0;
-  &.ninjaButtonSubmittable {
+  &.ninjaButtonSubmit {
     @include submittable;
   }
-  &.ninjaButtonClicked {
+  &.ninjaButtonSelected {
     @include clicked;
   }
   &.ninjaButtonDisabled {
