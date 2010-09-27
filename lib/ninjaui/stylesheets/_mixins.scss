@@ -100,14 +100,14 @@
   }
 }
 
-@mixin clicked {
-  @include border($backgroundColorClicked);
+@mixin selected {
+  @include border($backgroundColorSelected);
   @include gradientInset;
-  @include textShadowClicked;
-  background-color:$backgroundColorClicked;
-  color:$textColorClicked;
+  @include textShadowSelected;
+  background-color:$backgroundColorSelected;
+  color:$textColorSelected;
   &:hover {
-    color:$textColorClicked;
+    color:$textColorSelected;
   }
 }
 
@@ -116,7 +116,7 @@
   $textColorDisabled:grayscale($textColor);
   @include border($backgroundColorDisabled);
   @include gradientInset;
-  @include textShadowClicked;
+  @include textShadowSelected;
   background-color:$backgroundColorDisabled;
   color:$textColorDisabled;
   cursor:default;
@@ -176,13 +176,13 @@
   zoom:1;
 }
 
-@mixin submittable {
-  @include border($backgroundColorSubmittable);
-  @include textShadowSubmittable;
-  background-color:$backgroundColorSubmittable;
-  color:$textColorSubmittable;
+@mixin submit {
+  @include border($backgroundColorSubmit);
+  @include textShadowSubmit;
+  background-color:$backgroundColorSubmit;
+  color:$textColorSubmit;
   &:hover {
-    color:$textColorSubmittable;
+    color:$textColorSubmit;
   }
 }
 
@@ -198,8 +198,8 @@
   &.ninjaTabsLast {
     @include borderRadiusRight;
   }
-  &.ninjaTabsClicked {
-    @include clicked;
+  &.ninjaTabsSelected {
+    @include selected;
   }
 }
 
@@ -219,11 +219,11 @@
 @mixin textShadowDisabled {
   text-shadow:$backgroundColorDisabled 0 1px 1px;
 }
-@mixin textShadowClicked {
-  text-shadow:$backgroundColorClicked * 0.5 0 -1px 1px;
+@mixin textShadowSelected {
+  text-shadow:$backgroundColorSelected * 0.5 0 -1px 1px;
 }
-@mixin textShadowSubmittable {
-  text-shadow:$backgroundColorSubmittable * 0.5 0 -1px 1px;
+@mixin textShadowSubmit {
+  text-shadow:$backgroundColorSubmit * 0.5 0 -1px 1px;
 }
 
 @mixin userSelect($type:none) {

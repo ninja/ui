@@ -1,67 +1,53 @@
 .ninjaFolders {
-  @include font;
-  display:block;
-  position:relative;
+  margin:6px 0;
   .ninjaFoldersFolder {
     @include border($backgroundColor);
     @include borderRadius;
+    @include font;
     background:$backgroundColor;
     color:$textColor;
-    margin-bottom:6px;
-    width:inherit;
+    padding:6px;
   }
-  .ninjaFoldersTab {
-    @include tab;
-    &.ninjaFoldersTabClicked {
-      @include clicked;
-    }
-  }
-  &.ninjaFolders-horizontal {
-    margin-top:20px;
-    .ninjaFoldersTabs {
-      display:block;
-      position:absolute;
-      left:0;
-      text-align:center;
-      top:-15px;
-      white-space:nowrap;
-      width:100%;
-      .ninjaFoldersTab {
-        &.ninjaFoldersTabFirst {
-          @include borderRadiusLeft;
-        }
-        &.ninjaFoldersTabLast {
-          @include borderRadiusRight;
-        }
+  .ninjaFoldersTabs {
+    .ninjaFoldersTab {
+      @include tab;
+      &.ninjaFoldersTabSelected {
+        @include selected;
       }
-    }
-    .ninjaFoldersFolder {
-      padding:30px 15px 15px 15px;
-    }
-  }
-  &.ninjaFolders-vertical {
-    margin-top:6px;
-    .ninjaFoldersTabs {
-      @include inlineBlock;
-      left:0;
-      position:absolute;
-      top:14px;
-      width:194px;
-      .ninjaFoldersTab {
-        display:block;
-        text-align:left;
-        &.ninjaFoldersTabFirst {
-          @include borderRadiusTop;
-        }
-        &.ninjaFoldersTabLast {
-          @include borderRadiusBottom;
-        }
-      }
-    }
-    .ninjaFoldersFolder {
-      margin-left:180px;
-      padding:15px 15px 15px 30px;
     }
   }
 }
-
+div.ninjaFolders {
+  .ninjaFoldersTabs {
+    margin:0 6px;
+    text-align:center;
+    white-space:nowrap;
+    .ninjaFoldersTab {
+      &.ninjaFoldersTabFirst {
+        @include borderRadiusTopLeft;
+      }
+      &.ninjaFoldersTabLast {
+        @include borderRadiusTopRight;
+      }
+    }
+  }
+}
+table.ninjaFolders {
+  width:100%;
+  .ninjaFoldersTabs {
+    margin:6px 0;
+    .ninjaFoldersTab {
+      display:block;
+      text-align:left;
+      &.ninjaFoldersTabFirst {
+        @include borderRadiusTopLeft;
+      }
+      &.ninjaFoldersTabLast {
+        @include borderRadiusBottomLeft;
+      }
+    }
+  }
+  .ninjaFoldersColumn {
+    width:100%;
+  }
+}

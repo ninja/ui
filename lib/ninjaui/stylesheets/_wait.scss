@@ -8,7 +8,7 @@
 .ninjaWaitFrame {
   @include borderRadius;
   background:#000 url("#{$imagePath}/wait.gif") 10px center no-repeat;
-  color:$textColorClicked;
+  color:$textColorSelected;
   display:none;
   padding:15px 15px 15px 30px;
   position:absolute;

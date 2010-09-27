@@ -5,10 +5,10 @@
   @include inlineBlock;
   margin:6px 0;
   &.ninjaButtonSubmit {
-    @include submittable;
+    @include submit;
   }
   &.ninjaButtonSelected {
-    @include clicked;
+    @include selected;
   }
   &.ninjaButtonDisabled {
     @include disabled;

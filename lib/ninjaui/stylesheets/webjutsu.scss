@@ -1,6 +1,6 @@
 $backgroundColor:#fff;
-$backgroundColorClicked:#666;
-$backgroundColorSubmittable:#00c;
+$backgroundColorSelected:#666;
+$backgroundColorSubmit:#00c;
 $fontFamily:"Lucida Grande", "Lucida Sans Unicode", sans-serif;
 $fontSize:12px;
 $imagePath:'../images';
@@ -9,8 +9,8 @@ $ratingStarColor:#ccc;
 $ratingStarGroupColor:#39c;
 $ratingStarSingleColor:#c00;
 $textColor:#000;
-$textColorClicked:#fff;
-$textColorSubmittable:#fff;
+$textColorSelected:#fff;
+$textColorSubmit:#fff;
 
 @import 'reset';
 @import 'mixins';

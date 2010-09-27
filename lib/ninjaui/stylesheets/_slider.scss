@@ -26,7 +26,7 @@
       @include borderRadius;
       @include gradientOutset;
       @include userSelect;
-      background-color:$backgroundColorClicked;
+      background-color:$backgroundColorSelected;
       display:block;
       height:4px;
       left:1px;

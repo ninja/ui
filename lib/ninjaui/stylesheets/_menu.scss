@@ -9,8 +9,8 @@
     @include clickable(24px);
     @include borderRadius;
     display:block;
-    &.ninjaMenuButtonClicked {
-      @include clicked;
+    &.ninjaMenuButtonSelected {
+      @include selected;
     }
     &.ninjaMenuButtonDisabled {
       @include disabled;
@@ -39,8 +39,8 @@
       &:hover {
         @include gradientOutset;
         @include clickable;
-        background-color:$backgroundColorClicked;
-        color:$textColorClicked;
+        background-color:$backgroundColorSelected;
+        color:$textColorSelected;
         text-align:left;
       }
       &:last-child {

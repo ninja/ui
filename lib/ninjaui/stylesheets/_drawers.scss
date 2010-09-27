@@ -10,12 +10,12 @@
     text-align:left;
     z-index:222;
   }
-  .ninjaDrawersHandleClicked, .ninjaDrawerHandle:active {
+  .ninjaDrawersHandleSelected, .ninjaDrawerHandle:active {
     @include gradientInset;
     z-index: 111;
   }
-  .ninjaDrawersHandleClicked {
-    @include clicked;
+  .ninjaDrawersHandleSelected {
+    @include selected;
   }
   .ninjaDrawersHandleFirst {
     @include borderRadiusTop;
@@ -23,7 +23,7 @@
 
   .ninjaDrawersHandleLast {
     @include borderRadiusBottom;
-    &.ninjaDrawersHandleClicked {
+    &.ninjaDrawersHandleSelected {
       @include borderRadius(0);
     }
   }
