@@ -1,4 +1,6 @@
 $Icon-size:12px;
+$backgroundPositionY: -($Icon-size);
+
 .ninjaIcon {
   @include boxSizing;
   @include inlineBlock;
@@ -14,61 +16,34 @@ $Icon-size:12px;
 .ninjaIcon::before {
   content:'\200C'
 }
-$iconImage:url("#{$imagePath}/icons-dark.png");
-$iconImageClicked:url("#{$imagePath}/icons-dark.png");
-@if lightness($backgroundColor) < 50% {
-  $iconImage:url("#{$imagePath}/icons-light.png");
-}
-@if lightness($backgroundColor) < 50% {
-  $iconImageClicked:url("#{$imagePath}/icons-light.png");
-}
 
-$backgroundPositionY: -($Icon-size);
-.ninjaIcon-up { background-image:$iconImage; background-position:0 0; }
-.ninjaIcon-right { background-image:$iconImage; background-position:0 $backgroundPositionY; }
-.ninjaIcon-down { background-image:$iconImage; background-position:0 $backgroundPositionY * 2; }
-.ninjaIcon-left { background-image:$iconImage; background-position:0 $backgroundPositionY * 3; }
-.ninjaIcon-close { background-image:$iconImage; background-position:0 $backgroundPositionY * 4; }
-.ninjaIcon-check { background-image:$iconImage; background-position:0 $backgroundPositionY * 5; }
-.ninjaIcon-subtract { background-image:$iconImage; background-position:0 $backgroundPositionY * 6; }
-.ninjaIcon-add { background-image:$iconImage; background-position:0 $backgroundPositionY * 7; }
-.ninjaIcon-search { background-image:$iconImage; background-position:0 $backgroundPositionY * 8; }
-.ninjaIcon-warning { background-image:$iconImage; background-position:0 $backgroundPositionY * 9; }
-.ninjaIcon-home { background-image:$iconImage; background-position:0 $backgroundPositionY * 10; }
-.ninjaIcon-gear { background-image:$iconImage; background-position:0 $backgroundPositionY * 11; }
-.ninjaIcon-apple { background-image:$iconImage; background-position:0 $backgroundPositionY * 12; }
-.ninjaIcon-heart { background-image:$iconImage; background-position:0 $backgroundPositionY * 13; }
-.ninjaIcon-target { background-image:$iconImage; background-position:0 $backgroundPositionY * 14; }
-.ninjaIcon-profile { background-image:$iconImage; background-position:0 $backgroundPositionY * 15; }
-.ninjaIcon-people { background-image:$iconImage; background-position:0 $backgroundPositionY * 16; }
-.ninjaIcon-photo { background-image:$iconImage; background-position:0 $backgroundPositionY * 17; }
-.ninjaIcon-print { background-image:$iconImage; background-position:0 $backgroundPositionY * 18; }
-.ninjaIcon-radio { background-image:$iconImage; background-position:0 $backgroundPositionY * 19; }
-.ninjaIcon-movie { background-image:$iconImage; background-position:0 $backgroundPositionY * 20; }
-.ninjaIcon-refresh { background-image:$iconImage; background-position:0 $backgroundPositionY * 21; }
-.ninjaIcon-mail { background-image:$iconImage; background-position:0 $backgroundPositionY * 22; }
-.ninjaClicked, .ninjaSubmit {
-  .ninjaIcon-up { background-image:$iconImageClicked; background-position:0 0; }
-  .ninjaIcon-right { background-image:$iconImageClicked; background-position:0 $backgroundPositionY; }
-  .ninjaIcon-down { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 2; }
-  .ninjaIcon-left { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 3; }
-  .ninjaIcon-close { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 4; }
-  .ninjaIcon-check { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 5; }
-  .ninjaIcon-subtract { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 6; }
-  .ninjaIcon-add { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 7; }
-  .ninjaIcon-search { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 8; }
-  .ninjaIcon-warning { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 9; }
-  .ninjaIcon-home { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 10; }
-  .ninjaIcon-gear { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 11; }
-  .ninjaIcon-apple { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 12; }
-  .ninjaIcon-heart { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 13; }
-  .ninjaIcon-target { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 14; }
-  .ninjaIcon-profile { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 15; }
-  .ninjaIcon-people { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 16; }
-  .ninjaIcon-photo { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 17; }
-  .ninjaIcon-print { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 18; }
-  .ninjaIcon-radio { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 19; }
-  .ninjaIcon-movie { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 20; }
-  .ninjaIcon-refresh { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 21; }
-  .ninjaIcon-mail { background-image:$iconImageClicked; background-position:0 $backgroundPositionY * 22; }
+.ninjaIcon-up { background-position:0 0; }
+.ninjaIcon-right { background-position:0 $backgroundPositionY; }
+.ninjaIcon-down { background-position:0 $backgroundPositionY * 2; }
+.ninjaIcon-left { background-position:0 $backgroundPositionY * 3; }
+.ninjaIcon-close { background-position:0 $backgroundPositionY * 4; }
+.ninjaIcon-check { background-position:0 $backgroundPositionY * 5; }
+.ninjaIcon-subtract { background-position:0 $backgroundPositionY * 6; }
+.ninjaIcon-add { background-position:0 $backgroundPositionY * 7; }
+.ninjaIcon-search { background-position:0 $backgroundPositionY * 8; }
+.ninjaIcon-warning { background-position:0 $backgroundPositionY * 9; }
+.ninjaIcon-home { background-position:0 $backgroundPositionY * 10; }
+.ninjaIcon-gear { background-position:0 $backgroundPositionY * 11; }
+.ninjaIcon-apple { background-position:0 $backgroundPositionY * 12; }
+.ninjaIcon-heart { background-position:0 $backgroundPositionY * 13; }
+.ninjaIcon-target { background-position:0 $backgroundPositionY * 14; }
+.ninjaIcon-profile { background-position:0 $backgroundPositionY * 15; }
+.ninjaIcon-people { background-position:0 $backgroundPositionY * 16; }
+.ninjaIcon-photo { background-position:0 $backgroundPositionY * 17; }
+.ninjaIcon-print { background-position:0 $backgroundPositionY * 18; }
+.ninjaIcon-radio { background-position:0 $backgroundPositionY * 19; }
+.ninjaIcon-movie { background-position:0 $backgroundPositionY * 20; }
+.ninjaIcon-refresh { background-position:0 $backgroundPositionY * 21; }
+.ninjaIcon-mail { background-position:0 $backgroundPositionY * 22; }
+
+.ninjaIconDark {
+  background-image:url('#{$imagePath}/icons-dark.png');
+}
+.ninjaIconLight {
+  background-image:url('#{$imagePath}/icons-light.png');
 }
