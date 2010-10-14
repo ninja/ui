@@ -1,15 +1,11 @@
 .ninjaPanel {
   @include border;
-  @include borderRadiusTop;
   @include boxSizing;
   @include font;
-  background-color:$backgroundColor;
-  color:$textColor;
   display:block;
-  margin:6px 0;
+  margin:0.5em 0;
   .ninjaPanelBar {
     @include bar;
-    @include borderRadiusTop;
     margin:-1px -1px 0 -1px;
   }
 }

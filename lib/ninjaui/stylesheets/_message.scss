@@ -1,0 +1,25 @@
+.ninjaMessage {
+  display:none;
+  max-width:80%;
+  position:fixed;
+  z-index:999;
+  .ninjaMessageHandle {
+    @include bar;
+    .ninjaMessageClose {
+      margin:-1px;
+      position:absolute;
+      right:0;
+      top:0;
+    }
+  }
+  .ninjaMessageContent {
+    @include font;
+    padding:1em;
+  }
+  .ninjaMessageReflection {
+    @include border;
+    height:1em;
+    position:absolute;
+    width:100%;
+  }
+}

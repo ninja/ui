@@ -1,77 +1,22 @@
-@mixin bar($height:24px) {
-  $fontHeight:$height / 2;
-  $paddingWidth:$height / 3;
-  $iconMargin:$height / 4;
-  @include border($backgroundColor);
+@mixin bar {
+  @include border;
   @include boxSizing;
   @include font;
   @include gradientOutset;
-  @include textShadow;
-  background-color:$backgroundColor;
-  color:$textColor;
-  font-size:$fontHeight;
-  height:$height;
-  line-height:$height;
+  height:2em;
+  line-height:2em;
   margin:0;
   outline:0;
   overflow:visible;
-  padding:0 $paddingWidth;
+  padding:0 0.5em;
   position:relative;
-  text:{
-    align:center;
-    decoration:none;
-  }
+  text-decoration:none;
   vertical-align:middle;
   white-space:nowrap;
 }
 
-@mixin border($borderColor:$backgroundColor) {
-  border:1px solid $borderColor * 0.85;
-}
-
-@mixin borderRadius($radius) {
-  -moz-border-radius:$radius;
-  -webkit-border-radius:$radius;
-  border-radius:$radius;
-}
-@mixin borderRadiusCorner($vertical, $horizontal, $radius) {
-  -moz-border-radius-#{$vertical}#{$horizontal}:$radius;
-  -webkit-border-#{$vertical}-#{$horizontal}-radius:$radius;
-  border-radius-#{$vertical}-#{$horizontal}:$radius;
-}
-@mixin borderRadiusBottomLeft($radius) {
-  @include borderRadiusCorner(bottom, left, $radius);
-}
-@mixin borderRadiusBottomRight($radius) {
-  @include borderRadiusCorner(bottom, right, $radius);
-}
-@mixin borderRadiusTopLeft($radius) {
-  @include borderRadiusCorner(top, left, $radius);
-}
-@mixin borderRadiusTopRight($radius) {
-  @include borderRadiusCorner(top, right, $radius);
-}
-@mixin borderRadiusBottom($radius) {
-  @include borderRadiusBottomLeft($radius);
-  @include borderRadiusBottomRight($radius);
-}
-@mixin borderRadiusLeft($radius) {
-  @include borderRadiusBottomLeft($radius);
-  @include borderRadiusTopLeft($radius);
-}
-@mixin borderRadiusRight($radius) {
-  @include borderRadiusBottomRight($radius);
-  @include borderRadiusTopRight($radius);
-}
-@mixin borderRadiusTop($radius) {
-  @include borderRadiusTopLeft($radius);
-  @include borderRadiusTopRight($radius);
-}
-
-@mixin boxShadow($style:0 10px 10px rgba(0, 0, 0, 0.25)) {
-  -moz-box-shadow:$style;
-  -webkit-box-shadow:$style;
-  box-shadow:$style;
+@mixin border($width:1px) {
+  border:$width solid;
 }
 
 @mixin boxSizing {
@@ -81,52 +26,13 @@
   box-sizing:content-box;
 }
 
-@mixin clickable($height:24px) {
-  @include bar($height);
-  cursor:pointer;
-  &:active {
-    @include gradientInset;
-  }
-  &:focus {
-    outline:0;
-  }
-  &:hover {
-    color:$textColor;
-    text-decoration:none;
-  }
-  &::-moz-focus-inner {
-    border:0;
-    padding:0;
-  }
+@mixin shadowOutset($style:0 0.5em 0.5em #000) {
+  -ms-box-shadow:$style;
+  -moz-box-shadow:$style;
+  -webkit-box-shadow:$style;
+  box-shadow:$style;
 }
 
-@mixin selected {
-  @include border($backgroundColorSelected);
-  @include gradientInset;
-  @include textShadowSelected;
-  background-color:$backgroundColorSelected;
-  color:$textColorSelected;
-  &:hover {
-    color:$textColorSelected;
-  }
-}
-
-@mixin disabled {
-  $backgroundColorDisabled:grayscale($backgroundColor);
-  $textColorDisabled:grayscale($textColor);
-  @include border($backgroundColorDisabled);
-  @include gradientInset;
-  @include textShadowSelected;
-  background-color:$backgroundColorDisabled;
-  color:$textColorDisabled;
-  cursor:default;
-  opacity:0.5;
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	filter: alpha(opacity=50);
-  &:hover {
-    color:$textColorDisabled;
-  }
-}
 
 @mixin draggable($height:24px) {
   @include bar($height);
@@ -145,8 +51,8 @@
 }
 
 @mixin font {
-  font-family:$fontFamily;
-  font-size:$fontSize;
+  font-family:"Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-size:13px;
 }
 
 @mixin gradient($type:outset, $gradientColorTop:rgba(255, 255, 255, 0.25), $gradientColorBottom:rgba(0, 0, 0, 0.125), $direction:bottom) {
@@ -176,28 +82,31 @@
   zoom:1;
 }
 
-@mixin submit {
-  @include border($backgroundColorSubmit);
-  @include textShadowSubmit;
-  background-color:$backgroundColorSubmit;
-  color:$textColorSubmit;
+@mixin selectable {
+  @include bar;
+  cursor:pointer;
+  &:active {
+    @include gradientInset;
+  }
+  &:focus {
+    outline:0;
+  }
   &:hover {
-    color:$textColorSubmit;
+    text-decoration:none;
+  }
+  &::-moz-focus-inner {
+    border:0;
+    padding:0;
   }
 }
 
-@mixin tab($height:24px) {
-  @include clickable($height);
+@mixin selected {
+  @include gradientInset;
+}
+
+@mixin tab {
+  @include selectable;
   @include inlineBlock;
-  border-left:none;
-  margin:0;
-  &.ninjaTabsFirst {
-    @include border;
-    @include borderRadiusLeft;
-  }
-  &.ninjaTabsLast {
-    @include borderRadiusRight;
-  }
   &.ninjaTabsSelected {
     @include selected;
   }
@@ -208,22 +117,6 @@
   -o-text-overflow:$type;
   text-overflow:$type;
   white-space:nowrap;
-}
-
-@mixin textShadow {
-  text-shadow:$backgroundColor 0 1px 1px;
-}
-@mixin textShadowInset {
-  text-shadow:$backgroundColor * 0.5 0 -1px 1px;
-}
-@mixin textShadowDisabled {
-  text-shadow:$backgroundColorDisabled 0 1px 1px;
-}
-@mixin textShadowSelected {
-  text-shadow:$backgroundColorSelected * 0.5 0 -1px 1px;
-}
-@mixin textShadowSubmit {
-  text-shadow:$backgroundColorSubmit * 0.5 0 -1px 1px;
 }
 
 @mixin userSelect($type:none) {

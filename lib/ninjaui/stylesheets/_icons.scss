@@ -1,49 +1,60 @@
-$Icon-size:12px;
-$backgroundPositionY: -($Icon-size);
-
 .ninjaIcon {
-  @include boxSizing;
   @include inlineBlock;
+  background-position:center;
   background-repeat:no-repeat;
-  font-size:$Icon-size;
-  height:$Icon-size;
-  line-height:$Icon-size;
-  margin:6px 0;
-  padding-left:$Icon-size;
-  text-indent:3px;
-  vertical-align:top;
-}
-.ninjaIcon::before {
-  content:'\200C'
+  min-height:16px;
+  min-width:16px;
+  vertical-align:middle;
 }
 
-.ninjaIcon-up { background-position:0 0; }
-.ninjaIcon-right { background-position:0 $backgroundPositionY; }
-.ninjaIcon-down { background-position:0 $backgroundPositionY * 2; }
-.ninjaIcon-left { background-position:0 $backgroundPositionY * 3; }
-.ninjaIcon-close { background-position:0 $backgroundPositionY * 4; }
-.ninjaIcon-check { background-position:0 $backgroundPositionY * 5; }
-.ninjaIcon-subtract { background-position:0 $backgroundPositionY * 6; }
-.ninjaIcon-add { background-position:0 $backgroundPositionY * 7; }
-.ninjaIcon-search { background-position:0 $backgroundPositionY * 8; }
-.ninjaIcon-warning { background-position:0 $backgroundPositionY * 9; }
-.ninjaIcon-home { background-position:0 $backgroundPositionY * 10; }
-.ninjaIcon-gear { background-position:0 $backgroundPositionY * 11; }
-.ninjaIcon-apple { background-position:0 $backgroundPositionY * 12; }
-.ninjaIcon-heart { background-position:0 $backgroundPositionY * 13; }
-.ninjaIcon-target { background-position:0 $backgroundPositionY * 14; }
-.ninjaIcon-profile { background-position:0 $backgroundPositionY * 15; }
-.ninjaIcon-people { background-position:0 $backgroundPositionY * 16; }
-.ninjaIcon-photo { background-position:0 $backgroundPositionY * 17; }
-.ninjaIcon-print { background-position:0 $backgroundPositionY * 18; }
-.ninjaIcon-radio { background-position:0 $backgroundPositionY * 19; }
-.ninjaIcon-movie { background-position:0 $backgroundPositionY * 20; }
-.ninjaIcon-refresh { background-position:0 $backgroundPositionY * 21; }
-.ninjaIcon-mail { background-position:0 $backgroundPositionY * 22; }
-
-.ninjaIconDark {
-  background-image:url('#{$imagePath}/icons-dark.png');
+@mixin icon($color:'black', $name:'add') {
+  &.ninjaIcon-#{$name} {
+    background-image:url("#{$imagePath}/#{$color}/#{$name}.png");
+  }
 }
-.ninjaIconLight {
-  background-image:url('#{$imagePath}/icons-light.png');
+
+@mixin icons($color:'black') {
+  @include icon($color, 'add');
+  @include icon($color, 'arrange');
+  @include icon($color, 'beverage');
+  @include icon($color, 'bookmark');
+  @include icon($color, 'caution');
+  @include icon($color, 'check');
+  @include icon($color, 'down');
+  @include icon($color, 'download');
+  @include icon($color, 'edit');
+  @include icon($color, 'flag');
+  @include icon($color, 'food');
+  @include icon($color, 'gear');
+  @include icon($color, 'group');
+  @include icon($color, 'heart');
+  @include icon($color, 'home');
+  @include icon($color, 'in');
+  @include icon($color, 'left');
+  @include icon($color, 'lock');
+  @include icon($color, 'mail');
+  @include icon($color, 'no');
+  @include icon($color, 'out');
+  @include icon($color, 'phone');
+  @include icon($color, 'photo');
+  @include icon($color, 'print');
+  @include icon($color, 'profile');
+  @include icon($color, 'question');
+  @include icon($color, 'refresh');
+  @include icon($color, 'remove');
+  @include icon($color, 'right');
+  @include icon($color, 'search');
+  @include icon($color, 'star');
+  @include icon($color, 'target');
+  @include icon($color, 'unlock');
+  @include icon($color, 'up');
+  @include icon($color, 'upload');
+  @include icon($color, 'video');
+}
+
+.ninjaIconBlack {
+  @include icons('black');
+}
+.ninjaIconWhite {
+  @include icons('white');
 }

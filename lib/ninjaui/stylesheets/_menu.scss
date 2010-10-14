@@ -1,50 +1,28 @@
 .ninjaMenu {
   @include font;
   @include inlineBlock;
-  margin:6px 0;
+  margin:0.5em 0;
   position:relative;
   vertical-align:middle;
   z-index:666;
   .ninjaMenuButton {
-    @include clickable(24px);
-    @include borderRadius;
+    @include selectable;
     display:block;
     &.ninjaMenuButtonSelected {
       @include selected;
     }
-    &.ninjaMenuButtonDisabled {
-      @include disabled;
-    }
   }
   .ninjaMenuChoices {
-    @include border;
-    @include borderRadius;
-    @include boxShadow;
-    background-color:$backgroundColor;
+    @include shadowOutset;
     display:none;
-    left:0;
-    list-style:none;
-    top:30px;
     position:absolute;
     z-index:777;
     .ninjaMenuChoice {
-      @include clickable;
-      background:none;
-      border-color:$backgroundColor;
+      @include selectable;
       display:block;
       text-align:left;
-      &:first-child {
-        @include borderRadiusTop;
-      }
       &:hover {
         @include gradientOutset;
-        @include clickable;
-        background-color:$backgroundColorSelected;
-        color:$textColorSelected;
-        text-align:left;
-      }
-      &:last-child {
-        @include borderRadiusBottom;
       }
     }
   }

@@ -1,16 +1,8 @@
-$backgroundColor:#fff;
-$backgroundColorSelected:#666;
-$backgroundColorSubmit:#00c;
-$fontFamily:"Lucida Grande", "Lucida Sans Unicode", sans-serif;
-$fontSize:12px;
 $imagePath:'../images';
-$radius:6px;
+$javascriptPath:'/ninjaui/javascripts';
 $ratingStarColor:#ccc;
 $ratingStarGroupColor:#39c;
 $ratingStarSingleColor:#c00;
-$textColor:#000;
-$textColorSelected:#fff;
-$textColorSubmit:#fff;
 
 @import 'reset';
 @import 'mixins';
@@ -20,6 +12,7 @@ $textColorSubmit:#fff;
 @import 'folders';
 @import 'icons';
 @import 'menu';
+@import 'message';
 @import 'navigation';
 @import 'panel';
 @import 'rating';

@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 # encoding: UTF-8
 
 require 'fileutils'
@@ -7,10 +7,12 @@ require 'sass'
 require 'sprockets'
 
 module Ninjaui
-
-  AUTHOR = 'Jamie Hoover'
-  DESCRIPTION = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
-  VERSION = '0.9.9.3' unless defined?(::Ninjaui::VERSION)
+  
+  gemspec = Gem.loaded_specs['ninjaui']
+  AUTHOR = gemspec.author
+  DESCRIPTION = gemspec.description
+  SUMMARY = gemspec.summary
+  VERSION = gemspec.version
 
   class << self
 
@@ -37,17 +39,14 @@ module Ninjaui
       FileUtils.mkdir_p public_javascripts
       FileUtils.mkdir_p public_stylesheets
 
-      # Copy webjutsu.scss to public directory to allow user customization
-      private_webjutsu = private_root + 'stylesheets/webjutsu.scss'
-      public_webjutsu = public_root + 'webjutsu.scss'
-      FileUtils.cp(private_webjutsu, public_webjutsu) unless File.exist?(public_webjutsu)
-
       # Compile SCSS sources to file under assets
+      private_stylesheets = private_root + 'stylesheets'
+      private_webjutsu = private_stylesheets + 'webjutsu.scss'
       File.open(public_stylesheets + 'ninjaui.css', 'w+:UTF-8') do |stylesheet|
         stylesheet.write Sass::Engine.new(
-          File.read(public_webjutsu),
+          File.read(private_webjutsu),
           :cache => false,
-          :load_paths => [private_root + 'stylesheets'],
+          :load_paths => [private_stylesheets],
           :style => :compressed,
           :syntax => :scss
         ).render

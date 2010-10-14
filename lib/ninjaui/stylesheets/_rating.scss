@@ -1,28 +1,28 @@
 .ninjaRating {
   @include inlineBlock;
   @include userSelect;
-  margin:6px 0;
+  margin:0.5em 0;
   white-space:nowrap;
   .ninjaRatingStar {
     @include inlineBlock;
-    @include textShadowInset;
     color:$ratingStarColor;
     cursor:pointer;
-    font-family:'Menlo', 'Courier', monospace, sans-serif;
-    font-size:30px;
-    height:18px;
-    line-height:18px;
+    font-family:'Courier', monospace, sans-serif;
+    font-size:1.5em;
     vertical-align:middle;
-    &.ninjaRatingStarGroup {
-      color:$ratingStarGroupColor;
-    }
-    &.ninjaRatingStarSingle {
-      color:$ratingStarSingleColor;
-    }
+    $shadow:0 -1px 1px rgba(0, 0, 0, 0.75);
+    -moz-text-shadow:$shadow;
+    -webkit-text-shadow:$shadow;
+    text-shadow:$shadow;
   }
 }
-.ie6, .ie7, .ie8 {
-  .ninjaRatingStar {
-    font-size:18px;
+.ie6, .ie7{
+  .ninjaRatingStar{
+    filter:progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=0, Color='#000000');
+  }
+}
+.ie8{
+  .ninjaRatingStar{
+    -ms-filter:"progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=0, Color='#000000')";
   }
 }

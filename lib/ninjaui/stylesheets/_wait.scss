@@ -1,27 +1,29 @@
 .ninjaWaitOverlay {
-  background-color:#000;
   left:0;
   position:absolute;
   top:0;
   z-index:888;
 }
 .ninjaWaitFrame {
-  @include borderRadius;
-  background:#000 url("#{$imagePath}/wait.gif") 10px center no-repeat;
-  color:$textColorSelected;
+  @include border;
   display:none;
-  padding:15px 15px 15px 30px;
+  max-width:80%;
+  padding:1em;
   position:absolute;
   text-align:center;
   z-index:999;
   .ninjaWaitReflection {
-    @include borderRadiusTop;
-    background-image:-moz-linear-gradient(top, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
-    background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(rgba(0, 0, 0, 0)));
-    bottom:-30px;
-    height:30px;
-    left:0;
+    @include border;
+    height:1em;
     position:absolute;
     width:100%;
   }
+}
+.ninjaWaitIcon {
+  @include inlineBlock;
+  background:url("#{$imagePath}/wait.png") left center no-repeat;
+  height:inherit;
+  min-height:16px;
+  vertical-align:middle;
+  width:16px;
 }

@@ -1,46 +1,27 @@
 .ninjaDrawers {
   @include font;
   display:block;
-  margin:6px 0;
+  margin:0.5em 0;
   .ninjaDrawersHandle {
-    @include clickable;
+    @include selectable;
     @include userSelect;
     display:block;
     position:relative;
     text-align:left;
-    z-index:222;
   }
   .ninjaDrawersHandleSelected, .ninjaDrawerHandle:active {
     @include gradientInset;
-    z-index: 111;
   }
   .ninjaDrawersHandleSelected {
     @include selected;
   }
-  .ninjaDrawersHandleFirst {
-    @include borderRadiusTop;
-  }
-
-  .ninjaDrawersHandleLast {
-    @include borderRadiusBottom;
-    &.ninjaDrawersHandleSelected {
-      @include borderRadius(0);
-    }
-  }
   .ninjaDrawersDrawer {
-    @include border($backgroundColor);
-    background:$backgroundColor;
+    @include border;
     border:{
-      bottom:none;
-      top:none;
+      bottom-style:none;
+      top-style:none;
     }
-    color:$textColor;
     display:block;
     padding:10px;
-  }
-  .ninjaDrawersDrawerLast {
-    @include border($backgroundColor);
-    @include borderRadiusBottom;
-    border-top:none;
   }
 }

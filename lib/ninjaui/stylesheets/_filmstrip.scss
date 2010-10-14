@@ -1,23 +1,19 @@
 .ninjaFilmstrip {
   @include font;
   @include inlineBlock;
-  margin:6px 0;
+  margin:0.5em 0;
   white-space:nowrap;
   .ninjaFilmstripBar {
     @include bar;
-    @include borderRadiusTop;
     padding:0;
+    text-align:center;
     .ninjaFilmstripBack {
-      @include borderRadius(0);
-      @include borderRadiusTopLeft;
       left:0;
       margin:-1px;
       position:absolute;
       top:0;
     }
     .ninjaFilmstripForward {
-      @include borderRadius(0);
-      @include borderRadiusTopRight;
       margin:-1px;
       position:absolute;
       right:0;
@@ -25,8 +21,7 @@
     }
   }
   .ninjaFilmstripView {
-    @include border($backgroundColor);
-    background-color: $backgroundColor;
+    @include border;
     border-top:none;
     display:block;
     overflow:hidden;
@@ -41,7 +36,7 @@
       white-space:nowrap;
       .ninjaFilmstripFrame {
         @include inlineBlock;
-        border-right:1px solid $backgroundColor * 0.85;
+        border-right:1px solid;
         font-size:11px;
         overflow:hidden;
         padding:5px;

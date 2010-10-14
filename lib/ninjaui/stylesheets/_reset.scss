@@ -97,13 +97,7 @@ h6 {
 }
 
 hr {
-  display:block;
-  height:1px;
-  border:0;
-  border-top:1px solid $backgroundColor;
   margin:2em 0;
-  opacity:0.5;
-  padding:0;
 }
 
 input, select {
@@ -134,8 +128,8 @@ pre {
   white-space: pre-wrap; /* CSS 2.1 */
 }
 
-select, input, textarea {
-  font:99% sans-serif;
+select, input[type="text"], textarea {
+  font-family:sans-serif;
 }
 
 sub, sup {

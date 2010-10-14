@@ -1,51 +1,45 @@
 .ninjaSlider {
-  @include border($backgroundColor);
-  @include borderRadius;
+  @include border;
   @include font;
   @include inlineBlock;
   @include userSelect;
-  background-color:$backgroundColor;
-  color:$textColor;
-  margin:6px 0;
-  padding:6px;
+  margin:0.5em 0;
+  padding:0.5em;
   text-align:center;
   vertical-align:top;
   .ninjaSliderTitle {
     display:block;
   }
   .ninjaSliderTrack {
-    @include borderRadius;
     @include gradientInset;
     @include userSelect;
-    background-color:$backgroundColor;
     display:block;
     height:6px;
-    margin:6px 0;
+    margin:0.5em 0;
     position:relative;
     .ninjaSliderLevel {
-      @include borderRadius;
       @include gradientOutset;
+      @include inlineBlock;
       @include userSelect;
-      background-color:$backgroundColorSelected;
-      display:block;
       height:4px;
       left:1px;
       position:absolute;
       top:1px;
     }
     .ninjaSliderButton {
-      @include clickable(16px);
-      @include borderRadius(8px);
-      @include inlineBlock;
+      @include selectable;
+      height:16px;
+      line-height:16px;
+      padding:0;
       position:absolute;
       top:-6px;
-      width:6px;
+      width:16px;
     }
   }
   .ninjaSliderText {
     @include textOverflow;
     @include userSelect;
     display:block;
-    font-size:11px;
+    font-size:0.75em;
   }
 }

@@ -1,31 +1,16 @@
 .ninjaNavigation {
-  $height:48px;
-  @include border($backgroundColor);
-  @include borderRadius;
-  @include boxSizing;
-  @include font;
-  @include gradientOutset;
-  @include textShadow;
-  background-color:$backgroundColor;
-  color:$textColor;
-  font-size:12px;
-  height:$height;
-  line-height:$height;
-  margin:6px 0;
-  outline:0;
-  overflow:visible;
-  position:relative;
-  vertical-align:middle;
-  white-space:nowrap;
+  @include bar;
+  height:4em;
+  line-height:4em;
+  margin:0.5em 0;
+  padding:0;
   .ninjaTabs {
     margin:-1px;
     text-align:left;
     .ninjaTabsTab {
-      @include tab($height);
-      @include font;
-      &.ninjaTabsLast {
-        @include borderRadius(0);
-      }
+      height:4em;
+      line-height:4em;
+      padding:0 2em;
     }
   }
 }

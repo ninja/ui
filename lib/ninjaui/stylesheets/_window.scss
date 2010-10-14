@@ -1,5 +1,4 @@
 .ninjaWindowOverlay {
-  background-color:#000;
   left:0;
   position:absolute;
   top:0;
@@ -7,17 +6,16 @@
 }
 .ninjaWindowFrame {
   display:none;
+  max-width:80%;
   position:absolute;
   z-index:999;
   .ninjaWindowHandle {
     @include bar;
-    @include borderRadiusTop;
     .ninjaWindowTitle {
       @include inlineBlock;
-      margin-right: 20px; }
+      margin-right:2em;
+    }
     .ninjaWindowClose {
-      @include borderRadius(0);
-      @include borderRadiusTopRight;
       margin:-1px;
       position:absolute;
       right:0;
@@ -25,18 +23,14 @@
     }
   }
   .ninjaWindowContent {
+    @include border;
     @include font;
-    background-color:#fff;
-    color:#000;
     overflow:auto;
-    padding:12px;
+    padding:1em;
   }
   .ninjaWindowReflection {
-    background:-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
-    background:-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-    bottom:-30px;
-    height:30px;
-    left:0;
+    @include border;
+    height:1em;
     position:absolute;
     width:100%;
   }

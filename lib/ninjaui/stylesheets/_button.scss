@@ -1,16 +1,8 @@
 .ninjaButton {
-  $buttonHeight:24px;
-  @include clickable($buttonHeight);
-  @include borderRadius;
+  @include selectable;
   @include inlineBlock;
-  margin:6px 0;
-  &.ninjaButtonSubmit {
-    @include submit;
-  }
+  margin:0.5em 0;
   &.ninjaButtonSelected {
     @include selected;
-  }
-  &.ninjaButtonDisabled {
-    @include disabled;
   }
 }
