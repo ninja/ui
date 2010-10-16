@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.name = 'ninjaui'
-  s.version = '0.9.9.4'
+  s.version = '0.9.9.5'
   s.summary = 'Ninja ui'
   s.description = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
 
