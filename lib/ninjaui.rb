@@ -40,18 +40,13 @@ module Ninjaui
       FileUtils.mkdir_p public_stylesheets
 
       # Compile SCSS sources to file under assets
-      private_stylesheets = private_root + 'stylesheets'
-      private_webjutsu = private_stylesheets + 'webjutsu.scss'
-      File.open(public_stylesheets + 'ninjaui.css', 'w+:UTF-8') do |stylesheet|
-        stylesheet.write Sass::Engine.new(
-          File.read(private_webjutsu),
-          :cache => false,
-          :load_paths => [private_stylesheets],
-          :style => :compressed,
-          :syntax => :scss
-        ).render
-      end
-
+      Sass.compile_file(
+        "#{private_root}/stylesheets/webjutsu.scss",
+        "#{public_stylesheets}/ninjaui.css",
+        :cache => false,
+        :style => :compressed
+      )
+      
       # Compile JavaScript sources to file under public
       private_javascript = private_root + 'javascripts/jquery.ninjaui.core.js'
       public_javascript = public_javascripts + 'jquery.ninjaui.js'
@@ -61,7 +56,7 @@ module Ninjaui
       )
       javascript.concatenation.save_to(public_javascript.to_s)
 
-      # Copy compiled CSS and images from assets to public
+      # Copy images and javascripts from assets to public
       javascript.install_assets
 
       puts "Ninja ui can be found here: #{public_root}"
