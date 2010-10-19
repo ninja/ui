@@ -1,16 +1,16 @@
 .ninjaNavigation {
   @include bar;
-  height:4em;
-  line-height:4em;
+  height:3em;
+  line-height:3em;
   margin:0.5em 0;
   padding:0;
   .ninjaTabs {
     margin:-1px;
     text-align:left;
     .ninjaTabsTab {
-      height:4em;
-      line-height:4em;
-      padding:0 2em;
+      height:3em;
+      line-height:3em;
+      padding:0 1em;
     }
   }
 }
