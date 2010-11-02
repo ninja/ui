@@ -3,43 +3,47 @@
   @include font;
   @include inlineBlock;
   @include userSelect;
-  margin:0.5em 0;
+  cursor:default;
   padding:0.5em;
   text-align:center;
   vertical-align:top;
   .ninjaSliderTitle {
-    display:block;
+    @include userSelect;
+  }
+  .ninjaSliderContainer {
+    height:1.7em;
+    line-height:1.7em;
+    position:relative;
   }
   .ninjaSliderTrack {
+    @include border;
     @include gradientInset;
     @include userSelect;
-    display:block;
-    height:6px;
-    margin:0.5em 0;
+    height:0.5em;
+    line-height:0.5em;
     position:relative;
     .ninjaSliderLevel {
       @include gradientOutset;
       @include inlineBlock;
       @include userSelect;
-      height:4px;
-      left:1px;
+      height:0.5em;
+      left:0;
+      line-height:0.5em;
       position:absolute;
-      top:1px;
+      top:0;
     }
-    .ninjaSliderButton {
-      @include selectable;
-      height:16px;
-      line-height:16px;
-      padding:0;
-      position:absolute;
-      top:-6px;
-      width:16px;
-    }
+  }
+  .ninjaSliderButton {
+    height:1.4em;
+    line-height:1.4em;
+    padding:0;
+    position:absolute;
+    width:1.4em;
   }
   .ninjaSliderText {
     @include textOverflow;
     @include userSelect;
     display:block;
-    font-size:0.75em;
+    font-size:0.8em;
   }
 }

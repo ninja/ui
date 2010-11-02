@@ -1,25 +1,15 @@
 .ninjaMenu {
   @include font;
   @include inlineBlock;
-  margin:0.5em 0;
   position:relative;
   vertical-align:middle;
   z-index:666;
-  .ninjaMenuButton {
-    @include selectable;
-    display:block;
-    &.ninjaMenuButtonSelected {
-      @include selected;
-    }
-  }
   .ninjaMenuChoices {
     @include shadowOutset;
     display:none;
     position:absolute;
     z-index:777;
     .ninjaMenuChoice {
-      @include selectable;
-      display:block;
       text-align:left;
       &:hover {
         @include gradientOutset;

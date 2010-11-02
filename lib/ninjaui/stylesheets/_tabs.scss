@@ -1,11 +1,11 @@
 .ninjaTabs {
+  @include inlineBlock;
   font-size:0;
-  margin:0.5em 0;
+  vertical-align:middle;
   white-space:nowrap;
-  .ninjaTabsTab {
-    @include tab;
+  .ninjaTab {
     border-left-style:none;
-    &.ninjaTabsFirst{
+    &.ninjaFirst{
       border-left-style:solid;
     }
   }

@@ -1,61 +1,23 @@
-@mixin bar {
-  @include border;
-  @include boxSizing;
-  @include font;
-  @include gradientOutset;
-  height:2em;
-  line-height:2em;
-  margin:0;
-  outline:0;
-  overflow:visible;
-  padding:0 0.5em;
-  position:relative;
-  text-decoration:none;
-  vertical-align:middle;
-  white-space:nowrap;
-}
-
-@mixin border($width:1px) {
+@mixin border($width:0.125em) {
   border:$width solid;
 }
 
-@mixin boxSizing {
-  -ms-box-sizing:content-box;
-  -moz-box-sizing:content-box;
-  -webkit-box-sizing:content-box;
-  box-sizing:content-box;
-}
-
-@mixin shadowOutset($style:0 0.5em 0.5em #000) {
-  -ms-box-shadow:$style;
-  -moz-box-shadow:$style;
-  -webkit-box-shadow:$style;
-  box-shadow:$style;
-}
-
-
-@mixin draggable($height:24px) {
-  @include bar($height);
-  cursor:pointer;
-  &:focus {
-    outline:0;
-  }
-  &:hover {
-    color:$textColor;
-    text-decoration:none;
-  }
-  &::-moz-focus-inner {
-    border:0;
-    padding:0;
-  }
+@mixin boxSizing($sizing:content-box) {
+  -ms-box-sizing:$sizing;
+  -moz-box-sizing:$sizing;
+  -webkit-box-sizing:$sizing;
+  box-sizing:$sizing;
 }
 
 @mixin font {
   font-family:"Lucida Grande", "Lucida Sans Unicode", sans-serif;
-  font-size:13px;
 }
 
-@mixin gradient($type:outset, $gradientColorTop:rgba(255, 255, 255, 0.25), $gradientColorBottom:rgba(0, 0, 0, 0.125), $direction:bottom) {
+@mixin gradientInset {
+  @include gradientOutset(inset, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25), top)
+}
+
+@mixin gradientOutset($type:outset, $gradientColorTop:rgba(255, 255, 255, 0.25), $gradientColorBottom:rgba(0, 0, 0, 0.125), $direction:bottom) {
   background:{
     image:url("#{$imagePath}/gradient-#{$type}.png");
     image:-moz-linear-gradient(top, $gradientColorTop, $gradientColorBottom);
@@ -63,16 +25,6 @@
     position:$direction center;
     repeat:repeat-x;
   }
-}
-@mixin gradientInset {
-  @include gradient(inset, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25), top)
-}
-@mixin gradientOutset {
-  @include gradient()
-}
-
-@mixin hidden {
-  display:none;
 }
 
 @mixin inlineBlock {
@@ -82,34 +34,11 @@
   zoom:1;
 }
 
-@mixin selectable {
-  @include bar;
-  cursor:pointer;
-  &:active {
-    @include gradientInset;
-  }
-  &:focus {
-    outline:0;
-  }
-  &:hover {
-    text-decoration:none;
-  }
-  &::-moz-focus-inner {
-    border:0;
-    padding:0;
-  }
-}
-
-@mixin selected {
-  @include gradientInset;
-}
-
-@mixin tab {
-  @include selectable;
-  @include inlineBlock;
-  &.ninjaTabsSelected {
-    @include selected;
-  }
+@mixin shadowOutset($style:0 0.5em 0.5em #000) {
+  -ms-box-shadow:$style;
+  -moz-box-shadow:$style;
+  -webkit-box-shadow:$style;
+  box-shadow:$style;
 }
 
 @mixin textOverflow($type:ellipsis) {

@@ -1,26 +1,10 @@
-.ninjaFolders {
-  margin:0.5em 0;
-  .ninjaFoldersFolder {
-    @include border;
-    @include font;
-    padding:1em;
-  }
-  .ninjaFoldersTabs {
-    .ninjaFoldersTab {
-      @include tab;
-      &.ninjaFoldersTabsSelected {
-        @include selected;
-      }
-    }
-  }
-}
 div.ninjaFolders {
   .ninjaFoldersTabs {
     white-space:nowrap;
     .ninjaFoldersTab{
-      border-bottom:none;
+      border-bottom-style:none;
       border-left-style:none;
-      &.ninjaFoldersTabsFirst{
+      &.ninjaFoldersFirst{
         border-left-style:solid;
       }
     }
@@ -35,7 +19,7 @@ table.ninjaFolders {
       display:block;
       text-align:left;
       white-space:nowrap;
-      &.ninjaFoldersTabsFirst{
+      &.ninjaFoldersFirst{
         border-top-style:solid;
       }
     }

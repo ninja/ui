@@ -1,8 +1,0 @@
-.ninjaButton {
-  @include selectable;
-  @include inlineBlock;
-  margin:0.5em 0;
-  &.ninjaButtonSelected {
-    @include selected;
-  }
-}

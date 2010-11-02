@@ -10,7 +10,6 @@
   position:absolute;
   z-index:999;
   .ninjaWindowHandle {
-    @include bar;
     .ninjaWindowTitle {
       @include inlineBlock;
       margin-right:2em;
@@ -23,10 +22,7 @@
     }
   }
   .ninjaWindowContent {
-    @include border;
-    @include font;
     overflow:auto;
-    padding:1em;
   }
   .ninjaWindowReflection {
     @include border;

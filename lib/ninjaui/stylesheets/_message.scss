@@ -3,18 +3,11 @@
   max-width:80%;
   position:fixed;
   z-index:999;
-  .ninjaMessageHandle {
-    @include bar;
-    .ninjaMessageClose {
-      margin:-1px;
-      position:absolute;
-      right:0;
-      top:0;
-    }
-  }
-  .ninjaMessageContent {
-    @include font;
-    padding:1em;
+  .ninjaMessageClose {
+    margin:-1px;
+    position:absolute;
+    right:0;
+    top:0;
   }
   .ninjaMessageReflection {
     @include border;

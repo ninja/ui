@@ -41,7 +41,7 @@ module Ninjaui
 
       # Compile SCSS sources to file under assets
       Sass.compile_file(
-        "#{private_root}/stylesheets/webjutsu.scss",
+        "#{private_root}/stylesheets/core.scss",
         "#{public_stylesheets}/ninjaui.css",
         :cache => false,
         :style => :compressed
