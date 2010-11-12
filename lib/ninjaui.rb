@@ -3,6 +3,7 @@
 
 require 'fileutils'
 require 'pathname'
+require 'closure-compiler'
 require 'sass'
 require 'sprockets'
 
@@ -25,51 +26,56 @@ module Ninjaui
   class Application
 
     def install
-      public_images = public_root + 'images'
-      public_javascripts = public_root + 'javascripts'
-      public_stylesheets = public_root + 'stylesheets'
+      publicImages = publicRoot + 'images'
+      publicJavaScripts = publicRoot + 'javascripts'
+      publicStyleSheets = publicRoot + 'stylesheets'
 
       # Remove outdated files
-      FileUtils.rm_rf public_images unless !File.exists?(public_images)
-      FileUtils.rm_rf public_javascripts unless !File.exists?(public_javascripts)
-      FileUtils.rm_rf public_stylesheets unless !File.exists?(public_stylesheets)
+      FileUtils.rm_rf publicImages unless !File.exists?(publicImages)
+      FileUtils.rm_rf publicJavaScripts unless !File.exists?(publicJavaScripts)
+      FileUtils.rm_rf publicStyleSheets unless !File.exists?(publicStyleSheets)
 
       # Create directories under public
-      FileUtils.mkdir_p public_images
-      FileUtils.mkdir_p public_javascripts
-      FileUtils.mkdir_p public_stylesheets
+      FileUtils.mkdir_p publicImages
+      FileUtils.mkdir_p publicJavaScripts
+      FileUtils.mkdir_p publicStyleSheets
 
       # Compile SCSS sources to file under assets
       Sass.compile_file(
-        "#{private_root}/stylesheets/core.scss",
-        "#{public_stylesheets}/ninjaui.css",
+        "#{privateRoot}/stylesheets/core.scss",
+        "#{publicStyleSheets}/ninjaui.css",
         :cache => false,
         :style => :compressed
       )
       
-      # Compile JavaScript sources to file under public
-      private_javascript = private_root + 'javascripts/jquery.ninjaui.core.js'
-      public_javascript = public_javascripts + 'jquery.ninjaui.js'
-      javascript = Sprockets::Secretary.new(
-        :asset_root => public_root.to_s,
-        :source_files => [private_javascript.to_s]
+      # Concatentate JavaScript sources to file under public
+      javaScriptSource = privateRoot + 'javascripts/jquery.ninjaui.core.js'
+      javaScriptConcatentated = publicJavaScripts + 'jquery.ninjaui.js'
+      javaScriptCompressed = publicJavaScripts + 'jquery.ninjaui.min.js'
+      sprocket = Sprockets::Secretary.new(
+        :asset_root => publicRoot.to_s,
+        :source_files => [javaScriptSource.to_s]
       )
-      javascript.concatenation.save_to(public_javascript.to_s)
-
+      sprocket.concatenation.save_to(javaScriptConcatentated.to_s)
+      
       # Copy images and javascripts from assets to public
-      javascript.install_assets
+      sprocket.install_assets
 
-      puts "Ninja ui can be found here: #{public_root}"
+      # Compile public JavaScript file
+      closure = Closure::Compiler.new.compile(File.open(javaScriptConcatentated, 'r'))
+      File.open(javaScriptCompressed, 'w') {|f| f.write(closure)}
+
+      puts "Ninja ui can be found here: #{publicRoot}"
 
     end
     
     private
     
-    def private_root
+    def privateRoot
       Pathname.new(__FILE__).parent + 'ninjaui'
     end
     
-    def public_root
+    def publicRoot
       Pathname.new "#{ARGV[0] ||= 'public'}/ninjaui"
     end
     

@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.executables = 'ninjaui'
   s.default_executable = 'ninjaui'
 
-  s.add_dependency 'sass', '>= 3.1.0.alpha.23'
-  s.add_dependency 'sprockets', '>= 1.0'
+  s.add_dependency 'closure-compiler', '>= 0.3.3'
+  s.add_dependency 'sass', '>= 3.1.0.alpha.28'
+  s.add_dependency 'sprockets', '>= 1.0.2'
 end
