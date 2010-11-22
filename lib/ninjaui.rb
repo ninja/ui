@@ -54,7 +54,8 @@ module Ninjaui
       javaScriptCompressed = publicJavaScripts + 'jquery.ninjaui.min.js'
       sprocket = Sprockets::Secretary.new(
         :asset_root => publicRoot.to_s,
-        :source_files => [javaScriptSource.to_s]
+        :source_files => [javaScriptSource.to_s],
+        :strip_comments => false
       )
       sprocket.concatenation.save_to(javaScriptConcatentated.to_s)
       
