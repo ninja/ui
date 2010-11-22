@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.summary = 'Ninja ui'
   s.description = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
 
-  s.required_ruby_version = '>= 1.8.7'
-  s.required_rubygems_version = '>= 1.3.6'
+  s.required_ruby_version = '>= 1.9.2'
+  s.required_rubygems_version = '>= 1.3.7'
 
   s.author = 'Jamie Hoover'
   s.email = 'dont.tase@me.com'
@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.default_executable = 'ninjaui'
 
   s.add_dependency 'closure-compiler', '>= 0.3.3'
-  s.add_dependency 'sass', '>= 3.1.0.alpha.28'
+  s.add_dependency 'sass', '>= 3.1.0.alpha.34'
   s.add_dependency 'sprockets', '>= 1.0.2'
 end
