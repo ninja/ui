@@ -1,4 +1,4 @@
-@mixin border($width:0.125em) {
+@mixin border($width:1px) {
   border:$width solid;
 }
 
