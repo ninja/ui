@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name = 'ninjaui'
   s.version = '1.0.alpha.1'
   s.summary = 'Ninja ui'
-  s.description = 'Ninja user interface is skilled in the techniques of JavaScript and CSS, going unnoticed until called upon to perform the arts of webjutsu.'
+  s.description = 'Ninja user interface - JavaScript and CSS webjutsu'
 
   s.required_ruby_version = '>= 1.9.2'
   s.required_rubygems_version = '>= 1.3.7'
@@ -17,13 +17,11 @@ Gem::Specification.new do |s|
   s.homepage = 'http://ninjaui.com'
   s.rubyforge_project = 'ninjaui'
 
-  s.files = Dir.glob("{bin,lib}/**/*") + %w(readme.rdoc license.rdoc)
+  s.files = Dir.glob("{bin,lib}/**/*") + %w(readme.rdoc)
   s.require_path = 'lib'
   s.bindir = 'bin'
   s.executables = 'ninjaui'
   s.default_executable = 'ninjaui'
 
   s.add_dependency 'closure-compiler', '>= 0.3.3'
-  s.add_dependency 'sass', '>= 3.1.0.alpha.214'
-  s.add_dependency 'sprockets', '>= 1.0.2'
 end

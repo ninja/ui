@@ -1,0 +1,303 @@
+/*
+Ninja ui 1.0.0alpha
+http://ninjaui.com/
+Copyright 2010-2011, Jamie Hoover
+*/
+
+.ninja {
+  background:transparent;
+  border:0;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin:0;
+  outline:0;
+  padding:0;
+  vertical-align:baseline;
+}
+
+.ninja.border {
+  border: 1px solid;
+}
+
+.ninja.disabled {
+  cursor: default;
+}
+
+.ninja.enabled {
+  cursor: pointer;
+}
+
+.ninja.gradient,
+.ninja.gradient.enabled.selected:active {
+  background-image: url("./images/gradient-outset.png");
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
+  background-position: bottom center;
+  background-repeat: repeat-x;
+}
+.ninja.gradient.enabled:active,
+.ninja.gradient.selected {
+  background-image: url("./images/gradient-inset.png");
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
+  background-position: top center;
+}
+
+.ninja.inline {
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  vertical-align: top;
+  zoom: 1;
+}
+
+.ninja.shadow {
+  -ms-box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
+  box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
+}
+
+.ninja.truncate {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ninja.unselectable {
+  cursor: default;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* buttons */
+
+.ninja.button {
+  font: caption;
+  height: 1.75em;
+  line-height: 1.6em;
+  padding: 0 0.5em;
+  position: relative;
+  white-space: nowrap;
+}
+.ninja.button:focus {
+  outline: 0;
+}
+.ninja.button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+a.ninja.button {
+  text-decoration: none;
+}
+a.ninja.button:hover {
+  text-decoration: none;
+}
+button.ninja.button {
+  overflow:visible;
+  width:auto;
+}
+div.ninja.button {
+  display: block;
+}
+
+.ninja.button .ninja.icon {
+  height: 1.6em;
+}
+
+/* drawer */
+
+.ninja.drawer {
+  font: message-box;
+  padding: 0.5em;
+}
+
+/* icon */
+
+.ninja.icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  font: icon;
+  min-height: 16px;
+  min-width: 16px;
+}
+/* black icons */
+.ninja.icon.add { background-image: url("./images/black/add.png"); }
+.ninja.icon.arrange { background-image: url("./images/black/arrange.png"); }
+.ninja.icon.beverage { background-image: url("./images/black/beverage.png"); }
+.ninja.icon.bookmark { background-image: url("./images/black/bookmark.png"); }
+.ninja.icon.caution { background-image: url("./images/black/caution.png"); }
+.ninja.icon.check { background-image: url("./images/black/check.png"); }
+.ninja.icon.down { background-image: url("./images/black/down.png"); }
+.ninja.icon.download { background-image: url("./images/black/download.png"); }
+.ninja.icon.edit { background-image: url("./images/black/edit.png"); }
+.ninja.icon.flag { background-image: url("./images/black/flag.png"); }
+.ninja.icon.food { background-image: url("./images/black/food.png"); }
+.ninja.icon.gear { background-image: url("./images/black/gear.png"); }
+.ninja.icon.group { background-image: url("./images/black/group.png"); }
+.ninja.icon.heart { background-image: url("./images/black/heart.png"); }
+.ninja.icon.home { background-image: url("./images/black/home.png"); }
+.ninja.icon.in { background-image: url("./images/black/in.png"); }
+.ninja.icon.left { background-image: url("./images/black/left.png"); }
+.ninja.icon.lock { background-image: url("./images/black/lock.png"); }
+.ninja.icon.mail { background-image: url("./images/black/mail.png"); }
+.ninja.icon.no { background-image: url("./images/black/no.png"); }
+.ninja.icon.out { background-image: url("./images/black/out.png"); }
+.ninja.icon.phone { background-image: url("./images/black/phone.png"); }
+.ninja.icon.photo { background-image: url("./images/black/photo.png"); }
+.ninja.icon.print { background-image: url("./images/black/print.png"); }
+.ninja.icon.profile { background-image: url("./images/black/profile.png"); }
+.ninja.icon.question { background-image: url("./images/black/question.png"); }
+.ninja.icon.refresh { background-image: url("./images/black/refresh.png"); }
+.ninja.icon.remove { background-image: url("./images/black/remove.png"); }
+.ninja.icon.right { background-image: url("./images/black/right.png"); }
+.ninja.icon.search { background-image: url("./images/black/search.png"); }
+.ninja.icon.star { background-image: url("./images/black/star.png"); }
+.ninja.icon.target { background-image: url("./images/black/target.png"); }
+.ninja.icon.unlock { background-image: url("./images/black/unlock.png"); }
+.ninja.icon.up { background-image: url("./images/black/up.png"); }
+.ninja.icon.upload { background-image: url("./images/black/upload.png"); }
+.ninja.icon.video{ background-image: url("./images/black/video.png"); }
+/* white icons */
+.ninja.icon.white.add { background-image: url("./images/white/add.png"); }
+.ninja.icon.white.arrange { background-image: url("./images/white/arrange.png"); }
+.ninja.icon.white.beverage { background-image: url("./images/white/beverage.png"); }
+.ninja.icon.white.bookmark { background-image: url("./images/white/bookmark.png"); }
+.ninja.icon.white.caution { background-image: url("./images/white/caution.png"); }
+.ninja.icon.white.check { background-image: url("./images/white/check.png"); }
+.ninja.icon.white.down { background-image: url("./images/white/down.png"); }
+.ninja.icon.white.download { background-image: url("./images/white/download.png"); }
+.ninja.icon.white.edit { background-image: url("./images/white/edit.png"); }
+.ninja.icon.white.flag { background-image: url("./images/white/flag.png"); }
+.ninja.icon.white.food { background-image: url("./images/white/food.png"); }
+.ninja.icon.white.gear { background-image: url("./images/white/gear.png"); }
+.ninja.icon.white.group { background-image: url("./images/white/group.png"); }
+.ninja.icon.white.heart { background-image: url("./images/white/heart.png"); }
+.ninja.icon.white.home { background-image: url("./images/white/home.png"); }
+.ninja.icon.white.in { background-image: url("./images/white/in.png"); }
+.ninja.icon.white.left { background-image: url("./images/white/left.png"); }
+.ninja.icon.white.lock { background-image: url("./images/white/lock.png"); }
+.ninja.icon.white.mail { background-image: url("./images/white/mail.png"); }
+.ninja.icon.white.no { background-image: url("./images/white/no.png"); }
+.ninja.icon.white.out { background-image: url("./images/white/out.png"); }
+.ninja.icon.white.phone { background-image: url("./images/white/phone.png"); }
+.ninja.icon.white.photo { background-image: url("./images/white/photo.png"); }
+.ninja.icon.white.print { background-image: url("./images/white/print.png"); }
+.ninja.icon.white.profile { background-image: url("./images/white/profile.png"); }
+.ninja.icon.white.question { background-image: url("./images/white/question.png"); }
+.ninja.icon.white.refresh { background-image: url("./images/white/refresh.png"); }
+.ninja.icon.white.remove { background-image: url("./images/white/remove.png"); }
+.ninja.icon.white.right { background-image: url("./images/white/right.png"); }
+.ninja.icon.white.search { background-image: url("./images/white/search.png"); }
+.ninja.icon.white.star { background-image: url("./images/white/star.png"); }
+.ninja.icon.white.target { background-image: url("./images/white/target.png"); }
+.ninja.icon.white.unlock { background-image: url("./images/white/unlock.png"); }
+.ninja.icon.white.up { background-image: url("./images/white/up.png"); }
+.ninja.icon.white.upload { background-image: url("./images/white/upload.png"); }
+.ninja.icon.white.video{ background-image: url("./images/white/video.png"); }
+
+/* list */
+
+.ninja.list {
+  left: 0;
+  margin: 0.5em 0;
+  padding: 0.5em 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.ninja.list .ninja.choice {
+  font: menu;
+  padding: 0.25em 0;
+  white-space: nowrap;
+}
+
+.ninja.list .ninja.choice span {
+  font-weight: bold;
+}
+
+/* panel */
+.ninja.panel {
+  font: message-box;
+  padding: 0.5em;
+}
+
+.ninja.panel .ninja.bar {
+  font: caption;
+  height: 1.75em;
+  line-height: 1.6em;
+  margin: -0.5em -0.5em 0.5em -0.5em ;
+}
+
+/* rating */
+.ninja.rating .ninja.icon{
+  cursor: pointer;
+  text-align: center;
+  height: 1.6em;
+}
+
+/* slider */
+
+.ninja.slider {
+  padding: 0.5em;
+  text-align: center;
+}
+
+.ninja.slider .ninja.track {
+  position: relative;
+}
+
+.ninja.slider .ninja.groove {
+  cursor: pointer;
+  position: relative;
+}
+
+.ninja.slider .ninja.level {
+  font: small-caption;
+  height: 0.5em;
+}
+
+.ninja.slider .ninja.button {
+  font: caption;
+  height: 1.6em;
+  position: absolute;
+  top: 0;
+  width: 1.6em;
+}
+
+.ninja.slider .ninja.status {
+  font: small-caption;
+}
+
+.ninja.slider .ninja.title {
+  font: caption;
+}
+
+/* suggest */
+.ninja.suggest {
+  position: relative;
+}
+.ninja.suggest input {
+  font: caption;
+  height: 1.75em;
+  line-height: 1.6em;
+  padding: 0 1.75em 0 0.5em;
+  white-space: nowrap;
+}
+
+.ninja.suggest .ninja.icon {
+  position: absolute;
+  height: 1.75em;
+}
+
+.ninja.suggest .ninja.icon.remove {
+  right: 0.5em;
+}
+
+.ninja.suggest .ninja.icon.suggest {
+  left: 0.5em;
+}

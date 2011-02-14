@@ -1,0 +1,17 @@
+body {
+  margin: 1em;
+}
+
+h2 {
+  margin-top: 1em;
+}
+
+p {
+  margin: 1em 0;
+}
+
+span.link {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}

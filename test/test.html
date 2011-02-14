@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Ninja ui examples</title>
+    <meta name="description" content="Ninja ui, JavaScript and CSS webjutsu."/>
+    <meta name="author" content="Jamie Hoover"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link href="../lib/ninjaui-1.0.alpha.1.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="test.css" media="screen" rel="stylesheet" type="text/css"/>
+  </head>
+  <body lang="en">
+    <h2>Button</h2>
+    <span id="buttonDefault"></span>
+    <span id="buttonIcon"></span>
+    <span id="buttonSelected"></span>
+    <span id="buttonDisabled"></span>
+    <input id="buttonSubmit" type="submit"/>
+    <p><span class="link" id="buttonToggle">Toggle</span> disabled button remotely.</p>
+    <h2>Drawer</h2>
+    <div id="drawerDefault">
+      <p>This is a default drawer.</p>
+    </div>
+    <div id="drawerSelected">
+      <p>This drawer is selected as the page loads.</p>
+    </div>
+    <p><span class="link" id="drawerToggle">Toggle</span> default drawer remotely.</p>
+    <h2>Icon</h2>
+    <span id="icon"></span>
+    <h2>Menu</h2>
+    <span id="menu"></span>
+    <h2>Suggest</h2>
+    <span id="suggest"></span>
+    <p><span class="link" id="suggestSelect">Select</span> suggest remotely.</p>
+    <h2>Panel</h2>
+    <span id="panel">This is a panel with an icon and title.</span>
+    <h2>Rating</h2>
+    Default: <span id="ratingDefault"></span>
+    Selected Group: <span id="ratingSelectedGroup"></span>
+    Selected: <span id="ratingSelected"></span>
+    <h2>Slider</h2>
+    <span id="slider"></span>
+    <p><span class="link" id="sliderSelect">Select</span> loudest volume remotely.</p>
+    <script src="jquery-1.5.js"></script>
+    <script src="../lib/jquery.ninjaui-1.0.alpha.1.js"></script>
+    <script src="test.js"></script>
+  </body>
+</html>
