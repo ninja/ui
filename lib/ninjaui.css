@@ -14,6 +14,7 @@ Copyright 2010-2011, Jamie Hoover
   margin:0;
   outline:0;
   padding:0;
+  position: relative;
   vertical-align:baseline;
 }
 
@@ -81,7 +82,6 @@ Copyright 2010-2011, Jamie Hoover
   height: 1.75em;
   line-height: 1.6em;
   padding: 0 0.5em;
-  position: relative;
   white-space: nowrap;
 }
 .ninja.button:focus {
@@ -247,13 +247,8 @@ div.ninja.button {
   text-align: center;
 }
 
-.ninja.slider .ninja.track {
-  position: relative;
-}
-
 .ninja.slider .ninja.groove {
   cursor: pointer;
-  position: relative;
 }
 
 .ninja.slider .ninja.level {
@@ -278,9 +273,6 @@ div.ninja.button {
 }
 
 /* suggest */
-.ninja.suggest {
-  position: relative;
-}
 .ninja.suggest input {
   font: caption;
   height: 1.75em;
@@ -292,6 +284,7 @@ div.ninja.button {
 .ninja.suggest .ninja.icon {
   position: absolute;
   height: 1.75em;
+  z-index: 1;
 }
 
 .ninja.suggest .ninja.icon.remove {
@@ -300,4 +293,32 @@ div.ninja.button {
 
 .ninja.suggest .ninja.icon.suggest {
   left: 0.5em;
+}
+
+/* wait */
+.ninja.wait {
+  background-color: #fff;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.ninja.message {
+  background-color: #000;
+  color: #fff;
+  display: none;
+  font: message-box;
+  padding: 0.5em;
+  position: absolute;
+}
+
+.ninja.message .ninja.icon {
+  background-image: url("./images/wait.png");
+  background-position: left center;
+  height: inherit;
+  margin-right: 0.5em;
+  position:relative;
+  width: 16px;
 }

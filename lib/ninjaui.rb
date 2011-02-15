@@ -18,7 +18,7 @@ module Ninjaui
 
   class Application
     def install
-      origin = "#{FileUtils.pwd}/lib/#{NAME}"
+      origin = "#{FileUtils.pwd}/lib"
       destination = "#{ARGV[0] ||= 'public'}/#{NAME}"
 
       # Remove outdated files

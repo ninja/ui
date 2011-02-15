@@ -178,5 +178,13 @@ jQuery(function ($) {
       $('#suggest').ninja().select();
     });
 
+    $('#wait').toggle(function () {
+      $('#slider').ninja().wait({
+        text: 'Click Wait/Resume link again to resume.'
+      });
+    }, function () {
+      $('#slider').ninja().resume();
+    });
+
   });
 });
