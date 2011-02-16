@@ -207,12 +207,12 @@ div.ninja.button {
   margin: 0.5em 0;
   padding: 0.5em 0;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 }
 
 .ninja.list .ninja.choice {
   font: menu;
-  padding: 0.25em 0;
+  padding: 0.25em 0.5em 0.25em 0;
   white-space: nowrap;
 }
 
