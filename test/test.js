@@ -44,13 +44,16 @@ jQuery(function ($) {
       title: 'Disabled'
     });
 
-    $('#buttonToggle').click(function () {
-      if ($('#buttonDisabled').data().options.isEnabled) {
-        $('#buttonDisabled').ninja().disable();
-      }
-      else {
-        $('#buttonDisabled').ninja().enable();
-      }
+    $('#buttonToggleSelected').toggle(function () {
+      $('#buttonSelected').ninja().deselect();
+    }, function () {
+      $('#buttonSelected').ninja().select();
+    });
+
+    $('#buttonToggleDisabled').toggle(function () {
+      $('#buttonDisabled').ninja().enable();
+    }, function () {
+      $('#buttonDisabled').ninja().disable();
     });
 
     $('#buttonSubmit').ninja().create('button', { title: 'Submit' });
@@ -180,7 +183,7 @@ jQuery(function ($) {
 
     $('#wait').toggle(function () {
       $('#slider').ninja().wait({
-        text: 'Click Wait/Resume link again to resume.'
+        message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
       $('#slider').ninja().resume();
