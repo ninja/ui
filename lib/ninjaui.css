@@ -242,10 +242,6 @@ div.ninja.button {
 
 /* slider */
 
-.ninja.slider {
-  text-align: center;
-}
-
 .ninja.slider .ninja.groove {
   cursor: pointer;
 }
@@ -268,7 +264,8 @@ div.ninja.button {
 }
 
 .ninja.slider .ninja.title {
-  font: caption;
+  font: small-caption;
+  font-weight: bold;
 }
 
 /* suggest */
