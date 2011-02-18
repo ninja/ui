@@ -252,11 +252,12 @@ div.ninja.button {
 }
 
 .ninja.slider .ninja.button {
-  font: caption;
-  height: 1.6em;
+  cursor: pointer;
+  font: small-caption;
+  height: 1.5em;
   position: absolute;
   top: 0;
-  width: 1.6em;
+  width: 1.5em;
 }
 
 .ninja.slider .ninja.status {
