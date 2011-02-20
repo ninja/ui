@@ -1,7 +1,9 @@
 body {
+  font: 12px sans-serif;
   margin: 1em auto;
-  min-width: 360px;
+  padding: 0 1em;
   max-width: 800px;
+  min-width: 360px;
 }
 
 h2 {
