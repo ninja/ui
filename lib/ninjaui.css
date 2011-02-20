@@ -122,8 +122,6 @@ div.ninja.button {
   background-position: center;
   background-repeat: no-repeat;
   font: icon;
-  min-height: 16px;
-  min-width: 16px;
 }
 /* black icons */
 .ninja.icon.add { background-image: url("./images/black/add.png"); }
