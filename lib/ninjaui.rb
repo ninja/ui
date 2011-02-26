@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
-# encoding: UTF-8
 
 require 'fileutils'
-require 'closure-compiler'
 
 module Ninjaui
   gemspec = Gem.loaded_specs['ninjaui']
@@ -26,16 +24,11 @@ module Ninjaui
 
       # Copy new files
       FileUtils.mkdir_p destination + '/images'
+      FileUtils.mkdir_p destination + '/themes'
       FileUtils.cp_r origin + '/images', destination
+      FileUtils.cp_r origin + '/themes', destination
       FileUtils.cp origin + '/jquery.' + NAME + '.js', destination + '/jquery.' + NAME + '-' + VERSION + '.js'
       FileUtils.cp origin + '/' + NAME + '.css', destination + '/' + NAME + '-' + VERSION + '.css'
-
-      # Compile JavaScript file
-      File.open(destination + '/jquery.' + NAME + '-' + VERSION + '.min.js', 'w') {|f|
-        f.write(Closure::Compiler.new.compile(
-          File.open(origin + '/jquery.' + NAME + '.js', 'r')
-        ))
-      }
 
       puts "#{SUMMARY} installed here: #{destination}"
     end
