@@ -4,6 +4,10 @@ Ninja user interface is skilled in the techniques of JavaScript and CSS, going u
 
 Visit ninjaui.com[http://ninjaui.com/] for examples and documentation.
 
+== Authors
+
+Jamie Hoover and Faisal Jawdat
+
 == Copyright
 
 Copyright (c) 2010-2011, Jamie Hoover
