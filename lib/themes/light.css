@@ -1,0 +1,46 @@
+.ninja.disabled {
+  background-color: #ddd;
+  border-color: #aaa;
+  color: #999;
+}
+
+.ninja.editable {
+  background-color: #fff;
+  border-color: #bbb;
+  border-bottom-color: #ddd;
+  border-top-color: #888;
+  color: #aaa
+}
+
+.ninja.enabled {
+  background-color: #eee;
+  border-color: #bbb;
+  color: #333
+}
+
+.ninja.selected {
+  background-color: #aaa;
+  border-color: #777;
+  color: #fff
+}
+
+.ninja.icon {
+  background-color: transparent;
+  border-color: transparent;
+  color: #ccc;
+}
+
+.ninja.icon.selected {
+  color: #c90;
+}
+
+.ninja.icon.selected.group {
+  background-image: none;
+  color: #900;
+}
+
+.ninja.submit {
+  background-color: #333;
+  border-color: #000;
+  color: #fff;
+}

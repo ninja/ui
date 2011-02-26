@@ -14,11 +14,11 @@
   outline:0;
   padding:0;
   position: relative;
-  vertical-align:baseline;
+  vertical-align: middle;
 }
 
 .ninja.border {
-  border: 1px solid;
+  border: 1px solid transparent;
 }
 
 .ninja.disabled {

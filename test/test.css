@@ -10,6 +10,10 @@ h2 {
   margin-top: 1em;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 p {
   margin: 1em 0;
 }
