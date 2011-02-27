@@ -1,10 +1,26 @@
-/*global jQuery: false, window: false*/
-/*jslint bitwise: true, browser: true, indent: 2, newcap: true, nomen: true, regexp: true, undef: true, white: true*/
+/*global
+  jQuery: false,
+  window: false
+  */
+/*jshint
+  bitwise: true,
+  browser: true,
+  eqeqeq: true,
+  indent: 2,
+  newcap: true,
+  nomen: true,
+  regexp: true,
+  undef: true,
+  white: true
+  */
 jQuery(function ($) {
   $(document).ready(function () {
     var console;
     if (window.console) {
       console = window.console;
+    }
+    else if (window.alert) {
+      console = window.alert;
     }
     else {
       console = function () {};
@@ -85,7 +101,7 @@ jQuery(function ($) {
     $('#menu').ninja().create('menu', {
       icon: 'profile',
       onSelect: function () {
-        if (this.value == 'Barrack Obama') {
+        if (this.value === 'Barrack Obama') {
           window.alert('Barrack Obama is correct!');
         }
         else {
@@ -138,7 +154,7 @@ jQuery(function ($) {
       names: ['0 dB', '10 dB (Light leaf rustling, calm breathing)', '20-30 dB (Very calm room)', '40-60 dB (Normal conversation at 1 m)', '60 dB (TV set at home level at 1 m)', '60-80 dB (Passenger car at 10 m)', '78 dB (Hearing damage over long-term exposure, need not be continuous)', '80-90 dB (Traffic on a busy roadway at 10 m)', '100 dB (Jack hammer at 1 m)', '120 dB (Hearing damage immediately possible)', '130 dB (Threshold of pain)', '150 dB (Jet engine at 30 m)', '168 dB (M1 Garand rifle being fired at 1 m)'],
       onSelect: function () {
         console.log('Ninja ui: Slider changed to value:' + this.value + ', name:' + this.name + '.');
-        if ($(this).val() == '168') {
+        if ($(this).val() === '168') {
           $('#sliderSelect').unbind('click').click(function (event) {
             event.preventDefault();
           }).css({ color: 'black', cursor: 'default', textDecoration: 'none' });
