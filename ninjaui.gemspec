@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.summary = 'Ninja UI'
   s.description = 'Ninja user interface - JavaScript and CSS webjutsu'
   s.homepage = 'http://ninjaui.com'
+  s.email = 'ninjaui@me.com'
 
   s.authors = ['Jamie Hoover', 'Faisal Jawdat']
 
