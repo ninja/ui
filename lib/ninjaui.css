@@ -311,7 +311,7 @@ div.ninja.button {
 .ninja.message .ninja.icon {
   background-image: url("./images/wait.png");
   background-position: left center;
-  height: inherit;
+  height: 16px;
   margin-right: 0.5em;
   position:relative;
   width: 16px;
