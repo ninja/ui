@@ -150,7 +150,7 @@ jQuery(function ($) {
       values: [1, 2, 3, 4, 5]
     });
 
-    $('#slider').ninja().create('slider', {
+    var slider = $('#slider').ninja().create('slider', {
       names: ['0 dB', '10 dB (Light leaf rustling, calm breathing)', '20-30 dB (Very calm room)', '40-60 dB (Normal conversation at 1 m)', '60 dB (TV set at home level at 1 m)', '60-80 dB (Passenger car at 10 m)', '78 dB (Hearing damage over long-term exposure, need not be continuous)', '80-90 dB (Traffic on a busy roadway at 10 m)', '100 dB (Jack hammer at 1 m)', '120 dB (Hearing damage immediately possible)', '130 dB (Threshold of pain)', '150 dB (Jet engine at 30 m)', '168 dB (M1 Garand rifle being fired at 1 m)'],
       onSelect: function () {
         console.log('Ninja ui: Slider changed to value:' + this.value + ', name:' + this.name + '.');
@@ -161,7 +161,7 @@ jQuery(function ($) {
         }
         else {
           $('#sliderSelect').unbind('click').click(function () {
-            $('#slider').ninja().select({ value: '168' });
+            slider.ninja().select({ value: '168' });
           }).css({ color: 'blue', cursor: 'pointer', textDecoration: 'underline' });
         }
       },
@@ -172,7 +172,7 @@ jQuery(function ($) {
     });
 
     $('#sliderSelect').click(function () {
-      $('#slider').ninja().select({ value: '168' });
+      slider.ninja().select({ value: '168' });
     }).css({ color: 'blue' });
     
     $('#suggest').ninja().create('suggest', {
@@ -198,19 +198,20 @@ jQuery(function ($) {
     });
 
     $('#waitSlider').toggle(function () {
-      $('#slider').ninja().wait({
+      slider.ninja().wait({
         message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
-      $('#slider').ninja().resume();
+      slider.ninja().resume();
     });
-
+    
+    var body = $(document.body);
     $('#waitBody').toggle(function () {
-      $(document.body).ninja().wait({
+      body.ninja().wait({
         message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
-      $(document.body).ninja().resume();
+      body.ninja().resume();
     });
 
   });
