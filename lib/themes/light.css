@@ -9,7 +9,7 @@
   border-color: #bbb;
   border-bottom-color: #ddd;
   border-top-color: #888;
-  color: #aaa
+  color: #333
 }
 
 .ninjaEnabled {
@@ -25,12 +25,11 @@
 }
 
 .ninjaIcon {
-  background-color: transparent;
-  border-color: transparent;
   color: #ccc;
 }
 
 .ninjaIcon.ninjaSelected {
+  background-color: transparent;
   color: #c90;
 }
 
