@@ -19,17 +19,15 @@ jQuery(function ($) {
     if (window.console) {
       console = window.console;
     }
-    else if (window.alert) {
-      console = window.alert;
-    }
     else {
-      console = function () {};
+      console = {
+        log: function (message) {
+          window.alert(message);
+        }
+      };
     }
     
     $('#buttonDefault').ninja().create('button', {
-      onCreate: function () {
-        console.log('Ninja ui: Created button #' + this.id + '.');
-      },
       onDeselect: function () {
         console.log('Ninja ui: Deselected button #' + this.id + '.');
       },
