@@ -1,10 +1,10 @@
-.ninja.disabled {
+.ninjaDisabled {
   background-color: #ddd;
   border-color: #aaa;
   color: #999;
 }
 
-.ninja.editable {
+.ninjaEditable {
   background-color: #fff;
   border-color: #bbb;
   border-bottom-color: #ddd;
@@ -12,34 +12,33 @@
   color: #aaa
 }
 
-.ninja.enabled {
+.ninjaEnabled {
   background-color: #eee;
   border-color: #bbb;
   color: #333
 }
 
-.ninja.selected {
+.ninjaSelected {
   background-color: #aaa;
   border-color: #777;
   color: #fff
 }
 
-.ninja.icon {
+.ninjaIcon {
   background-color: transparent;
   border-color: transparent;
   color: #ccc;
 }
 
-.ninja.icon.selected {
+.ninjaIcon.ninjaSelected {
   color: #c90;
 }
 
-.ninja.icon.selected.group {
-  background-image: none;
+.ninjaIcon.ninjaSelectedGroup {
   color: #900;
 }
 
-.ninja.submit {
+.ninjaSubmit {
   background-color: #333;
   border-color: #000;
   color: #fff;
