@@ -197,12 +197,20 @@ jQuery(function ($) {
       $('#suggest').ninja().select();
     });
 
-    $('#wait').toggle(function () {
+    $('#waitSlider').toggle(function () {
       $('#slider').ninja().wait({
         message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
       $('#slider').ninja().resume();
+    });
+
+    $('#waitBody').toggle(function () {
+      $(document.body).ninja().wait({
+        message: 'Click Wait/Resume link again to resume.'
+      });
+    }, function () {
+      $(document.body).ninja().resume();
     });
 
   });
