@@ -22,26 +22,6 @@
   border: 1px solid transparent;
 }
 
-.ninjaDisabled {
-  background-color: #fff;
-  cursor: default;
-  display: none;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.ninjaDisabled.ninjaButton {
-  background-color: transparent;
-  display: inline-block;
-  left: auto;
-  position: relative;
-  top: auto;
-  width: auto;
-}
-
-
-
 .ninjaEnabled {
   cursor: pointer;
 }
@@ -258,8 +238,17 @@ div.ninjaButton {
   height: 1.6em;
 }
 
-/* slider */
+/* shield */
+.ninjaShield {
+  cursor: default;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
+/* slider */
 .ninjaSlider .ninjaGroove {
   cursor: pointer;
 }
@@ -296,7 +285,7 @@ div.ninjaButton {
   height: 1em;
   position: absolute;
   left: 0.5em;
-  top: 0.125em;
+  top: 0.375em;
   z-index: 1;
 }
 

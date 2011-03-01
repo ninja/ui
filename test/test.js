@@ -27,7 +27,7 @@ jQuery(function ($) {
       };
     }
     
-    $('#buttonDefault').ninja().create('button', {
+    var button = $('#buttonDefault').ninja().create('button', {
       onDeselect: function () {
         console.log('Ninja ui: Deselected button #' + this.id + '.');
       },
@@ -202,6 +202,14 @@ jQuery(function ($) {
       });
     }, function () {
       slider.ninja().enable();
+    });
+    
+    $('#disableButton').toggle(function () {
+      button.ninja().disable({
+        message: 'Click Wait/Resume link again to resume.'
+      });
+    }, function () {
+      button.ninja().enable();
     });
     
     var body = $(document.body);

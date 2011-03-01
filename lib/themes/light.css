@@ -1,9 +1,3 @@
-.ninjaDisabled {
-  background-color: #ddd;
-  border-color: #aaa;
-  color: #999;
-}
-
 .ninjaEditable {
   background-color: #fff;
   border-color: #bbb;
@@ -24,6 +18,12 @@
   color: #fff
 }
 
+.ninjaDisabled {
+  background-color: #ddd;
+  border-color: #aaa;
+  color: #999;
+}
+
 .ninjaIcon {
   color: #ccc;
 }
@@ -35,6 +35,10 @@
 
 .ninjaIcon.ninjaSelectedGroup {
   color: #900;
+}
+
+.ninjaShield {
+  background-color: #fff;
 }
 
 .ninjaSubmit {
