@@ -175,6 +175,7 @@ jQuery(function ($) {
     
     $('#suggest').ninja().create('suggest', {
       icon: 'search',
+      size: '1.25em',
       title: 'Recipes',
       onUpdate: function () {
         if ($.inArray(this.value, ['a', 'ac', 'aco', 'acor', 'acorn', 'ap', 'app', 'appl', 'apple', 'av', 'avo', 'avoc', 'avoca', 'avocad', 'avocado']) > -1) {
@@ -195,21 +196,21 @@ jQuery(function ($) {
       $('#suggest').ninja().select();
     });
 
-    $('#waitSlider').toggle(function () {
-      slider.ninja().wait({
+    $('#disableSlider').toggle(function () {
+      slider.ninja().disable({
         message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
-      slider.ninja().resume();
+      slider.ninja().enable();
     });
     
     var body = $(document.body);
-    $('#waitBody').toggle(function () {
-      body.ninja().wait({
+    $('#disableBody').toggle(function () {
+      body.ninja().disable({
         message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
-      body.ninja().resume();
+      body.ninja().enable();
     });
 
   });

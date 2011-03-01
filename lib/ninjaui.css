@@ -23,8 +23,24 @@
 }
 
 .ninjaDisabled {
+  background-color: #fff;
   cursor: default;
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
+.ninjaDisabled.ninjaButton {
+  background-color: transparent;
+  display: inline-block;
+  left: auto;
+  position: relative;
+  top: auto;
+  width: auto;
+}
+
+
 
 .ninjaEnabled {
   cursor: pointer;
@@ -78,6 +94,7 @@
 /* buttons */
 
 .ninjaButton {
+  cursor: pointer;
   height: 1.75em;
   line-height: 1.6em;
   padding: 0 0.5em;
@@ -205,25 +222,33 @@ div.ninjaButton {
   z-index: 2;
 }
 
-.ninjaList .ninjaChoice {
+.ninjaChoice {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
   font-size: 0.9em;
-  padding: 0.25em 0.5em 0.25em 0;
+  padding: 0.25em 1em;
   white-space: nowrap;
 }
 
-.ninjaList .ninjaChoice span {
+.ninjaChoice span {
   font-weight: bold;
 }
 
-/* panel */
-.ninjaPanel {
+/* message */
+.ninjaMessage {
+  background-color: #000;
+  color: #fff;
+  display: none;
   padding: 0.5em;
+  position: absolute;
 }
 
-.ninjaPanel .ninjaBar {
-  height: 1.75em;
-  line-height: 1.6em;
-  margin: -0.5em -0.5em 0.5em -0.5em ;
+.ninjaMessage .ninjaIcon {
+  background-image: url("./images/wait.png");
+  background-position: left center;
+  height: 16px;
+  margin-right: 0.5em;
+  width: 16px;
 }
 
 /* rating */
@@ -262,48 +287,20 @@ div.ninjaButton {
 
 /* suggest */
 .ninjaSuggest input {
-  height: 1.75em;
-  line-height: 1.6em;
-  padding: 0 1.75em 0 0.5em;
+  padding: 0.25em 1.75em 0.25em 0.5em;
   white-space: nowrap;
+  width: 100%;
 }
 
 .ninjaSuggest .ninjaIcon {
-  height: 1.6em;
+  height: 1em;
   position: absolute;
   left: 0.5em;
-  top: 0;
+  top: 0.125em;
   z-index: 1;
 }
 
 .ninjaSuggest .ninjaRemove {
   left: auto;
   right: 0.5em;
-}
-
-/* wait */
-.ninjaWait {
-  background-color: #fff;
-  display: none;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.ninjaMessage {
-  background-color: #000;
-  color: #fff;
-  display: none;
-  padding: 0.5em;
-  position: absolute;
-}
-
-.ninjaMessage .ninjaIcon {
-  background-image: url("./images/wait.png");
-  background-position: left center;
-  height: 16px;
-  margin-right: 0.5em;
-  position:relative;
-  width: 16px;
 }
