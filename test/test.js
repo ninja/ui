@@ -175,9 +175,8 @@ jQuery(function ($) {
       slider.ninja().select({ value: '168' });
     }).css({ color: 'blue' });
     
-    $('#suggest').ninja().create('suggest', {
+    var suggest = $('#suggest').ninja().create('suggest', {
       icon: 'search',
-      size: '1.25em',
       title: 'Recipes',
       onUpdate: function () {
         if ($.inArray(this.value, ['a', 'ac', 'aco', 'acor', 'acorn', 'ap', 'app', 'appl', 'apple', 'av', 'avo', 'avoc', 'avoca', 'avocad', 'avocado']) > -1) {
@@ -192,6 +191,13 @@ jQuery(function ($) {
       },
       values: ['one', 'two', 'three'],
       width: '50%'
+    });
+
+    $('#suggestButton').ninja().create('button', {
+      onSelect: function () {
+        suggest.ninja().select();
+      },
+      title: 'Search'
     });
 
     $('#suggestSelect').click(function () {
