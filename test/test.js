@@ -96,7 +96,7 @@ jQuery(function ($) {
       $('#icon').append($('<span/>').ninja().create('icon', { icon: icon }), ' ');
     });
 
-    $('#menu').ninja().create('menu', {
+    var menu = $('#menu').ninja().create('menu', {
       icon: 'profile',
       onSelect: function () {
         if (this.value === 'Barrack Obama') {
@@ -204,12 +204,12 @@ jQuery(function ($) {
       slider.ninja().enable();
     });
     
-    $('#disableButton').toggle(function () {
-      button.ninja().disable({
+    $('#disableMenu').toggle(function () {
+      menu.ninja().disable({
         message: 'Click Wait/Resume link again to resume.'
       });
     }, function () {
-      button.ninja().enable();
+      menu.ninja().enable();
     });
     
     var body = $(document.body);
