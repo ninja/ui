@@ -99,15 +99,17 @@ jQuery(function ($) {
     var menu = $('#menu').ninja().create('menu', {
       icon: 'profile',
       onSelect: function () {
-        if (this.value === 'Barrack Obama') {
-          window.alert('Barrack Obama is correct!');
+        var options = this;
+        if (options.value === '1') {
+          window.alert(options.name + ' is correct!');
         }
         else {
-          window.alert(this.value + ' is not correct, please try again.');
+          window.alert(options.name + ' is not correct, please try again.');
         }
       },
       title: 'The President?',
-      values: ['Barrack Obama', 'George Bush Jr.', 'Bill Clinton', 'George Bush Sr.', 'Ronald Reagan', 'Jimmy Carter']
+      names: ['Barrack Obama', 'George Bush Jr.', 'Bill Clinton', 'George Bush Sr.', 'Ronald Reagan', 'Jimmy Carter'],
+      values: [1, 2, 3, 4, 5, 6]
     });
 
     $('#panel').ninja().create('panel', {
