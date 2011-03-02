@@ -295,3 +295,7 @@ div.ninjaButton {
   left: auto;
   right: 0.5em;
 }
+
+.ninjaWindow {
+  position: absolute;
+}

@@ -228,6 +228,46 @@ jQuery(function ($) {
     }, function () {
       body.ninja().enable();
     });
+    
+    var windowObject = $('#createWindowObject').toggle(function () {
+      windowObject.ninja().create('window', {
+        onCreate: function () {
+          var options = this;
+          options.window.ninja().update({
+            body: $('<div/>', {
+              text: 'Object window content goes here.'
+            })
+          });
+        },
+        title: 'Object'
+      });
+    }, function () {
+      windowObject.ninja().destroy('window', {
+        onDestroy: function () {
+          console.log('Ninja ui: Window destroyed.');
+        }
+      });
+    });
+
+    $('#createWindowBody').toggle(function () {
+      body.ninja().create('window', {
+        onCreate: function () {
+          var options = this;
+          options.window.ninja().update({
+            body: $('<div/>', {
+              text: 'Body window content goes here.'
+            })
+          });
+        },
+        title: 'Object'
+      });
+    }, function () {
+      body.ninja().destroy('window', {
+        onDestroy: function () {
+          console.log('Ninja ui: Window destroyed.');
+        }
+      });
+    });
 
   });
 });
