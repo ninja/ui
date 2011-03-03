@@ -238,14 +238,12 @@ jQuery(function ($) {
             })
           });
         },
-        title: 'Object'
-      });
-    }, function () {
-      windowObject.ninja().destroy({
         onDestroy: function () {
           console.log('Ninja ui: Window object destroyed.');
         }
       });
+    }, function () {
+      windowObject.ninja().destroy();
     });
     
     $('#createWindowBody').click(function () {
@@ -263,16 +261,14 @@ jQuery(function ($) {
               text: 'Destroy Window'
             }).ninja().create('button', {
               onSelect: function () {
-                body.ninja().destroy({
-                  onDestroy: function () {
-                    console.log('Ninja ui: Window body destroyed.');
-                  }
-                });
+                body.ninja().destroy();
               }
             }))
           });
         },
-        title: 'Object'
+        onDestroy: function () {
+          console.log('Ninja ui: Window body destroyed.');
+        }
       });
     });
 

@@ -301,3 +301,11 @@ div.ninjaButton {
   padding: 1em;
   position: absolute;
 }
+
+.ninjaWindow .ninjaRemove {
+  font-weight: 900;
+  height: 1.25em;
+  line-height: 0.85em;
+  position: absolute;
+  text-indent: 0.175em;
+}
