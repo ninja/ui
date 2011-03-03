@@ -248,30 +248,28 @@ jQuery(function ($) {
       });
     });
     
-    var windowCloseButton = $('<span/>', {
-      text: 'Destroy Window'
-    }).ninja().create('button', {
-      onSelect: function () {
-        body.ninja().destroy({
-          onDestroy: function () {
-            console.log('Ninja ui: Window body destroyed.');
-          }
-        });
-      }
-    });
-    var windowBody = $('<div/>', {
-      html: $('<div/>', {
-        css: {
-          marginBottom: '1em'
-        },
-        text: 'Body window content goes here.'
-      })
-    }).append(windowCloseButton);
     $('#createWindowBody').click(function () {
       body.ninja().create('window', {
         onCreate: function () {
           $(this).ninja().update({
-            body: windowBody
+            body: $('<div/>', {
+              html: $('<div/>', {
+                css: {
+                  marginBottom: '1em'
+                },
+                text: 'Body window content goes here.'
+              })
+            }).append($('<span/>', {
+              text: 'Destroy Window'
+            }).ninja().create('button', {
+              onSelect: function () {
+                body.ninja().destroy({
+                  onDestroy: function () {
+                    console.log('Ninja ui: Window body destroyed.');
+                  }
+                });
+              }
+            }))
           });
         },
         title: 'Object'
