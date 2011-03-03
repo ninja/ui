@@ -232,8 +232,7 @@ jQuery(function ($) {
     var windowObject = $('#createWindowObject').toggle(function () {
       windowObject.ninja().create('window', {
         onCreate: function () {
-          var options = this;
-          options.window.ninja().update({
+          $(this).ninja().update({
             body: $('<div/>', {
               text: 'Object window content goes here.'
             })
@@ -242,30 +241,40 @@ jQuery(function ($) {
         title: 'Object'
       });
     }, function () {
-      windowObject.ninja().destroy('window', {
+      windowObject.ninja().destroy({
         onDestroy: function () {
-          console.log('Ninja ui: Window destroyed.');
+          console.log('Ninja ui: Window object destroyed.');
         }
       });
     });
-
-    $('#createWindowBody').toggle(function () {
+    
+    var windowCloseButton = $('<span/>', {
+      text: 'Destroy Window'
+    }).ninja().create('button', {
+      onSelect: function () {
+        body.ninja().destroy({
+          onDestroy: function () {
+            console.log('Ninja ui: Window body destroyed.');
+          }
+        });
+      }
+    });
+    var windowBody = $('<div/>', {
+      html: $('<div/>', {
+        css: {
+          marginBottom: '1em'
+        },
+        text: 'Body window content goes here.'
+      })
+    }).append(windowCloseButton);
+    $('#createWindowBody').click(function () {
       body.ninja().create('window', {
         onCreate: function () {
-          var options = this;
-          options.window.ninja().update({
-            body: $('<div/>', {
-              text: 'Body window content goes here.'
-            })
+          $(this).ninja().update({
+            body: windowBody
           });
         },
         title: 'Object'
-      });
-    }, function () {
-      body.ninja().destroy('window', {
-        onDestroy: function () {
-          console.log('Ninja ui: Window destroyed.');
-        }
       });
     });
 
