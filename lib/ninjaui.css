@@ -116,6 +116,7 @@ div.ninjaButton {
 .ninjaIcon {
   background-position: center;
   background-repeat: no-repeat;
+  font-family: 'Lucida Grande', 'Lucida Sans' Arial, sans-serif;
 }
 /* black icons */
 .ninjaIcon.add { background-image: url("./images/black/add.png"); }
