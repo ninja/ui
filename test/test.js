@@ -13,7 +13,7 @@
   undef: true,
   white: true
   */
-jQuery(function ($) {
+(function ($) {
   $(document).ready(function () {
     var console;
     if (window.console) {
@@ -57,7 +57,7 @@ jQuery(function ($) {
       theme: 'light'
     });
     
-    $('#button').append($button, ' ', $buttonDisabled, ' ', $buttonSelected, ' ', $buttonIcon);
+    $('#button').append($button, ' ', $buttonIcon, ' ', $buttonDisabled, ' ', $buttonSelected);
 
     $('#buttonIcon').ninja().create('button', {
       icon: 'target',
@@ -295,4 +295,4 @@ jQuery(function ($) {
     });
 
   });
-});
+}(jQuery));
