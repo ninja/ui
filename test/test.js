@@ -44,8 +44,10 @@
       html: 'Disable/Enable',
       select: true,
       theme: 'light'
+    }).deselect(function () {
+      console.log('Deselected Disable/Enable button.');
     }).select(function () {
-      console.log('Disable/Enable button selected.');
+      console.log('Selected Disable/Enable button.');
     }).toggle(function () {
       $buttonDisabled.enable();
     }, function () {
