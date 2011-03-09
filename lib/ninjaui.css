@@ -22,10 +22,6 @@
   border: 1px solid transparent;
 }
 
-.ninjaEnabled {
-  cursor: pointer;
-}
-
 .ninjaGradient,
 .ninjaGradient.ninjaEnabled.ninjaSelected:active {
   background-image: url("./images/gradient-outset.png");
@@ -65,40 +61,19 @@
 }
 
 .ninjaUnselectable {
-  cursor: default;
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
 
-/* buttons */
+/* button */
 
 .ninjaButton {
-  cursor: pointer;
+  cursor: default;
   height: 1.75em;
   line-height: 1.6em;
   padding: 0 0.5em;
   white-space: nowrap;
-}
-.ninjaButton:focus {
-  outline: 0;
-}
-.ninjaButton::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-a.ninjaButton {
-  text-decoration: none;
-}
-a.ninjaButton:hover {
-  text-decoration: none;
-}
-button.ninjaButton {
-  overflow:visible;
-  width:auto;
-}
-div.ninjaButton {
-  display: block;
 }
 
 .ninjaButton .ninjaIcon {
@@ -297,6 +272,7 @@ div.ninjaButton {
   right: 0.5em;
 }
 
+/* window */
 .ninjaWindow {
   margin-top: 0.5em;
   padding: 1em;
@@ -310,3 +286,9 @@ div.ninjaButton {
   position: absolute;
   text-indent: 0.175em;
 }
+
+/* states */
+.ninjaHovered {
+  cursor: pointer;
+}
+

@@ -27,15 +27,37 @@ jQuery(function ($) {
       };
     }
     
-    var button = $('#buttonDefault').ninja().create('button', {
-      onDeselect: function () {
-        console.log('Ninja ui: Deselected button #' + this.id + '.');
-      },
-      onSelect: function () {
-        console.log('Ninja ui: Selected button #' + this.id + '.');
-      },
-      title: 'Default'
+    var $button = $.ninja().button({
+      html: 'Default',
+      theme: 'light'
+    }).select(function () {
+      console.log('Default button selected.');
     });
+    
+    var $buttonDisabled = $.ninja().button({
+      enable: false,
+      html: 'Disabled',
+      theme: 'light'
+    });
+    
+    var $buttonSelected = $.ninja().button({
+      html: 'Disable/Enable',
+      select: true,
+      theme: 'light'
+    }).select(function () {
+      console.log('Disable/Enable button selected.');
+    }).toggle(function () {
+      $buttonDisabled.enable();
+    }, function () {
+      $buttonDisabled.disable();
+    });
+    
+    var $buttonIcon = $.ninja().button({
+      html: $('<span/>').append($('<span/>').ninja().create('icon', {icon: 'target'}), ' With Icon'),
+      theme: 'light'
+    });
+    
+    $('#button').append($button, ' ', $buttonDisabled, ' ', $buttonSelected, ' ', $buttonIcon);
 
     $('#buttonIcon').ninja().create('button', {
       icon: 'target',

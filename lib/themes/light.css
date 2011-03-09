@@ -1,3 +1,9 @@
+.ninjaButton {
+  background-color: #ddd;
+  border-color: #aaa;
+  color: #999;
+}
+
 .ninjaEditable {
   background-color: #fff;
   border-color: #bbb;
@@ -18,10 +24,8 @@
   color: #fff
 }
 
-.ninjaDisabled {
-  background-color: #ddd;
-  border-color: #aaa;
-  color: #999;
+.ninjaHovered {
+  border-color: #666;
 }
 
 .ninjaIcon {
