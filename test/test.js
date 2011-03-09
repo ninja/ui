@@ -53,7 +53,7 @@ jQuery(function ($) {
     });
     
     var $buttonIcon = $.ninja().button({
-      html: $('<span/>').append($('<span/>').ninja().create('icon', {icon: 'target'}), ' With Icon'),
+      html: $('<span/>').append($.ninja().icon({name: 'search'}), ' With Icon'),
       theme: 'light'
     });
     

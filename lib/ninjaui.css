@@ -91,82 +91,83 @@
 .ninjaIcon {
   background-position: center;
   background-repeat: no-repeat;
-  font-family: 'Lucida Grande', 'Lucida Sans' Arial, sans-serif;
+  min-height: 16px;
+  min-width: 16px;
 }
 /* black icons */
-.ninjaIcon.add { background-image: url("./images/black/add.png"); }
-.ninjaIcon.arrange { background-image: url("./images/black/arrange.png"); }
-.ninjaIcon.beverage { background-image: url("./images/black/beverage.png"); }
-.ninjaIcon.bookmark { background-image: url("./images/black/bookmark.png"); }
-.ninjaIcon.caution { background-image: url("./images/black/caution.png"); }
-.ninjaIcon.check { background-image: url("./images/black/check.png"); }
-.ninjaIcon.down { background-image: url("./images/black/down.png"); }
-.ninjaIcon.download { background-image: url("./images/black/download.png"); }
-.ninjaIcon.edit { background-image: url("./images/black/edit.png"); }
-.ninjaIcon.flag { background-image: url("./images/black/flag.png"); }
-.ninjaIcon.food { background-image: url("./images/black/food.png"); }
-.ninjaIcon.gear { background-image: url("./images/black/gear.png"); }
-.ninjaIcon.group { background-image: url("./images/black/group.png"); }
-.ninjaIcon.heart { background-image: url("./images/black/heart.png"); }
-.ninjaIcon.home { background-image: url("./images/black/home.png"); }
-.ninjaIcon.in { background-image: url("./images/black/in.png"); }
-.ninjaIcon.left { background-image: url("./images/black/left.png"); }
-.ninjaIcon.lock { background-image: url("./images/black/lock.png"); }
-.ninjaIcon.mail { background-image: url("./images/black/mail.png"); }
-.ninjaIcon.no { background-image: url("./images/black/no.png"); }
-.ninjaIcon.out { background-image: url("./images/black/out.png"); }
-.ninjaIcon.phone { background-image: url("./images/black/phone.png"); }
-.ninjaIcon.photo { background-image: url("./images/black/photo.png"); }
-.ninjaIcon.print { background-image: url("./images/black/print.png"); }
-.ninjaIcon.profile { background-image: url("./images/black/profile.png"); }
-.ninjaIcon.question { background-image: url("./images/black/question.png"); }
-.ninjaIcon.refresh { background-image: url("./images/black/refresh.png"); }
-.ninjaIcon.remove { background-image: url("./images/black/remove.png"); }
-.ninjaIcon.right { background-image: url("./images/black/right.png"); }
-.ninjaIcon.search { background-image: url("./images/black/search.png"); }
-.ninjaIcon.star { background-image: url("./images/black/star.png"); }
-.ninjaIcon.target { background-image: url("./images/black/target.png"); }
-.ninjaIcon.unlock { background-image: url("./images/black/unlock.png"); }
-.ninjaIcon.up { background-image: url("./images/black/up.png"); }
-.ninjaIcon.upload { background-image: url("./images/black/upload.png"); }
-.ninjaIcon.video{ background-image: url("./images/black/video.png"); }
+.ninjaIconAdd { background-image: url("./images/black/add.png"); }
+.ninjaIconArrange { background-image: url("./images/black/arrange.png"); }
+.ninjaIconBeverage { background-image: url("./images/black/beverage.png"); }
+.ninjaIconBookmark { background-image: url("./images/black/bookmark.png"); }
+.ninjaIconCaution { background-image: url("./images/black/caution.png"); }
+.ninjaIconCheck { background-image: url("./images/black/check.png"); }
+.ninjaIconDown { background-image: url("./images/black/down.png"); }
+.ninjaIconDownload { background-image: url("./images/black/download.png"); }
+.ninjaIconEdit { background-image: url("./images/black/edit.png"); }
+.ninjaIconFlag { background-image: url("./images/black/flag.png"); }
+.ninjaIconFood { background-image: url("./images/black/food.png"); }
+.ninjaIconGear { background-image: url("./images/black/gear.png"); }
+.ninjaIconGroup { background-image: url("./images/black/group.png"); }
+.ninjaIconHeart { background-image: url("./images/black/heart.png"); }
+.ninjaIconHome { background-image: url("./images/black/home.png"); }
+.ninjaIconIn { background-image: url("./images/black/in.png"); }
+.ninjaIconLeft { background-image: url("./images/black/left.png"); }
+.ninjaIconLock { background-image: url("./images/black/lock.png"); }
+.ninjaIconMail { background-image: url("./images/black/mail.png"); }
+.ninjaIconNo { background-image: url("./images/black/no.png"); }
+.ninjaIconOut { background-image: url("./images/black/out.png"); }
+.ninjaIconPhone { background-image: url("./images/black/phone.png"); }
+.ninjaIconPhoto { background-image: url("./images/black/photo.png"); }
+.ninjaIconPrint { background-image: url("./images/black/print.png"); }
+.ninjaIconProfile { background-image: url("./images/black/profile.png"); }
+.ninjaIconQuestion { background-image: url("./images/black/question.png"); }
+.ninjaIconRefresh { background-image: url("./images/black/refresh.png"); }
+.ninjaIconRemove { background-image: url("./images/black/remove.png"); }
+.ninjaIconRight { background-image: url("./images/black/right.png"); }
+.ninjaIconSearch { background-image: url("./images/black/search.png"); }
+.ninjaIconStar { background-image: url("./images/black/star.png"); }
+.ninjaIconTarget { background-image: url("./images/black/target.png"); }
+.ninjaIconUnlock { background-image: url("./images/black/unlock.png"); }
+.ninjaIconUp { background-image: url("./images/black/up.png"); }
+.ninjaIconUpload { background-image: url("./images/black/upload.png"); }
+.ninjaIconVideo{ background-image: url("./images/black/video.png"); }
 /* white icons */
-.ninjaIcon.ninjaIconWhite.add { background-image: url("./images/white/add.png"); }
-.ninjaIcon.ninjaIconWhite.arrange { background-image: url("./images/white/arrange.png"); }
-.ninjaIcon.ninjaIconWhite.beverage { background-image: url("./images/white/beverage.png"); }
-.ninjaIcon.ninjaIconWhite.bookmark { background-image: url("./images/white/bookmark.png"); }
-.ninjaIcon.ninjaIconWhite.caution { background-image: url("./images/white/caution.png"); }
-.ninjaIcon.ninjaIconWhite.check { background-image: url("./images/white/check.png"); }
-.ninjaIcon.ninjaIconWhite.down { background-image: url("./images/white/down.png"); }
-.ninjaIcon.ninjaIconWhite.download { background-image: url("./images/white/download.png"); }
-.ninjaIcon.ninjaIconWhite.edit { background-image: url("./images/white/edit.png"); }
-.ninjaIcon.ninjaIconWhite.flag { background-image: url("./images/white/flag.png"); }
-.ninjaIcon.ninjaIconWhite.food { background-image: url("./images/white/food.png"); }
-.ninjaIcon.ninjaIconWhite.gear { background-image: url("./images/white/gear.png"); }
-.ninjaIcon.ninjaIconWhite.group { background-image: url("./images/white/group.png"); }
-.ninjaIcon.ninjaIconWhite.heart { background-image: url("./images/white/heart.png"); }
-.ninjaIcon.ninjaIconWhite.home { background-image: url("./images/white/home.png"); }
-.ninjaIcon.ninjaIconWhite.in { background-image: url("./images/white/in.png"); }
-.ninjaIcon.ninjaIconWhite.left { background-image: url("./images/white/left.png"); }
-.ninjaIcon.ninjaIconWhite.lock { background-image: url("./images/white/lock.png"); }
-.ninjaIcon.ninjaIconWhite.mail { background-image: url("./images/white/mail.png"); }
-.ninjaIcon.ninjaIconWhite.no { background-image: url("./images/white/no.png"); }
-.ninjaIcon.ninjaIconWhite.out { background-image: url("./images/white/out.png"); }
-.ninjaIcon.ninjaIconWhite.phone { background-image: url("./images/white/phone.png"); }
-.ninjaIcon.ninjaIconWhite.photo { background-image: url("./images/white/photo.png"); }
-.ninjaIcon.ninjaIconWhite.print { background-image: url("./images/white/print.png"); }
-.ninjaIcon.ninjaIconWhite.profile { background-image: url("./images/white/profile.png"); }
-.ninjaIcon.ninjaIconWhite.question { background-image: url("./images/white/question.png"); }
-.ninjaIcon.ninjaIconWhite.refresh { background-image: url("./images/white/refresh.png"); }
-.ninjaIcon.ninjaIconWhite.remove { background-image: url("./images/white/remove.png"); }
-.ninjaIcon.ninjaIconWhite.right { background-image: url("./images/white/right.png"); }
-.ninjaIcon.ninjaIconWhite.search { background-image: url("./images/white/search.png"); }
-.ninjaIcon.ninjaIconWhite.star { background-image: url("./images/white/star.png"); }
-.ninjaIcon.ninjaIconWhite.target { background-image: url("./images/white/target.png"); }
-.ninjaIcon.ninjaIconWhite.unlock { background-image: url("./images/white/unlock.png"); }
-.ninjaIcon.ninjaIconWhite.up { background-image: url("./images/white/up.png"); }
-.ninjaIcon.ninjaIconWhite.upload { background-image: url("./images/white/upload.png"); }
-.ninjaIcon.ninjaIconWhite.video{ background-image: url("./images/white/video.png"); }
+.ninjaIconWhite.ninjaIconAdd { background-image: url("./images/white/add.png"); }
+.ninjaIconWhite.ninjaIconArrange { background-image: url("./images/white/arrange.png"); }
+.ninjaIconWhite.ninjaIconBeverage { background-image: url("./images/white/beverage.png"); }
+.ninjaIconWhite.ninjaIconBookmark { background-image: url("./images/white/bookmark.png"); }
+.ninjaIconWhite.ninjaIconCaution { background-image: url("./images/white/caution.png"); }
+.ninjaIconWhite.ninjaIconCheck { background-image: url("./images/white/check.png"); }
+.ninjaIconWhite.ninjaIconDown { background-image: url("./images/white/down.png"); }
+.ninjaIconWhite.ninjaIconDownload { background-image: url("./images/white/download.png"); }
+.ninjaIconWhite.ninjaIconEdit { background-image: url("./images/white/edit.png"); }
+.ninjaIconWhite.ninjaIconFlag { background-image: url("./images/white/flag.png"); }
+.ninjaIconWhite.ninjaIconFood { background-image: url("./images/white/food.png"); }
+.ninjaIconWhite.ninjaIconGear { background-image: url("./images/white/gear.png"); }
+.ninjaIconWhite.ninjaIconGroup { background-image: url("./images/white/group.png"); }
+.ninjaIconWhite.ninjaIconHeart { background-image: url("./images/white/heart.png"); }
+.ninjaIconWhite.ninjaIconHome { background-image: url("./images/white/home.png"); }
+.ninjaIconWhite.ninjaIconIn { background-image: url("./images/white/in.png"); }
+.ninjaIconWhite.ninjaIconLeft { background-image: url("./images/white/left.png"); }
+.ninjaIconWhite.ninjaIconLock { background-image: url("./images/white/lock.png"); }
+.ninjaIconWhite.ninjaIconMail { background-image: url("./images/white/mail.png"); }
+.ninjaIconWhite.ninjaIconNo { background-image: url("./images/white/no.png"); }
+.ninjaIconWhite.ninjaIconOut { background-image: url("./images/white/out.png"); }
+.ninjaIconWhite.ninjaIconPhone { background-image: url("./images/white/phone.png"); }
+.ninjaIconWhite.ninjaIconPhoto { background-image: url("./images/white/photo.png"); }
+.ninjaIconWhite.ninjaIconPrint { background-image: url("./images/white/print.png"); }
+.ninjaIconWhite.ninjaIconProfile { background-image: url("./images/white/profile.png"); }
+.ninjaIconWhite.ninjaIconQuestion { background-image: url("./images/white/question.png"); }
+.ninjaIconWhite.ninjaIconRefresh { background-image: url("./images/white/refresh.png"); }
+.ninjaIconWhite.ninjaIconRemove { background-image: url("./images/white/remove.png"); }
+.ninjaIconWhite.ninjaIconRight { background-image: url("./images/white/right.png"); }
+.ninjaIconWhite.ninjaIconSearch { background-image: url("./images/white/search.png"); }
+.ninjaIconWhite.ninjaIconStar { background-image: url("./images/white/star.png"); }
+.ninjaIconWhite.ninjaIconTarget { background-image: url("./images/white/target.png"); }
+.ninjaIconWhite.ninjaIconUnlock { background-image: url("./images/white/unlock.png"); }
+.ninjaIconWhite.ninjaIconUp { background-image: url("./images/white/up.png"); }
+.ninjaIconWhite.ninjaIconUpload { background-image: url("./images/white/upload.png"); }
+.ninjaIconWhite.ninjaIconVideo{ background-image: url("./images/white/video.png"); }
 
 /* list */
 
