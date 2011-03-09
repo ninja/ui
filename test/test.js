@@ -1,7 +1,8 @@
 /*global
   jQuery: false,
   window: false
-  */
+*/
+
 /*jshint
   bitwise: true,
   browser: true,
@@ -12,8 +13,10 @@
   regexp: true,
   undef: true,
   white: true
-  */
+*/
+
 (function ($) {
+  /* Console */
   $(document).ready(function () {
     var console;
     if (window.console) {
@@ -27,39 +30,42 @@
       };
     }
     
-    var $button = $.ninja().button({
+    /* Button */
+    var $titleButton = $('<h1/>', {
+      text: 'Button'
+    }),
+    $button = $.ninja().button({
       html: 'Default',
       theme: 'light'
-    }).select(function () {
-      console.log('Default button selected.');
-    });
-    
-    var $buttonDisabled = $.ninja().button({
+    }),
+    $buttonDisabled = $.ninja().button({
       enable: false,
       html: 'Disabled',
       theme: 'light'
-    });
-    
-    var $buttonSelected = $.ninja().button({
+    }).deselect(function () {
+      console.log('Deselected button.');
+    }).disable(function () {
+      console.log('Disabled button.');
+    }).enable(function () {
+      console.log('Enabled button.');
+    }).select(function () {
+      console.log('Selected button.');
+    }),
+    $buttonSelected = $.ninja().button({
       html: 'Disable/Enable',
       select: true,
       theme: 'light'
-    }).deselect(function () {
-      console.log('Deselected Disable/Enable button.');
-    }).select(function () {
-      console.log('Selected Disable/Enable button.');
     }).toggle(function () {
       $buttonDisabled.enable();
     }, function () {
       $buttonDisabled.disable();
-    });
-    
-    var $buttonIcon = $.ninja().button({
+    }),
+    $buttonIcon = $.ninja().button({
       html: $('<span/>').append($.ninja().icon({name: 'search'}), ' With Icon'),
       theme: 'light'
     });
     
-    $('#button').append($button, ' ', $buttonIcon, ' ', $buttonDisabled, ' ', $buttonSelected);
+    $('body').append($titleButton, $button, ' ', $buttonIcon, ' ', $buttonDisabled, ' ', $buttonSelected);
 
     $('#buttonIcon').ninja().create('button', {
       icon: 'target',
