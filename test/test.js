@@ -87,11 +87,14 @@
   }).select(function () {
     $bubble = $buttonBubble.bubble({
       html: 'Loading...'
-    }).update('Content inserted into the bubble.');
-    $buttonBubble.html('Pop');
+    }).update($('<div/>', {
+      css: {
+        whiteSpace: 'nowrap'
+      },
+      text: 'Content inserted into the bubble.'
+    }));
   }).deselect(function () {
     $bubble.pop();
-    $buttonBubble.html('Bubble');
   });
   $body.append($title.clone().text('Bubble'), $buttonBubble);
 

@@ -68,7 +68,7 @@
 
 /* bubble */
 .ninjaBubble {
-  margin: 0.5em 0;
+  margin: 0.5em 0.5em 0.5em 0;
   padding: 0.5em;
   position: absolute;
   z-index: 2;

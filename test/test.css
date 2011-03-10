@@ -4,6 +4,7 @@ body {
   padding: 0 1em;
   max-width: 800px;
   min-width: 360px;
+  text-align: right;
 }
 
 html {
