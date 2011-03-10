@@ -66,6 +66,14 @@
   user-select: none;
 }
 
+/* bubble */
+.ninjaBubble {
+  margin: 0.5em 0;
+  padding: 0.5em;
+  position: absolute;
+  z-index: 2;
+}
+
 /* button */
 
 .ninjaButton {
@@ -171,14 +179,6 @@
 
 /* list */
 
-.ninjaList {
-  left: 0;
-  margin: 0.5em 0;
-  padding: 0.5em 0;
-  position: absolute;
-  z-index: 2;
-}
-
 .ninjaChoice {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
@@ -275,7 +275,7 @@
 
 /* window */
 .ninjaWindow {
-  margin-top: 0.5em;
+  margin: 0.5em 0;
   padding: 1em;
   position: absolute;
 }
