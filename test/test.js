@@ -30,89 +30,77 @@
       };
     }
     
+    var $body = $('body'), $title = $('<h2/>');
+
     /* Button */
-    var $titleButton = $('<h1/>', {
-      text: 'Button'
-    }),
-    $button = $.ninja().button({
+    var $button = $.ninja().button({
       html: 'Default',
       theme: 'light'
     }),
-    $buttonDisabled = $.ninja().button({
+    $buttonStates = $.ninja().button({
       enable: false,
       html: 'Disabled',
       theme: 'light'
     }).deselect(function () {
+      $buttonStates.html('Deselected');
       console.log('Deselected button.');
     }).disable(function () {
+      $buttonStates.html('Disabled');
       console.log('Disabled button.');
     }).enable(function () {
+      $buttonStates.html('Enabled');
       console.log('Enabled button.');
     }).select(function () {
+      $buttonStates.html('Selected');
       console.log('Selected button.');
     }),
-    $buttonSelected = $.ninja().button({
+    $buttonChangeState = $.ninja().button({
       html: 'Disable/Enable',
       select: true,
       theme: 'light'
     }).toggle(function () {
-      $buttonDisabled.enable();
+      $buttonStates.enable();
     }, function () {
-      $buttonDisabled.disable();
+      $buttonStates.disable();
     }),
     $buttonIcon = $.ninja().button({
       html: $('<span/>').append($.ninja().icon({name: 'search'}), ' With Icon'),
       theme: 'light'
     });
+    $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
+
+    /* Icon */
+    var $icon = $('<div/>');
+    $.each(['add', 'arrange', 'beverage', 'bookmark', 'caution', 'check', 'down', 'download', 'edit', 'flag', 'food', 'gear', 'group', 'heart', 'home', 'in', 'left', 'lock', 'mail', 'no', 'out', 'phone', 'photo', 'print', 'profile', 'question', 'refresh', 'remove', 'right', 'search', 'star', 'target', 'unlock', 'up', 'upload', 'video'], function (i, name) {
+      if (i !== 0) {
+        $icon.append(' ');
+      }
+      $icon.append($.ninja().icon({
+        name: name
+      }));
+    });
+    $body.append($title.clone().text('Icon'), $icon);
     
-    $('body').append($titleButton, $button, ' ', $buttonIcon, ' ', $buttonDisabled, ' ', $buttonSelected);
-
-    $('#buttonIcon').ninja().create('button', {
-      icon: 'target',
-      title: 'Icon'
+    /* List */
+    var $buttonList = $.ninja().button({
+      html: 'List'
+    }).select(function () {
+      var $list = $buttonList.list();
+      $list.choices(['one', 'two', 'three']);
     });
+//    $list.choices(['one', 'two', 'three']);
+    $body.append($title.clone().text('List'), $buttonList);
 
-    $('#buttonSelected').ninja().create('button', {
-      isSelected: true,
-      title: 'Selected'
-    });
-
-    $('#buttonDisabled').ninja().create('button', {
-      onDisable: function () {
-        $('#buttonDisabled').text('Disabled');
-      },
-      onEnable: function () {
-        $('#buttonDisabled').text('Enabled');
-      },
-      isEnabled: false,
-      title: 'Disabled'
-    });
-
-    $('#buttonToggleSelected').toggle(function () {
-      $('#buttonSelected').ninja().deselect();
-    }, function () {
-      $('#buttonSelected').ninja().select();
-    });
-
-    $('#buttonToggleDisabled').toggle(function () {
-      $('#buttonDisabled').ninja().enable();
-    }, function () {
-      $('#buttonDisabled').ninja().disable();
-    });
-
-    $('#buttonSubmit').ninja().create('button', { title: 'Submit' });
-
+/*
     $('#drawerDefault').ninja().create('drawer', {
       title: 'Default',
       width: '50%'
     });
-
     $('#drawerSelected').ninja().create('drawer', {
       isSelected: true,
       title: 'Selected',
       width: '50%'
     });
-
     $('#drawerToggle').click(function () {
       if ($('#drawerDefault').data().options.isSelected) {
         $('#drawerDefault').ninja().deselect();
@@ -122,10 +110,6 @@
       }
     });
     
-    $.each(['add', 'arrange', 'beverage', 'bookmark', 'caution', 'check', 'down', 'download', 'edit', 'flag', 'food', 'gear', 'group', 'heart', 'home', 'in', 'left', 'lock', 'mail', 'no', 'out', 'phone', 'photo', 'print', 'profile', 'question', 'refresh', 'remove', 'right', 'search', 'star', 'target', 'unlock', 'up', 'upload', 'video'], function (i, icon) {
-      $('#icon').append($('<span/>').ninja().create('icon', { icon: icon }), ' ');
-    });
-
     var menu = $('#menu').ninja().create('menu', {
       icon: 'profile',
       onSelect: function () {
@@ -301,6 +285,6 @@
         }
       });
     });
-
+*/
   });
 }(jQuery));

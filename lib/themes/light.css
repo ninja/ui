@@ -32,6 +32,11 @@
   color: #ccc;
 }
 
+.ninjaList {
+  background-color: #fff;
+  color: #000;
+}
+
 .ninjaIcon.ninjaSelected {
   background-color: transparent;
   color: #c90;
