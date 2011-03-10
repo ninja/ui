@@ -86,7 +86,8 @@
     html: 'Bubble'
   }).select(function () {
     $bubble = $buttonBubble.bubble({
-      html: 'Loading...'
+      html: 'Loading...',
+      pop: true
     }).update($('<div/>', {
       css: {
         whiteSpace: 'nowrap'
