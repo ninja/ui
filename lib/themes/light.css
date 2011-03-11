@@ -5,10 +5,21 @@
   color: #000;
 }
 
+/* button */
 .ninjaButton {
   background-color: #ddd;
   border-color: #aaa;
   color: #999;
+}
+
+/* choice */
+.ninjaChoice .ninjaButton {
+  background-color: transparent;
+  border-color: transparent;
+}
+.ninjaChoice .ninjaHovered {
+  background-color: #ddd;
+  border-color: #666;
 }
 
 .ninjaEditable {

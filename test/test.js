@@ -80,50 +80,14 @@
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
 
-  /* Bubble */
-  var $bubble;
-  var $buttonBubble = $.ninja().button({
-    html: 'Button Bubble'
-  }).select(function () {
-    $bubble = $buttonBubble.bubble({
-      html: 'Loading...'
-    });
-    /* Fake asynchronous delay */
-    setTimeout(function () {
-      $bubble.update($('<div/>', {
-        css: {
-          whiteSpace: 'nowrap'
-        },
-        text: 'Button bubble content loaded via ninja().update().'
-      }));
-    }, 1000);
-  }).deselect(function () {
-    $bubble.pop();
-  });
-  var $windowBubble = $.ninja().button({
-    html: 'Window Bubble'
-  }).select(function () {
-    $bubble = $windowBubble.ninja().bubble({
-      html: 'Loading...',
-      pop: true,
-      window: true
-    });
-    /* Fake asynchronous delay */
-    setTimeout(function () {
-      $bubble.update('Document body bubble content loaded via ninja().update().');
-    }, 1000);
-  }).deselect(function () {
-    $bubble.pop();
-  });
-  $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $windowBubble);
-  
+  /* List */
   var $list = $.ninja().list({
     choices: [{
       html: $('<div/>', {
         text: 'Choose me!'
       }),
       select: function () {
-        console.log('Select called on individual choice.');
+        console.log('Local select function called.');
       }
     },
     {
@@ -131,9 +95,75 @@
         text: 'No, choose me!'
       })
     }]
+  }).select(function () {
+    console.log('Global select function called returning: ' + this);
   });
   $body.append($title.clone().text('List'), $list);
   
+  /* Bubble */
+  var $bubbleButton;
+  var $buttonBubble = $.ninja().button({
+    html: 'Button Bubble'
+  }).select(function () {
+    $bubbleButton = $buttonBubble.bubble();
+    $bubbleButton.update($('<div/>', {
+      css: {
+        whiteSpace: 'nowrap'
+      },
+      text: 'Button bubble content loaded via ninja().update().'
+    }));
+  }).deselect(function () {
+    $bubbleButton.pop();
+  });
+
+  var $bubbleList;
+  var $buttonListBubble = $.ninja().button({
+    html: 'List Bubble'
+  }).select(function () {
+    $bubbleList = $buttonListBubble.bubble();
+    $bubbleList.update($.ninja().list({
+      choices: [{
+        html: $('<div/>', {
+          text: 'Choose me!'
+        }),
+        select: function () {
+          console.log('Local select function called.');
+        }
+      },
+      {
+        html: $('<hr/>'),
+        spacer: true
+      },
+      {
+        html: $('<div/>', {
+          text: 'No, choose me!'
+        })
+      }]
+    }).select(function () {
+      console.log('Global select function called returning: ' + this);
+      $bubbleList.pop();
+    }));
+  }).deselect(function () {
+    $bubbleList.pop();
+  });
+
+  var $bubbleWindow;
+  var $buttonWindowBubble = $.ninja().button({
+    html: 'Window Bubble'
+  }).select(function () {
+    $bubbleWindow = $buttonWindowBubble.ninja().bubble({
+      html: 'Loading...',
+      pop: true,
+      window: true
+    });
+    /* Fake asynchronous delay */
+    setTimeout(function () {
+      $bubbleWindow.update('Document body bubble content loaded via ninja().update().');
+    }, 1000);
+  }).deselect(function () {
+    $bubbleWindow.pop();
+  });
+  $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
 
 /*
     $('#drawerDefault').ninja().create('drawer', {
