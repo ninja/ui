@@ -83,25 +83,39 @@
   /* Bubble */
   var $bubble;
   var $buttonBubble = $.ninja().button({
-    html: 'Bubble'
+    html: 'Button Bubble'
   }).select(function () {
     $bubble = $buttonBubble.bubble({
-      html: 'Loading...',
-      pop: true
+      html: 'Loading...'
     });
-    /* Fake Ajax delay */
+    /* Fake asynchronous delay */
     setTimeout(function () {
       $bubble.update($('<div/>', {
         css: {
           whiteSpace: 'nowrap'
         },
-        text: 'Content inserted into the bubble.'
+        text: 'Button bubble content loaded via ninja().update().'
       }));
     }, 1000);
   }).deselect(function () {
     $bubble.pop();
   });
-  $body.append($title.clone().text('Bubble'), $buttonBubble);
+  var $windowBubble = $.ninja().button({
+    html: 'Window Bubble'
+  }).select(function () {
+    $bubble = $windowBubble.ninja().bubble({
+      html: 'Loading...',
+      pop: true,
+      window: true
+    });
+    /* Fake asynchronous delay */
+    setTimeout(function () {
+      $bubble.update('Document body bubble content loaded via ninja().update().');
+    }, 1000);
+  }).deselect(function () {
+    $bubble.pop();
+  });
+  $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $windowBubble);
 
 /*
     $('#drawerDefault').ninja().create('drawer', {
