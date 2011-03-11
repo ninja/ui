@@ -31,6 +31,18 @@
   
   var $body = $('body'), $title = $('<h2/>');
 
+  /* Icon */
+  var $icon = $('<div/>');
+  $.each(['add', 'arrange', 'beverage', 'bookmark', 'caution', 'check', 'down', 'download', 'edit', 'flag', 'food', 'gear', 'group', 'heart', 'home', 'in', 'left', 'lock', 'mail', 'no', 'out', 'phone', 'photo', 'print', 'profile', 'question', 'refresh', 'remove', 'right', 'search', 'star', 'target', 'unlock', 'up', 'upload', 'video'], function (i, name) {
+    if (i !== 0) {
+      $icon.append(' ');
+    }
+    $icon.append($.ninja().icon({
+      name: name
+    }));
+  });
+  $body.append($title.clone().text('Icon'), $icon);
+  
   /* Button */
   var $button = $.ninja().button({
     html: 'Default',
@@ -68,18 +80,6 @@
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
 
-  /* Icon */
-  var $icon = $('<div/>');
-  $.each(['add', 'arrange', 'beverage', 'bookmark', 'caution', 'check', 'down', 'download', 'edit', 'flag', 'food', 'gear', 'group', 'heart', 'home', 'in', 'left', 'lock', 'mail', 'no', 'out', 'phone', 'photo', 'print', 'profile', 'question', 'refresh', 'remove', 'right', 'search', 'star', 'target', 'unlock', 'up', 'upload', 'video'], function (i, name) {
-    if (i !== 0) {
-      $icon.append(' ');
-    }
-    $icon.append($.ninja().icon({
-      name: name
-    }));
-  });
-  $body.append($title.clone().text('Icon'), $icon);
-  
   /* Bubble */
   var $bubble;
   var $buttonBubble = $.ninja().button({
@@ -88,13 +88,16 @@
     $bubble = $buttonBubble.bubble({
       html: 'Loading...',
       pop: true
-    }).update($('<div/>', {
-      css: {
-        whiteSpace: 'nowrap'
-      },
-      text: 'Content inserted into the bubble.'
-    }));
-    
+    });
+    /* Fake Ajax delay */
+    setTimeout(function () {
+      $bubble.update($('<div/>', {
+        css: {
+          whiteSpace: 'nowrap'
+        },
+        text: 'Content inserted into the bubble.'
+      }));
+    }, 1000);
   }).deselect(function () {
     $bubble.pop();
   });
