@@ -118,12 +118,19 @@
   $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $windowBubble);
   
   var $list = $.ninja().list({
-    choices: [$('<div/>', {
-      text: 'Choose me!'
-    }),
-    $('<div/>', {
-      text: 'No, choose me!'
-    })]
+    choices: [{
+      html: $('<div/>', {
+        text: 'Choose me!'
+      }),
+      select: function () {
+        console.log('Select called on individual choice.');
+      }
+    },
+    {
+      html: $('<div/>', {
+        text: 'No, choose me!'
+      })
+    }]
   });
   $body.append($title.clone().text('List'), $list);
   
