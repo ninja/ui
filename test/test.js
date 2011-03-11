@@ -94,6 +94,7 @@
       },
       text: 'Content inserted into the bubble.'
     }));
+    
   }).deselect(function () {
     $bubble.pop();
   });
