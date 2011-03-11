@@ -82,21 +82,12 @@
 
   /* List */
   var $list = $.ninja().list({
-    choices: [{
-      html: $('<div/>', {
-        text: 'Choose me!'
-      }),
-      select: function () {
-        console.log('Local select function called.');
-      }
-    },
-    {
-      html: $('<div/>', {
-        text: 'No, choose me!'
-      })
-    }]
-  }).select(function () {
-    console.log('Global select function called returning: ' + this);
+    choices: [
+      'Choose me!',
+      'No, choose me!'
+    ]
+  }).select(function (event) {
+    console.log('Global select function called returning: ' + event.html);
   });
   $body.append($title.clone().text('List'), $list);
   
@@ -139,8 +130,8 @@
           text: 'No, choose me!'
         })
       }]
-    }).select(function () {
-      console.log('Global select function called returning: ' + this);
+    }).select(function (event) {
+      console.log('Global select function called returning: ' + event.html.text());
       $bubbleList.pop();
     }));
   }).deselect(function () {
