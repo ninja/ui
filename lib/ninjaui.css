@@ -89,6 +89,13 @@
   height: 1.6em;
 }
 
+/* choice */
+
+.ninjaChoice .ninjaButton {
+  text-align: left;
+  width: 100%;
+}
+
 /* drawer */
 
 .ninjaDrawer {
@@ -179,18 +186,6 @@
 .ninjaIconWhite.ninjaIconVideo{ background-image: url("./images/white/video.png"); }
 
 /* list */
-
-.ninjaChoice {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
-  font-size: 0.9em;
-  padding: 0.25em 1em;
-  white-space: nowrap;
-}
-
-.ninjaChoice span {
-  font-weight: bold;
-}
 
 /* message */
 .ninjaMessage {
