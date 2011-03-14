@@ -89,7 +89,6 @@
 
 .ninjaBubblePop.ninjaIcon {
   cursor: pointer;
-  font-size: 2em;
   height: 0.5em;
   position: absolute;
   right: -0.2em;
@@ -105,6 +104,11 @@
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
+}
+
+.ninjaButton .ninjaIcon {
+	font-size: 1.4em;
+	line-height: 0.5em;
 }
 
 /* choice */
@@ -124,7 +128,8 @@
 
 .ninjaIcon {
 	font-family: 'Ninja UI';
-	font-size: 1.25em;
+	font-size: 2em;
+	height: 1em;
 	line-height: 0;
 }
 
