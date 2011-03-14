@@ -1,22 +1,25 @@
-/* bubble */
 .ninjaBubble {
   background-color: #fff;
   border-color: #aaa;
   color: #000;
 }
 
-/* button */
+.ninjaBubblePop.ninjaIcon {
+  background-color: #fff;
+  color: #bbb;
+}
+
 .ninjaButton {
   background-color: #ddd;
   border-color: #aaa;
-  color: #999;
+  color: #333;
 }
 
-/* choice */
 .ninjaChoice .ninjaButton {
   background-color: transparent;
   border-color: transparent;
 }
+
 .ninjaChoice .ninjaHovered {
   background-color: #ddd;
   border-color: #666;
@@ -30,12 +33,6 @@
   color: #333
 }
 
-.ninjaEnabled {
-  background-color: #eee;
-  border-color: #bbb;
-  color: #333
-}
-
 .ninjaSelected {
   background-color: #aaa;
   border-color: #777;
@@ -44,15 +41,6 @@
 
 .ninjaHovered {
   border-color: #666;
-}
-
-.ninjaIcon {
-  color: #ccc;
-}
-
-.ninjaList {
-  background-color: #fff;
-  color: #000;
 }
 
 .ninjaIcon.ninjaSelected {
@@ -64,17 +52,11 @@
   color: #900;
 }
 
+.ninjaList {
+  background-color: #fff;
+  color: #000;
+}
+
 .ninjaShield {
   background-color: #fff;
-}
-
-.ninjaSubmit {
-  background-color: #333;
-  border-color: #000;
-  color: #fff;
-}
-
-.ninjaWindow {
-  background-color: #fff;
-  border-color: #bbb;
 }

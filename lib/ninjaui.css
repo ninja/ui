@@ -1,7 +1,20 @@
 /*copyright
   Ninja UI 1.0.0alpha, http://ninjaui.com/
   Copyright 2010-2011, Jamie Hoover
+  Includes Iconic Font, http://http://somerandomdude.com/projects/iconic//
 */
+
+@font-face {
+  font-family: 'IconicStrokeRegular';
+  src: url('./fonts/iconic_stroke-ninja.eot');
+  src: url('./fonts/iconic_stroke-ninja.eot?iefix') format('eot'),
+    url('./fonts/iconic_stroke-ninja.woff') format('woff'),
+    url('./fonts/iconic_stroke-ninja.ttf') format('truetype'),
+    url('./fonts/iconic_stroke-ninja.svgz#webfontIHpVguED') format('svg'),
+    url('./fonts/iconic_stroke-ninja.svg#webfontIHpVguED') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .ninja {
   background: transparent;
@@ -15,7 +28,7 @@
   outline: 0;
   padding: 0;
   position: relative;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
 .ninjaBorder {
@@ -47,10 +60,10 @@
 }
 
 .ninjaShadow {
-  -ms-box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
-  -moz-box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
-  box-shadow: 0 0.5em 0.5em rgba(0,0,0,0.5);
+  -ms-box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
+  box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
 }
 
 .ninjaTruncate {
@@ -74,19 +87,24 @@
   z-index: 2;
 }
 
+.ninjaBubblePop.ninjaIcon {
+  cursor: pointer;
+  font-size: 2em;
+  height: 0.5em;
+  position: absolute;
+  right: -0.2em;
+  top: -0.3em;
+  width: 0.5em;
+}
+
 /* button */
 
 .ninjaButton {
   cursor: default;
-  height: 1.75em;
   line-height: 1.6em;
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
-}
-
-.ninjaButton .ninjaIcon {
-  height: 1.6em;
 }
 
 /* choice */
@@ -105,85 +123,11 @@
 /* icon */
 
 .ninjaIcon {
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 16px;
-  min-width: 16px;
+	font-family: 'IconicStrokeRegular';
+	font-size: 1.25em;
+	line-height: 0;
 }
-/* black icons */
-.ninjaIconAdd { background-image: url("./images/black/add.png"); }
-.ninjaIconArrange { background-image: url("./images/black/arrange.png"); }
-.ninjaIconBeverage { background-image: url("./images/black/beverage.png"); }
-.ninjaIconBookmark { background-image: url("./images/black/bookmark.png"); }
-.ninjaIconCaution { background-image: url("./images/black/caution.png"); }
-.ninjaIconCheck { background-image: url("./images/black/check.png"); }
-.ninjaIconDown { background-image: url("./images/black/down.png"); }
-.ninjaIconDownload { background-image: url("./images/black/download.png"); }
-.ninjaIconEdit { background-image: url("./images/black/edit.png"); }
-.ninjaIconFlag { background-image: url("./images/black/flag.png"); }
-.ninjaIconFood { background-image: url("./images/black/food.png"); }
-.ninjaIconGear { background-image: url("./images/black/gear.png"); }
-.ninjaIconGroup { background-image: url("./images/black/group.png"); }
-.ninjaIconHeart { background-image: url("./images/black/heart.png"); }
-.ninjaIconHome { background-image: url("./images/black/home.png"); }
-.ninjaIconIn { background-image: url("./images/black/in.png"); }
-.ninjaIconLeft { background-image: url("./images/black/left.png"); }
-.ninjaIconLock { background-image: url("./images/black/lock.png"); }
-.ninjaIconMail { background-image: url("./images/black/mail.png"); }
-.ninjaIconNo { background-image: url("./images/black/no.png"); }
-.ninjaIconOut { background-image: url("./images/black/out.png"); }
-.ninjaIconPhone { background-image: url("./images/black/phone.png"); }
-.ninjaIconPhoto { background-image: url("./images/black/photo.png"); }
-.ninjaIconPrint { background-image: url("./images/black/print.png"); }
-.ninjaIconProfile { background-image: url("./images/black/profile.png"); }
-.ninjaIconQuestion { background-image: url("./images/black/question.png"); }
-.ninjaIconRefresh { background-image: url("./images/black/refresh.png"); }
-.ninjaIconRemove { background-image: url("./images/black/remove.png"); }
-.ninjaIconRight { background-image: url("./images/black/right.png"); }
-.ninjaIconSearch { background-image: url("./images/black/search.png"); }
-.ninjaIconStar { background-image: url("./images/black/star.png"); }
-.ninjaIconTarget { background-image: url("./images/black/target.png"); }
-.ninjaIconUnlock { background-image: url("./images/black/unlock.png"); }
-.ninjaIconUp { background-image: url("./images/black/up.png"); }
-.ninjaIconUpload { background-image: url("./images/black/upload.png"); }
-.ninjaIconVideo{ background-image: url("./images/black/video.png"); }
-/* white icons */
-.ninjaIconWhite.ninjaIconAdd { background-image: url("./images/white/add.png"); }
-.ninjaIconWhite.ninjaIconArrange { background-image: url("./images/white/arrange.png"); }
-.ninjaIconWhite.ninjaIconBeverage { background-image: url("./images/white/beverage.png"); }
-.ninjaIconWhite.ninjaIconBookmark { background-image: url("./images/white/bookmark.png"); }
-.ninjaIconWhite.ninjaIconCaution { background-image: url("./images/white/caution.png"); }
-.ninjaIconWhite.ninjaIconCheck { background-image: url("./images/white/check.png"); }
-.ninjaIconWhite.ninjaIconDown { background-image: url("./images/white/down.png"); }
-.ninjaIconWhite.ninjaIconDownload { background-image: url("./images/white/download.png"); }
-.ninjaIconWhite.ninjaIconEdit { background-image: url("./images/white/edit.png"); }
-.ninjaIconWhite.ninjaIconFlag { background-image: url("./images/white/flag.png"); }
-.ninjaIconWhite.ninjaIconFood { background-image: url("./images/white/food.png"); }
-.ninjaIconWhite.ninjaIconGear { background-image: url("./images/white/gear.png"); }
-.ninjaIconWhite.ninjaIconGroup { background-image: url("./images/white/group.png"); }
-.ninjaIconWhite.ninjaIconHeart { background-image: url("./images/white/heart.png"); }
-.ninjaIconWhite.ninjaIconHome { background-image: url("./images/white/home.png"); }
-.ninjaIconWhite.ninjaIconIn { background-image: url("./images/white/in.png"); }
-.ninjaIconWhite.ninjaIconLeft { background-image: url("./images/white/left.png"); }
-.ninjaIconWhite.ninjaIconLock { background-image: url("./images/white/lock.png"); }
-.ninjaIconWhite.ninjaIconMail { background-image: url("./images/white/mail.png"); }
-.ninjaIconWhite.ninjaIconNo { background-image: url("./images/white/no.png"); }
-.ninjaIconWhite.ninjaIconOut { background-image: url("./images/white/out.png"); }
-.ninjaIconWhite.ninjaIconPhone { background-image: url("./images/white/phone.png"); }
-.ninjaIconWhite.ninjaIconPhoto { background-image: url("./images/white/photo.png"); }
-.ninjaIconWhite.ninjaIconPrint { background-image: url("./images/white/print.png"); }
-.ninjaIconWhite.ninjaIconProfile { background-image: url("./images/white/profile.png"); }
-.ninjaIconWhite.ninjaIconQuestion { background-image: url("./images/white/question.png"); }
-.ninjaIconWhite.ninjaIconRefresh { background-image: url("./images/white/refresh.png"); }
-.ninjaIconWhite.ninjaIconRemove { background-image: url("./images/white/remove.png"); }
-.ninjaIconWhite.ninjaIconRight { background-image: url("./images/white/right.png"); }
-.ninjaIconWhite.ninjaIconSearch { background-image: url("./images/white/search.png"); }
-.ninjaIconWhite.ninjaIconStar { background-image: url("./images/white/star.png"); }
-.ninjaIconWhite.ninjaIconTarget { background-image: url("./images/white/target.png"); }
-.ninjaIconWhite.ninjaIconUnlock { background-image: url("./images/white/unlock.png"); }
-.ninjaIconWhite.ninjaIconUp { background-image: url("./images/white/up.png"); }
-.ninjaIconWhite.ninjaIconUpload { background-image: url("./images/white/upload.png"); }
-.ninjaIconWhite.ninjaIconVideo{ background-image: url("./images/white/video.png"); }
+
 
 /* list */
 
@@ -196,29 +140,21 @@
   position: absolute;
 }
 
-.ninjaMessage .ninjaIcon {
-  background-image: url("./images/wait.png");
-  background-position: left center;
-  height: 16px;
-  margin-right: 0.5em;
-  width: 16px;
-}
-
 /* rating */
 .ninjaRating .ninjaIcon{
   cursor: pointer;
-  text-align: center;
-  height: 1.6em;
 }
 
 /* shield */
 .ninjaShield {
+  border: 1px solid red;
   cursor: default;
   display: none;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+  z-index: 2;
 }
 
 /* slider */
@@ -254,19 +190,6 @@
   padding: 0 1.75em 0 0.5em;
   white-space: nowrap;
   width: 100%;
-}
-
-.ninjaSuggest .ninjaIcon {
-  height: 1.75em;
-  position: absolute;
-  left: 0.5em;
-  top: 0;
-  z-index: 1;
-}
-
-.ninjaSuggest .ninjaRemove {
-  left: auto;
-  right: 0.5em;
 }
 
 /* window */

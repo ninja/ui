@@ -32,16 +32,15 @@
   var $body = $('body'), $title = $('<h2/>');
 
   /* Icon */
-  var $icon = $('<div/>');
-  $.each(['add', 'arrange', 'beverage', 'bookmark', 'caution', 'check', 'down', 'download', 'edit', 'flag', 'food', 'gear', 'group', 'heart', 'home', 'in', 'left', 'lock', 'mail', 'no', 'out', 'phone', 'photo', 'print', 'profile', 'question', 'refresh', 'remove', 'right', 'search', 'star', 'target', 'unlock', 'up', 'upload', 'video'], function (i, name) {
+  var $icons = $('<div/>');
+  $.each(['home', 'at', 'quote', 'quoteAlt', 'arrowUp', 'arrowRight', 'arrowBottom', 'arrowLeft', 'arrowUpAlt', 'arrowRightAlt', 'arrowBottomAlt', 'arrowLeftAlt', 'move', 'moveVertical', 'moveHorizontal', 'moveAlt', 'moveVerticalAlt', 'moveHorizontalAlt', 'cursor', 'plus', 'plusAlt', 'minus', 'minusAlt', 'newWindow', 'dial', 'lightbulb', 'link', 'image', 'article', 'readMore', 'headphones', 'equalizer', 'fullscreen', 'exitFullscreen', 'spin', 'spinAlt', 'moon', 'sun', 'mapPin', 'pin', 'eyedropper', 'denied', 'calendar', 'calendarAlt', 'bolt', 'clock', 'document', 'book', 'bookAlt', 'magnifyingGlass', 'tag', 'heart', 'info', 'chat', 'chatAlt', 'key', 'unlocked', 'locked', 'mail', 'mailAlt', 'phone', 'box', 'pencil', 'pencilAlt', 'comment', 'commentAlt', 'rss', 'star', 'trash', 'user', 'volume', 'mute', 'cog', 'cogAlt', 'x', 'xAlt', 'check', 'checkAlt', 'beaker', 'beakerAlt'
+  ], function (i, name) {
     if (i !== 0) {
-      $icon.append(' ');
+      $icons.append(' ');
     }
-    $icon.append($.ninja().icon({
-      name: name
-    }));
+    $icons.append($.ninja().icon(name));
   });
-  $body.append($title.clone().text('Icon'), $icon);
+  $body.append($title.clone().text('Icon'), $icons);
   
   /* Button */
   var $button = $.ninja().button({
@@ -75,7 +74,7 @@
     $buttonStates.disable();
   }),
   $buttonIcon = $.ninja().button({
-    html: $('<span/>').append($.ninja().icon({name: 'search'}), ' With Icon'),
+    html: $('<span/>').append($.ninja().icon('home'), ' With Icon'),
     theme: 'light'
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
@@ -155,6 +154,33 @@
     $bubbleWindow.pop();
   });
   $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
+
+  var $oldSuggest = $('#suggest').ninja().create('suggest', {
+    icon: 'search',
+    title: 'Recipes',
+    onUpdate: function () {
+      if ($.inArray(this.value, ['a', 'ac', 'aco', 'acor', 'acorn', 'ap', 'app', 'appl', 'apple', 'av', 'avo', 'avoc', 'avoca', 'avocad', 'avocado']) > -1) {
+        $(this.list).ninja().update({ values: ['acorn', 'apple', 'avocado'] });
+      }
+      else {
+        $(this.list).ninja().update({ values: ['icecream', 'cake', 'pie'] });
+      }
+    },
+    onSelect: function () {
+      console.log('Ninja ui: Suggest selected with value: ' + this.value);
+    },
+    values: ['one', 'two', 'three'],
+    width: '50%'
+  });
+
+  var $suggest = $.ninja().suggest({
+    icon: 'search'
+  }).type(function () {
+    setTimeout(function () {
+      $suggest.update('Document body bubble content loaded via ninja().update().');
+    }, 1000);
+  });
+  $body.append($title.clone().text('Suggest'), $oldSuggest, $suggest);
 
 /*
     $('#drawerDefault').ninja().create('drawer', {
@@ -254,24 +280,6 @@
       slider.ninja().select({ value: '168' });
     }).css({ color: 'blue' });
     
-    var suggest = $('#suggest').ninja().create('suggest', {
-      icon: 'search',
-      title: 'Recipes',
-      onUpdate: function () {
-        if ($.inArray(this.value, ['a', 'ac', 'aco', 'acor', 'acorn', 'ap', 'app', 'appl', 'apple', 'av', 'avo', 'avoc', 'avoca', 'avocad', 'avocado']) > -1) {
-          $(this.list).ninja().update({ values: ['acorn', 'apple', 'avocado'] });
-        }
-        else {
-          $(this.list).ninja().update({ values: ['icecream', 'cake', 'pie'] });
-        }
-      },
-      onSelect: function () {
-        console.log('Ninja ui: Suggest selected with value: ' + this.value);
-      },
-      values: ['one', 'two', 'three'],
-      width: '50%'
-    });
-
     $('#suggestButton').ninja().create('button', {
       onSelect: function () {
         suggest.ninja().select();
