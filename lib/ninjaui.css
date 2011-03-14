@@ -5,13 +5,13 @@
 */
 
 @font-face {
-  font-family: 'IconicStrokeRegular';
-  src: url('./fonts/iconic_stroke-ninja.eot');
-  src: url('./fonts/iconic_stroke-ninja.eot?iefix') format('eot'),
-    url('./fonts/iconic_stroke-ninja.woff') format('woff'),
-    url('./fonts/iconic_stroke-ninja.ttf') format('truetype'),
-    url('./fonts/iconic_stroke-ninja.svgz#webfontIHpVguED') format('svg'),
-    url('./fonts/iconic_stroke-ninja.svg#webfontIHpVguED') format('svg');
+  font-family: 'Ninja UI';
+  src: url('./fonts/ninjaui.eot');
+  src: url('./fonts/ninjaui.eot?iefix') format('eot'),
+    url('./fonts/ninjaui.woff') format('woff'),
+    url('./fonts/ninjaui.ttf') format('truetype'),
+    url('./fonts/ninjaui.svgz#webfontIHpVguED') format('svg'),
+    url('./fonts/ninjaui.svg#webfontIHpVguED') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -123,7 +123,7 @@
 /* icon */
 
 .ninjaIcon {
-	font-family: 'IconicStrokeRegular';
+	font-family: 'Ninja UI';
 	font-size: 1.25em;
 	line-height: 0;
 }
