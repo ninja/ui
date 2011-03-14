@@ -48,20 +48,13 @@
     theme: 'light'
   }),
   $buttonStates = $.ninja().button({
-    enable: false,
     html: 'Disabled',
     theme: 'light'
   }).deselect(function () {
-    $buttonStates.html('Deselected');
     console.log('Deselected button.');
-  }).disable(function () {
-    $buttonStates.html('Disabled');
-    console.log('Disabled button.');
   }).enable(function () {
-    $buttonStates.html('Enabled');
     console.log('Enabled button.');
   }).select(function () {
-    $buttonStates.html('Selected');
     console.log('Selected button.');
   }),
   $buttonChangeState = $.ninja().button({
@@ -78,7 +71,9 @@
     theme: 'light'
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
-
+  $buttonStates.disable().disable(function () {
+    console.log('Disabled button.');
+  });
   /* List */
   var $list = $.ninja().list({
     choices: [
