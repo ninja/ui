@@ -144,7 +144,7 @@
     /* Fake asynchronous delay */
     setTimeout(function () {
       $bubbleWindow.update('Document body bubble content loaded via ninja().update().');
-    }, 1000);
+    }, 2000);
   }).deselect(function () {
     $bubbleWindow.pop();
   });
