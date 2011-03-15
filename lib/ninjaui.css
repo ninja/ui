@@ -136,12 +136,12 @@
 /* icon */
 
 .ninjaIcon {
+  cursor: pointer;
 	font-family: 'Ninja UI';
 	font-size: 2em;
 	height: 1em;
 	line-height: 0;
 }
-
 
 /* list */
 
@@ -155,9 +155,6 @@
 }
 
 /* rating */
-.ninjaRating .ninjaIcon{
-  cursor: pointer;
-}
 
 /* shield */
 .ninjaShield {
@@ -195,18 +192,26 @@
 
 /* suggest */
 .ninjaSuggest {
-  height: 1.75em;
-  line-height: 1.6em;
-  padding: 0 1.75em 0 0.5em;
+  padding-left: 0.25em;
   white-space: nowrap;
 }
 
 .ninjaSuggest input {
   border: none;
-  height: 1.75em;
   line-height: 1.6em;
+  padding: 0 1.5em 0 0.25em;
   white-space: nowrap;
   width: 100%;
+}
+
+.ninjaSuggest .ninjaIcon {
+	font-size: 1.4em;
+	line-height: 0.5em;
+}
+
+.ninjaSuggestClear.ninjaIcon {
+	position: absolute;
+	right: 0;
 }
 
 /* window */

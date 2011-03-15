@@ -159,13 +159,14 @@
   });
 
   var $suggest = $.ninja().suggest({
-    icon: 'search'
+    html: $.ninja().icon('magnifyingGlass'),
+    placeholder: 'Ninja UI Search'
   }).type(function () {
     setTimeout(function () {
       $suggest.update('Document body bubble content loaded via ninja().update().');
     }, 1000);
   });
-  $body.append($title.clone().text('Suggest'), $oldSuggest, $suggest);
+  $body.append($title.clone().text('Suggest'), $suggest);
 
 /*
     $('#drawerDefault').ninja().create('drawer', {

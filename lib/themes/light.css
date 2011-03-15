@@ -47,16 +47,11 @@
   border-color: #666;
 }
 
-.ninjaIcon.ninjaSelected {
-  background-color: transparent;
-  color: #c90;
-}
-
-.ninjaIcon.ninjaSelectedGroup {
-  color: #900;
-}
-
 .ninjaList {
   background-color: #fff;
   color: #000;
+}
+
+.ninjaSuggest .ninjaIcon {
+  color: #999;
 }
