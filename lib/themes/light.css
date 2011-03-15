@@ -19,12 +19,12 @@
   color: #333;
 }
 
-.ninjaChoice .ninjaButton {
+.ninjaChoice.ninjaButton {
   background-color: transparent;
   border-color: transparent;
 }
 
-.ninjaChoice .ninjaHovered {
+.ninjaChoice.ninjaHovered {
   background-color: #ddd;
   border-color: #666;
 }

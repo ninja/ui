@@ -74,16 +74,6 @@
   $buttonStates.disable().disable(function () {
     console.log('Disabled button.');
   });
-  /* List */
-  var $list = $.ninja().list({
-    choices: [
-      'Choose me!',
-      'No, choose me!'
-    ]
-  }).select(function (event) {
-    console.log('Global select function called returning: ' + event.html);
-  });
-  $body.append($title.clone().text('List'), $list);
   
   /* Bubble */
   var $bubbleButton;
