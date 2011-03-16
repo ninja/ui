@@ -140,31 +140,13 @@
   });
   $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
 
-  var $oldSuggest = $('#suggest').ninja().create('suggest', {
-    icon: 'search',
-    title: 'Recipes',
-    onUpdate: function () {
-      if ($.inArray(this.value, ['a', 'ac', 'aco', 'acor', 'acorn', 'ap', 'app', 'appl', 'apple', 'av', 'avo', 'avoc', 'avoca', 'avocad', 'avocado']) > -1) {
-        $(this.list).ninja().update({ values: ['acorn', 'apple', 'avocado'] });
-      }
-      else {
-        $(this.list).ninja().update({ values: ['icecream', 'cake', 'pie'] });
-      }
-    },
-    onSelect: function () {
-      console.log('Ninja ui: Suggest selected with value: ' + this.value);
-    },
-    values: ['one', 'two', 'three'],
-    width: '50%'
-  });
-
+  var $bubbleSuggest;
   var $suggest = $.ninja().suggest({
     html: $.ninja().icon('magnifyingGlass'),
-    placeholder: 'Ninja UI Search'
-  }).type(function () {
-    setTimeout(function () {
-      $suggest.update('Document body bubble content loaded via ninja().update().');
-    }, 1000);
+    placeholder: 'Ninja UI Search',
+    width: '50%'
+  }).change(function (value) {
+    console.error(value);
   });
   $body.append($title.clone().text('Suggest'), $suggest);
 
