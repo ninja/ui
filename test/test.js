@@ -140,13 +140,31 @@
   });
   $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
 
-  var $bubbleSuggest;
   var $suggest = $.ninja().suggest({
     html: $.ninja().icon('magnifyingGlass'),
     placeholder: 'Ninja UI Search',
     width: '50%'
   }).change(function (value) {
-    console.error(value);
+    $.ajax({
+      url: 'http://clients1.google.com/complete/search',
+      dataType: 'jsonp',
+      data: {
+        q: value,
+        ds: '',
+        nolabels: 't'
+      },
+      success: function (data) {
+        $suggest.update($.ninja().list({
+          choices: $.map(data[1], function (item) {
+            return {
+              html: item[0]
+            };
+          })
+        }).select(function (event) {
+          console.log('Global select function called returning: ' + event.html);
+        }));
+      }
+    });  
   });
   $body.append($title.clone().text('Suggest'), $suggest);
 
