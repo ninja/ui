@@ -55,3 +55,15 @@
 .ninjaSuggest .ninjaIcon {
   color: #999;
 }
+
+.ninjaStar {
+  color: #ddd;
+}
+
+.ninjaStar.ninjaStarAverage {
+  color: #900;
+}
+
+.ninjaStar.ninjaStarUser {
+  color: #9c0;
+}
