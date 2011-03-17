@@ -88,7 +88,7 @@
       text: 'Button bubble content loaded via ninja().update().'
     }));
   }).deselect(function () {
-    $bubbleButton.pop();
+    $bubbleButton.detach();
   });
 
   var $bubbleList;
@@ -116,10 +116,10 @@
       }]
     }).select(function (event) {
       console.log('Global select function called returning: ' + event.html.text());
-      $bubbleList.pop();
+      $bubbleList.detach();
     }));
   }).deselect(function () {
-    $bubbleList.pop();
+    $bubbleList.detach();
   });
 
   var $bubbleWindow;
@@ -136,7 +136,7 @@
       $bubbleWindow.update('Document body bubble content loaded via ninja().update().');
     }, 2000);
   }).deselect(function () {
-    $bubbleWindow.pop();
+    $bubbleWindow.detach();
   });
   $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
 
@@ -154,17 +154,17 @@
         nolabels: 't'
       },
       success: function (data) {
-        $suggest.update($.ninja().list({
+        $suggest.update({
           choices: $.map(data[1], function (item) {
             return {
               html: item[0]
             };
           })
-        }).select(function (event) {
-          console.log('Global select function called returning: ' + event.html);
-        }));
+        });
       }
     });  
+  }).select(function (event) {
+    console.log('Global select function called returning: ' + event.html);
   });
   $body.append($title.clone().text('Suggest'), $suggest);
   
@@ -202,6 +202,41 @@
     console.log('Global select function called returning: ' + event.html.text());
   });
   $body.append($title.clone().text('Rating'), $rating);
+
+  var $slider = $.ninja().slider({
+    choices: [{
+      html: $('<div/>', {
+        text: 'One star.'
+      }),
+      select: function () {
+        console.log('Local select function called.');
+      }
+    },
+    {
+      html: $('<div/>', {
+        text: 'Two stars.'
+      })
+    },
+    {
+      html: $('<div/>', {
+        text: 'Three stars.'
+      })
+    },
+    {
+      html: $('<div/>', {
+        text: 'Four stars.'
+      })
+    },
+    {
+      html: $('<div/>', {
+        text: 'Five stars.'
+      })
+    }],
+    choice: 3
+  }).select(function (event) {
+    console.log('Global select function called returning: ' + event.html.text());
+  });
+  $body.append($title.clone().text('Slider'), $slider);
 
 /*
     $('#drawerDefault').ninja().create('drawer', {
