@@ -202,9 +202,8 @@
 .ninjaSuggest input {
   border: none;
   line-height: 1.6em;
-  padding: 0 1.5em 0 0.25em;
+  margin: 0 1.4em 0 0.2em;
   white-space: nowrap;
-  width: 100%;
 }
 
 .ninjaSuggest .ninjaIcon {
