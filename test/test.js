@@ -153,7 +153,7 @@
         ds: '',
         nolabels: 't'
       },
-      success: function (data) {
+      success: function (data, message) {
         $suggest.update({
           choices: $.map(data[1], function (item) {
             return {
@@ -161,7 +161,22 @@
             };
           })
         });
-      }
+      },
+      error: function (request, status, error) {
+        console.error(error);
+        $suggest.update({
+          choices: [{
+            html: $('<div/>', {
+              css: {
+                color: 'red'
+              },
+              text: 'Server error: ' + error
+            }),
+            spacer: true
+          }]
+        });
+      },
+      timeout: 4000
     });  
   }).select(function (event) {
     console.log('Global select function called returning: ' + event.html);
