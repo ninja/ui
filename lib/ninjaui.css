@@ -195,15 +195,16 @@
 
 /* suggest */
 .ninjaSuggest {
-  padding-left: 0.25em;
+  padding: 0 2.75em 0 0.25em;
   white-space: nowrap;
 }
 
 .ninjaSuggest input {
   border: none;
   line-height: 1.6em;
-  margin: 0 1.4em 0 0.2em;
+  margin-left: 0.2em;
   white-space: nowrap;
+  width: 100%;
 }
 
 .ninjaSuggest .ninjaIcon {
@@ -213,7 +214,7 @@
 
 .ninjaSuggestClear.ninjaIcon {
 	position: absolute;
-	right: 0;
+	right: 0.125em;
 }
 
 /* window */
