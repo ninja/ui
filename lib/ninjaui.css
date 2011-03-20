@@ -122,9 +122,17 @@
 
 /* choice */
 
-.ninjaChoice.ninjaButton {
-  text-align: left;
-  width: 100%;
+.ninjaChoice {
+  border: 1px 0 solid transparent;
+  cursor: default;
+  line-height: 1.6em;
+  padding: 0 1em;
+  white-space: nowrap;
+}
+
+.ninjaChoice .ninjaIcon {
+	font-size: 1.4em;
+	line-height: 0.5em;
 }
 
 /* drawer */
@@ -144,6 +152,9 @@
 }
 
 /* list */
+.ninjaList {
+  margin: 0 -0.5em;
+}
 
 /* message */
 .ninjaMessage {

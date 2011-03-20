@@ -42,6 +42,50 @@
   });
   $body.append($title.clone().text('Icon'), $icons);
   
+  /* Suggest */
+  var $suggest = $.ninja().suggest({
+    html: $.ninja().icon('magnifyingGlass'),
+    placeholder: 'Ninja UI Search',
+    width: '50%'
+  }).change(function (event) {
+    $.ajax({
+      url: 'http://clients1.google.com/complete/search',
+      dataType: 'jsonp',
+      data: {
+        q: event.value,
+        ds: '',
+        nolabels: 't'
+      },
+      success: function (data, message) {
+        $suggest.update({
+          choices: $.map(data[1], function (item) {
+            return {
+              html: item[0]
+            };
+          })
+        });
+      },
+      error: function (request, status, error) {
+        console.error(error);
+        $suggest.update({
+          choices: [{
+            html: $('<div/>', {
+              css: {
+                color: 'red'
+              },
+              text: 'Server error: ' + error
+            }),
+            spacer: true
+          }]
+        });
+      },
+      timeout: 4000
+    });  
+  }).select(function (event) {
+    console.log('Global select function called returning: ' + event.html);
+  });
+  $body.append($title.clone().text('Suggest'), $suggest);
+  
   /* Button */
   var $button = $.ninja().button({
     html: 'Default',
@@ -81,11 +125,11 @@
     html: 'Button Bubble'
   }).select(function () {
     $bubbleButton = $buttonBubble.bubble();
-    $bubbleButton.update($('<div/>', {
+    $bubbleButton.html($('<div/>', {
       css: {
         whiteSpace: 'nowrap'
       },
-      text: 'Button bubble content loaded via ninja().update().'
+      text: 'Button bubble content loaded via ninja().html().'
     }));
   }).deselect(function () {
     $bubbleButton.detach();
@@ -96,7 +140,7 @@
     html: 'List Bubble'
   }).select(function () {
     $bubbleList = $buttonListBubble.bubble();
-    $bubbleList.update($.ninja().list({
+    $bubbleList.html($.ninja().list({
       choices: [{
         html: $('<div/>', {
           text: 'Choose me!'
@@ -115,7 +159,7 @@
         })
       }]
     }).select(function (event) {
-      console.log('Global select function called returning: ' + event.html.text());
+      console.log('Global select function called returning: ' + $(event.html).text());
       $bubbleList.detach();
     }));
   }).deselect(function () {
@@ -133,56 +177,13 @@
     });
     /* Fake asynchronous delay */
     setTimeout(function () {
-      $bubbleWindow.update('Document body bubble content loaded via ninja().update().');
+      $bubbleWindow.html('Document body bubble content loaded via ninja().html().');
     }, 2000);
   }).deselect(function () {
     $bubbleWindow.detach();
   });
   $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
 
-  var $suggest = $.ninja().suggest({
-    html: $.ninja().icon('magnifyingGlass'),
-    placeholder: 'Ninja UI Search',
-    width: '50%'
-  }).change(function (value) {
-    $.ajax({
-      url: 'http://clients1.google.com/complete/search',
-      dataType: 'jsonp',
-      data: {
-        q: value,
-        ds: '',
-        nolabels: 't'
-      },
-      success: function (data, message) {
-        $suggest.update({
-          choices: $.map(data[1], function (item) {
-            return {
-              html: item[0]
-            };
-          })
-        });
-      },
-      error: function (request, status, error) {
-        console.error(error);
-        $suggest.update({
-          choices: [{
-            html: $('<div/>', {
-              css: {
-                color: 'red'
-              },
-              text: 'Server error: ' + error
-            }),
-            spacer: true
-          }]
-        });
-      },
-      timeout: 4000
-    });  
-  }).select(function (event) {
-    console.log('Global select function called returning: ' + event.html);
-  });
-  $body.append($title.clone().text('Suggest'), $suggest);
-  
   var $rating = $.ninja().rating({
     choices: [{
       html: $('<div/>', {
