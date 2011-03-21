@@ -36,15 +36,16 @@
 }
 
 .ninjaGradient,
-.ninjaGradient.ninjaEnabled.ninjaSelected:active {
+.ninjaGradient.ninjaSelected:active {
   background-image: url("./images/gradient-outset.png");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
   background-position: bottom center;
   background-repeat: repeat-x;
 }
-.ninjaGradient.ninjaEnabled:active,
-.ninjaGradient.ninjaSelected {
+.ninjaGradient:active,
+.ninjaGradient.ninjaSelected,
+.ninjaGradient.ninjaSliderGroove {
   background-image: url("./images/gradient-inset.png");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
@@ -60,10 +61,10 @@
 }
 
 .ninjaShadow {
-  -ms-box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
-  -moz-box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
-  -webkit-box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
-  box-shadow: 0 0.25em 0.5em rgba(0,0,0,0.25);
+  -ms-box-shadow: 0 0.2em 0.2em rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0.2em 0.2em rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 0.2em 0.2em rgba(0,0,0,0.3);
+  box-shadow: 0 0.2em 0.2em rgba(0,0,0,0.3);
 }
 
 .ninjaTruncate {
@@ -167,7 +168,7 @@
 
 /* rating */
 .ninjaStarAverage.ninjaIcon, .ninjaStarUser.ninjaIcon {
-  text-shadow: 0 0.125em 0.125em rgba(0,0,0,0.125);
+  text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.3);
 }
 
 /* shield */
@@ -179,15 +180,21 @@
 }
 
 /* slider */
-.ninjaSlider .ninjaGroove {
+.ninjaSliderGroove {
   cursor: pointer;
+  height: 0.5em;
+  margin: 0 0.75em;
+  top: 0.4em;
 }
 
-.ninjaSlider .ninjaLevel {
-  height: 0.35em;
+.ninjaSliderLevel {
+  height: 0.5em;
+  margin: 0 0.75em;
+  position: absolute;
+  top: 0.4em;
 }
 
-.ninjaSlider .ninjaButton {
+.ninjaSliderButton {
   cursor: pointer;
   height: 1.25em;
   position: absolute;
@@ -195,13 +202,17 @@
   width: 1.25em;
 }
 
-.ninjaSlider .ninjaStatus {
+.ninjaSliderChoice {
   font-size: 0.9em;
 }
 
-.ninjaSlider .ninjaTitle {
+.ninjaSliderTitle {
   font-size: 0.9em;
   font-weight: bold;
+}
+
+.ninjaSliderTrack {
+  height: 1.25em;
 }
 
 /* suggest */

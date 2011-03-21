@@ -42,6 +42,94 @@
   });
   $body.append($title.clone().text('Icon'), $icons);
   
+  /* Slider */
+  var $slider = $.ninja().slider({
+    choices: [{
+      html: '0 dB',
+      select: function (event) {
+        console.log(event.choice.html);
+      }
+    },
+    {
+      html: '10 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Light leaf rustling, calm breathing');
+      }
+    },
+    {
+      html: '20-30 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Very calm room');
+      }
+      
+    },
+    {
+      html: '40-60 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Normal conversation at 1 m');
+      }
+    },
+    {
+      html: '60 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': TV set at home level at 1 m');
+      }
+    },
+    {
+      html: '60-80 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Passenger car at 10 m');
+      }
+    },
+    {
+      html: '78 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Hearing damage over long-term exposure, need not be continuous');
+      }
+    },
+    {
+      html: '80-90 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Traffic on a busy roadway at 10 m');
+      }
+    },
+    {
+      html: '100 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Jack hammer at 1 m');
+      }
+    },
+    {
+      html: '120 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Hearing damage immediately possible');
+      }
+    },
+    {
+      html: '130 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Threshold of pain');
+      }
+    },
+    {
+      html: '150 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': Jet engine at 30 m');
+      }
+    },
+    {
+      html: '168 dB',
+      select: function (event) {
+        console.log(event.choice.html + ': M1 Garand rifle being fired at 1 m');
+      }
+    }],
+    slot: 3,
+    title: 'Volume'
+  }).select(function (event) {
+    console.log('Slider returns: ' + event.choice.html);
+  });
+  $body.append($title.clone().text('Slider'), $slider);
+
   /* Suggest */
   var $suggest = $.ninja().suggest({
     html: $.ninja().icon('magnifyingGlass'),
@@ -218,41 +306,6 @@
     console.log('Global select function called returning: ' + event.html.text());
   });
   $body.append($title.clone().text('Rating'), $rating);
-
-  var $slider = $.ninja().slider({
-    choices: [{
-      html: $('<div/>', {
-        text: 'One star.'
-      }),
-      select: function () {
-        console.log('Local select function called.');
-      }
-    },
-    {
-      html: $('<div/>', {
-        text: 'Two stars.'
-      })
-    },
-    {
-      html: $('<div/>', {
-        text: 'Three stars.'
-      })
-    },
-    {
-      html: $('<div/>', {
-        text: 'Four stars.'
-      })
-    },
-    {
-      html: $('<div/>', {
-        text: 'Five stars.'
-      })
-    }],
-    choice: 3
-  }).select(function (event) {
-    console.log('Global select function called returning: ' + event.html.text());
-  });
-  $body.append($title.clone().text('Slider'), $slider);
 
 /*
     $('#drawerDefault').ninja().create('drawer', {

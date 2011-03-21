@@ -13,7 +13,9 @@
   color: #999;
 }
 
-.ninjaButton {
+.ninjaButton,
+.ninjaSliderButton,
+.ninjaSliderLevel {
   background-color: #ddd;
   border-color: #aaa;
   color: #333;
@@ -35,7 +37,8 @@
   color: #333
 }
 
-.ninjaSelected {
+.ninjaSelected,
+.ninjaSliderGroove {
   background-color: #aaa;
   border-color: #777;
   color: #fff
