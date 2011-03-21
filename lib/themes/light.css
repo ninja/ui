@@ -29,6 +29,14 @@
   border-color: #666;
 }
 
+.ninjaDrawerTray {  
+  background-color: #fff;
+  border-color: #bbb;
+  border-bottom-color: #ddd;
+  border-top-color: #888;
+  color: #333
+}
+
 .ninjaEditable {
   background-color: #fff;
   border-color: #bbb;

@@ -42,6 +42,13 @@
   });
   $body.append($title.clone().text('Icon'), $icons);
   
+  /* Drawer */
+  var $drawer = $.ninja().drawer({
+    html: 'Content of the drawer',
+    title: 'Open Sesame'
+  });
+  $body.append($title.clone().text('Drawer'), $drawer);
+
   /* Slider */
   var $slider = $.ninja().slider({
     choices: [{
@@ -176,12 +183,10 @@
   
   /* Button */
   var $button = $.ninja().button({
-    html: 'Default',
-    theme: 'light'
+    html: 'Default'
   }),
   $buttonStates = $.ninja().button({
-    html: 'Disabled',
-    theme: 'light'
+    html: 'Disabled'
   }).deselect(function () {
     console.log('Deselected button.');
   }).enable(function () {
@@ -191,16 +196,14 @@
   }),
   $buttonChangeState = $.ninja().button({
     html: 'Disable/Enable',
-    select: true,
-    theme: 'light'
+    select: true
   }).toggle(function () {
     $buttonStates.enable();
   }, function () {
     $buttonStates.disable();
   }),
   $buttonIcon = $.ninja().button({
-    html: $('<span/>').append($.ninja().icon('home'), ' With Icon'),
-    theme: 'light'
+    html: $('<span/>').append($.ninja().icon('home'), ' With Icon')
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
   $buttonStates.disable().disable(function () {

@@ -139,6 +139,14 @@
 /* drawer */
 
 .ninjaDrawer {
+}
+
+.ninjaDrawerHandle {
+  display: block;
+  text-align: left;
+}
+
+.ninjaDrawerTray {  
   padding: 0.5em;
 }
 
