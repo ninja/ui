@@ -257,15 +257,23 @@
     $bubbleList.detach();
   });
 
+  var $spinner = $('<span/>', {
+    className: 'ninja ninjaInline',
+    css: {
+      backgroundImage: 'url("../lib/images/wait.png")',
+      height: '16px',
+      width: '16px'
+    }
+  }).ninja().spin();
   var $bubbleWindow;
   var $buttonWindowBubble = $.ninja().button({
     html: 'Window Bubble'
   }).select(function () {
     $bubbleWindow = $buttonWindowBubble.ninja().bubble({
-      html: 'Loading...',
+      html: ' Loading...',
       pop: true,
       window: true
-    });
+    }).prepend($spinner);
     /* Fake asynchronous delay */
     setTimeout(function () {
       $bubbleWindow.html('Document body bubble content loaded via ninja().html().');
