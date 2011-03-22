@@ -28,7 +28,7 @@
       }
     };
   }
-  
+
   var $body = $('body'), $title = $('<h2/>');
 
   /* Icon */
@@ -310,65 +310,4 @@
   });
   $body.append($title.clone().text('Rating'), $rating);
 
-/*
-    $('#drawerDefault').ninja().create('drawer', {
-      title: 'Default',
-      width: '50%'
-    });
-    $('#drawerSelected').ninja().create('drawer', {
-      isSelected: true,
-      title: 'Selected',
-      width: '50%'
-    });
-    $('#drawerToggle').click(function () {
-      if ($('#drawerDefault').data().options.isSelected) {
-        $('#drawerDefault').ninja().deselect();
-      }
-      else {
-        $('#drawerDefault').ninja().select();
-      }
-    });
-    
-    var slider = $('#slider').ninja().create('slider', {
-      names: ['0 dB', '10 dB (Light leaf rustling, calm breathing)', '20-30 dB (Very calm room)', '40-60 dB (Normal conversation at 1 m)', '60 dB (TV set at home level at 1 m)', '60-80 dB (Passenger car at 10 m)', '78 dB (Hearing damage over long-term exposure, need not be continuous)', '80-90 dB (Traffic on a busy roadway at 10 m)', '100 dB (Jack hammer at 1 m)', '120 dB (Hearing damage immediately possible)', '130 dB (Threshold of pain)', '150 dB (Jet engine at 30 m)', '168 dB (M1 Garand rifle being fired at 1 m)'],
-      onSelect: function () {
-        console.log('Ninja ui: Slider changed to value:' + this.value + ', name:' + this.name + '.');
-        if ($(this).val() === '168') {
-          $('#sliderSelect').unbind('click').click(function (event) {
-            event.preventDefault();
-          }).css({ color: 'black', cursor: 'default', textDecoration: 'none' });
-        }
-        else {
-          $('#sliderSelect').unbind('click').click(function () {
-            slider.ninja().select({ value: '168' });
-          }).css({ color: 'blue', cursor: 'pointer', textDecoration: 'underline' });
-        }
-      },
-      title: 'Volume',
-      value: '40-60',
-      values: ['0', '10-10', '20-30', '40-60', '60', '60-80', '78', '80-90', '100', '120', '130', '150', '168'],
-      width: 400
-    });
-
-    $('#sliderSelect').click(function () {
-      slider.ninja().select({ value: '168' });
-    }).css({ color: 'blue' });
-    
-    $('#disableSlider').toggle(function () {
-      slider.ninja().disable({
-        message: 'Click Wait/Resume link again to resume.'
-      });
-    }, function () {
-      slider.ninja().enable();
-    });
-    
-    $('#disableMenu').toggle(function () {
-      menu.ninja().disable({
-        message: 'Click Wait/Resume link again to resume.'
-      });
-    }, function () {
-      menu.ninja().enable();
-    });
-    
-*/
 }(jQuery));
