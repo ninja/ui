@@ -23,8 +23,10 @@ module Ninjaui
       FileUtils.rm_rf destination
 
       # Copy new files
+      FileUtils.mkdir_p destination + '/fonts'
       FileUtils.mkdir_p destination + '/images'
       FileUtils.mkdir_p destination + '/themes'
+      FileUtils.cp_r origin + '/fonts', destination
       FileUtils.cp_r origin + '/images', destination
       FileUtils.cp_r origin + '/themes', destination
       FileUtils.cp origin + '/jquery.' + NAME + '.js', destination + '/jquery.' + NAME + '-' + VERSION + '.js'
