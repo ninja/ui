@@ -97,9 +97,6 @@
 
 /* Drawer */
 
-.ninjaDrawer {
-}
-
 .ninjaDrawerHandle {
   display: block;
   text-align: left;
@@ -251,4 +248,3 @@
 .ninjaHovered {
   cursor: pointer;
 }
-

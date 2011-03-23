@@ -1,27 +1,9 @@
-.ninjaPopup {
-  background-color: #fff;
-  border-color: #aaa;
-  color: #000;
-}
-
-.ninjaPopupButton.ninjaIcon {
-  background-color: #fff;
-  color: #999;
-}
-
-.ninjaPopupStem.ninjaIcon {
-  color: #999;
-}
-
 .ninjaButton,
 .ninjaSliderButton,
 .ninjaSliderLevel {
   background-color: #ddd;
   border-color: #aaa;
   color: #333;
-}
-
-.ninjaChoice {
 }
 
 .ninjaChoice.ninjaHovered {
@@ -45,13 +27,6 @@
   color: #333
 }
 
-.ninjaSelected,
-.ninjaSliderGroove {
-  background-color: #aaa;
-  border-color: #777;
-  color: #fff
-}
-
 .ninjaHovered {
   border-color: #666;
 }
@@ -61,8 +36,26 @@
   color: #000;
 }
 
-.ninjaSuggest .ninjaIcon {
+.ninjaPopup {
+  background-color: #fff;
+  border-color: #aaa;
+  color: #000;
+}
+
+.ninjaPopupButton.ninjaIcon {
+  background-color: #fff;
   color: #999;
+}
+
+.ninjaPopupStem.ninjaIcon {
+  color: #999;
+}
+
+.ninjaSelected,
+.ninjaSliderGroove {
+  background-color: #aaa;
+  border-color: #777;
+  color: #fff
 }
 
 .ninjaStar {
@@ -75,4 +68,8 @@
 
 .ninjaStar.ninjaStarUser {
   color: #9c0;
+}
+
+.ninjaSuggest .ninjaIcon {
+  color: #999;
 }
