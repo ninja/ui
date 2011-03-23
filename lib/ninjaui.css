@@ -80,14 +80,14 @@
   user-select: none;
 }
 
-/* bubble */
-.ninjaBubble {
+/* popup */
+.ninjaPopup {
   margin: 0.5em 0.5em 0.5em 0;
   padding: 0.5em;
   position: absolute;
 }
 
-.ninjaBubblePop.ninjaIcon {
+.ninjaPopupButton.ninjaIcon {
   cursor: pointer;
   height: 0.5em;
   position: absolute;
@@ -96,7 +96,7 @@
   width: 0.5em;
 }
 
-.ninjaBubbleStem.ninjaIcon {
+.ninjaPopupStem.ninjaIcon {
   cursor: default;
   font-size: 1em;
   height: 0.4em;

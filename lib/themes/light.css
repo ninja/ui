@@ -1,15 +1,15 @@
-.ninjaBubble {
+.ninjaPopup {
   background-color: #fff;
   border-color: #aaa;
   color: #000;
 }
 
-.ninjaBubblePop.ninjaIcon {
+.ninjaPopupButton.ninjaIcon {
   background-color: #fff;
   color: #999;
 }
 
-.ninjaBubbleStem.ninjaIcon {
+.ninjaPopupStem.ninjaIcon {
   color: #999;
 }
 

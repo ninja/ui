@@ -79,26 +79,26 @@
   $body.append($title.clone().text('Icon'), $icons);
   
   /* Pop-Up */
-  var $bubbleButton;
-  var $buttonBubble = $.ninja().button({
+  var $popup;
+  var $buttonPopup = $.ninja().button({
     html: 'Pop-Up'
   }).select(function () {
-    $bubbleButton = $buttonBubble.bubble();
-    $bubbleButton.html($('<div/>', {
+    $popup = $buttonPopup.popup();
+    $popup.html($('<div/>', {
       css: {
         whiteSpace: 'nowrap'
       },
-      text: 'Button bubble content loaded via ninja().html().'
+      text: 'Content loaded.'
     }));
   }).deselect(function () {
-    $bubbleButton.detach();
+    $popup.detach();
   });
-  var $bubbleList;
-  var $buttonListBubble = $.ninja().button({
+  var $popupList;
+  var $buttonPopupList = $.ninja().button({
     html: 'Pop-Up List'
   }).select(function () {
-    $bubbleList = $buttonListBubble.bubble();
-    $bubbleList.html($.ninja().list({
+    $popupList = $buttonPopupList.popup();
+    $popupList.html($.ninja().list({
       choices: [{
         html: $('<div/>', {
           text: 'Choose me!'
@@ -118,10 +118,10 @@
       }]
     }).select(function (event) {
       console.log('Global select function called returning: ' + $(event.html).text());
-      $bubbleList.detach();
+      $popupList.detach();
     }));
   }).deselect(function () {
-    $bubbleList.detach();
+    $popupList.detach();
   });
 
   var $spinner = $('<span/>', {
@@ -132,23 +132,23 @@
       width: '16px'
     }
   }).ninja().spin();
-  var $bubbleWindow;
-  var $buttonWindowBubble = $.ninja().button({
+  var $popupWindow;
+  var $buttonPopupWindow = $.ninja().button({
     html: 'Pop-Up Window'
   }).select(function () {
-    $bubbleWindow = $buttonWindowBubble.ninja().bubble({
+    $popupWindow = $buttonPopupWindow.ninja().popup({
       html: ' Loading...',
       pop: true,
       window: true
     }).prepend($spinner);
     /* Fake asynchronous delay */
     setTimeout(function () {
-      $bubbleWindow.html('Document body bubble content loaded via ninja().html().');
+      $popupWindow.html('Content loaded.');
     }, 2000);
   }).deselect(function () {
-    $bubbleWindow.detach();
+    $popupWindow.detach();
   });
-  $body.append($title.clone().text('Pop-Up'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
+  $body.append($title.clone().text('Pop-Up'), $buttonPopup, ' ', $buttonPopupList, ' ', $buttonPopupWindow);
 
   /* Rating */
   var $rating = $.ninja().rating({
