@@ -31,6 +31,42 @@
 
   var $body = $('body'), $title = $('<h2/>');
 
+  /* Button */
+  var $button = $.ninja().button({
+    html: 'Default'
+  }),
+  $buttonStates = $.ninja().button({
+    html: 'Disabled'
+  }).deselect(function () {
+    console.log('Deselected button.');
+  }).enable(function () {
+    console.log('Enabled button.');
+  }).select(function () {
+    console.log('Selected button.');
+  }),
+  $buttonChangeState = $.ninja().button({
+    html: 'Disable/Enable',
+    select: true
+  }).toggle(function () {
+    $buttonStates.enable();
+  }, function () {
+    $buttonStates.disable();
+  }),
+  $buttonIcon = $.ninja().button({
+    html: $('<span/>').append($.ninja().icon('home'), ' With Icon')
+  });
+  $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
+  $buttonStates.disable().disable(function () {
+    console.log('Disabled button.');
+  });
+  
+  /* Drawer */
+  var $drawer = $.ninja().drawer({
+    html: 'Content of the drawer',
+    title: 'Open Sesame'
+  });
+  $body.append($title.clone().text('Drawer'), $drawer);
+
   /* Icon */
   var $icons = $('<div/>');
   $.each(['home', 'at', 'quote', 'quoteAlt', 'arrowUp', 'arrowRight', 'arrowBottom', 'arrowLeft', 'arrowUpAlt', 'arrowRightAlt', 'arrowBottomAlt', 'arrowLeftAlt', 'move', 'moveVertical', 'moveHorizontal', 'moveAlt', 'moveVerticalAlt', 'moveHorizontalAlt', 'cursor', 'plus', 'plusAlt', 'minus', 'minusAlt', 'newWindow', 'dial', 'lightbulb', 'link', 'image', 'article', 'readMore', 'headphones', 'equalizer', 'fullscreen', 'exitFullscreen', 'spin', 'spinAlt', 'moon', 'sun', 'mapPin', 'pin', 'eyedropper', 'denied', 'calendar', 'calendarAlt', 'bolt', 'clock', 'document', 'book', 'bookAlt', 'magnifyingGlass', 'tag', 'heart', 'info', 'chat', 'chatAlt', 'key', 'unlocked', 'locked', 'mail', 'mailAlt', 'phone', 'box', 'pencil', 'pencilAlt', 'comment', 'commentAlt', 'rss', 'star', 'trash', 'user', 'volume', 'mute', 'cog', 'cogAlt', 'x', 'xAlt', 'check', 'checkAlt', 'beaker', 'beakerAlt'
@@ -42,12 +78,113 @@
   });
   $body.append($title.clone().text('Icon'), $icons);
   
-  /* Drawer */
-  var $drawer = $.ninja().drawer({
-    html: 'Content of the drawer',
-    title: 'Open Sesame'
+  /* Pop-Up */
+  var $bubbleButton;
+  var $buttonBubble = $.ninja().button({
+    html: 'Pop-Up'
+  }).select(function () {
+    $bubbleButton = $buttonBubble.bubble();
+    $bubbleButton.html($('<div/>', {
+      css: {
+        whiteSpace: 'nowrap'
+      },
+      text: 'Button bubble content loaded via ninja().html().'
+    }));
+  }).deselect(function () {
+    $bubbleButton.detach();
   });
-  $body.append($title.clone().text('Drawer'), $drawer);
+  var $bubbleList;
+  var $buttonListBubble = $.ninja().button({
+    html: 'Pop-Up List'
+  }).select(function () {
+    $bubbleList = $buttonListBubble.bubble();
+    $bubbleList.html($.ninja().list({
+      choices: [{
+        html: $('<div/>', {
+          text: 'Choose me!'
+        }),
+        select: function () {
+          console.log('Local select function called.');
+        }
+      },
+      {
+        html: $('<hr/>'),
+        spacer: true
+      },
+      {
+        html: $('<div/>', {
+          text: 'No, choose me!'
+        })
+      }]
+    }).select(function (event) {
+      console.log('Global select function called returning: ' + $(event.html).text());
+      $bubbleList.detach();
+    }));
+  }).deselect(function () {
+    $bubbleList.detach();
+  });
+
+  var $spinner = $('<span/>', {
+    className: 'ninja ninjaInline',
+    css: {
+      backgroundImage: 'url("../lib/images/wait.png")',
+      height: '16px',
+      width: '16px'
+    }
+  }).ninja().spin();
+  var $bubbleWindow;
+  var $buttonWindowBubble = $.ninja().button({
+    html: 'Pop-Up Window'
+  }).select(function () {
+    $bubbleWindow = $buttonWindowBubble.ninja().bubble({
+      html: ' Loading...',
+      pop: true,
+      window: true
+    }).prepend($spinner);
+    /* Fake asynchronous delay */
+    setTimeout(function () {
+      $bubbleWindow.html('Document body bubble content loaded via ninja().html().');
+    }, 2000);
+  }).deselect(function () {
+    $bubbleWindow.detach();
+  });
+  $body.append($title.clone().text('Pop-Up'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
+
+  /* Rating */
+  var $rating = $.ninja().rating({
+    choices: [{
+      html: $('<div/>', {
+        text: 'One star.'
+      }),
+      select: function () {
+        console.log('Local select function called.');
+      }
+    },
+    {
+      html: $('<div/>', {
+        text: 'Two stars.'
+      })
+    },
+    {
+      html: $('<div/>', {
+        text: 'Three stars.'
+      })
+    },
+    {
+      html: $('<div/>', {
+        text: 'Four stars.'
+      })
+    },
+    {
+      html: $('<div/>', {
+        text: 'Five stars.'
+      })
+    }],
+    starsAverage: 3
+  }).select(function (event) {
+    console.log('Global select function called returning: ' + event.html.text());
+  });
+  $body.append($title.clone().text('Rating'), $rating);
 
   /* Slider */
   var $slider = $.ninja().slider({
@@ -181,141 +318,4 @@
   });
   $body.append($title.clone().text('Suggest'), $suggest);
   
-  /* Button */
-  var $button = $.ninja().button({
-    html: 'Default'
-  }),
-  $buttonStates = $.ninja().button({
-    html: 'Disabled'
-  }).deselect(function () {
-    console.log('Deselected button.');
-  }).enable(function () {
-    console.log('Enabled button.');
-  }).select(function () {
-    console.log('Selected button.');
-  }),
-  $buttonChangeState = $.ninja().button({
-    html: 'Disable/Enable',
-    select: true
-  }).toggle(function () {
-    $buttonStates.enable();
-  }, function () {
-    $buttonStates.disable();
-  }),
-  $buttonIcon = $.ninja().button({
-    html: $('<span/>').append($.ninja().icon('home'), ' With Icon')
-  });
-  $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
-  $buttonStates.disable().disable(function () {
-    console.log('Disabled button.');
-  });
-  
-  /* Bubble */
-  var $bubbleButton;
-  var $buttonBubble = $.ninja().button({
-    html: 'Button Bubble'
-  }).select(function () {
-    $bubbleButton = $buttonBubble.bubble();
-    $bubbleButton.html($('<div/>', {
-      css: {
-        whiteSpace: 'nowrap'
-      },
-      text: 'Button bubble content loaded via ninja().html().'
-    }));
-  }).deselect(function () {
-    $bubbleButton.detach();
-  });
-
-  var $bubbleList;
-  var $buttonListBubble = $.ninja().button({
-    html: 'List Bubble'
-  }).select(function () {
-    $bubbleList = $buttonListBubble.bubble();
-    $bubbleList.html($.ninja().list({
-      choices: [{
-        html: $('<div/>', {
-          text: 'Choose me!'
-        }),
-        select: function () {
-          console.log('Local select function called.');
-        }
-      },
-      {
-        html: $('<hr/>'),
-        spacer: true
-      },
-      {
-        html: $('<div/>', {
-          text: 'No, choose me!'
-        })
-      }]
-    }).select(function (event) {
-      console.log('Global select function called returning: ' + $(event.html).text());
-      $bubbleList.detach();
-    }));
-  }).deselect(function () {
-    $bubbleList.detach();
-  });
-
-  var $spinner = $('<span/>', {
-    className: 'ninja ninjaInline',
-    css: {
-      backgroundImage: 'url("../lib/images/wait.png")',
-      height: '16px',
-      width: '16px'
-    }
-  }).ninja().spin();
-  var $bubbleWindow;
-  var $buttonWindowBubble = $.ninja().button({
-    html: 'Window Bubble'
-  }).select(function () {
-    $bubbleWindow = $buttonWindowBubble.ninja().bubble({
-      html: ' Loading...',
-      pop: true,
-      window: true
-    }).prepend($spinner);
-    /* Fake asynchronous delay */
-    setTimeout(function () {
-      $bubbleWindow.html('Document body bubble content loaded via ninja().html().');
-    }, 2000);
-  }).deselect(function () {
-    $bubbleWindow.detach();
-  });
-  $body.append($title.clone().text('Bubble'), $buttonBubble, ' ', $buttonListBubble, ' ', $buttonWindowBubble);
-
-  var $rating = $.ninja().rating({
-    choices: [{
-      html: $('<div/>', {
-        text: 'One star.'
-      }),
-      select: function () {
-        console.log('Local select function called.');
-      }
-    },
-    {
-      html: $('<div/>', {
-        text: 'Two stars.'
-      })
-    },
-    {
-      html: $('<div/>', {
-        text: 'Three stars.'
-      })
-    },
-    {
-      html: $('<div/>', {
-        text: 'Four stars.'
-      })
-    },
-    {
-      html: $('<div/>', {
-        text: 'Five stars.'
-      })
-    }],
-    starsAverage: 3
-  }).select(function (event) {
-    console.log('Global select function called returning: ' + event.html.text());
-  });
-  $body.append($title.clone().text('Rating'), $rating);
-
 }(jQuery));
