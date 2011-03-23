@@ -219,7 +219,16 @@
   height: 1.25em;
 }
 
+/* Spinner */
+
+.ninjaSpinner {
+  background: url("./images/spinner.png") left center no-repeat;
+  min-height: 16px;
+  width: 16px;
+}
+
 /* Suggest */
+
 .ninjaSuggest {
   padding: 0 2.75em 0 0.25em;
   white-space: nowrap;

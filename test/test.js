@@ -124,23 +124,15 @@
     $popupList.detach();
   });
 
-  var $spinner = $('<span/>', {
-    className: 'ninja ninjaInline',
-    css: {
-      backgroundImage: 'url("../lib/images/wait.png")',
-      height: '16px',
-      width: '16px'
-    }
-  }).ninja().spin();
   var $popupWindow;
   var $buttonPopupWindow = $.ninja().button({
     html: 'Pop-Up Window'
   }).select(function () {
     $popupWindow = $buttonPopupWindow.ninja().popup({
-      html: ' Loading...',
+      html: $.ninja().spinner(),
       pop: true,
       window: true
-    }).prepend($spinner);
+    });
     /* Fake asynchronous delay */
     setTimeout(function () {
       $popupWindow.html('Content loaded.');
