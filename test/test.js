@@ -130,7 +130,7 @@
   }).select(function () {
     $popupWindow = $buttonPopupWindow.ninja().popup({
       html: $.ninja().spinner(),
-      pop: true,
+      button: true,
       window: true
     });
     /* Fake asynchronous delay */
