@@ -80,7 +80,72 @@
   user-select: none;
 }
 
-/* popup */
+/* Button */
+
+.ninjaButton {
+  cursor: default;
+  line-height: 1.6em;
+  padding: 0 0.5em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ninjaButton .ninjaIcon {
+	font-size: 1.4em;
+	line-height: 0.5em;
+}
+
+/* Drawer */
+
+.ninjaDrawer {
+}
+
+.ninjaDrawerHandle {
+  display: block;
+  text-align: left;
+}
+
+.ninjaDrawerTray {  
+  padding: 0.5em;
+}
+
+/* Error */
+
+.ninjaError {
+  color: #f00;
+}
+
+/* Icon */
+
+.ninjaIcon {
+  cursor: pointer;
+	font-family: 'Ninja UI';
+	font-size: 2em;
+	height: 1em;
+	line-height: 0;
+}
+
+/* List */
+
+.ninjaList {
+  margin: 0 -0.5em;
+}
+
+.ninjaChoice {
+  border: 1px 0 solid transparent;
+  cursor: default;
+  line-height: 1.6em;
+  padding: 0 1em;
+  white-space: nowrap;
+}
+
+.ninjaChoice .ninjaIcon {
+	font-size: 1.4em;
+	line-height: 0.5em;
+}
+
+/* Pop-Up */
+
 .ninjaPopup {
   margin: 0.5em 0.5em 0.5em 0;
   padding: 0.5em;
@@ -106,80 +171,13 @@
   width: 1em;
 }
 
-/* button */
+/* Rating */
 
-.ninjaButton {
-  cursor: default;
-  line-height: 1.6em;
-  padding: 0 0.5em;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.ninjaButton .ninjaIcon {
-	font-size: 1.4em;
-	line-height: 0.5em;
-}
-
-/* choice */
-
-.ninjaChoice {
-  border: 1px 0 solid transparent;
-  cursor: default;
-  line-height: 1.6em;
-  padding: 0 1em;
-  white-space: nowrap;
-}
-
-.ninjaChoice .ninjaIcon {
-	font-size: 1.4em;
-	line-height: 0.5em;
-}
-
-/* drawer */
-
-.ninjaDrawer {
-}
-
-.ninjaDrawerHandle {
-  display: block;
-  text-align: left;
-}
-
-.ninjaDrawerTray {  
-  padding: 0.5em;
-}
-
-/* icon */
-
-.ninjaIcon {
-  cursor: pointer;
-	font-family: 'Ninja UI';
-	font-size: 2em;
-	height: 1em;
-	line-height: 0;
-}
-
-/* list */
-.ninjaList {
-  margin: 0 -0.5em;
-}
-
-/* message */
-.ninjaMessage {
-  background-color: #000;
-  color: #fff;
-  display: none;
-  padding: 0.5em;
-  position: absolute;
-}
-
-/* rating */
 .ninjaStarAverage.ninjaIcon, .ninjaStarUser.ninjaIcon {
   text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.3);
 }
 
-/* shield */
+/* Shield */
 .ninjaShield {
   cursor: default;
   left: -1px;
@@ -187,7 +185,8 @@
   top: -1px;
 }
 
-/* slider */
+/* Slider */
+
 .ninjaSliderGroove {
   cursor: pointer;
   height: 0.5em;
@@ -223,7 +222,7 @@
   height: 1.25em;
 }
 
-/* suggest */
+/* Suggest */
 .ninjaSuggest {
   padding: 0 2.75em 0 0.25em;
   white-space: nowrap;
@@ -247,22 +246,8 @@
 	right: 0.125em;
 }
 
-/* window */
-.ninjaWindow {
-  margin: 0.5em 0;
-  padding: 1em;
-  position: absolute;
-}
+/* Hovered */
 
-.ninjaWindow .ninjaRemove {
-  font-weight: 900;
-  height: 1.25em;
-  line-height: 0.85em;
-  position: absolute;
-  text-indent: 0.175em;
-}
-
-/* states */
 .ninjaHovered {
   cursor: pointer;
 }

@@ -276,9 +276,11 @@
 
   /* Suggest */
   var $suggest = $.ninja().suggest({
+    css: {
+      width: '50%'
+    },
     html: $.ninja().icon('magnifyingGlass'),
-    placeholder: 'Ninja UI Search',
-    width: '50%'
+    placeholder: 'Ninja UI Search'
   }).change(function (event) {
     $.ajax({
       url: 'http://clients1.google.com/complete/search',
@@ -297,21 +299,11 @@
           })
         });
       },
-      error: function (request, status, error) {
-        console.error(error);
-        $suggest.update({
-          choices: [{
-            html: $('<div/>', {
-              css: {
-                color: 'red'
-              },
-              text: 'Server error: ' + error
-            }),
-            spacer: true
-          }]
-        });
+      error: function (request, status, message) {
+        console.error(message);
+        $suggest.error(message);
       },
-      timeout: 4000
+      timeout: 3000
     });  
   }).select(function (event) {
     console.log('Global select function called returning: ' + event.html);
