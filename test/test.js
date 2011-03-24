@@ -83,13 +83,14 @@
   var $buttonPopup = $.ninja().button({
     html: 'Pop-Up'
   }).select(function () {
-    $popup = $buttonPopup.popup();
-    $popup.html($('<div/>', {
-      css: {
-        whiteSpace: 'nowrap'
-      },
-      text: 'Content loaded.'
-    }));
+    $popup = $buttonPopup.popup({
+      html: $('<div/>', {
+        css: {
+          whiteSpace: 'nowrap'
+        },
+        text: 'Preloaded Content.'
+      })
+    });
   }).deselect(function () {
     $popup.detach();
   });
@@ -97,29 +98,30 @@
   var $buttonPopupList = $.ninja().button({
     html: 'Pop-Up List'
   }).select(function () {
-    $popupList = $buttonPopupList.popup();
-    $popupList.html($.ninja().list({
-      choices: [{
-        html: $('<div/>', {
-          text: 'Choose me!'
-        }),
-        select: function () {
-          console.log('Local select function called.');
-        }
-      },
-      {
-        html: $('<hr/>'),
-        spacer: true
-      },
-      {
-        html: $('<div/>', {
-          text: 'No, choose me!'
-        })
-      }]
-    }).select(function (event) {
-      console.log('Global select function called returning: ' + $(event.html).text());
-      $popupList.detach();
-    }));
+    $popupList = $buttonPopupList.popup({
+      html: $.ninja().list({
+        choices: [{
+          html: $('<div/>', {
+            text: 'Choose me!'
+          }),
+          select: function () {
+            console.log('Local select function called.');
+          }
+        },
+        {
+          html: $('<hr/>'),
+          spacer: true
+        },
+        {
+          html: $('<div/>', {
+            text: 'No, choose me!'
+          })
+        }]
+      }).select(function (event) {
+        console.log('Global select function called returning: ' + $(event.html).text());
+        $popupList.detach();
+      })
+    });
   }).deselect(function () {
     $popupList.detach();
   });
@@ -135,7 +137,9 @@
     });
     /* Fake asynchronous delay */
     setTimeout(function () {
-      $popupWindow.html('Content loaded.');
+      $popupWindow.update({
+        html: 'Content loaded.'
+      });
     }, 2000);
   }).deselect(function () {
     $popupWindow.detach();
