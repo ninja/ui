@@ -248,6 +248,7 @@
 }
 
 .ninjaSuggestClear.ninjaIcon {
+  display: none;
 	position: absolute;
 	right: 0.125em;
 }
