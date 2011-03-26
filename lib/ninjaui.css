@@ -236,6 +236,7 @@
 
 .ninjaSuggest input {
   border: none;
+  font-size: inherit;
   line-height: 1.6em;
   margin-left: 0.2em;
   white-space: nowrap;
