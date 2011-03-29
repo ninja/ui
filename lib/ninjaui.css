@@ -120,6 +120,7 @@
 	font-size: 2em;
 	height: 1em;
 	line-height: 0;
+	text-align: center;
 }
 
 /* List */
@@ -147,6 +148,7 @@
   margin: 0.5em 0.5em 0.5em 0;
   padding: 0.5em;
   position: absolute;
+  z-index: 1;
 }
 
 .ninjaPopupButton.ninjaIcon {

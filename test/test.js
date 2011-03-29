@@ -69,12 +69,19 @@
 
   /* Icon */
   var $icons = $('<div/>');
-  $.each(['home', 'at', 'quote', 'quoteAlt', 'arrowUp', 'arrowRight', 'arrowBottom', 'arrowLeft', 'arrowUpAlt', 'arrowRightAlt', 'arrowBottomAlt', 'arrowLeftAlt', 'move', 'moveVertical', 'moveHorizontal', 'moveAlt', 'moveVerticalAlt', 'moveHorizontalAlt', 'cursor', 'plus', 'plusAlt', 'minus', 'minusAlt', 'newWindow', 'dial', 'lightbulb', 'link', 'image', 'article', 'readMore', 'headphones', 'equalizer', 'fullscreen', 'exitFullscreen', 'spin', 'spinAlt', 'moon', 'sun', 'mapPin', 'pin', 'eyedropper', 'denied', 'calendar', 'calendarAlt', 'bolt', 'clock', 'document', 'book', 'bookAlt', 'magnifyingGlass', 'tag', 'heart', 'info', 'chat', 'chatAlt', 'key', 'unlocked', 'locked', 'mail', 'mailAlt', 'phone', 'box', 'pencil', 'pencilAlt', 'comment', 'commentAlt', 'rss', 'star', 'trash', 'user', 'volume', 'mute', 'cog', 'cogAlt', 'x', 'xAlt', 'check', 'checkAlt', 'beaker', 'beakerAlt'
-  ], function (i, name) {
-    if (i !== 0) {
-      $icons.append(' ');
-    }
-    $icons.append($.ninja().icon(name));
+  $.each(['arrowBottom', 'arrowBottomAlt', 'arrowLeft', 'arrowLeftAlt', 'arrowRight', 'arrowRightAlt', 'arrowUp', 'arrowUpAlt', 'article', 'at', 'beaker', 'beakerAlt', 'bolt', 'book', 'bookAlt', 'box', 'calendar', 'calendarAlt', 'chat', 'chatAlt', 'check', 'checkAlt', 'clock', 'cog', 'cogAlt', 'comment', 'commentAlt', 'cursor', 'denied', 'dial', 'document', 'equalizer', 'exitFullscreen', 'eyedropper', 'fullscreen', 'headphones', 'heart', 'home', 'image', 'info', 'key', 'lightBulb', 'link', 'locked', 'magnifyingGlass', 'mail', 'mailAlt', 'mapPin', 'minus', 'minusAlt', 'moon', 'move', 'moveVertical', 'moveHorizontal', 'moveAlt', 'moveVerticalAlt', 'moveHorizontalAlt', 'mute', 'newWindow', 'pencil', 'pencilAlt', 'phone', 'pin', 'plus', 'plusAlt', 'quote', 'quoteAlt', 'readMore', 'rss', 'spin', 'spinAlt', 'star', 'sun', 'tag', 'trash', 'unlocked', 'user', 'volume', 'x', 'xAlt'], function (i, name) {
+    var $icon = $.ninja().icon(name).attr({
+      title: name
+    }).mouseenter(function () {
+      $icon.css({
+        color: 'blue'
+      });
+    }).mouseleave(function () {
+      $icon.css({
+        color: 'black'
+      });
+    });
+    $icons.append($icon);
   });
   $body.append($title.clone().text('Icon'), $icons);
   
