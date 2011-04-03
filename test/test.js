@@ -70,7 +70,13 @@
   /* Icon */
   var $icons = $('<div/>');
   $.each($.ninja().icons, function (name, character) {
-    var $icon = $.ninja().icon(name).attr({
+    var $icon = $.ninja().icon({
+      css: {
+        fontSize: '2em',
+        margin: '0.25em'
+      },
+      name: name
+    }).attr({
       title: name
     }).mouseenter(function () {
       $icon.css({
@@ -81,7 +87,7 @@
         color: 'black'
       });
     });
-    $icons.append($icon, ' ');
+    $icons.append($icon);
   });
   $body.append($title.clone().text('Icon'), $icons);
   
