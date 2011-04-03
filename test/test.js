@@ -53,7 +53,9 @@
     $buttonStates.disable();
   }),
   $buttonIcon = $.ninja().button({
-    html: $('<span/>').append($.ninja().icon('alert'), ' With Icon')
+    html: $('<span/>').append($.ninja().icon({
+      name: 'ninja'
+    }), ' With Icon')
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
   $buttonStates.disable().disable(function () {
