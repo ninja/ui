@@ -53,7 +53,7 @@
     $buttonStates.disable();
   }),
   $buttonIcon = $.ninja().button({
-    html: $('<span/>').append($.ninja().icon('home'), ' With Icon')
+    html: $('<span/>').append($.ninja().icon('alert'), ' With Icon')
   });
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
   $buttonStates.disable().disable(function () {
@@ -69,19 +69,19 @@
 
   /* Icon */
   var $icons = $('<div/>');
-  $.each(['arrowBottom', 'arrowBottomAlt', 'arrowLeft', 'arrowLeftAlt', 'arrowRight', 'arrowRightAlt', 'arrowUp', 'arrowUpAlt', 'article', 'at', 'beaker', 'beakerAlt', 'bolt', 'book', 'bookAlt', 'box', 'calendar', 'calendarAlt', 'chat', 'chatAlt', 'check', 'checkAlt', 'clock', 'cog', 'cogAlt', 'comment', 'commentAlt', 'cursor', 'denied', 'dial', 'document', 'equalizer', 'exitFullscreen', 'eyedropper', 'fullscreen', 'headphones', 'heart', 'home', 'image', 'info', 'key', 'lightBulb', 'link', 'locked', 'magnifyingGlass', 'mail', 'mailAlt', 'mapPin', 'minus', 'minusAlt', 'moon', 'move', 'moveVertical', 'moveHorizontal', 'moveAlt', 'moveVerticalAlt', 'moveHorizontalAlt', 'mute', 'newWindow', 'pencil', 'pencilAlt', 'phone', 'pin', 'plus', 'plusAlt', 'quote', 'quoteAlt', 'readMore', 'rss', 'spin', 'spinAlt', 'star', 'sun', 'tag', 'trash', 'unlocked', 'user', 'volume', 'x', 'xAlt'], function (i, name) {
+  $.each($.ninja().icons, function (name, character) {
     var $icon = $.ninja().icon(name).attr({
       title: name
     }).mouseenter(function () {
       $icon.css({
-        color: 'blue'
+        color: '#900'
       });
     }).mouseleave(function () {
       $icon.css({
         color: 'black'
       });
     });
-    $icons.append($icon);
+    $icons.append($icon, ' ');
   });
   $body.append($title.clone().text('Icon'), $icons);
   
@@ -276,6 +276,12 @@
     console.log('Slider returns: ' + event.choice.html);
   });
   $body.append($title.clone().text('Slider'), $slider);
+
+  /* Spinner */
+  var $spinner = $.ninja().spinner({
+    speed: 100
+  });
+  $body.append($title.clone().text('Spinner'), $spinner);
 
   /* Suggest */
   var $suggest = $.ninja().suggest({
