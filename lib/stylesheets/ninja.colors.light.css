@@ -63,10 +63,12 @@
 }
 
 .ninjaSpinner {
+  color: #ccc;
   color: rgba(0,0,0,0.2);
 }
 
 .ninjaSpinnerFrame {
+  color: #000;
   color: rgba(0,0,0,0.8);
 }
 

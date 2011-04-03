@@ -294,7 +294,9 @@
     css: {
       width: '50%'
     },
-    html: $.ninja().icon('magnifyingGlass'),
+    html: $.ninja().icon({
+      name: 'search'
+    }),
     placeholder: 'Ninja UI Search'
   }).change(function (event) {
     $.ajax({

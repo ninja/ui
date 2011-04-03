@@ -196,13 +196,13 @@
 
 .ninjaSpinner {
   font-family: 'Ninja Icons';
-  font-size: 1.5em;
+  font-size: 1.7em;
   position: relative;
 }
 
 .ninjaSpinnerFrame {
   font-family: 'Ninja Icons';
-  font-size: 1em;
+  font-size: 1em !important;
   left: 0;
   position: absolute;
   top: 0;
