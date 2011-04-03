@@ -332,4 +332,24 @@
   });
   $body.append($title.clone().text('Suggest'), $suggest);
   
+  /* Tabs */
+  var $tabs = $.ninja().tabs({
+    choices: [{
+      html: 'One',
+      select: function () {
+        console.log('Local tab function called.');
+      }
+    },
+    {
+      html: 'Two',
+    },
+    {
+      html: 'Three',
+    }],
+    choice: 2
+  }).select(function (event) {
+    console.log('Global tab function called returning: ' + event.html);
+  });
+  $body.append($title.clone().text('Tabs'), $tabs);
+  
 }(jQuery));

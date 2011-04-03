@@ -241,6 +241,22 @@
 	right: 0.125em;
 }
 
+/* Tab */
+
+.ninjaTab {
+  cursor: default;
+  height: 1.6em;
+  line-height: 1.6em;
+  padding: 0 0.5em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ninjaTab .ninjaIcon {
+  height: 1.25em;
+  line-height: 1.25em;
+}
+
 /* Hovered */
 
 .ninjaHovered {

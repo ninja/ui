@@ -4,7 +4,8 @@
 
 .ninjaButton,
 .ninjaSliderButton,
-.ninjaSliderLevel {
+.ninjaSliderLevel,
+.ninjaTab {
   background-color: #ddd;
   border-color: #aaa;
   color: #333;
@@ -29,10 +30,6 @@
   border-bottom-color: #ddd;
   border-top-color: #888;
   color: #333
-}
-
-.ninjaHovered {
-  border-color: #666;
 }
 
 .ninjaList {
@@ -75,11 +72,6 @@
   color: rgba(0,0,0,0.8);
 }
 
-.ninjaDisabled {
-  background-color: #fff;
-  background-color: rgba(255,255,255,0.5);
-}
-
 .ninjaStar {
   color: #ddd;
 }
@@ -95,3 +87,21 @@
 .ninjaSuggest .ninjaIcon {
   color: #999;
 }
+
+.ninjaTab {
+  border-left-color: transparent;
+}
+
+.ninjaTabFirst {
+  border-left-color: #aaa;
+}
+
+.ninjaHovered {
+  border-color: #666;
+}
+
+.ninjaDisabled {
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.5);
+}
+
