@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+=begin
+  Copyright 2010 Jamie Hoover
+=end
+
 require 'fileutils'
 
 module Ninjaui
