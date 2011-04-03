@@ -47,7 +47,10 @@
 }
 
 .ninjaPopupButton.ninjaIcon {
-  background-color: #fff;
+  color: #fff;
+}
+
+.ninjaPopupButton.ninjaIcon .ninjaIcon {
   color: #999;
 }
 

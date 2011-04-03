@@ -285,6 +285,9 @@
 
   /* Spinner */
   var $spinner = $.ninja().spinner({
+    css: {
+      fontSize: '1.7em'
+    },
     speed: 100
   });
   $body.append($title.clone().text('Spinner'), $spinner);
