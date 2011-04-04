@@ -1,7 +1,9 @@
 = Ninja UI
 
 Ninja UI is skilled in the techniques of JavaScript, CSS and Fonts,
+
 going unnoticed until called upon to perform the arts of webjutsu.
+
 You will find examples and documentation at
 
 ninjaui.com[http://ninjaui.com/]
@@ -15,6 +17,7 @@ Jamie Hoover and Faisal Jawdat
 Please note the sections on web fonts by Paul Irish for
 
 Apache[https://github.com/paulirish/html5-boilerplate/blob/master/.htaccess]
+
 All Others[https://github.com/paulirish/html5-boilerplate-server-configs]
 
 == Copyright
@@ -23,6 +26,7 @@ Copyright 2010 Jamie Hoover
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
+
 You may obtain a copy of the License at
 
 apache.org/licenses/LICENSE-2.0[http://www.apache.org/licenses/LICENSE-2.0]
