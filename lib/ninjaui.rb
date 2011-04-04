@@ -29,12 +29,11 @@ module Ninjaui
       # Copy new files
       FileUtils.mkdir_p destination + '/fonts'
       FileUtils.mkdir_p destination + '/images'
-      FileUtils.mkdir_p destination + '/themes'
+      FileUtils.mkdir_p destination + '/stylesheets'
       FileUtils.cp_r origin + '/fonts', destination
       FileUtils.cp_r origin + '/images', destination
-      FileUtils.cp_r origin + '/themes', destination
-      FileUtils.cp origin + '/jquery.' + NAME + '.js', destination + '/jquery.' + NAME + '-' + VERSION + '.js'
-      FileUtils.cp origin + '/' + NAME + '.css', destination + '/' + NAME + '-' + VERSION + '.css'
+      FileUtils.cp_r origin + '/stylesheets', destination
+      FileUtils.cp origin + '/jquery.ninja.ui.js', destination + '/jquery.ninja.ui-' + VERSION + '.js'
 
       puts "#{SUMMARY} installed here: #{destination}"
     end
