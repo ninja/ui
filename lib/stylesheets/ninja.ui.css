@@ -78,8 +78,7 @@
 }
 
 .ninjaButton .ninjaIcon {
-  height: 1.25em;
-  line-height: 1.25em;
+  line-height: 1.4em;
 }
 
 /* Drawer */
@@ -103,7 +102,7 @@
 
 .ninjaIcon {
   cursor: pointer;
-  font: 1.25em/1 'Ninja Icons', sans-serif;
+  font: 1em/1.231 'Ninja Icons', sans-serif;
 }
 
 /* List */
@@ -122,8 +121,7 @@
 }
 
 .ninjaChoice .ninjaIcon {
-  height: 1.25em;
-  line-height: 1.25em;
+  line-height: 1.4em;
 }
 
 /* Pop-Up */
@@ -232,7 +230,7 @@
 }
 
 .ninjaSuggest .ninjaIcon {
-  line-height: 1.25em;
+  line-height: 1.6em;
 }
 
 .ninjaSuggestClear.ninjaIcon {
@@ -253,8 +251,7 @@
 }
 
 .ninjaTab .ninjaIcon {
-  height: 1.25em;
-  line-height: 1.25em;
+  line-height: 1.4em;
 }
 
 /* Hovered */
