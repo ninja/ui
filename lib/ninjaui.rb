@@ -21,7 +21,7 @@ module Ninjaui
   class Application
     def install
       origin = "#{FileUtils.pwd}/lib"
-      destination = "#{ARGV[0] ||= 'public'}/#{NAME}"
+      destination = "#{ARGV[0] ||= 'public'}/#{NAME}-#{VERSION}"
 
       # Remove outdated files
       FileUtils.rm_rf destination
@@ -33,7 +33,7 @@ module Ninjaui
       FileUtils.cp_r origin + '/fonts', destination
       FileUtils.cp_r origin + '/images', destination
       FileUtils.cp_r origin + '/stylesheets', destination
-      FileUtils.cp origin + '/jquery.ninja.ui.js', destination + '/jquery.ninja.ui-' + VERSION + '.js'
+      FileUtils.cp origin + '/jquery.ninja.ui.js', destination
 
       puts "#{SUMMARY} installed here: #{destination}"
     end
