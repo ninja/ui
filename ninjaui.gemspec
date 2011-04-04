@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage = 'http://ninjaui.com'
   s.email = 'ninjaui@me.com'
 
-  s.authors = ['Jamie Hoover', 'Faisal Jawdat']
+  s.authors = ['Jamie Hoover', 'Faisal N. Jawdat']
 
   s.platform = Gem::Platform::RUBY
   s.required_rubygems_version = '>= 1.3.6'
