@@ -55,13 +55,6 @@
   color: #999;
 }
 
-.ninjaSelected,
-.ninjaSliderGroove {
-  background-color: #aaa;
-  border-color: #777;
-  color: #fff
-}
-
 .ninjaSpinner {
   color: #ccc;
   color: rgba(0,0,0,0.2);
@@ -94,6 +87,13 @@
 
 .ninjaTabFirst {
   border-left-color: #aaa;
+}
+
+.ninjaSelected,
+.ninjaSliderGroove {
+  background-color: #999;
+  border-color: #666;
+  color: #fff
 }
 
 .ninjaHovered {
