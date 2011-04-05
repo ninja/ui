@@ -103,6 +103,7 @@
 .ninjaIcon {
   cursor: pointer;
   font: 1em/1.231 'Ninja Icons', sans-serif;
+  height: 1.231em;
 }
 
 /* List */
