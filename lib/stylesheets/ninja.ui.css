@@ -103,8 +103,9 @@
 
 .ninjaIcon {
   cursor: pointer;
-  font: 1em/1.231 'Ninja Icons', sans-serif;
-  height: 1.231em;
+  font: 1em/1 'Ninja Icons', sans-serif;
+  height: 1em;
+  width: 1em;
 }
 
 /* List */
@@ -141,19 +142,24 @@
   z-index: 1;
 }
 
-.ninjaPopupButton.ninjaIcon {
-  cursor: pointer;
+.ninjaPopupButton {
+  height: 1.4em;
+  line-height: 1.4em;
+  padding: 0;
   position: absolute;
-  right: -0.5em;
-  top: -0.5em;
+  right: -0.7em;
+  top: -0.7em;
+  width: 1.4em;
 }
 
-.ninjaPopupButton.ninjaIcon .ninjaIcon {
-  cursor: pointer;
-  font-size: 1em !important;
+.ninjaPopupButton .ninjaIcon {
+  font-size: 1.2em;
+  height: 1em;
+  left: 0.025em;
+  line-height: 1em;
   position: absolute;
-  left: 0;
-  top: 0;
+  top: 0.025em;
+  width: 1em;
 }
 
 .ninjaPopupStem.ninjaIcon {

@@ -43,11 +43,13 @@
 }
 
 .ninjaPopupButton {
-  color: #fff;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .ninjaPopupButton .ninjaIcon {
   color: #000;
+  color: rgba(0,0,0,0.85);
 }
 
 .ninjaPopupStem {
