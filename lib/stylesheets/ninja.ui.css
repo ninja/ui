@@ -78,6 +78,7 @@
 }
 
 .ninjaButton .ninjaIcon {
+  height: 1.4em;
   line-height: 1.4em;
 }
 
@@ -122,6 +123,7 @@
 }
 
 .ninjaListChoice .ninjaIcon {
+  height: 1.4em;
   line-height: 1.4em;
 }
 
@@ -222,6 +224,8 @@
 /* Suggest */
 
 .ninjaSuggest {
+  height: 1.6em;
+  line-height: 1.6em;
   padding: 0 2.75em 0 0.25em;
   white-space: nowrap;
 }
@@ -229,6 +233,7 @@
 .ninjaSuggest input {
   border: none;
   font-size: inherit;
+  height: 1.6em;
   line-height: 1.6em;
   margin-left: 0.2em;
   white-space: nowrap;
@@ -236,6 +241,7 @@
 }
 
 .ninjaSuggest .ninjaIcon {
+  height: 1.6em;
   line-height: 1.6em;
 }
 
@@ -257,6 +263,7 @@
 }
 
 .ninjaTab .ninjaIcon {
+  height: 1.4em;
   line-height: 1.4em;
 }
 
