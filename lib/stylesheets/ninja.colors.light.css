@@ -75,6 +75,16 @@
   color: rgba(0,0,0,0.8);
 }
 
+.ninjaPopup .ninjaSpinner {
+  color: #333;
+  color: rgba(255,255,255,0.4);
+}
+
+.ninjaPopup .ninjaSpinnerFrame {
+  color: #ccc;
+  color: rgba(255,255,255,0.8);
+}
+
 .ninjaStar {
   color: #ccc;
 }
