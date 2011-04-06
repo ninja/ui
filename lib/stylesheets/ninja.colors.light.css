@@ -4,16 +4,10 @@
 
 .ninjaButton,
 .ninjaSliderButton,
-.ninjaSliderLevel,
 .ninjaTab {
   background-color: #ddd;
   border-color: #aaa;
   color: #333;
-}
-
-.ninjaChoice.ninjaHovered {
-  background-color: #ddd;
-  border-color: #666;
 }
 
 .ninjaDrawerTray {  
@@ -37,22 +31,40 @@
   color: #000;
 }
 
-.ninjaPopup {
-  background-color: #fff;
-  border-color: #aaa;
-  color: #000;
+.ninjaListChoice.ninjaHovered {
+  background-color: #ddd;
+  border-color: #666;
 }
 
-.ninjaPopupButton.ninjaIcon {
+.ninjaPopup {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
   color: #fff;
 }
 
-.ninjaPopupButton.ninjaIcon .ninjaIcon {
-  color: #999;
+.ninjaPopupButton {
+  background-color: #fff;
+  border-color: #fff;
 }
 
-.ninjaPopupStem.ninjaIcon {
-  color: #999;
+.ninjaPopupButton .ninjaIcon {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninjaPopupStem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninjaSliderGroove {
+  background-color: #999;
+  border-color: #666;
+}
+
+.ninjaSliderLevel {
+  background-color: #ddd;
+  border-color: #aaa;
 }
 
 .ninjaSpinner {
@@ -65,8 +77,18 @@
   color: rgba(0,0,0,0.8);
 }
 
+.ninjaPopup .ninjaSpinner {
+  color: #333;
+  color: rgba(255,255,255,0.4);
+}
+
+.ninjaPopup .ninjaSpinnerFrame {
+  color: #ccc;
+  color: rgba(255,255,255,0.8);
+}
+
 .ninjaStar {
-  color: #ddd;
+  color: #ccc;
 }
 
 .ninjaStar.ninjaStarAverage {
@@ -89,8 +111,9 @@
   border-left-color: #aaa;
 }
 
-.ninjaSelected,
-.ninjaSliderGroove {
+/* State changes, keep these last and in order! */
+
+.ninjaSelected {
   background-color: #999;
   border-color: #666;
   color: #fff
@@ -104,4 +127,3 @@
   background-color: #fff;
   background-color: rgba(255,255,255,0.5);
 }
-
