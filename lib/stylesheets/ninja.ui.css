@@ -111,7 +111,7 @@
 /* List */
 
 .ninjaList {
-  margin: 0 -0.5em;
+  margin: 0 -0.85em;
 }
 
 .ninjaListChoice {
@@ -137,29 +137,26 @@
 
 .ninjaPopup {
   margin: 0.75em 0.5em 0.5em 0;
-  padding: 0.5em;
+  padding: 0.85em;
   position: absolute;
   z-index: 1;
 }
 
 .ninjaPopupButton {
-  height: 1.4em;
-  line-height: 1.4em;
-  padding: 0;
   position: absolute;
-  right: -0.7em;
-  top: -0.7em;
-  width: 1.4em;
+  right: -0.85em;
+  top: -0.85em;
 }
 
-.ninjaPopupButton .ninjaIcon {
-  font-size: 1.2em;
-  height: 1em;
-  left: 0.025em;
-  line-height: 1em;
+.ninjaPopupButtonBackground {
+  font-size: 1.7em;
+}
+
+.ninjaPopupButtonForeground {
+  font-size: 1.5em;
   position: absolute;
-  top: 0.025em;
-  width: 1em;
+  left: 0.1em;
+  top: 0.1em;
 }
 
 .ninjaPopupStem.ninjaIcon {

@@ -27,13 +27,13 @@
 }
 
 .ninjaList {
-  background-color: #fff;
-  color: #000;
+  color: #fff;
 }
 
 .ninjaListChoice.ninjaHovered {
   background-color: #ddd;
   border-color: #666;
+  color: #333;
 }
 
 .ninjaPopup {
@@ -42,12 +42,11 @@
   color: #fff;
 }
 
-.ninjaPopupButton {
-  background-color: #fff;
-  border-color: #fff;
+.ninjaPopupButtonBackground {
+  color: #fff;
 }
 
-.ninjaPopupButton .ninjaIcon {
+.ninjaPopupButtonForeground {
   color: #000;
   color: rgba(0,0,0,0.85);
 }
