@@ -159,7 +159,7 @@
       $popupWindow.update({
         html: 'Content loaded.'
       });
-    }, 2000);
+    }, 1000);
   }).deselect(function () {
     $popupWindow.detach();
   });
