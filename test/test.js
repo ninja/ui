@@ -97,7 +97,9 @@
   var $popup;
   var $buttonPopup = $.ninja().button({
     html: 'Pop-Up'
-  }).select(function () {
+  }).append($.ninja().icon({
+    name: 'arrowDown'
+  })).select(function () {
     $popup = $buttonPopup.popup({
       html: $('<div/>', {
         css: {
@@ -112,7 +114,9 @@
   var $popupList;
   var $buttonPopupList = $.ninja().button({
     html: 'Pop-Up List'
-  }).select(function () {
+  }).append($.ninja().icon({
+    name: 'arrowDown'
+  })).select(function () {
     $popupList = $buttonPopupList.popup({
       html: $.ninja().list({
         choices: [{
@@ -155,7 +159,7 @@
       $popupWindow.update({
         html: 'Content loaded.'
       });
-    }, 2000);
+    }, 1000);
   }).deselect(function () {
     $popupWindow.detach();
   });
