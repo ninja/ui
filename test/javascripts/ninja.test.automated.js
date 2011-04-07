@@ -22,4 +22,5 @@ $versions('1.5', '1.5.1', '1.5.2').load('../lib/jquery.ninja.ui.js').execute(fun
       html: 'Sue'
     }), 'button named Sue created');
   });
+
 });
