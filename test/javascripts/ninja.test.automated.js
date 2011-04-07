@@ -18,9 +18,13 @@ $versions('1.5', '1.5.1', '1.5.2').load('../lib/jquery.ninja.ui.js').execute(fun
   });
   
   test('should create a button named Sue', function () {
-    ok($.ninja().button({
+    var orig_count = $("span.ninjaButton:contains('Sue')").length;
+    var sueButton = $.ninja().button({
       html: 'Sue'
-    }), 'button named Sue created');
+    });
+    $('#qunit-fixture').append(sueButton);
+
+    equal($("span.ninjaButton:contains('Sue')").length, orig_count + 1, 'button named Sue created');
   });
 
 });
