@@ -143,10 +143,10 @@
 
 .ninjaPopupStem {
   cursor: default;
-  font-size: 0.5em;
+  font-size: 1em;
   margin-left: -0.5em;
   position: absolute;
-  top: -1.25em;
+  top: -1em;
 }
 
 /* Rating */
