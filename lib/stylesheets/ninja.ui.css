@@ -9,12 +9,11 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font: 13px/1.231 'Droid Sans', sans-serif;
+  font: 14px/1.231 'Droid Sans', sans-serif;
   margin: 0;
   outline: 0;
   padding: 0;
   position: relative;
-  vertical-align: baseline;
 }
 
 .ninjaBorder {
@@ -42,15 +41,14 @@
   display: -moz-inline-box;
   display: inline-block;
   *display: inline;
-  vertical-align: top;
   zoom: 1;
 }
 
 .ninjaShadow {
-  -ms-box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.25);
-  -moz-box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.25);
-  -webkit-box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.25);
-  box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.25);
+  -ms-box-shadow: 0 0.2em 0.3em #000;
+  -moz-box-shadow: 0 0.2em 0.3em #000;
+  -webkit-box-shadow: 0 0.2em 0.3em #000;
+  box-shadow: 0 0.2em 0.3em #000;
 }
 
 .ninjaTruncate {
@@ -70,16 +68,11 @@
 
 .ninjaButton {
   cursor: default;
-  height: 1.6em;
-  line-height: 1.6em;
+  height: 1.5em;
+  line-height: 1.5em;
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
-}
-
-.ninjaButton .ninjaIcon {
-  height: 1.4em;
-  line-height: 1.4em;
 }
 
 /* Drawer */
@@ -103,9 +96,8 @@
 
 .ninjaIcon {
   cursor: pointer;
-  font: 1em/1 'Ninja Icons', sans-serif;
-  height: 1em;
-  width: 1em;
+  font-family: 'Ninja Icons', sans-serif;
+  vertical-align: top;
 }
 
 /* List */
@@ -117,15 +109,10 @@
 .ninjaListChoice {
   border: 1px 0 solid transparent;
   cursor: default;
-  height: 1.6em;
-  line-height: 1.6em;
+  height: 1.5em;
+  line-height: 1.5em;
   padding: 0 1em;
   white-space: nowrap;
-}
-
-.ninjaListChoice .ninjaIcon {
-  height: 1.4em;
-  line-height: 1.4em;
 }
 
 .ninjaListSpacer {
@@ -136,6 +123,7 @@
 /* Pop-Up */
 
 .ninjaPopup {
+  border-width: 0.2em;
   margin: 0.75em 0.5em 0.5em 0;
   padding: 0.85em;
   position: absolute;
@@ -143,23 +131,17 @@
 }
 
 .ninjaPopupButton {
+  border-width: 0.125em;
+  cursor: pointer;
+  font-size: 1.2em;
+  line-height: 1em;
   position: absolute;
-  right: -0.85em;
-  top: -0.85em;
+  right: -0.5em;
+  text-align: center;
+  top: -0.5em;
 }
 
-.ninjaPopupButtonBackground {
-  font-size: 1.7em;
-}
-
-.ninjaPopupButtonForeground {
-  font-size: 1.5em;
-  position: absolute;
-  left: 0.1em;
-  top: 0.1em;
-}
-
-.ninjaPopupStem.ninjaIcon {
+.ninjaPopupStem {
   cursor: default;
   font-size: 0.5em;
   margin-left: -0.5em;
@@ -169,7 +151,7 @@
 
 /* Rating */
 
-.ninjaStarAverage.ninjaIcon, .ninjaStarUser.ninjaIcon {
+.ninjaStarAverage, .ninjaStarUser {
   text-shadow: 0 0.1em 0.1em rgba(0,0,0,0.3);
 }
 
@@ -177,13 +159,13 @@
 
 .ninjaSliderGroove {
   cursor: pointer;
-  height: 0.5em;
+  height: 0.4em;
   margin: 0 0.75em;
   top: 0.4em;
 }
 
 .ninjaSliderLevel {
-  height: 0.5em;
+  height: 0.4em;
   margin: 0 0.75em;
   position: absolute;
   top: 0.4em;
@@ -227,8 +209,7 @@
 /* Suggest */
 
 .ninjaSuggest {
-  height: 1.6em;
-  line-height: 1.6em;
+  height: 1.5em;
   padding: 0 2.75em 0 0.25em;
   white-space: nowrap;
 }
@@ -236,19 +217,21 @@
 .ninjaSuggest input {
   border: none;
   font-size: inherit;
-  height: 1.6em;
-  line-height: 1.6em;
+  height: 1.4em;
+  line-height: 1.4em;
   margin-left: 0.2em;
+  vertical-align: middle;
   white-space: nowrap;
   width: 100%;
 }
 
 .ninjaSuggest .ninjaIcon {
-  height: 1.6em;
-  line-height: 1.6em;
+  font-size: inherit;
+  height: 1.4em;
+  line-height: 1.4em;
 }
 
-.ninjaSuggestClear.ninjaIcon {
+.ninjaSuggestClear {
   display: none;
 	position: absolute;
 	right: 0.125em;
@@ -258,16 +241,11 @@
 
 .ninjaTab {
   cursor: default;
-  height: 1.6em;
-  line-height: 1.6em;
+  height: 1.5em;
+  line-height: 1.5em;
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
-}
-
-.ninjaTab .ninjaIcon {
-  height: 1.4em;
-  line-height: 1.4em;
 }
 
 /* Hovered */

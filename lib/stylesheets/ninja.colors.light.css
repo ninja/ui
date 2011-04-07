@@ -26,10 +26,6 @@
   color: #333
 }
 
-.ninjaList {
-  color: #fff;
-}
-
 .ninjaListChoice.ninjaHovered {
   background-color: #ddd;
   border-color: #666;
@@ -38,22 +34,20 @@
 
 .ninjaPopup {
   background-color: #000;
-  background-color: rgba(0,0,0,0.85);
-  color: #fff;
+  background-color: rgba(0,0,0,0.9);
+  border-color: #999;
+  color: #ccc;
 }
 
-.ninjaPopupButtonBackground {
-  color: #fff;
-}
-
-.ninjaPopupButtonForeground {
-  color: #000;
-  color: rgba(0,0,0,0.85);
+.ninjaPopupButton {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.9);
+  border-color: #aaa;
+  color: #ccc;
 }
 
 .ninjaPopupStem {
-  color: #000;
-  color: rgba(0,0,0,0.85);
+  color: #999;
 }
 
 .ninjaSliderGroove {
@@ -107,19 +101,19 @@
 }
 
 .ninjaTabFirst {
-  border-left-color: #aaa;
+  border-left-color: #ccc;
 }
 
 /* State changes, keep these last and in order! */
 
 .ninjaSelected {
   background-color: #999;
-  border-color: #666;
+  border-color: #888;
   color: #fff
 }
 
 .ninjaHovered {
-  border-color: #666;
+  border-color: #888;
 }
 
 .ninjaDisabled {
