@@ -159,24 +159,24 @@
 
 .ninjaSliderGroove {
   cursor: pointer;
-  height: 0.4em;
+  height: 0.45em;
   margin: 0 0.75em;
-  top: 0.4em;
+  top: 0.375em;
 }
 
 .ninjaSliderLevel {
-  height: 0.4em;
-  margin: 0 0.75em;
+  height: 0.45em;
+  margin: 0 0.6em;
   position: absolute;
-  top: 0.4em;
+  top: 0.375em;
 }
 
 .ninjaSliderButton {
   cursor: pointer;
-  height: 1.25em;
+  height: 1.2em;
   position: absolute;
   top: 0;
-  width: 1.25em;
+  width: 1.2em;
 }
 
 .ninjaSliderChoice {
