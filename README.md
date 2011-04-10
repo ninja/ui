@@ -1,5 +1,5 @@
 [Ninja UI](http://ninjaui.com/)
-=====================================================
+===============================
 
 Ninja UI waits in the shadows until called upon to perform the arts of webjutsu.
 
@@ -16,7 +16,7 @@ Please follow the section on web fonts for your particular server:
 [HTML5 Boilerplate Server Configs](https://github.com/paulirish/html5-boilerplate-server-configs)
 
 Tracking
---------------------
+--------
 
 Tell us what needs improvement or learn about upcoming changes here:
 
