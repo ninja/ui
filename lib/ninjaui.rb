@@ -34,6 +34,13 @@ module Ninjaui
       FileUtils.cp_r origin + '/images', destination
       FileUtils.cp_r origin + '/stylesheets', destination
       FileUtils.cp origin + '/jquery.ninja.ui.js', destination
+      
+      # Add version number to function inside jQuery plugin
+      rawFile = destination + '/jquery.ninja.ui.js'
+      versionedFile = File.read(rawFile).gsub(/VERSION/, VERSION)
+      File.open(rawFile, 'w') {|file|
+        file.puts versionedFile
+      }
 
       puts "#{SUMMARY} installed here: #{destination}"
     end
