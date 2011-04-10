@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 
 Gem::Specification.new do |s|
   s.name = 'ninjaui'
-  s.version = '1.0.alpha.1'
+  s.version = '1.0.alpha'
   s.summary = 'Ninja UI'
   s.description = 'Ninja user interface - JavaScript and CSS webjutsu'
   s.homepage = 'http://ninjaui.com'
