@@ -21,9 +21,41 @@ $versions('1.5', '1.5.1', '1.5.2').load('../lib/jquery.ninja.ui.js').execute(fun
     ok($.ninja(), 'Ninja UI loaded.');
   });
   
-  test('should create a button named Sue', function () {
-    var orig_count = $("span.ninjaButton:contains('Sue')").length;
-    var sueButton = $.ninja().button({
+
+  module("Unit Tests: .ninja().button");
+
+  test('should be in the global ninja class', function () {
+    ok($.ninja().button().hasClass('ninja'));
+  });
+
+  test('should be in the ninjaButton class', function () {
+    ok($.ninja().button().hasClass('ninjaButton'));
+  });
+
+  test('should be in the ninjaBorder class', function () {
+    ok($.ninja().button().hasClass('ninjaBorder'));
+  });
+
+  test('should be in the ninjaInline class', function () {
+    ok($.ninja().button().hasClass('ninjaInline'));
+  });
+
+  test('should be in the ninjaUnselectable class', function () {
+    ok($.ninja().button().hasClass('ninjaUnselectable'));
+  });
+
+  test('should be in the ninjaGradient class if the flag was set true', function () {
+    ok($.ninja().button({gradient: true}).hasClass('ninjaGradient'));
+  });
+
+  test('should not be in the ninjaGradient class if the flag was not set false', function () {
+    ok(!$.ninja().button({gradient: false}).hasClass('ninjaGradient'));
+  });
+
+  test('should be in the ninjaGradient class if the flag was not set', function () {
+    ok($.ninja().button().hasClass('ninjaGradient'));
+  });
+
 
 
   module('DOM manipulation tests ');
