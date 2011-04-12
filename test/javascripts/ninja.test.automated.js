@@ -9,22 +9,33 @@
 $versions('1.5', '1.5.1', '1.5.2').load('../lib/jquery.ninja.ui.js').execute(function ($, jQuery, version) {
 
   'use strict';
-  
-  module('With jQuery ' + version);
 
-  test('should load jQuery and Ninja UI.', function () {
-    equal(jQuery.fn.jquery, version, 'jQuery ' + version + ' loaded.');
+
+  module('Infrastructure Verification Tests with jQuery 1.5');
+
+  test('should load jQuery.', function () {
+    equal(jQuery.fn.jquery, version, 'jQuery loaded.');
+  });
+
+  test('should load Ninja UI.', function () {
     ok($.ninja(), 'Ninja UI loaded.');
   });
   
   test('should create a button named Sue', function () {
     var orig_count = $("span.ninjaButton:contains('Sue')").length;
     var sueButton = $.ninja().button({
-      html: 'Sue'
-    });
-    $('#qunit-fixture').append(sueButton);
 
-    equal($("span.ninjaButton:contains('Sue')").length, orig_count + 1, 'button named Sue created');
+
+  module('DOM manipulation tests ');
+
+  test('should create a button named "New"', function () {
+    var newButton = $.ninja().button({
+      html: 'New'
+    });
+    $('#qunit-fixture').append(newButton);
+
+    equal($("#qunit-fixture .ninjaButton").text(), "New", 'created "New" button');
   });
+
 
 });
