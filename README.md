@@ -1,7 +1,7 @@
-[Ninja UI](http://ninjaui.com/)
-===============================
+[Ninja UI](http://ninjaui.com/) - jQuery Webjutsu
+=================================================
 
-Ninja UI waits in the shadows until called upon to perform the arts of webjutsu.
+Ninja UI is a jQuery plugin enabling you to create beautiful web interface objects efficiently and unobtrusively.
 
 Authors
 -------
@@ -16,7 +16,7 @@ Please follow the section on web fonts for your particular server:
 [HTML5 Boilerplate Server Configs](https://github.com/paulirish/html5-boilerplate-server-configs)
 
 Project
---------
+-------
 
 Tell us what needs improvement or learn about upcoming changes here:
 
