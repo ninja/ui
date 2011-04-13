@@ -3,71 +3,50 @@
 */
 
 /*jshint
-  bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: true
+  bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: false
 */
 
-$versions('1.5', '1.5.1', '1.5.2').load('../lib/jquery.ninja.ui.js').execute(function ($, jQuery, version) {
+$versions('1.5.2', '1.5.1', '1.5').load('../lib/jquery.ninja.ui.js').execute(function ($, jQuery, version) {
 
   'use strict';
 
+  module('Infrastructure with jQuery ' + version);
 
-  module('Infrastructure Verification Tests with jQuery 1.5');
-
-  test('should load jQuery.', function () {
-    equal(jQuery.fn.jquery, version, 'jQuery loaded.');
-  });
-
-  test('should load Ninja UI.', function () {
-    ok($.ninja(), 'Ninja UI loaded.');
-  });
-  
-
-  module("Unit Tests: .ninja().button");
-
-  test('should be in the global ninja class', function () {
-    ok($.ninja().button().hasClass('ninja'));
-  });
-
-  test('should be in the ninjaButton class', function () {
-    ok($.ninja().button().hasClass('ninjaButton'));
-  });
-
-  test('should be in the ninjaBorder class', function () {
-    ok($.ninja().button().hasClass('ninjaBorder'));
-  });
-
-  test('should be in the ninjaInline class', function () {
-    ok($.ninja().button().hasClass('ninjaInline'));
-  });
-
-  test('should be in the ninjaUnselectable class', function () {
-    ok($.ninja().button().hasClass('ninjaUnselectable'));
-  });
-
-  test('should be in the ninjaGradient class if the flag was set true', function () {
-    ok($.ninja().button({gradient: true}).hasClass('ninjaGradient'));
-  });
-
-  test('should not be in the ninjaGradient class if the flag was not set false', function () {
-    ok(!$.ninja().button({gradient: false}).hasClass('ninjaGradient'));
-  });
-
-  test('should be in the ninjaGradient class if the flag was not set', function () {
-    ok($.ninja().button().hasClass('ninjaGradient'));
-  });
-
-
-
-  module('DOM manipulation tests ');
-
-  test('should create a button named "New"', function () {
-    var newButton = $.ninja().button({
-      html: 'New'
+    test('should load jQuery and Ninja UI', function () {
+      expect(2);
+      equal(jQuery.fn.jquery, version, 'jQuery');
+      ok($.ninja(), 'Ninja UI');
     });
-    $('#qunit-fixture').append(newButton);
 
-    equal($("#qunit-fixture .ninjaButton").text(), "New", 'created "New" button');
-  });
 
+  module('.button()');
+
+    test("should be in Ninja UI's default button classes", function () {
+      expect(5);
+      ok($.ninja().button().hasClass('ninja'), '.ninja');
+      ok($.ninja().button().hasClass('ninjaButton'), '.ninjaButton');
+      ok($.ninja().button().hasClass('ninjaBorder'), '.ninjaBorder');
+      ok($.ninja().button().hasClass('ninjaInline'), '.ninjaInline');
+      ok($.ninja().button().hasClass('ninjaUnselectable'), '.ninjaUnselectable');
+    });
+
+    test("should be in Ninja UI's gradiant class depending on how it was called", function () {
+      expect(3);
+      ok($.ninja().button({gradient: true}).hasClass('ninjaGradient'), '.ninjaGradient if requested');
+      ok(!$.ninja().button({gradient: false}).hasClass('ninjaGradient'), 'not .ninjaGradient if not requested');
+      ok($.ninja().button().hasClass('ninjaGradient'), '.ninjaGradient if no request either way');
+    });
+
+    test("should accept css overrides on creation", function () {
+      expect(1);
+      equal($.ninja().button({css: {margin: '20em'}}).css('margin'), '20em', "making them visible in jQuery's .css()");
+      // Note that different browsers are not consistent in how they deal with invalid styles.
+    });
+
+    test("should accept html content on creation", function () {
+      expect(1);
+      $('#qunit-fixture').append($.ninja().button({html: 'New Button'}));
+      equal($("#qunit-fixture .ninjaButton").text(), "New Button", "which jQuery can then render");
+    });
 
 });
