@@ -22,19 +22,17 @@
 
 .ninjaGradient,
 .ninjaGradient.ninjaSelected:active {
-  background-image: url("../images/gradient-outset.png");
+  background-image: url("../images/gradient.outset.svg");
   background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
-  background-position: bottom center;
   background-repeat: repeat-x;
 }
 .ninjaGradient:active,
 .ninjaGradient.ninjaSelected,
 .ninjaGradient.ninjaSliderGroove {
-  background-image: url("../images/gradient-inset.png");
+  background-image: url("../images/gradient.inset.svg");
   background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
-  background-position: top center;
 }
 
 .ninjaInline {
