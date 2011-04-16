@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name = 'ninjaui'
   s.version = '1.0.beta'
   s.summary = 'Ninja UI'
-  s.description = 'Ninja user interface - JavaScript and CSS webjutsu'
+  s.description = 'Ninja UI - Webjutsu'
   s.homepage = 'http://ninjaui.com'
   s.email = 'ninjaui@me.com'
 

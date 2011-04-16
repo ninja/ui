@@ -1,13 +1,13 @@
-## Mac OS
+# Mac OS
 .DS_Store
 
-## RubyMine, IDEA, etc.
+# IntelliJ
 .idea
 
-## MacVim, GVim, Vim
+# Vim
 *.swp
 
-## Emacs
+# Emacs
 *~
 \#*
 .\#*
@@ -16,12 +16,8 @@
 *.tmproj
 tmtags
 
-### Project::General
+# Project::General
 *.gem
 coverage
 rdoc
 pkg
-
-## Project::Specific
-.sass-cache/
-lib/ninjaui/assets/stylesheets/
