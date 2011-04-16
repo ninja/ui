@@ -66,8 +66,8 @@
 
 .ninjaButton {
   cursor: default;
-  height: 1.5em;
-  line-height: 1.5em;
+  height: 1.6em;
+  line-height: 1.6em;
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
@@ -80,7 +80,7 @@
   text-align: left;
 }
 
-.ninjaDrawerTray {  
+.ninjaDrawerTray {
   padding: 0.5em;
 }
 
@@ -107,8 +107,8 @@
 .ninjaListChoice {
   border: 1px 0 solid transparent;
   cursor: default;
-  height: 1.5em;
-  line-height: 1.5em;
+  height: 1.6em;
+  line-height: 1.6em;
   padding: 0 1em;
   white-space: nowrap;
 }
@@ -157,16 +157,16 @@
 
 .ninjaSliderGroove {
   cursor: pointer;
-  height: 0.45em;
-  margin: 0 0.75em;
-  top: 0.375em;
+  height: 0.5em;
+  margin: 0 0.6em;
+  top: 0.35em;
 }
 
 .ninjaSliderLevel {
-  height: 0.45em;
+  height: 0.5em;
   margin: 0 0.6em;
   position: absolute;
-  top: 0.375em;
+  top: 0.35em;
 }
 
 .ninjaSliderButton {
@@ -178,16 +178,16 @@
 }
 
 .ninjaSliderChoice {
-  font-size: 0.9em;
+  font-size: 0.85em;
 }
 
 .ninjaSliderTitle {
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-weight: bold;
 }
 
 .ninjaSliderTrack {
-  height: 1.25em;
+  height: 1.2em;
 }
 
 /* Spinner */
@@ -207,7 +207,7 @@
 /* Suggest */
 
 .ninjaSuggest {
-  height: 1.5em;
+  height: 1.6em;
   padding: 0 2.75em 0 0.25em;
   white-space: nowrap;
 }
@@ -239,8 +239,8 @@
 
 .ninjaTab {
   cursor: default;
-  height: 1.5em;
-  line-height: 1.5em;
+  height: 1.6em;
+  line-height: 1.6em;
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
