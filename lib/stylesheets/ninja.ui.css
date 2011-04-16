@@ -101,7 +101,7 @@
 /* List */
 
 .ninjaList {
-  margin: 0 -0.85em;
+  margin: 0 -0.6em;
 }
 
 .ninjaListChoice {
@@ -129,14 +129,14 @@
 }
 
 .ninjaPopupButton {
-  border-width: 0.125em;
+  border-width: 0.2em;
   cursor: pointer;
-  font-size: 1.2em;
-  line-height: 1em;
+  height: 1.6em;
   position: absolute;
-  right: -0.6em;
+  right: -0.8em;
   text-align: center;
-  top: -0.6em;
+  top: -0.8em;
+  width: 1.6em;
 }
 
 .ninjaPopupStem {
