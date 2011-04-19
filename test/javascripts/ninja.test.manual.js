@@ -22,9 +22,11 @@
   var $body = $('body'), $title = $('<h2/>');
 
   /* Button */
+
   var $button = $.ninja().button({
     html: 'Default'
   }),
+
   $buttonStates = $.ninja().button({
     html: 'Disabled'
   }).deselect(function () {
@@ -34,6 +36,7 @@
   }).select(function () {
     console.log('Selected button.');
   }),
+
   $buttonChangeState = $.ninja().button({
     html: 'Disable/Enable',
     select: true
@@ -42,6 +45,7 @@
   }, function () {
     $buttonStates.disable();
   }),
+
   $buttonIcon = $.ninja().button({
     html: $('<span/>', {
       html: ' With Icon'
@@ -49,20 +53,25 @@
       name: 'ninja'
     }))
   });
+
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
   $buttonStates.disable().disable(function () {
     console.log('Disabled button.');
   });
-  
+
   /* Drawer */
+
   var $drawer = $.ninja().drawer({
     html: 'Content of the drawer',
     title: 'Open Sesame'
   });
+
   $body.append($title.clone().text('Drawer'), $drawer);
 
-  /* Icon */
+  /* Icons */
+
   var $icons = $('<div/>');
+
   $.each($.ninja().icons, function (name, character) {
     var $icon = $.ninja().icon({
       css: {
@@ -83,81 +92,90 @@
     });
     $icons.append($icon);
   });
-  $body.append($title.clone().text('Icon'), $icons);
-  
-  /* Pop-Up */
-  var $popup;
-  var $buttonPopup = $.ninja().button({
-    html: 'Pop-Up'
-  }).append($.ninja().icon({
-    name: 'arrowDown'
-  })).select(function () {
-    $popup = $buttonPopup.popup({
-      html: $('<div/>', {
-        css: {
-          whiteSpace: 'nowrap'
-        },
-        text: 'Preloaded Content.'
-      })
-    });
-  }).deselect(function () {
-    $popup.detach();
-  });
-  var $popupList;
-  var $buttonPopupList = $.ninja().button({
-    html: 'Pop-Up List'
-  }).append($.ninja().icon({
-    name: 'arrowDown'
-  })).select(function () {
-    $popupList = $buttonPopupList.popup({
-      html: $.ninja().list({
-        choices: [{
-          html: $('<div/>', {
-            text: 'Choose me!'
-          }),
-          select: function () {
-            console.log('Local select function called.');
-          }
-        },
-        {
-          html: $('<hr/>'),
-          spacer: true
-        },
-        {
-          html: $('<div/>', {
-            text: 'No, choose me!'
-          })
-        }]
-      }).select(function (event) {
-        console.log('Global select function called returning: ' + $(event.html).text());
-        $popupList.detach();
-      })
-    });
-  }).deselect(function () {
-    $popupList.detach();
-  });
 
-  var $popupWindow;
-  var $buttonPopupWindow = $.ninja().button({
-    html: 'Pop-Up Window'
-  }).select(function () {
-    $popupWindow = $buttonPopupWindow.ninja().popup({
-      html: $.ninja().spinner(),
-      button: true,
-      window: true
-    });
-    /* Fake asynchronous delay */
-    setTimeout(function () {
-      $popupWindow.update({
-        html: 'Content loaded.'
+  $body.append($title.clone().text('Icon'), $icons);
+
+  /* Pop-Up */
+
+  var
+    $popup,
+
+    $buttonPopup = $.ninja().button({
+      html: 'Pop-Up'
+    }).append($.ninja().icon({
+      name: 'arrowDown'
+    })).select(function () {
+      $popup = $buttonPopup.popup({
+        html: $('<div/>', {
+          css: {
+            whiteSpace: 'nowrap'
+          },
+          text: 'Preloaded Content.'
+        })
       });
-    }, 1000);
-  }).deselect(function () {
-    $popupWindow.detach();
-  });
+    }).deselect(function () {
+      $popup.detach();
+    }),
+
+    $popupList,
+
+    $buttonPopupList = $.ninja().button({
+      html: 'Pop-Up List'
+    }).append($.ninja().icon({
+      name: 'arrowDown'
+    })).select(function () {
+      $popupList = $buttonPopupList.popup({
+        html: $.ninja().list({
+          choices: [{
+            html: $('<div/>', {
+              text: 'Choose me!'
+            }),
+            select: function () {
+              console.log('Local select function called.');
+            }
+          },
+          {
+            html: $('<hr/>'),
+            spacer: true
+          },
+          {
+            html: $('<div/>', {
+              text: 'No, choose me!'
+            })
+          }]
+        }).select(function (event) {
+          console.log('Global select function called returning: ' + $(event.html).text());
+          $popupList.detach();
+        })
+      });
+    }).deselect(function () {
+      $popupList.detach();
+    }),
+
+    $popupWindow,
+
+    $buttonPopupWindow = $.ninja().button({
+      html: 'Pop-Up Window'
+    }).select(function () {
+      $popupWindow = $buttonPopupWindow.ninja().popup({
+        html: $.ninja().spinner(),
+        button: true,
+        window: true
+      });
+      /* Fake asynchronous delay */
+      setTimeout(function () {
+        $popupWindow.update({
+          html: 'Content loaded.'
+        });
+      }, 1000);
+    }).deselect(function () {
+      $popupWindow.detach();
+    });
+
   $body.append($title.clone().text('Pop-Up'), $buttonPopup, ' ', $buttonPopupList, ' ', $buttonPopupWindow);
 
   /* Rating */
+
   var $rating = $.ninja().rating({
     choices: [{
       html: $('<div/>', {
@@ -191,9 +209,11 @@
   }).select(function (event) {
     console.log('Global select function called returning: ' + event.html.text());
   });
+
   $body.append($title.clone().text('Rating'), $rating);
 
   /* Slider */
+
   var $slider = $.ninja().slider({
     choices: [{
       html: '0 dB',
@@ -212,7 +232,7 @@
       select: function (event) {
         console.log(event.choice.html + ': Very calm room');
       }
-      
+
     },
     {
       html: '40-60 dB',
@@ -279,15 +299,18 @@
   }).select(function (event) {
     console.log('Slider returns: ' + event.choice.html);
   });
+
   $body.append($title.clone().text('Slider'), $slider);
 
   /* Spinner */
+
   var $spinner = $.ninja().spinner({
     css: {
       fontSize: '1.7em'
     },
     speed: 100
   });
+
   $body.append($title.clone().text('Spinner'), $spinner);
 
   /* Suggest */
@@ -322,13 +345,15 @@
         $suggest.error(message);
       },
       timeout: 3000
-    });  
+    });
   }).select(function (event) {
     console.log('Global select function called returning: ' + event.html);
   });
+
   $body.append($title.clone().text('Suggest'), $suggest);
-  
+
   /* Tabs */
+
   var $tabs = $.ninja().tabs({
     choices: [{
       html: 'One',
@@ -337,15 +362,16 @@
       }
     },
     {
-      html: 'Two',
+      html: 'Two'
     },
     {
-      html: 'Three',
+      html: 'Three'
     }],
     choice: 2
   }).select(function (event) {
     console.log('Global tab function called returning: ' + event.html);
   });
+
   $body.append($title.clone().text('Tabs'), $tabs);
-  
+
 }(jQuery));
