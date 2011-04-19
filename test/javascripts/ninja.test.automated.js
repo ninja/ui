@@ -1,5 +1,5 @@
 /*globals
-  $versions, test, equal, ok
+  $versions, test, equal, ok, expect, module
 */
 
 /*jshint
