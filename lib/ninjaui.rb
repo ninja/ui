@@ -6,19 +6,19 @@
 
 require 'fileutils'
 
-module Ninjaui
+module Ninja
   gemspec = Gem.loaded_specs['ninjaui']
   NAME = gemspec.name.to_s
   VERSION = gemspec.version.to_s
   SUMMARY = gemspec.summary.to_s
 
   class << self
-    def application
-      @application ||= Ninjaui::Application.new
+    def ui
+      @ui ||= Ninja::UI.new
     end
   end
 
-  class Application
+  class UI
     def install
       origin = "#{FileUtils.pwd}/lib"
       destination = "#{ARGV[0] ||= 'public'}/#{NAME}-#{VERSION}"
@@ -34,7 +34,7 @@ module Ninjaui
       FileUtils.cp_r origin + '/images', destination
       FileUtils.cp_r origin + '/stylesheets', destination
       FileUtils.cp origin + '/jquery.ninja.ui.js', destination
-      
+
       # Add version number to function inside jQuery plugin
       rawFile = destination + '/jquery.ninja.ui.js'
       versionedFile = File.read(rawFile).gsub(/VERSION/, VERSION)
