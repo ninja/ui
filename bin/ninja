@@ -7,4 +7,4 @@ rescue LoadError
   require 'ninjaui'
 end
 
-Ninjaui.application.install
+Ninja.ui.install
