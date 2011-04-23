@@ -29,14 +29,15 @@ module Ninja
       # Copy new files
       FileUtils.mkdir_p destination + '/fonts'
       FileUtils.mkdir_p destination + '/images'
+      FileUtils.mkdir_p destination + '/javascripts'
       FileUtils.mkdir_p destination + '/stylesheets'
       FileUtils.cp_r origin + '/fonts', destination
       FileUtils.cp_r origin + '/images', destination
+      FileUtils.cp_r origin + '/javascripts', destination
       FileUtils.cp_r origin + '/stylesheets', destination
-      FileUtils.cp origin + '/jquery.ninja.ui.js', destination
 
       # Add version number to function inside jQuery plugin
-      rawFile = destination + '/jquery.ninja.ui.js'
+      rawFile = destination + '/javascripts/jquery.ninja.core.js'
       versionedFile = File.read(rawFile).gsub(/VERSION/, VERSION)
       File.open(rawFile, 'w') {|file|
         file.puts versionedFile
