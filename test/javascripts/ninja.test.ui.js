@@ -68,33 +68,6 @@
 
   $body.append($title.clone().text('Drawer'), $drawer);
 
-  /* Icons */
-
-  var $icons = $('<div/>');
-
-  $.each($.ninja().icons, function (name, character) {
-    var $icon = $.ninja().icon({
-      css: {
-        fontSize: '2em',
-        margin: '0.25em'
-      },
-      name: name
-    }).attr({
-      title: name
-    }).mouseenter(function () {
-      $icon.css({
-        color: '#900'
-      });
-    }).mouseleave(function () {
-      $icon.css({
-        color: 'black'
-      });
-    });
-    $icons.append($icon);
-  });
-
-  $body.append($title.clone().text('Icon'), $icons);
-
   /* Pop-Up */
 
   var
@@ -301,17 +274,6 @@
   });
 
   $body.append($title.clone().text('Slider'), $slider);
-
-  /* Spinner */
-
-  var $spinner = $.ninja().spinner({
-    css: {
-      fontSize: '1.7em'
-    },
-    speed: 100
-  });
-
-  $body.append($title.clone().text('Spinner'), $spinner);
 
   /* Suggest */
   var $suggest = $.ninja().suggest({
