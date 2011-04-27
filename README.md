@@ -1,7 +1,7 @@
-[Ninja Icons](http://ninjaui.com/) - jQuery Webjutsu
-=================================================
+[Ninja Icons](http://ninjaui.com/) - Symbol Fontjutsu
+=====================================================
 
-Ninja Icons is a jQuery plugin and web font that enable scalable vector icons without bitmaps.
+Ninja Icons is a jQuery plugin with web fonts that enable scalable vector icons without bitmaps.
 
 Authors
 -------
