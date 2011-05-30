@@ -6,7 +6,7 @@
   bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: false
 */
 
-$versions('1.5.2', '1.5.1', '1.5').load('../lib/javascripts/jquery.ninja.core.js', '../lib/javascripts/jquery.ninja.icons.js', '../lib/javascripts/jquery.ninja.ui.js').execute(function ($, jQuery, version) {
+$versions('1.5.2', '1.5.1', '1.5').load('../ui/jquery.ninja.js').execute(function ($, jQuery, version) {
 
   'use strict';
 
