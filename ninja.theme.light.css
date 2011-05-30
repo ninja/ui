@@ -10,7 +10,7 @@
   color: #333;
 }
 
-.ninjaDrawerTray {  
+.ninjaDrawerTray {
   background-color: #fff;
   border-color: #bbb;
   border-bottom-color: #ddd;
@@ -60,16 +60,6 @@
   border-color: #aaa;
 }
 
-.ninjaSpinner {
-  color: #ccc;
-  color: rgba(0,0,0,0.2);
-}
-
-.ninjaSpinnerFrame {
-  color: #000;
-  color: rgba(0,0,0,0.8);
-}
-
 .ninjaPopup .ninjaSpinner {
   color: #333;
   color: rgba(255,255,255,0.4);
@@ -78,6 +68,16 @@
 .ninjaPopup .ninjaSpinnerFrame {
   color: #ccc;
   color: rgba(255,255,255,0.8);
+}
+
+.ninjaSpinner {
+  color: #ccc;
+  color: rgba(0,0,0,0.2);
+}
+
+.ninjaSpinner * {
+  color: #000;
+  color: rgba(0,0,0,0.8);
 }
 
 .ninjaStar {
