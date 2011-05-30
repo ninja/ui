@@ -15,11 +15,19 @@
 
 .ninjaSpinner {
   font-family: 'Ninja Spinner';
+  position: relative;
 }
 
-.ninjaSpinner0:before {
+.ninjaSpinner * {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.ninjaSpinner:before {
   content: '!';
 }
+
 .ninjaSpinner1:before {
   content: '"';
 }
