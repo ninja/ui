@@ -6,6 +6,7 @@ Ninja Icons are web fonts that enable scalable vector icons without bitmaps.
 Symbols
 -------
 
+<div>
 <link href="ninja.symbols.css" media="screen" rel="stylesheet" type="text/css"/>
 <span class="ninjaSymbol ninjaSymbolAlert"></span>
 <span class="ninjaSymbol ninjaSymbolArrowDown"></span>
@@ -58,7 +59,7 @@ Symbols
 <span class="ninjaSymbol ninjaSymbolVideo"></span>
 <span class="ninjaSymbol ninjaSymbolWatch"></span>
 <span class="ninjaSymbol ninjaSymbolWeather"></span>
-
+</div>
 
 Author
 ------
