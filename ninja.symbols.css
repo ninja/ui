@@ -1,0 +1,226 @@
+/*
+  Copyright 2010-2011 Jamie Hoover
+*/
+
+@font-face {
+  font-family: 'Ninja Symbols';
+  src: url('fonts/ninja-symbols-webfont.eot');
+  src: url('fonts/ninja-symbols-webfont.eot?iefix') format('eot'),
+    url('fonts/ninja-symbols-webfont.woff') format('woff'),
+    url('fonts/ninja-symbols-webfont.ttf') format('truetype'),
+    url('fonts/ninja-symbols-webfont.svg#webfont2iyAOIKa') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.ninjaSymbol {
+  font-family: 'Ninja Symbols';
+}
+
+.ninjaSymbolAlert:before {
+  content: '!';
+}
+
+.ninjaSymbolArrowDown:before {
+  content: '"';
+}
+
+.ninjaSymbolArrowLeft:before {
+  content: '#';
+}
+
+.ninjaSymbolArrowRight:before {
+  content: '$';
+}
+
+.ninjaSymbolArrowUp:before {
+  content: '%';
+}
+
+.ninjaSymbolCalendar:before {
+  content: '&';
+}
+
+.ninjaSymbolCart:before {
+  content: "'";
+}
+
+.ninjaSymbolCheck:before {
+  content: '(';
+}
+
+.ninjaSymbolCircle:before {
+  content: ')';
+}
+
+.ninjaSymbolClear:before {
+  content: '*';
+}
+
+.ninjaSymbolClip:before {
+  content: '+';
+}
+
+.ninjaSymbolDiamond:before {
+  content: ',';
+}
+
+.ninjaSymbolDirections:before {
+  content: '-';
+}
+
+.ninjaSymbolEdit:before {
+  content: '.';
+}
+
+.ninjaSymbolFlag:before {
+  content: '/';
+}
+
+.ninjaSymbolGear:before {
+  content: '0';
+}
+
+.ninjaSymbolHeart:before {
+  content: '1';
+}
+
+.ninjaSymbolHeartPlus:before {
+  content: '2';
+}
+
+.ninjaSymbolHeartMinus:before {
+  content: '3';
+}
+
+.ninjaSymbolHelp:before {
+  content: '4';
+}
+
+.ninjaSymbolHome:before {
+  content: '5';
+}
+
+.ninjaSymbolInfo:before {
+  content: '6';
+}
+
+.ninjaSymbolInstall:before {
+  content: '7';
+}
+
+.ninjaSymbolLink:before {
+  content: '8';
+}
+
+.ninjaSymbolLock:before {
+  content: '9';
+}
+
+.ninjaSymbolMail:before {
+  content: ':';
+}
+
+.ninjaSymbolMoveDown:before {
+  content: ';';
+}
+
+.ninjaSymbolMoveLeft:before {
+  content: '<';
+}
+
+.ninjaSymbolMoveRight:before {
+  content: '=';
+}
+
+.ninjaSymbolMoveUp:before {
+  content: '>';
+}
+
+.ninjaSymbolMinus:before {
+  content: '?';
+}
+
+.ninjaSymbolNot:before {
+  content: '@';
+}
+
+.ninjaSymbolOptions:before {
+  content: 'A';
+}
+
+.ninjaSymbolPhoto:before {
+  content: 'B';
+}
+
+.ninjaSymbolPin:before {
+  content: 'C';
+}
+
+.ninjaSymbolPlus:before {
+  content: 'D';
+}
+
+.ninjaSymbolPrint:before {
+  content: 'E';
+}
+
+.ninjaSymbolRemove:before {
+  content: 'F';
+}
+
+.ninjaSymbolSearch:before {
+  content: 'G';
+}
+
+.ninjaSymbolShipping:before {
+  content: 'H';
+}
+
+.ninjaSymbolStar:before {
+  content: 'I';
+}
+
+.ninjaSymbolThought:before {
+  content: 'J';
+}
+
+.ninjaSymbolThumbsDown:before {
+  content: 'K';
+}
+
+.ninjaSymbolThumbsUp:before {
+  content: 'L';
+}
+
+.ninjaSymbolTime:before {
+  content: 'M';
+}
+
+.ninjaSymbolTriangle:before {
+  content: 'N';
+}
+
+.ninjaSymbolUnlock:before {
+  content: 'O';
+}
+
+.ninjaSymbolUser:before {
+  content: 'P';
+}
+
+.ninjaSymbolUsers:before {
+  content: 'Q';
+}
+
+.ninjaSymbolVideo:before {
+  content: 'R';
+}
+
+.ninjaSymbolWatch:before {
+  content: 'S';
+}
+
+.ninjaSymbolWeather:before {
+  content: 'T';
+}

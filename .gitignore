@@ -1,0 +1,14 @@
+# Project
+temp
+
+# Mac OS
+.DS_Store
+
+# Editors
+*.swp
+*~
+\#*
+.\#*
+*.tmproj
+tmtags
+.idea
