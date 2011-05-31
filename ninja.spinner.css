@@ -15,12 +15,11 @@
 
 .ninjaSpinner {
   font-family: 'Ninja Spinner';
-  position: relative;
 }
 
 .ninjaSpinner * {
-  left: 0;
-  position: absolute;
+  left: -1em;
+  position: relative;
   top: 0;
 }
 
