@@ -3,11 +3,6 @@
 
 Ninja Icons are web fonts that enable scalable vector icons without bitmaps.
 
-Author
-------
-
-Jamie Hoover
-
 Server Configuration
 --------------------
 
