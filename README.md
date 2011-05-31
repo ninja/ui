@@ -1,12 +1,7 @@
 [Ninja Themes](http://ninjaui.com/)
 ====================================================
 
-Ninja Themes are CSS files to customize the colors of Ninja UI.
-
-Author
-------
-
-Jamie Hoover
+CSS styles that customize the look and feel of Ninja UI.
 
 License
 -------
