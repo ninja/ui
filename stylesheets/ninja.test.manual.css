@@ -1,11 +1,16 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
-  font: 14px/1.231 'Droid Sans', sans-serif;
+  font: 14px/1.231 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;
   margin: 1em auto;
   padding: 0 1em;
   max-width: 800px;
-  min-width: 360px;
+  min-width: 640px;
 }
 
-html {
-  overflow-y: scroll;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Myriad Pro', Verdana, Arial, Helvetica, sans-serif;
+  margin: 1em 0 0 0;
 }

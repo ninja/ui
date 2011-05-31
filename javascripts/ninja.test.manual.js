@@ -4,8 +4,6 @@
 
 (function ($) {
 
-  'use strict';
-
   /* Console */
   var console;
   if (window.console) {
@@ -21,7 +19,19 @@
 
   var $body = $('body'), $title = $('<h2/>');
 
-  /* Button */
+  // Spinner
+
+  var $spinner = $.ninja().spinner({
+    css: {
+      fontSize: '1.7em'
+    },
+    speed: 100
+  });
+
+  $body.append($title.clone().text('Spinner'), $spinner);
+
+
+  // Button
 
   var $button = $.ninja().button({
     html: 'Default'
@@ -47,11 +57,7 @@
   }),
 
   $buttonIcon = $.ninja().button({
-    html: $('<span/>', {
-      html: ' With Icon'
-    }).before($.ninja().icon({
-      name: 'ninja'
-    }))
+    html: '<span class="ninjaSymbol ninjaSymbolAlert"></span> With Icon'
   });
 
   $body.append($title.clone().text('Button'), $button, ' ', $buttonIcon, ' ', $buttonStates, ' ', $buttonChangeState);
@@ -59,7 +65,7 @@
     console.log('Disabled button.');
   });
 
-  /* Drawer */
+  // Drawer
 
   var $drawer = $.ninja().drawer({
     html: 'Content of the drawer',
@@ -68,16 +74,14 @@
 
   $body.append($title.clone().text('Drawer'), $drawer);
 
-  /* Pop-Up */
+  // Pop-Up
 
   var
     $popup,
 
     $buttonPopup = $.ninja().button({
-      html: 'Pop-Up'
-    }).append($.ninja().icon({
-      name: 'arrowDown'
-    })).select(function () {
+      html: '<span class="ninjaSymbol ninjaSymbolMoveDown"></span> Pop-Up'
+    }).select(function () {
       $popup = $buttonPopup.popup({
         html: $('<div/>', {
           css: {
@@ -93,10 +97,8 @@
     $popupList,
 
     $buttonPopupList = $.ninja().button({
-      html: 'Pop-Up List'
-    }).append($.ninja().icon({
-      name: 'arrowDown'
-    })).select(function () {
+      html: '<span class="ninjaSymbol ninjaSymbolMoveDown"></span> Pop-Up List'
+    }).select(function () {
       $popupList = $buttonPopupList.popup({
         html: $.ninja().list({
           choices: [{
@@ -135,7 +137,7 @@
         button: true,
         window: true
       });
-      /* Fake asynchronous delay */
+      // Fake asynchronous delay
       setTimeout(function () {
         $popupWindow.update({
           html: 'Content loaded.'
@@ -147,7 +149,7 @@
 
   $body.append($title.clone().text('Pop-Up'), $buttonPopup, ' ', $buttonPopupList, ' ', $buttonPopupWindow);
 
-  /* Rating */
+  /* Rating
 
   var $rating = $.ninja().rating({
     choices: [{
@@ -185,7 +187,7 @@
 
   $body.append($title.clone().text('Rating'), $rating);
 
-  /* Slider */
+  /* Slider
 
   var $slider = $.ninja().slider({
     choices: [{
@@ -275,7 +277,7 @@
 
   $body.append($title.clone().text('Slider'), $slider);
 
-  /* Suggest */
+  /* Suggest
   var $suggest = $.ninja().suggest({
     css: {
       width: '50%'
@@ -314,7 +316,7 @@
 
   $body.append($title.clone().text('Suggest'), $suggest);
 
-  /* Tabs */
+  /* Tabs
 
   var $tabs = $.ninja().tabs({
     choices: [{
@@ -335,5 +337,6 @@
   });
 
   $body.append($title.clone().text('Tabs'), $tabs);
+*/
 
 }(jQuery));
