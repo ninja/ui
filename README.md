@@ -1,26 +1,12 @@
 [Ninja UI](http://ninjaui.com/) - jQuery Webjutsu
 =================================================
 
-Ninja UI is a jQuery plugin enabling you to create beautiful web interface objects efficiently and unobtrusively.
+jQuery plugin enabling you to create beautiful web interface objects efficiently and unobtrusively.
 
 Authors
 -------
 
 Jamie Hoover and Faisal Jawdat
-
-Server Configuration
---------------------
-
-Please follow the section on web fonts for your particular server:
-
-[HTML5 Boilerplate Server Configs](https://github.com/paulirish/html5-boilerplate-server-configs)
-
-Project
--------
-
-Tell us what needs improvement or learn about upcoming changes here:
-
-[Ninja UI Milestones](http://ninjaui.lighthouseapp.com/projects/74211-ninjaui/milestones)
 
 License
 -------
