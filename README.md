@@ -1,7 +1,7 @@
-[Ninja Icons](http://ninjaui.com/) - Symbol Webjutsu
-====================================================
+[Ninja Icons](http://ninjaui.com/)
+==================================
 
-Ninja Icons are web fonts that enable scalable vector icons without bitmaps.
+CSS and web fonts that enable scalable icons without bitmaps.
 
 Server Configuration
 --------------------
