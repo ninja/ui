@@ -328,9 +328,9 @@
           $popup.html(event.html);
           if (options.button) {
             var
-              $button = $.ninja().icon({
-                name: 'remove'
-              }).addClass('ninja ninjaBorder ninjaPopupButton ninjaInline ninjaShadow').ninja().round({
+              $button = $('<span/>', {
+                class: 'ninja ninjaBorder ninjaPopupButton ninjaInline ninjaShadow ninjaSymbol ninjaSymbolRemove'
+              }).ninja().round({
                 radius: '0.8em'
               }).click(function () {
                 $popup.remove();
@@ -347,9 +347,9 @@
           else {
             var
               offset = $object.offset(),
-              $stem = $.ninja().icon({
-                name: 'triangle'
-              }).addClass('ninjaPopupStem');
+              $stem = $('<span/>', {
+                class: 'ninjaPopupStem ninjaSymbol ninjaSymbolTriangle'
+              });
             $popup.css({
               top: offset.top + $object.outerHeight()
             });
@@ -424,9 +424,9 @@
       });
       $.each(options.choices, function (i, choice) {
         var iChoice = i + 1;
-        var $choice = $.ninja().icon({
-          name: 'star'
-        }).addClass('ninjaStar').append(choice).bind({
+        var $choice = $('<span/>', {
+          class: 'ninjaStar ninjaSymbol ninjaSymbolStar'
+        }).append(choice).bind({
           'mouseenter.ninja': function (event) {
             $('.ninjaStar', $rating).each(function (iStar, star) {
               var $star = $(star);
@@ -773,8 +773,8 @@
         }
         $input.val(options.placeholder);
       }
-      var $clear = $.ninja().icon({
-        name: 'clear'
+      var $clear = $('<span/>', {
+        class: 'ninjaSymbol ninjaSymbolClear'
       }).addClass('ninjaSuggestClear').bind('click.ninja', function () {
         $input.val('').focus();
         $clear.hide();
