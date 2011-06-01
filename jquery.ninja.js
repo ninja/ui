@@ -750,11 +750,11 @@
       var $suggest = $.ninja('<span/>', {
         class: 'ninja ninjaBorder ninjaEditable ninjaInline ninjaSuggest'
       });
-      if (options.html) {
-        $suggest.prepend(options.html);
-      }
       if (options.css) {
         $suggest.css(options.css);
+      }
+      if (options.html) {
+        $suggest.prepend(options.html);
       }
       if (options.radius) {
         $suggest.round({
@@ -774,10 +774,12 @@
         $input.val(options.placeholder);
       }
       var $clear = $('<span/>', {
-        class: 'ninjaSymbol ninjaSymbolClear'
-      }).addClass('ninjaSuggestClear').bind('click.ninja', function () {
+        class: 'ninjaSuggestClear ninjaSymbol ninjaSymbolClear'
+      }).bind('click.ninja', function () {
         $input.val('').focus();
-        $clear.hide();
+        $clear.css({
+          visibility: 'hidden'
+        });
       });
       var $popup = $suggest.popup(), value;
       $input.bind({
@@ -797,8 +799,10 @@
                 $suggest.trigger({
                   type: 'change.ninja',
                   value: value
-                }).append($clear);
-                $clear.show();
+                });
+                $clear.css({
+                  visibility: 'visible'
+                });
               }
             }
           }
@@ -828,7 +832,9 @@
             return false;
           }
           else if (event.keyCode === 8 && value.length === 1) {/* delete last character */
-            $clear.hide();
+            $clear.css({
+              visibility: 'hidden'
+            });
             $popup.hide();
           }
         },
@@ -848,8 +854,9 @@
           else if ($.inArray(event.keyCode, [38, 40]) === -1) {/* not down nor up */
             var valueNew = $input.val();
             if (event.keyCode !== 8 && valueNew.length === 1) {/* first character */
-              $suggest.append($clear);
-              $clear.show();
+              $clear.css({
+                visibility: 'visible'
+              });
             }
             if (valueNew.length > 0 && value !== valueNew) {
               $suggest.trigger({
@@ -906,7 +913,7 @@
             $popup.hide();
           }
         }
-      }).append($input);
+      }).append($input, $clear);
       return $suggest;
     },
 
