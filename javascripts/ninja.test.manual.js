@@ -19,18 +19,6 @@
 
   var $body = $('body'), $title = $('<h2/>');
 
-  // Spinner
-
-  var $spinner = $.ninja().spinner({
-    css: {
-      fontSize: '1.7em'
-    },
-    speed: 100
-  });
-
-  $body.append($title.clone().text('Spinner'), $spinner);
-
-
   // Button
 
   var $button = $.ninja().button({
@@ -149,7 +137,7 @@
 
   $body.append($title.clone().text('Pop-Up'), $buttonPopup, ' ', $buttonPopupList, ' ', $buttonPopupWindow);
 
-  /* Rating
+  // Rating
 
   var $rating = $.ninja().rating({
     choices: [{
@@ -187,7 +175,7 @@
 
   $body.append($title.clone().text('Rating'), $rating);
 
-  /* Slider
+  // Slider
 
   var $slider = $.ninja().slider({
     choices: [{
@@ -277,13 +265,25 @@
 
   $body.append($title.clone().text('Slider'), $slider);
 
-  /* Suggest
+  // Spinner
+
+  var $spinner = $.ninja().spinner({
+    css: {
+      fontSize: '1.7em'
+    },
+    speed: 100
+  });
+
+  $body.append($title.clone().text('Spinner'), $spinner);
+
+
+  // Suggest
   var $suggest = $.ninja().suggest({
     css: {
       width: '50%'
     },
-    html: $.ninja().icon({
-      name: 'search'
+    html: $('<span/>', {
+      class: 'ninjaSymbol ninjaSymbolSearch'
     }),
     placeholder: 'Ninja UI Search'
   }).change(function (event) {
@@ -316,7 +316,7 @@
 
   $body.append($title.clone().text('Suggest'), $suggest);
 
-  /* Tabs
+  // Tabs
 
   var $tabs = $.ninja().tabs({
     choices: [{
@@ -337,6 +337,5 @@
   });
 
   $body.append($title.clone().text('Tabs'), $tabs);
-*/
 
 }(jQuery));
