@@ -30,13 +30,6 @@ $versions('1.5.2', '1.5.1', '1.5').load('../ui/jquery.ninja.js').execute(functio
       ok($.ninja().button().hasClass('ninjaUnselectable'), '.ninjaUnselectable');
     });
 
-    test("should be in Ninja UI's gradiant class depending on how it was called", function () {
-      expect(3);
-      ok($.ninja().button({gradient: true}).hasClass('ninjaGradient'), '.ninjaGradient if requested');
-      ok(!$.ninja().button({gradient: false}).hasClass('ninjaGradient'), 'not .ninjaGradient if not requested');
-      ok($.ninja().button().hasClass('ninjaGradient'), '.ninjaGradient if no request either way');
-    });
-
     test("should accept css overrides on creation", function () {
       expect(1);
       equal($.ninja().button({css: {margin: '20em'}}).css('margin'), '20em', "making them visible in jQuery's .css()");
