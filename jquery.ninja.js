@@ -18,16 +18,70 @@
 
   ninja.fn.extend({
 
+    bevel: function (options) {
+      return this.each(function () {
+        var
+          $object = $(this);
+          options = $.extend({
+            direction: 'out'
+          }, options);
+        if (options.direction && options.direction === 'out') {
+          $object.css({
+            backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
+          });
+          if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
+            $object.css({
+              backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
+            });
+            if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
+              $object.css({
+                backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)))'
+              });
+              if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
+                $object.css({
+                  backgroundImage: "url('images/gradient.outset.svg')",
+                  backgroundRepeat: 'repeat-x'
+                });
+              }
+            }
+          }
+        }
+        else if (options.direction && options.direction === 'in') {
+          $object.css({
+            backgroundImage: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
+          });
+          if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
+            $object.css({
+              backgroundImage: '-moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
+            });
+            if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
+              $object.css({
+                backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)))'
+              });
+              if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
+                $object.css({
+                  backgroundImage: "url('images/gradient.inset.svg')",
+                  backgroundRepeat: 'repeat-x'
+                });
+              }
+            }
+          }
+        }
+      });
+    },
+
     button: function (options) {
       options = $.extend({
-        gradient: true,
+        bevel: 'out',
         radius: '0.3em'
       }, options);
       var $button = $.ninja('<span/>', {
         class: 'ninja ninjaBorder ninjaButton ninjaInline ninjaUnselectable'
       });
-      if (options.gradient) {
-        $button.addClass('ninjaGradient');
+      if (options.bevel) {
+        $button.bevel({
+          direction: 'out'
+        });
       }
       if (options.radius) {
         $button.round({
@@ -53,6 +107,11 @@
         },
         'deselect.ninja': function () {
           $button.removeClass('ninjaSelected');
+          if (options.bevel) {
+            $button.bevel({
+              direction: 'out'
+            });
+          }
         },
         'mouseenter.ninja': function () {
           if (!$('.ninjaDisabled', $button).length) {
@@ -66,6 +125,11 @@
         },
         'select.ninja': function () {
           $button.addClass('ninjaSelected');
+          if (options.bevel) {
+            $button.bevel({
+              direction: 'in'
+            });
+          }
         }
       });
       if (options.select) {
@@ -306,7 +370,7 @@
       var
         $object = this,
         $popup = $.ninja('<span/>', {
-          class: 'ninja ninjaBorder ninjaPopup ninjaInline ninjaShadow'
+          class: 'ninja ninjaPopup ninjaInline ninjaShadow'
         }),
         number = uniqueNumber();
       if (options.css) {
@@ -329,9 +393,9 @@
           if (options.button) {
             var
               $button = $('<span/>', {
-                class: 'ninja ninjaBorder ninjaPopupButton ninjaInline ninjaShadow ninjaSymbol ninjaSymbolRemove'
+                class: 'ninja ninjaPopupButton ninjaInline ninjaShadow ninjaSymbol ninjaSymbolClear'
               }).ninja().round({
-                radius: '0.8em'
+                radius: '0.6em'
               }).click(function () {
                 $popup.remove();
               });
@@ -503,7 +567,8 @@
           else {
             radii = [options.radius, options.radius, options.radius, options.radius];
           }
-          var borderRadius = false,
+          var
+            borderRadius = false,
             style = document.body.style;
           if (style.borderRadius !== undefined) {
             borderRadius = 'border';

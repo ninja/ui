@@ -5,10 +5,6 @@
 .ninja {
   background: transparent;
   border: 0;
-  -ms-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   line-height: 1.231;
   margin: 0;
   outline: 0;
@@ -18,21 +14,6 @@
 
 .ninjaBorder {
   border: 1px solid transparent;
-}
-
-.ninjaGradient,
-.ninjaGradient.ninjaSelected:active {
-  background-image: url("../images/gradient.outset.svg");
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)));
-  background-repeat: repeat-x;
-}
-.ninjaGradient:active,
-.ninjaGradient.ninjaSelected,
-.ninjaGradient.ninjaSliderGroove {
-  background-image: url("../images/gradient.inset.svg");
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25));
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)));
 }
 
 .ninjaInline {
@@ -47,13 +28,6 @@
   -moz-box-shadow: 0 0.2em 0.3em #000;
   -webkit-box-shadow: 0 0.2em 0.3em #000;
   box-shadow: 0 0.2em 0.3em #000;
-}
-
-.ninjaTruncate {
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .ninjaUnselectable {
@@ -129,22 +103,22 @@
 }
 
 .ninjaPopupButton {
-  border-width: 0.2em;
   cursor: pointer;
-  height: 1.6em;
+  font-size: 1.2em;
+  height: 1.2em;
+  line-height: 1.2em;
   position: absolute;
-  right: -0.8em;
+  right: -0.6em;
   text-align: center;
-  top: -0.8em;
-  width: 1.6em;
+  top: -0.6em;
+  width: 1.2em;
 }
 
 .ninjaPopupStem {
   cursor: default;
-  font-size: 1em;
   margin-left: -0.5em;
   position: absolute;
-  top: -1.2em;
+  top: -1em;
 }
 
 /* Rating */
@@ -215,11 +189,14 @@
 
 .ninjaTab {
   cursor: default;
-  height: 1.6em;
-  line-height: 1.6em;
   padding: 0 0.5em;
   text-align: center;
   white-space: nowrap;
+}
+
+.ninjaTab * {
+  float: left;
+  padding-right: 0.25em;
 }
 
 /* Hovered */
