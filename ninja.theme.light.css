@@ -35,19 +35,18 @@
 .ninjaPopup {
   background-color: #000;
   background-color: rgba(0,0,0,0.9);
-  border-color: #999;
   color: #ccc;
 }
 
 .ninjaPopupButton {
-  background-color: #000;
-  background-color: rgba(0,0,0,0.9);
-  border-color: #aaa;
-  color: #ccc;
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.9);
 }
 
 .ninjaPopupStem {
-  color: #999;
+  color: #000;
+  color: rgba(0,0,0,0.9);
 }
 
 .ninjaSliderGroove {
@@ -77,7 +76,7 @@
 
 .ninjaSpinner * {
   color: #000;
-  color: rgba(0,0,0,0.8);
+  color: rgba(0,0,0,0.4);
 }
 
 .ninjaStar {
