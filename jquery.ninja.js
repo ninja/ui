@@ -21,12 +21,12 @@
   ninja.fn.extend({
 
     bevel: function (options) {
+      var
+        $object = $(this),
+        options = $.extend({
+          direction: 'out'
+        }, options);
       return this.each(function () {
-        var
-          $object = $(this),
-          options = $.extend({
-            direction: 'out'
-          }, options);
         if (options.direction && options.direction === 'out') {
           $object.css({
             backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
@@ -641,12 +641,14 @@
           'class': 'ninja ninjaSliderChoice',
           html: options.choices[options.slot].html
         }),
-        $button = $('<span/>', {
-          'class': 'ninja ninjaBorder ninjaSliderButton ninjaGradient ninjaInline',
+        $button = ninja('<span/>', {
+          'class': 'ninja ninjaBorder ninjaSliderButton ninjaInline',
           css: {
             left: left
           }
-        }).ninja().round({
+        }).bevel({
+          direction: 'out'
+        }).round({
           radius: '1em'
         }),
         $temp = $button.clone().css({
@@ -655,15 +657,17 @@
         buttonDiameter = $temp.outerWidth(),
         buttonRadius = buttonDiameter / 2,
         trackWidth = options.width + buttonDiameter,
-        $level = $('<div/>', {
-          'class': 'ninja ninjaBorder ninjaGradient ninjaSliderLevel',
+        $level = ninja('<div/>', {
+          'class': 'ninja ninjaBorder ninjaSliderLevel',
           css: {
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
             width: left
           }
-        }).ninja().round({
-          radius: '1em'
+        }).bevel({
+          direction: 'out'
+        }).round({
+          radius: '0.3em'
         }),
         $slider = $('<span/>', {
           'class': 'ninja ninjaInline ninjaSlider'
@@ -696,20 +700,22 @@
             }
           }
         }).append($choice),
-        $track = $('<div/>', {
+        $track = ninja('<div/>', {
           'class': 'ninja ninjaSliderTrack',
           css: {
             width: trackWidth
           }
         }).appendTo($slider),
-        $groove = $('<div/>', {
-          'class': 'ninja ninjaBorder ninjaGradient ninjaSliderGroove',
+        $groove = ninja('<div/>', {
+          'class': 'ninja ninjaBorder ninjaSliderGroove',
           css: {
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
             opacity: 0.25
           }
-        }).ninja().round({
+        }).bevel({
+          direction: 'in'
+        }).round({
           radius: '0.3em'
         }).bind('click.ninja', function (event) {
           $button.trigger({
@@ -998,13 +1004,19 @@
         $tabs.css(options.css);
       }
       $.each(options.choices, function (i, choice) {
-        var $choice = $('<span/>', {
-          'class': 'ninja ninjaBorder ninjaGradient ninjaInline ninjaTab ninjaUnselectable',
+        var $choice = ninja('<span/>', {
+          'class': 'ninja ninjaBorder ninjaInline ninjaTab ninjaUnselectable',
           html: choice.html || choice
+        }).bevel({
+          direction: 'out'
         }).bind({
           'click.ninja': function () {
-            $('.ninjaTab', $tabs).removeClass('ninjaSelected');
-            $choice.addClass('ninjaSelected');
+            ninja('.ninjaTab', $tabs).bevel({
+              direction: 'out'
+            }).removeClass('ninjaSelected');
+            $choice.bevel({
+              direction: 'in'
+            }).addClass('ninjaSelected');
             $tabs.trigger({
               type: 'select.ninja',
               html: choice.html || choice
@@ -1015,9 +1027,6 @@
           },
           'mouseenter.ninja': function () {
             $choice.addClass('ninjaHovered');
-            if (options.gradient) {
-              $choice.addClass('ninjaGradient');
-            }
           },
           'mouseleave.ninja': function () {
             $choice.removeClass('ninjaHovered');
@@ -1036,7 +1045,9 @@
           });
         }
         if (i === options.choice - 1) {
-          $choice.addClass('ninjaSelected');
+          $choice.bevel({
+            direction: 'in'
+          }).addClass('ninjaSelected');
         }
         $tabs.append($choice);
       });
