@@ -209,9 +209,8 @@
 
 .ninjaDisabled {
   cursor: default;
-  height: 102%;
-  left: -1%;
+  left: -1px;
   position: absolute;
-  top: -1%;
-  width: 102%;
+  top: -1px;
+  width: 100%;
 }

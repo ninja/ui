@@ -168,7 +168,8 @@
             'class': 'ninja ninjaDisabled ninjaUnselectable',
             css: {
               maxHeight: $(window).width(),
-              maxWidth: $(window).width()
+              maxWidth: $(window).width(),
+              minHeight: $object.height() + 2
             }
           }).bind('click.ninja mouseenter.ninja mouseleave.ninja', function () {
             return false;
