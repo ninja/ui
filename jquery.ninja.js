@@ -8,6 +8,8 @@
 
 (function ($) {
 
+  'use strict';
+
   var
     counter,
     ninja = $.sub();
@@ -21,7 +23,7 @@
     bevel: function (options) {
       return this.each(function () {
         var
-          $object = $(this);
+          $object = $(this),
           options = $.extend({
             direction: 'out'
           }, options);
@@ -76,7 +78,7 @@
         radius: '0.3em'
       }, options);
       var $button = $.ninja('<span/>', {
-        class: 'ninja ninjaBorder ninjaButton ninjaInline ninjaUnselectable'
+        'class': 'ninja ninjaBorder ninjaButton ninjaInline ninjaUnselectable'
       });
       if (options.bevel) {
         $button.bevel({
@@ -163,7 +165,7 @@
         }
         else {
           var $shield = $('<div/>', {
-            class: 'ninja ninjaDisabled ninjaUnselectable',
+            'class': 'ninja ninjaDisabled ninjaUnselectable',
             css: {
               maxHeight: $(window).width(),
               maxWidth: $(window).width()
@@ -182,7 +184,7 @@
       }, options);
       var
         $tray = $('<div/>', {
-          class: 'ninja ninjaBorder ninjaDrawerTray',
+          'class': 'ninja ninjaBorder ninjaDrawerTray',
           css: options.css,
           html: options.html
         }).ninja().round({
@@ -190,7 +192,7 @@
           radius: options.radius
         }),
         $icon = $('<span/>', {
-          class: 'ninjaSymbol'
+          'class': 'ninjaSymbol'
         }),
         $handle = $.ninja().button({
           selected: options.selected,
@@ -214,7 +216,7 @@
           }
         }).prepend($icon),
         $drawer = $('<div/>', {
-          class: 'ninja ninjaDrawer'
+          'class': 'ninja ninjaDrawer'
         }).append($handle, $tray);
       if (options.selected) {
         $icon.addClass('ninjaSymbolMoveDown');
@@ -274,7 +276,7 @@
       }, options);
       var $object = this;
       var $list = $.ninja('<div/>', {
-        class: 'ninja ninjaList'
+        'class': 'ninja ninjaList'
       });
       if (options.html) {
         $list.html(options.html);
@@ -284,7 +286,7 @@
       }
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
-          class: 'ninja ninjaUnselectable',
+          'class': 'ninja ninjaUnselectable',
           html: choice.display || choice.html || choice
         });
         if (choice.spacer) {
@@ -370,7 +372,7 @@
       var
         $object = this,
         $popup = $.ninja('<span/>', {
-          class: 'ninja ninjaPopup ninjaInline ninjaShadow'
+          'class': 'ninja ninjaPopup ninjaInline ninjaShadow'
         }),
         number = uniqueNumber();
       if (options.css) {
@@ -393,7 +395,7 @@
           if (options.button) {
             var
               $button = $('<span/>', {
-                class: 'ninja ninjaPopupButton ninjaInline ninjaShadow ninjaSymbol ninjaSymbolClear'
+                'class': 'ninja ninjaPopupButton ninjaInline ninjaShadow ninjaSymbol ninjaSymbolClear'
               }).ninja().round({
                 radius: '0.6em'
               }).click(function () {
@@ -412,7 +414,7 @@
             var
               offset = $object.offset(),
               $stem = $('<span/>', {
-                class: 'ninjaPopupStem ninjaSymbol ninjaSymbolTriangle'
+                'class': 'ninjaPopupStem ninjaSymbol ninjaSymbolTriangle'
               });
             $popup.css({
               top: offset.top + $object.outerHeight()
@@ -466,7 +468,7 @@
         starsUser: 0
       }, options);
       var $rating = $('<span/>', {
-        class: 'ninja ninjaInline ninjaRating'
+        'class': 'ninja ninjaInline ninjaRating'
       }).bind({
         'mouseleave.ninja': function (event) {
           $('.ninjaStar', $rating).each(function (iStar, star) {
@@ -489,7 +491,7 @@
       $.each(options.choices, function (i, choice) {
         var iChoice = i + 1;
         var $choice = $('<span/>', {
-          class: 'ninjaStar ninjaSymbol ninjaSymbolStar'
+          'class': 'ninjaStar ninjaSymbol ninjaSymbolStar'
         }).append(choice).bind({
           'mouseenter.ninja': function (event) {
             $('.ninjaStar', $rating).each(function (iStar, star) {
@@ -636,11 +638,11 @@
         increment = options.width / slots,
         left = options.slot * increment,
         $choice = $('<span/>', {
-          class: 'ninja ninjaSliderChoice',
+          'class': 'ninja ninjaSliderChoice',
           html: options.choices[options.slot].html
         }),
         $button = $('<span/>', {
-          class: 'ninja ninjaBorder ninjaSliderButton ninjaGradient ninjaInline',
+          'class': 'ninja ninjaBorder ninjaSliderButton ninjaGradient ninjaInline',
           css: {
             left: left
           }
@@ -654,7 +656,7 @@
         buttonRadius = buttonDiameter / 2,
         trackWidth = options.width + buttonDiameter,
         $level = $('<div/>', {
-          class: 'ninja ninjaBorder ninjaGradient ninjaSliderLevel',
+          'class': 'ninja ninjaBorder ninjaGradient ninjaSliderLevel',
           css: {
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
@@ -664,7 +666,7 @@
           radius: '1em'
         }),
         $slider = $('<span/>', {
-          class: 'ninja ninjaInline ninjaSlider'
+          'class': 'ninja ninjaInline ninjaSlider'
         }).bind({
           'change.ninja select.ninja': function (event) {
             var slot = function () {
@@ -695,13 +697,13 @@
           }
         }).append($choice),
         $track = $('<div/>', {
-          class: 'ninja ninjaSliderTrack',
+          'class': 'ninja ninjaSliderTrack',
           css: {
             width: trackWidth
           }
         }).appendTo($slider),
         $groove = $('<div/>', {
-          class: 'ninja ninjaBorder ninjaGradient ninjaSliderGroove',
+          'class': 'ninja ninjaBorder ninjaGradient ninjaSliderGroove',
           css: {
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
@@ -722,7 +724,7 @@
       });
       if (options.title) {
         $choice.before($('<span/>', {
-          class: 'ninja ninjaSliderTitle ninjaUnselectable',
+          'class': 'ninja ninjaSliderTitle ninjaUnselectable',
           css: {
             marginLeft: buttonRadius
           },
@@ -789,10 +791,10 @@
       }, options);
       var
         $foreground = $('<span/>', {
-          class: 'ninjaSpinner1'
+          'class': 'ninjaSpinner1'
         }),
         $background = $('<span/>', {
-          class: 'ninjaSpinner',
+          'class': 'ninjaSpinner',
           css: options.css
         }).append($foreground),
         frame = 1;
@@ -802,7 +804,7 @@
           frame = 1;
         }
         $foreground.attr({
-          class: 'ninjaSpinner' + frame
+          'class': 'ninjaSpinner' + frame
         });
       }, options.speed);
       return $background;
@@ -813,7 +815,7 @@
         radius: '0.3em'
       }, options);
       var $suggest = $.ninja('<span/>', {
-        class: 'ninja ninjaBorder ninjaEditable ninjaInline ninjaSuggest'
+        'class': 'ninja ninjaBorder ninjaEditable ninjaInline ninjaSuggest'
       });
       if (options.css) {
         $suggest.css(options.css);
@@ -827,7 +829,7 @@
         });
       }
       var $input = $('<input/>', {
-        class: 'ninja',
+        'class': 'ninja',
         type: 'text'
       });
       if (options.placeholder) {
@@ -839,7 +841,7 @@
         $input.val(options.placeholder);
       }
       var $clear = $('<span/>', {
-        class: 'ninjaSuggestClear ninjaSymbol ninjaSymbolClear'
+        'class': 'ninjaSuggestClear ninjaSymbol ninjaSymbolClear'
       }).bind('click.ninja', function () {
         $input.val('').focus();
         $clear.css({
@@ -936,7 +938,7 @@
         'error.ninja': function (event) {
           $popup.update({
             html: $('<div/>', {
-              class: 'ninja ninjaError',
+              'class': 'ninja ninjaError',
               text: 'Error: ' + event.message
             })
           }).css({
@@ -990,14 +992,14 @@
       }, options);
       var $object = this;
       var $tabs = $.ninja('<span/>', {
-        class: 'ninja ninjaInline'
+        'class': 'ninja ninjaInline'
       });
       if (options.css) {
         $tabs.css(options.css);
       }
       $.each(options.choices, function (i, choice) {
         var $choice = $('<span/>', {
-          class: 'ninja ninjaBorder ninjaGradient ninjaInline ninjaTab ninjaUnselectable',
+          'class': 'ninja ninjaBorder ninjaGradient ninjaInline ninjaTab ninjaUnselectable',
           html: choice.html || choice
         }).bind({
           'click.ninja': function () {
