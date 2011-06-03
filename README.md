@@ -3,6 +3,15 @@
 
 jQuery plugin enabling you to create beautiful web interface objects efficiently and unobtrusively.
 
+Dependencies
+------------
+
+[Ninja Icons](https://github.com/ninja/icons/) and [jQuery](https://github.com/jquery/jquery/)
+
+Custom Styling
+--------------
+[Ninja Themes](https://github.com/ninja/themes)
+
 Authors
 -------
 
