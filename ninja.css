@@ -45,9 +45,10 @@
   white-space: nowrap;
 }
 
-.ninjaButton * {
-  float: left;
-  padding-right: 0.25em;
+.ninjaButton .ninjaSymbol {
+  line-height: 0.4em;
+  position: relative;
+  top: -0.4em;
 }
 
 /* Drawer */
@@ -57,9 +58,10 @@
   text-align: left;
 }
 
-.ninjaDrawerHandle * {
-  float: left;
-  padding-right: 0.25em;
+.ninjaDrawerHandle .ninjaSymbol {
+  line-height: 0.4em;
+  position: relative;
+  top: -0.4em;
 }
 
 .ninjaDrawerTray {
@@ -173,8 +175,13 @@
 
 .ninjaSuggest * {
   font-size: inherit;
-  float: left;
   margin: 0 0.2em;
+}
+
+.ninjaSuggest .ninjaSymbol {
+  line-height: 0.4em;
+  position: relative;
+  top: -0.4em;
 }
 
 .ninjaSuggest input {
@@ -194,9 +201,10 @@
   white-space: nowrap;
 }
 
-.ninjaTab * {
-  float: left;
-  padding-right: 0.25em;
+.ninjaTab .ninjaSymbol {
+  line-height: 0.4em;
+  position: relative;
+  top: -0.4em;
 }
 
 /* Hovered */
