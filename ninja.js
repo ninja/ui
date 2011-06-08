@@ -524,31 +524,27 @@
     },
 
     reflect: function () {
-      var $reflection = $('<div/>', {
-        'class': 'ninja ninjaReflection'
-      });
       return this.each(function () {
         var $object = $(this);
-        $reflection.css({
-          backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%)'
+        $object.css({
+          backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%), ' + $object.css('backgroundImage')
         });
-        if ($reflection.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
-          $reflection.css({
-            backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%)'
+        if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
+          $object.css({
+            backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%), ' + $object.css('backgroundImage')
           });
-          if ($reflection.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
-            $reflection.css({
-              backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.125)), to(rgba(255, 255, 255, 0.25) 50%), to(rgba(255, 255, 255, 0) 50%))'
+          if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
+            $object.css({
+              backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.125)), to(rgba(255, 255, 255, 0.25) 50%), to(rgba(255, 255, 255, 0) 50%)), ' + $object.css('backgroundImage')
             });
-            if ($reflection.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
-              $reflection.css({
-                backgroundImage: "url('images/reflect.svg')",
+            if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
+              $object.css({
+                backgroundImage: "url('images/reflect.svg'), " + $object.css('backgroundImage'),
                 backgroundRepeat: 'repeat-x'
               });
             }
           }
         }
-        $object.append($reflection);
       });
     },
 

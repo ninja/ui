@@ -30,14 +30,6 @@
   box-shadow: 0 0.2em 0.3em #000;
 }
 
-.ninjaReflection {
-  height: 104%;
-  left: -1px;
-  position: absolute;
-  top: -1px;
-  width: 104%;
-}
-
 .ninjaUnselectable {
   -moz-user-select: none;
   -webkit-user-select: none;
