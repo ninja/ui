@@ -1,0 +1,9 @@
+[submodule "icons"]
+	path = icons
+	url = git://github.com/ninja/icons.git
+[submodule "themes"]
+	path = themes
+	url = git://github.com/ninja/themes.git
+[submodule "test"]
+	path = test
+	url = git://github.com/ninja/test.git
