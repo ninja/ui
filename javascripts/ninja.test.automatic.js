@@ -22,7 +22,7 @@ $versions('1.5.2', '1.5.1', '1.5').load('../ninja.js').execute(function ($, jQue
   module('.button()');
 
     test("should be in Ninja UI's default button classes", function () {
-      expect(5);
+      expect(4);
       ok($.ninja().button().hasClass('ninja'), '.ninja');
       ok($.ninja().button().hasClass('ninjaButton'), '.ninjaButton');
       ok($.ninja().button().hasClass('ninjaBorder'), '.ninjaBorder');
