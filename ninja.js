@@ -22,22 +22,27 @@
 
     bevel: function (direction) {
       return this.each(function () {
-        var $object = $(this);
+        var
+          $object = $(this),
+          backgroundImage = $object.css('backgroundImage');
+        if (backgroundImage !== '') {
+          backgroundImage = backgroundImage + ', ';
+        }
         if (direction && direction === 'in') {
           $object.css({
-            backgroundImage: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
+            backgroundImage: backgroundImage + '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
           });
           if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
             $object.css({
-              backgroundImage: '-moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
+              backgroundImage: backgroundImage + '-moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
             });
             if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
               $object.css({
-                backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)))'
+                backgroundImage: backgroundImage + '-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)))'
               });
               if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
                 $object.css({
-                  backgroundImage: "url('images/bevel.in.svg')",
+                  backgroundImage: backgroundImage + "url('images/bevel.in.svg')",
                   backgroundRepeat: 'repeat-x'
                 });
               }
@@ -46,19 +51,19 @@
         }
         else {
           $object.css({
-            backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
+            backgroundImage: backgroundImage + '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
           });
           if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
             $object.css({
-              backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
+              backgroundImage: backgroundImage + '-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
             });
             if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
               $object.css({
-                backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)))'
+                backgroundImage: backgroundImage + '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)))'
               });
               if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
                 $object.css({
-                  backgroundImage: "url('images/bevel.out.svg')",
+                  backgroundImage: backgroundImage + "url('images/bevel.out.svg')",
                   backgroundRepeat: 'repeat-x'
                 });
               }
@@ -75,7 +80,7 @@
         reflect: true
       }, options);
       var $button = $.ninja('<span/>', {
-        'class': 'ninja ninjaBorder ninjaButton ninjaInline ninjaUnselectable'
+        'class': 'ninja ninjaBorder ninjaButton ninjaInline'
       });
       if (options.bevel) {
         $button.bevel();
@@ -159,7 +164,7 @@
         }
         else {
           var $shield = $('<div/>', {
-            'class': 'ninja ninjaDisabled ninjaUnselectable',
+            'class': 'ninja ninjaDisabled',
             css: {
               maxHeight: $(window).width(),
               maxWidth: $(window).width(),
@@ -281,7 +286,7 @@
       }
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
-          'class': 'ninja ninjaUnselectable',
+          'class': 'ninja',
           html: choice.display || choice.html || choice
         });
         if (choice.spacer) {
@@ -525,21 +530,26 @@
 
     reflect: function () {
       return this.each(function () {
-        var $object = $(this);
+        var
+          $object = $(this),
+          backgroundImage = $object.css('backgroundImage');
+        if (backgroundImage !== '') {
+          backgroundImage = ', ' + backgroundImage;
+        }
         $object.css({
-          backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%), ' + $object.css('backgroundImage')
+          backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%)' + backgroundImage
         });
         if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
           $object.css({
-            backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%), ' + $object.css('backgroundImage')
+            backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.125) 0, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0) 50%)' + backgroundImage
           });
           if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
             $object.css({
-              backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.125)), to(rgba(255, 255, 255, 0.25) 50%), to(rgba(255, 255, 255, 0) 50%)), ' + $object.css('backgroundImage')
+              backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.125)), to(rgba(255, 255, 255, 0.25) 50%), to(rgba(255, 255, 255, 0) 50%))' + backgroundImage
             });
             if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
               $object.css({
-                backgroundImage: "url('images/reflect.svg'), " + $object.css('backgroundImage'),
+                backgroundImage: "url('images/reflect.svg')" + backgroundImage,
                 backgroundRepeat: 'repeat-x'
               });
             }
