@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: 'Ninja Symbols';
-  src: url('fonts/ninja-symbols-webfont.eot');
-  src: url('fonts/ninja-symbols-webfont.eot?iefix') format('eot'),
-    url('fonts/ninja-symbols-webfont.woff') format('woff'),
-    url('fonts/ninja-symbols-webfont.ttf') format('truetype'),
-    url('fonts/ninja-symbols-webfont.svg#webfont2iyAOIKa') format('svg');
+  src: url('fonts/symbols.eot');
+  src: url('fonts/symbols.eot?iefix') format('eot'),
+    url('fonts/symbols.woff') format('woff'),
+    url('fonts/symbols.ttf') format('truetype'),
+    url('fonts/symbols.svg#webfont2iyAOIKa') format('svg');
   font-style: normal;
   font-weight: normal;
 }

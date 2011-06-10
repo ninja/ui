@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: 'Ninja Brands';
-  src: url('fonts/ninja-brands-webfont.eot');
-  src: url('fonts/ninja-brands-webfont.eot?iefix') format('eot'),
-    url('fonts/ninja-brands-webfont.woff') format('woff'),
-    url('fonts/ninja-brands-webfont.ttf') format('truetype'),
-    url('fonts/ninja-brands-webfont.svg#webfont2iyAOIKa') format('svg');
+  src: url('fonts/brands.eot');
+  src: url('fonts/brands.eot?iefix') format('eot'),
+    url('fonts/brands.woff') format('woff'),
+    url('fonts/brands.ttf') format('truetype'),
+    url('fonts/brands.svg#webfont2iyAOIKa') format('svg');
   font-style: normal;
   font-weight: normal;
 }
