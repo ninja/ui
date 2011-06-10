@@ -59,16 +59,6 @@
   border-color: #aaa;
 }
 
-.ninjaPopup .ninjaSpinner {
-  color: #333;
-  color: rgba(255,255,255,0.4);
-}
-
-.ninjaPopup .ninjaSpinnerFrame {
-  color: #ccc;
-  color: rgba(255,255,255,0.8);
-}
-
 .ninjaSpinner {
   color: #ccc;
   color: rgba(0,0,0,0.2);
@@ -77,6 +67,16 @@
 .ninjaSpinner * {
   color: #000;
   color: rgba(0,0,0,0.4);
+}
+
+.ninjaPopup .ninjaSpinner {
+  color: #333;
+  color: rgba(255,255,255,0.4);
+}
+
+.ninjaPopup .ninjaSpinner * {
+  color: #ccc;
+  color: rgba(255,255,255,0.8);
 }
 
 .ninjaStar {
@@ -91,7 +91,7 @@
   color: #9c0;
 }
 
-.ninjaSuggest .ninjaIcon {
+.ninjaSuggest .ninjaSymbol {
   color: #999;
 }
 
