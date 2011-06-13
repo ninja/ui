@@ -1091,7 +1091,7 @@
     },
 
     version: function () {
-      return '1.0.0beta2';
+      return '1.0beta2';
     }
 
   });
