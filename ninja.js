@@ -101,7 +101,7 @@
       }
       $button.bind({
         'click.ninja': function () {
-          if (!$('.ninjaDisabled', $button).length) {
+          if (!$button.is('.ninjaDisabled')) {
             if ($button.is('.ninjaSelected')) {
               $button.trigger('deselect.ninja');
             }
@@ -115,14 +115,17 @@
           if (options.bevel) {
             $button.bevel();
           }
+          if (options.reflect) {
+            $button.reflect();
+          }
         },
         'mouseenter.ninja': function () {
-          if (!$('.ninjaDisabled', $button).length) {
+          if (!$button.is('.ninjaDisabled')) {
             $button.addClass('ninjaHovered');
           }
         },
         'mouseleave.ninja': function () {
-          if (!$('.ninjaDisabled', $button).length) {
+          if (!$button.is('.ninjaDisabled')) {
             $button.removeClass('ninjaHovered');
           }
         },
@@ -135,6 +138,9 @@
       });
       if (options.select) {
         $button.trigger('select.ninja');
+      }
+      if (options.disable) {
+        $button.disable();
       }
       return $button;
     },
@@ -151,6 +157,18 @@
       });
     },
 
+    deselect: function (callback) {
+      return this.each(function () {
+        var $object = $(this);
+        if (callback && $.isFunction(callback)) {
+          $object.bind('deselect.ninja', callback);
+        }
+        else if ($object.is('.ninjaSelected') && !$object.is('.ninjaDisabled')) {
+          $object.trigger('deselect.ninja');
+        }
+      });
+    },
+
     detach: function () {
       this.trigger('detach.ninja');
       $.fn.detach.apply(this);
@@ -163,17 +181,7 @@
           $object.bind('disable.ninja', callback);
         }
         else {
-          var $shield = $('<div/>', {
-            'class': 'ninja ninjaDisabled',
-            css: {
-              maxHeight: $(window).width(),
-              maxWidth: $(window).width(),
-              minHeight: $object.height() + 2
-            }
-          }).bind('click.ninja mouseenter.ninja mouseleave.ninja', function () {
-            return false;
-          });
-          $object.append($shield.fadeIn('fast').trigger('disable.ninja'));
+          $object.fadeTo('fast', 0.25).addClass('ninjaDisabled').trigger('disable.ninja');
         }
       });
     },
@@ -228,18 +236,6 @@
       return $drawer;
     },
 
-    deselect: function (callback) {
-      return this.each(function () {
-        var $object = $(this);
-        if (callback && $.isFunction(callback)) {
-          $object.bind('deselect.ninja', callback);
-        }
-        else if ($object.is('.ninjaSelected')) {
-          $object.trigger('deselect.ninja');
-        }
-      });
-    },
-
     enable: function (callback) {
       return this.each(function () {
         var $object = $(this).ninja();
@@ -247,10 +243,7 @@
           $object.bind('enable.ninja', callback);
         }
         else {
-          var $shield = $('.ninjaDisabled', $object).fadeOut('fast', function () {
-            $shield.remove();
-          });
-          $object.trigger('enable.ninja');
+          $object.fadeTo('fast', 1).removeClass('ninjaDisabled').trigger('enable.ninja');
         }
       });
     },
@@ -649,7 +642,7 @@
         if ($.isFunction(event)) {
           $object.bind('select.ninja', event);
         }
-        else {
+        else if (!$object.is('.ninjaDisabled')) {
           $object.trigger('select.ninja');
         }
       });
