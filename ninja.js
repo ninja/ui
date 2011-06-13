@@ -22,27 +22,22 @@
 
     bevel: function (direction) {
       return this.each(function () {
-        var
-          $object = $(this),
-          backgroundImage = $object.css('backgroundImage');
-        if (backgroundImage !== '') {
-          backgroundImage = backgroundImage + ', ';
-        }
+        var $object = $(this);
         if (direction && direction === 'in') {
           $object.css({
-            backgroundImage: backgroundImage + '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
+            backgroundImage: '-webkit-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
           });
           if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
             $object.css({
-              backgroundImage: backgroundImage + '-moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
+              backgroundImage: '-moz-linear-gradient(top, rgba(0, 0, 0, 0.125), rgba(255, 255, 255, 0.25))'
             });
             if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
               $object.css({
-                backgroundImage: backgroundImage + '-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)))'
+                backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.125)), to(rgba(255, 255, 255, 0.25)))'
               });
               if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
                 $object.css({
-                  backgroundImage: backgroundImage + "url('images/bevel.in.svg')",
+                  backgroundImage: "url('images/bevel.in.svg')",
                   backgroundRepeat: 'repeat-x'
                 });
               }
@@ -51,19 +46,19 @@
         }
         else {
           $object.css({
-            backgroundImage: backgroundImage + '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
+            backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
           });
           if ($object.css('backgroundImage').indexOf('-webkit-linear-gradient') === -1) {
             $object.css({
-              backgroundImage: backgroundImage + '-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
+              backgroundImage: '-moz-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.125))'
             });
             if ($object.css('backgroundImage').indexOf('-moz-linear-gradient') === -1) {
               $object.css({
-                backgroundImage: backgroundImage + '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)))'
+                backgroundImage: '-webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.25)), to(rgba(0, 0, 0, 0.125)))'
               });
               if ($object.css('backgroundImage').indexOf('-webkit-gradient') === -1) {
                 $object.css({
-                  backgroundImage: backgroundImage + "url('images/bevel.out.svg')",
+                  backgroundImage: "url('images/bevel.out.svg')",
                   backgroundRepeat: 'repeat-x'
                 });
               }
@@ -75,7 +70,7 @@
 
     button: function (options) {
       options = $.extend({
-        bevel: 'out',
+        bevel: true,
         radius: '0.3em',
         reflect: true
       }, options);
@@ -1014,9 +1009,10 @@
 
     tabs: function (options) {
       options = $.extend({
+        bevel: true,
         choice: 0,
-        gradient: true,
-        radius: '0.3em'
+        radius: '0.3em',
+        reflect: true
       }, options);
       var $object = this;
       var $tabs = $.ninja('<span/>', {
@@ -1031,7 +1027,7 @@
           html: choice.html || choice
         }).bevel().reflect().bind({
           'click.ninja': function () {
-            ninja('.ninjaTab', $tabs).bevel().removeClass('ninjaSelected');
+            ninja('.ninjaTab', $tabs).bevel().reflect().removeClass('ninjaSelected');
             $choice.bevel('in').addClass('ninjaSelected');
             $tabs.trigger({
               type: 'select.ninja',
