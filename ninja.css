@@ -34,7 +34,7 @@
 
 .ninjaButton {
   cursor: default;
-  padding: 0 0.5em;
+  padding: 0.125em 0.5em;
   text-align: center;
   white-space: nowrap;
 }
@@ -190,7 +190,7 @@
 
 .ninjaTab {
   cursor: default;
-  padding: 0 0.5em;
+  padding: 0.125em 0.5em;
   text-align: center;
   white-space: nowrap;
 }
