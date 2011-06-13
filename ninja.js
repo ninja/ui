@@ -365,7 +365,10 @@
       var
         $object = this,
         $popup = $.ninja('<span/>', {
-          'class': 'ninja ninjaPopup ninjaInline ninjaShadow'
+          'class': 'ninja ninjaPopup ninjaInline ninjaShadow',
+          css: {
+            minWidth: $object.width()
+          }
         }),
         number = uniqueNumber();
       if (options.css) {
