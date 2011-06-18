@@ -188,6 +188,10 @@
 
 /* Tab */
 
+.ninjaTabsHorizontal {
+  white-space: nowrap;
+}
+
 .ninjaTab {
   cursor: default;
   padding: 0.125em 0.5em;

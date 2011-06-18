@@ -1018,6 +1018,12 @@
       var $tabs = $.ninja('<span/>', {
         'class': 'ninja ninjaInline'
       });
+      if (options.vertical) {
+        $tabs.addClass('ninjaTabsVertical');
+      }
+      else {
+        $tabs.addClass('ninjaTabsHorizontal');
+      }
       if (options.css) {
         $tabs.css(options.css);
       }
