@@ -2,109 +2,105 @@
   Copyright 2010 Jamie Hoover
 */
 
-.ninjaButton,
-.ninjaSliderButton,
-.ninjaTab {
+.ninjaThemeDojo {
+  color: #fff;
+}
+
+.ninjaThemeDojo .ninjaButton,
+.ninjaThemeDojo .ninjaSliderButton,
+.ninjaThemeDojo .ninjaTab {
   background-color: #333;
   border-color: #000;
   color: #fff;
 }
 
-.ninjaDrawerTray {
-  background-color: #fff;
-  border-color: #bbb;
-  border-bottom-color: #ddd;
-  border-top-color: #888;
-  color: #333
+.ninjaThemeDojo .ninjaDrawerTray,
+.ninjaThemeDojo .ninjaEditable {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.5);
+  border-color: #333;
+  border-bottom-color: #666;
+  border-top-color: #000;
 }
 
-.ninjaEditable {
-  background-color: #fff;
-  border-color: #bbb;
-  border-bottom-color: #ddd;
-  border-top-color: #888;
-  color: #333
+.ninjaThemeDojo .ninjaEditable input {
+  color: #fff;
 }
 
-.ninjaListChoice.ninjaHovered {
+.ninjaThemeDojo .ninjaListChoice.ninjaHovered {
   background-color: #ddd;
   border-color: #666;
   color: #333;
 }
 
-.ninjaPopup {
+.ninjaThemeDojo .ninjaPopup {
   background-color: #fff;
-  color: #333;
 }
 
-.ninjaPopupButton {
+.ninjaThemeDojo .ninjaPopupButton {
   background-color: #fff;
   color: #000;
   color: rgba(0,0,0,0.9);
 }
 
-.ninjaPopupStem {
+.ninjaThemeDojo .ninjaPopupStem {
   color: #fff;
 }
 
-.ninjaSliderGroove {
+.ninjaThemeDojo .ninjaSliderGroove {
   background-color: #000;
   border-color: #000;
 }
 
-.ninjaSliderLevel {
+.ninjaThemeDojo .ninjaSliderLevel {
   background-color: #f00;
   border-color: #600;
 }
 
-.ninjaSpinner {
+.ninjaThemeDojo .ninjaSpinner {
   color: #666;
 }
 
-.ninjaSpinner * {
+.ninjaThemeDojo .ninjaSpinner * {
   color: #fff;
 }
 
-.ninjaPopup .ninjaSpinner {
+.ninjaThemeDojo .ninjaPopup .ninjaSpinner {
   color: #999;
 }
 
-.ninjaPopup .ninjaSpinner * {
+.ninjaThemeDojo .ninjaPopup .ninjaSpinner * {
   color: #333;
 }
 
-.ninjaStar {
+.ninjaThemeDojo .ninjaStar {
   color: #666;
 }
 
-.ninjaStar.ninjaStarAverage {
+.ninjaThemeDojo .ninjaStar.ninjaStarAverage {
   color: #39c;
 }
 
-.ninjaStar.ninjaStarUser {
+.ninjaThemeDojo .ninjaStar.ninjaStarUser {
   color: #c00;
 }
 
-.ninjaSuggest .ninjaSymbol {
-  color: #999;
-}
-
-.ninjaTab {
+.ninjaThemeDojo .ninjaTab {
   border-left-color: transparent;
 }
 
-.ninjaTabFirst {
+.ninjaThemeDojo .ninjaTabFirst {
   border-left-color: #000;
 }
 
 /* State changes, keep these last and in order! */
 
-.ninjaSelected {
+.ninjaThemeDojo .ninjaSelected {
   background-color: #c00;
   border-color: #900;
   color: #fff;
 }
 
-.ninjaHovered {
+.ninjaThemeDojo .ninjaHovered {
   border-color: #900;
 }

@@ -1,0 +1,113 @@
+/*
+  Copyright 2010 Jamie Hoover
+*/
+
+.ninjaThemeChocolate {
+  color: #630;
+}
+
+.ninjaThemeChocolate .ninjaButton,
+.ninjaThemeChocolate .ninjaSliderButton,
+.ninjaThemeChocolate .ninjaTab {
+  background-color: #fff;
+  border-color: #c96;
+  color: #630;
+}
+
+.ninjaThemeChocolate .ninjaDrawerTray,
+.ninjaThemeChocolate .ninjaEditable {
+  background-color: #fff;
+  border-color: #c96;
+  border-bottom-color: #fc9;
+  border-top-color: #963;
+}
+
+.ninjaThemeChocolate .ninjaEditable input {
+  color: #300;
+}
+
+.ninjaThemeChocolate .ninjaListChoice.ninjaHovered {
+  background-color: #ddd;
+  border-color: #666;
+  color: #333;
+}
+
+.ninjaThemeChocolate .ninjaPopup {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.9);
+  color: #ccc;
+}
+
+.ninjaThemeChocolate .ninjaPopupButton {
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.9);
+}
+
+.ninjaThemeChocolate .ninjaPopupStem {
+  color: #000;
+  color: rgba(0,0,0,0.9);
+}
+
+.ninjaThemeChocolate .ninjaSliderGroove {
+  background-color: #999;
+  border-color: #666;
+}
+
+.ninjaThemeChocolate .ninjaSliderLevel {
+  background-color: #c63;
+  border-color: #930;
+}
+
+.ninjaThemeChocolate .ninjaSpinner {
+  color: #c96;
+  color: rgba(204,153,102,0.5);
+}
+
+.ninjaThemeChocolate .ninjaSpinner * {
+  color: #630;
+}
+
+.ninjaThemeChocolate .ninjaPopup .ninjaSpinner {
+  color: #999;
+}
+
+.ninjaThemeChocolate .ninjaPopup .ninjaSpinner * {
+  color: #ccc;
+}
+
+.ninjaThemeChocolate .ninjaStar {
+  color: #ccc;
+}
+
+.ninjaThemeChocolate .ninjaStar.ninjaStarAverage {
+  color: #900;
+}
+
+.ninjaThemeChocolate .ninjaStar.ninjaStarUser {
+  color: #9c0;
+}
+
+.ninjaThemeChocolate .ninjaSuggest .ninjaSymbol {
+  color: #999;
+}
+
+.ninjaThemeChocolate .ninjaTab {
+  border-left-color: transparent;
+}
+
+.ninjaThemeChocolate .ninjaTabFirst {
+  border-left-color: #aaa;
+}
+
+/* State changes, keep these last and in order! */
+
+.ninjaThemeChocolate .ninjaSelected {
+  background-color: #930;
+  border-color: #630;
+  color: #fff
+}
+
+.ninjaThemeChocolate .ninjaHovered {
+  border-color: #888;
+}

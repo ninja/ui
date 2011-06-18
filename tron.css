@@ -1,0 +1,106 @@
+/*
+  Copyright 2010 Jamie Hoover
+*/
+
+.ninjaThemeTron {
+  color: #0df;
+}
+
+.ninjaThemeTron .ninjaButton,
+.ninjaThemeTron .ninjaSliderButton,
+.ninjaThemeTron .ninjaTab {
+  background-color: #333;
+  border-color: #09c;
+  color: #0df;
+}
+
+.ninjaThemeTron .ninjaDrawerTray,
+.ninjaThemeTron .ninjaEditable {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.5);
+  border-color: #09c;
+}
+
+.ninjaThemeTron .ninjaEditable input {
+  color: #0df;
+}
+
+.ninjaThemeTron .ninjaListChoice.ninjaHovered {
+  background-color: #ddd;
+  border-color: #666;
+  color: #333;
+}
+
+.ninjaThemeTron .ninjaPopup {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+}
+
+.ninjaThemeTron .ninjaPopupButton {
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninjaThemeTron .ninjaPopupStem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninjaThemeTron .ninjaSliderGroove {
+  background-color: #000;
+  border-color: #09c;
+}
+
+.ninjaThemeTron .ninjaSliderLevel {
+  background-color: #0df;
+  border-color: #09c;
+}
+
+.ninjaThemeTron .ninjaSpinner {
+  color: #069;
+}
+
+.ninjaThemeTron .ninjaSpinner * {
+  color: #09c;
+}
+
+.ninjaThemeTron .ninjaPopup .ninjaSpinner {
+  color: #999;
+}
+
+.ninjaThemeTron .ninjaPopup .ninjaSpinner * {
+  color: #333;
+}
+
+.ninjaThemeTron .ninjaStar {
+  color: #666;
+}
+
+.ninjaThemeTron .ninjaStar.ninjaStarAverage {
+  color: #39c;
+}
+
+.ninjaThemeTron .ninjaStar.ninjaStarUser {
+  color: #c00;
+}
+
+.ninjaThemeTron .ninjaTab {
+  border-left-color: transparent;
+}
+
+.ninjaThemeTron .ninjaTabFirst {
+  border-left-color: #09c;
+}
+
+/* State changes, keep these last and in order! */
+
+.ninjaThemeTron .ninjaSelected {
+  background-color: #0df;
+  border-color: #09c;
+  color: #000;
+}
+
+.ninjaThemeTron .ninjaHovered {
+  border-color: #0df;
+}
