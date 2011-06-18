@@ -398,7 +398,15 @@
               });
             $popup.append($button);
           }
-          $(document.body).append($popup);
+          if (options.theme) {
+            var $theme = $('<div/>', {
+              'class': 'ninjaTheme' + options.theme
+            }).append($popup);
+            $(document.body).append($theme);
+          }
+          else {
+            $(document.body).append($popup);
+          }
           if (options.window) {
             $popup.css({
               left: ($(window).width() / 2) - ($popup.outerWidth() / 2),
