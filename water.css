@@ -18,20 +18,24 @@
   color: #333;
 }
 
-.ninjaThemeWater .ninjaDrawerTray {
-  background-color: #fff;
-  border-color: #bbb;
-  border-bottom-color: #ddd;
-  border-top-color: #888;
-  color: #333
-}
-
+.ninjaThemeWater .ninjaDrawerTray,
 .ninjaThemeWater .ninjaEditable {
   background-color: #fff;
   border-color: #bbb;
   border-bottom-color: #ddd;
   border-top-color: #888;
-  color: #333
+}
+
+.ninjaThemeWater .ninjaDrawerTray {
+  border-top-color: #eee;
+}
+
+.ninjaThemeWater .ninjaEditable {
+  border-top-color: #bbb;
+}
+
+.ninjaThemeWater .ninjaEditable input {
+  color: #000;
 }
 
 .ninjaThemeWater .ninjaListChoice.ninjaHovered {

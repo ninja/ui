@@ -14,21 +14,24 @@
   color: #333;
 }
 
-.ninjaThemeMilk .ninjaDrawerTray {
-  background-color: #fff;
-  background-color: rgba(255,255,255,0.85);
-  border-color: #ccc;
-  border-bottom-color: #ddd;
-  border-top-color: #eee;
-}
-
+.ninjaThemeMilk .ninjaDrawerTray,
 .ninjaThemeMilk .ninjaEditable {
   background-color: #fff;
   background-color: rgba(255,255,255,0.85);
   border-color: #ccc;
   border-bottom-color: #ddd;
+}
+
+.ninjaThemeMilk .ninjaDrawerTray {
+  border-top-color: #eee;
+}
+
+.ninjaThemeMilk .ninjaEditable {
   border-top-color: #bbb;
-  color: #333
+}
+
+.ninjaThemeMilk .ninjaEditable input {
+  color: #333;
 }
 
 .ninjaThemeMilk .ninjaListChoice.ninjaHovered {

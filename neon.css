@@ -2,105 +2,105 @@
   Copyright 2010 Jamie Hoover
 */
 
-.ninjaThemeTron {
+.ninjaThemeNeon {
   color: #0df;
 }
 
-.ninjaThemeTron .ninjaButton,
-.ninjaThemeTron .ninjaSliderButton,
-.ninjaThemeTron .ninjaTab {
+.ninjaThemeNeon .ninjaButton,
+.ninjaThemeNeon .ninjaSliderButton,
+.ninjaThemeNeon .ninjaTab {
   background-color: #333;
   border-color: #09c;
   color: #0df;
 }
 
-.ninjaThemeTron .ninjaDrawerTray,
-.ninjaThemeTron .ninjaEditable {
+.ninjaThemeNeon .ninjaDrawerTray,
+.ninjaThemeNeon .ninjaEditable {
   background-color: #000;
   background-color: rgba(0,0,0,0.5);
   border-color: #09c;
 }
 
-.ninjaThemeTron .ninjaEditable input {
+.ninjaThemeNeon .ninjaEditable input {
   color: #0df;
 }
 
-.ninjaThemeTron .ninjaListChoice.ninjaHovered {
+.ninjaThemeNeon .ninjaListChoice.ninjaHovered {
   background-color: #ddd;
   border-color: #666;
   color: #333;
 }
 
-.ninjaThemeTron .ninjaPopup {
+.ninjaThemeNeon .ninjaPopup {
   background-color: #000;
   background-color: rgba(0,0,0,0.85);
 }
 
-.ninjaThemeTron .ninjaPopupButton {
+.ninjaThemeNeon .ninjaPopupButton {
   background-color: #fff;
   color: #000;
   color: rgba(0,0,0,0.85);
 }
 
-.ninjaThemeTron .ninjaPopupStem {
+.ninjaThemeNeon .ninjaPopupStem {
   color: #000;
   color: rgba(0,0,0,0.85);
 }
 
-.ninjaThemeTron .ninjaSliderGroove {
+.ninjaThemeNeon .ninjaSliderGroove {
   background-color: #000;
   border-color: #09c;
 }
 
-.ninjaThemeTron .ninjaSliderLevel {
+.ninjaThemeNeon .ninjaSliderLevel {
   background-color: #0df;
   border-color: #09c;
 }
 
-.ninjaThemeTron .ninjaSpinner {
+.ninjaThemeNeon .ninjaSpinner {
   color: #069;
 }
 
-.ninjaThemeTron .ninjaSpinner * {
+.ninjaThemeNeon .ninjaSpinner * {
   color: #09c;
 }
 
-.ninjaThemeTron .ninjaPopup .ninjaSpinner {
+.ninjaThemeNeon .ninjaPopup .ninjaSpinner {
   color: #999;
 }
 
-.ninjaThemeTron .ninjaPopup .ninjaSpinner * {
+.ninjaThemeNeon .ninjaPopup .ninjaSpinner * {
   color: #333;
 }
 
-.ninjaThemeTron .ninjaStar {
+.ninjaThemeNeon .ninjaStar {
   color: #666;
 }
 
-.ninjaThemeTron .ninjaStar.ninjaStarAverage {
+.ninjaThemeNeon .ninjaStar.ninjaStarAverage {
   color: #39c;
 }
 
-.ninjaThemeTron .ninjaStar.ninjaStarUser {
+.ninjaThemeNeon .ninjaStar.ninjaStarUser {
   color: #c00;
 }
 
-.ninjaThemeTron .ninjaTab {
+.ninjaThemeNeon .ninjaTab {
   border-left-color: transparent;
 }
 
-.ninjaThemeTron .ninjaTabFirst {
+.ninjaThemeNeon .ninjaTabFirst {
   border-left-color: #09c;
 }
 
 /* State changes, keep these last and in order! */
 
-.ninjaThemeTron .ninjaSelected {
+.ninjaThemeNeon .ninjaSelected {
   background-color: #0df;
   border-color: #09c;
   color: #000;
 }
 
-.ninjaThemeTron .ninjaHovered {
+.ninjaThemeNeon .ninjaHovered {
   border-color: #0df;
 }
