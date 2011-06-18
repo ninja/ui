@@ -198,7 +198,7 @@
           'class': 'ninjaSymbol'
         }),
         $handle = $.ninja().button({
-          selected: options.selected,
+          select: options.select,
           html: options.title
         }).addClass('ninjaDrawerHandle').bind({
           'deselect.ninja': function () {
@@ -221,8 +221,12 @@
         $drawer = $('<div/>', {
           'class': 'ninja ninjaDrawer'
         }).append($handle, $tray);
-      if (options.selected) {
+      if (options.select) {
         $icon.addClass('ninjaSymbolMoveDown');
+        $handle.ninja().round({
+          corners: 'top',
+          radius: options.radius
+        });
       }
       else {
         $icon.addClass('ninjaSymbolMoveRight');
