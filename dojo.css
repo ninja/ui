@@ -18,7 +18,7 @@
 .ninjaThemeDojo .ninjaDrawerTray,
 .ninjaThemeDojo .ninjaEditable {
   background-color: #000;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.85);
   border-color: #333;
   border-bottom-color: #666;
   border-top-color: #000;
@@ -28,14 +28,13 @@
   color: #fff;
 }
 
-.ninjaThemeDojo .ninjaListChoice.ninjaHovered {
-  background-color: #ddd;
-  border-color: #666;
-  color: #333;
+.ninjaThemeDojo .ninjaListSpacer {
+  border-top-color: #666;
 }
 
 .ninjaThemeDojo .ninjaPopup {
-  background-color: #fff;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
 }
 
 .ninjaThemeDojo .ninjaPopupButton {
@@ -45,7 +44,8 @@
 }
 
 .ninjaThemeDojo .ninjaPopupStem {
-  color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.85);
 }
 
 .ninjaThemeDojo .ninjaSliderGroove {
@@ -96,11 +96,12 @@
 
 /* State changes, keep these last and in order! */
 
-.ninjaThemeDojo .ninjaSelected {
+.ninjaThemeDojo .ninjaSelected,
+.ninjaThemeDojo .ninjaListChoice.ninjaHovered {
   background-color: #c00;
   border-color: #900;
-  color: #fff;
 }
+
 
 .ninjaThemeDojo .ninjaHovered {
   border-color: #900;

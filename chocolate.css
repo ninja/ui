@@ -27,27 +27,21 @@
   color: #300;
 }
 
-.ninjaThemeChocolate .ninjaListChoice.ninjaHovered {
-  background-color: #ddd;
-  border-color: #666;
-  color: #333;
+.ninjaThemeChocolate .ninjaListSpacer {
+  border-top-color: #c96;
 }
 
 .ninjaThemeChocolate .ninjaPopup {
-  background-color: #000;
-  background-color: rgba(0,0,0,0.9);
-  color: #ccc;
+  background-color: #fff;
 }
 
 .ninjaThemeChocolate .ninjaPopupButton {
   background-color: #fff;
-  color: #000;
-  color: rgba(0,0,0,0.9);
+  color: #930;
 }
 
 .ninjaThemeChocolate .ninjaPopupStem {
-  color: #000;
-  color: rgba(0,0,0,0.9);
+  color: #fff;
 }
 
 .ninjaThemeChocolate .ninjaSliderGroove {
@@ -78,15 +72,15 @@
 }
 
 .ninjaThemeChocolate .ninjaStar {
-  color: #ccc;
+  color: #fff;
 }
 
 .ninjaThemeChocolate .ninjaStar.ninjaStarAverage {
-  color: #900;
+  color: #c96;
 }
 
 .ninjaThemeChocolate .ninjaStar.ninjaStarUser {
-  color: #9c0;
+  color: #930;
 }
 
 .ninjaThemeChocolate .ninjaSuggest .ninjaSymbol {
@@ -103,7 +97,8 @@
 
 /* State changes, keep these last and in order! */
 
-.ninjaThemeChocolate .ninjaSelected {
+.ninjaThemeChocolate .ninjaSelected,
+.ninjaThemeChocolate .ninjaListChoice.ninjaHovered {
   background-color: #930;
   border-color: #630;
   color: #fff

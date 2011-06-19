@@ -10,7 +10,7 @@
 .ninjaThemeNeon .ninjaButton,
 .ninjaThemeNeon .ninjaSliderButton,
 .ninjaThemeNeon .ninjaTab {
-  background-color: #333;
+  background-color: #000;
   border-color: #09c;
   color: #0df;
 }
@@ -18,7 +18,7 @@
 .ninjaThemeNeon .ninjaDrawerTray,
 .ninjaThemeNeon .ninjaEditable {
   background-color: #000;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.85);
   border-color: #09c;
 }
 
@@ -26,10 +26,8 @@
   color: #0df;
 }
 
-.ninjaThemeNeon .ninjaListChoice.ninjaHovered {
-  background-color: #ddd;
-  border-color: #666;
-  color: #333;
+.ninjaThemeNeon .ninjaListSpacer {
+  border-top-color: #09c;
 }
 
 .ninjaThemeNeon .ninjaPopup {
@@ -38,7 +36,7 @@
 }
 
 .ninjaThemeNeon .ninjaPopupButton {
-  background-color: #fff;
+  background-color: #0df;
   color: #000;
   color: rgba(0,0,0,0.85);
 }
@@ -75,15 +73,16 @@
 }
 
 .ninjaThemeNeon .ninjaStar {
-  color: #666;
+  color: #000;
+  color: rgba(0,0,0,0.85);
 }
 
 .ninjaThemeNeon .ninjaStar.ninjaStarAverage {
-  color: #39c;
+  color: #09c;
 }
 
 .ninjaThemeNeon .ninjaStar.ninjaStarUser {
-  color: #c00;
+  color: #0df;
 }
 
 .ninjaThemeNeon .ninjaTab {
@@ -96,7 +95,8 @@
 
 /* State changes, keep these last and in order! */
 
-.ninjaThemeNeon .ninjaSelected {
+.ninjaThemeNeon .ninjaSelected,
+.ninjaThemeNeon .ninjaListChoice.ninjaHovered {
   background-color: #0df;
   border-color: #09c;
   color: #000;

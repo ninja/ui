@@ -35,27 +35,23 @@
   color: #333;
 }
 
-.ninjaThemeMilk .ninjaListChoice.ninjaHovered {
-  background-color: #ddd;
-  border-color: #666;
-  color: #333;
+.ninjaThemeMilk .ninjaListSpacer {
+  border-top-color: #ccc;
 }
 
 .ninjaThemeMilk .ninjaPopup {
-  background-color: #000;
-  background-color: rgba(0,0,0,0.9);
-  color: #ccc;
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.85);
 }
 
 .ninjaThemeMilk .ninjaPopupButton {
   background-color: #fff;
-  color: #000;
-  color: rgba(0,0,0,0.9);
+  color: #333;
 }
 
 .ninjaThemeMilk .ninjaPopupStem {
-  color: #000;
-  color: rgba(0,0,0,0.9);
+  color: #fff;
+  color: rgba(255,255,255,0.85);
 }
 
 .ninjaThemeMilk .ninjaSliderGroove {
@@ -85,15 +81,15 @@
 }
 
 .ninjaThemeMilk .ninjaStar {
-  color: #ccc;
+  color: #fff;
 }
 
 .ninjaThemeMilk .ninjaStar.ninjaStarAverage {
-  color: #900;
+  color: #aaa;
 }
 
 .ninjaThemeMilk .ninjaStar.ninjaStarUser {
-  color: #9c0;
+  color: #333;
 }
 
 .ninjaThemeMilk .ninjaSuggest .ninjaSymbol {
@@ -110,10 +106,11 @@
 
 /* State changes, keep these last and in order! */
 
-.ninjaThemeMilk .ninjaSelected {
-  background-color: #eee;
-  color: #000;
+.ninjaThemeMilk .ninjaSelected,
+.ninjaThemeMilk .ninjaListChoice.ninjaHovered {
+  background-color: #ccc;
 }
+
 
 .ninjaThemeMilk .ninjaHovered {
   border-color: #888;
