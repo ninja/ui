@@ -84,7 +84,8 @@
 }
 
 .ninjaListSpacer {
-  padding: 0 1em;
+  border-top: 1px solid transparent;
+  margin: 0.4em 0;
   white-space: nowrap;
 }
 
