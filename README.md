@@ -6,11 +6,17 @@ jQuery plugin enabling you to create beautiful web interface objects efficiently
 Dependencies
 ------------
 
-[Ninja Icons](https://github.com/ninja/icons/) and [jQuery](https://github.com/jquery/jquery/)
+[jQuery](https://github.com/jquery/jquery/)
+
+Navigate to wherever you cloned/downloaded Ninja UI and grab submodules
+		cd ~/yoursite/public/ui
+    git submodule init
+    git submodule update
+
 
 Custom Styling
 --------------
-[Ninja Themes](https://github.com/ninja/themes)
+[Ninja Themes](http://ninjaui.com/themes)
 
 Authors
 -------
