@@ -9,7 +9,8 @@ Dependencies
 [jQuery](https://github.com/jquery/jquery/)
 
 Navigate to wherever you cloned/downloaded Ninja UI and grab submodules
-		cd ~/yoursite/public/ui
+
+    cd ~/yoursite/public/ui
     git submodule init
     git submodule update
 
