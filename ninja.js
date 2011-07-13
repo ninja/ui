@@ -1042,14 +1042,16 @@
       $.each(options.choices, function (i, choice) {
         var $choice = ninja('<span/>', {
           'class': 'ninja ninjaBorder ninjaInline ninjaTab ninjaUnselectable',
-          html: choice.html || choice
+          html: choice.html || choice,
+          id: choice.id || null
         }).bevel().reflect().bind({
           'click.ninja': function () {
             ninja('.ninjaTab', $tabs).bevel().reflect().removeClass('ninjaSelected');
             $choice.bevel('in').addClass('ninjaSelected');
             $tabs.trigger({
               type: 'select.ninja',
-              html: choice.html || choice
+              html: choice.html || choice,
+              id:   choice.id || null
             });
             if ($.isFunction(choice.select)) {
               choice.select();
