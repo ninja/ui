@@ -279,7 +279,8 @@
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
           'class': 'ninja',
-          html: choice.display || choice.html || choice
+          html: choice.display || choice.html || choice,
+          value: choice.value || null
         });
         if (choice.spacer) {
           $choice.addClass('ninjaListSpacer');
@@ -289,7 +290,8 @@
             'click.ninja': function () {
               $list.trigger({
                 type: 'select.ninja',
-                html: choice.html || choice
+                html: choice.html || choice,
+                value: choice.value || null
               });
               /* individual select function */
               if ($.isFunction(choice.select)) {
@@ -1001,7 +1003,8 @@
                   choice.select = function () {
                     $suggest.trigger({
                       type: 'select.ninja',
-                      html: choice.html || choice
+                      html: choice.html || choice,
+                      value: choice.value || null
                     });
                   };
                   return choice;
