@@ -496,7 +496,8 @@
       $.each(options.choices, function (i, choice) {
         var iChoice = i + 1;
         var $choice = $('<span/>', {
-          'class': 'ninjaStar ninjaSymbol ninjaSymbolStar'
+          'class': 'ninjaStar ninjaSymbol ninjaSymbolStar',
+          'style': 'cursor: pointer'
         }).append(choice).bind({
           'mouseenter.ninja': function (event) {
             $('.ninjaStar', $rating).each(function (iStar, star) {
