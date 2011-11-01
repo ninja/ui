@@ -1,0 +1,108 @@
+/*
+  Ninja Theme: Dojo
+  Copyright 2010 Jamie Hoover
+*/
+
+.ninjaThemeDojo {
+  color: #fff;
+}
+
+.ninjaThemeDojo .ninjaButton,
+.ninjaThemeDojo .ninjaSliderButton,
+.ninjaThemeDojo .ninjaTab {
+  background-color: #333;
+  border-color: #000;
+  color: #fff;
+}
+
+.ninjaThemeDojo .ninjaDrawerTray,
+.ninjaThemeDojo .ninjaEditable {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+  border-color: #333;
+  border-bottom-color: #666;
+  border-top-color: #000;
+}
+
+.ninjaThemeDojo .ninjaEditable input {
+  color: #fff;
+}
+
+.ninjaThemeDojo .ninjaListSpacer {
+  border-top-color: #666;
+}
+
+.ninjaThemeDojo .ninjaPopup {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+}
+
+.ninjaThemeDojo .ninjaPopupButton {
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.9);
+}
+
+.ninjaThemeDojo .ninjaPopupStem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninjaThemeDojo .ninjaSliderGroove {
+  background-color: #000;
+  border-color: #000;
+}
+
+.ninjaThemeDojo .ninjaSliderLevel {
+  background-color: #f00;
+  border-color: #600;
+}
+
+.ninjaThemeDojo .ninjaSpinner {
+  color: #666;
+}
+
+.ninjaThemeDojo .ninjaSpinner * {
+  color: #fff;
+}
+
+.ninjaThemeDojo .ninjaPopup .ninjaSpinner {
+  color: #999;
+}
+
+.ninjaThemeDojo .ninjaPopup .ninjaSpinner * {
+  color: #333;
+}
+
+.ninjaThemeDojo .ninjaStar {
+  color: #666;
+}
+
+.ninjaThemeDojo .ninjaStar.ninjaStarAverage {
+  color: #39c;
+}
+
+.ninjaThemeDojo .ninjaStar.ninjaStarUser {
+  color: #c00;
+}
+
+.ninjaThemeDojo .ninjaTab {
+  border-left-color: transparent;
+}
+
+.ninjaThemeDojo .ninjaTabFirst {
+  border-left-color: #000;
+}
+
+/* State changes, keep these last and in order! */
+
+.ninjaThemeDojo .ninjaSelected,
+.ninjaThemeDojo .ninjaListChoice.ninjaHovered {
+  background-color: #c00;
+  border-color: #900;
+}
+
+
+.ninjaThemeDojo .ninjaHovered {
+  border-color: #900;
+}
