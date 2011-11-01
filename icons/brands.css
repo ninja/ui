@@ -1,0 +1,58 @@
+/*
+  Copyright 2010-2011 Jamie Hoover
+*/
+
+@font-face {
+  font-family: 'Ninja Brands';
+  src: url('fonts/brands.eot');
+  src: url('fonts/brands.eot?iefix') format('eot'),
+    url('fonts/brands.woff') format('woff'),
+    url('fonts/brands.ttf') format('truetype'),
+    url('fonts/brands.svg#NinjaBrandsMonospaced') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.ninjaBrand {
+  font-family: 'Ninja Brands';
+}
+
+.ninjaBrandChrome:before {
+  content: '!';
+}
+
+.ninjaBrandFirefox:before {
+  content: '"';
+}
+
+.ninjaBrandFacebook:before {
+  content: '#';
+}
+
+.ninjaBrandInternetExplorer:before {
+  content: '$';
+}
+
+.ninjaBrandjQuery:before {
+  content: '%';
+}
+
+.ninjaBrandMac:before {
+  content: '&';
+}
+
+.ninjaBrandSafari:before {
+  content: "'";
+}
+
+.ninjaBrandTwitter:before {
+  content: '(';
+}
+
+.ninjaBrandUbuntu:before {
+  content: ')';
+}
+
+.ninjaBrandWindows:before {
+  content: '*'
+}

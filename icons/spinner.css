@@ -1,0 +1,76 @@
+/*
+  Copyright 2010-2011 Jamie Hoover
+*/
+
+@font-face {
+  font-family: 'Ninja Spinner';
+  src: url('fonts/spinner.eot');
+  src: url('fonts/spinner.eot?iefix') format('eot'),
+    url('fonts/spinner.woff') format('woff'),
+    url('fonts/spinner.ttf') format('truetype'),
+    url('fonts/spinner.svg#NinjaSpinnerMonospaced') format('svg');
+  font-style: normal;
+  font-weight: normal;
+}
+
+.ninjaSpinner {
+  font-family: 'Ninja Spinner';
+}
+
+.ninjaSpinner * {
+  left: -1em;
+  position: relative;
+  top: 0;
+}
+
+.ninjaSpinner:before {
+  content: '!';
+}
+
+.ninjaSpinner1:before {
+  content: '"';
+}
+
+.ninjaSpinner2:before {
+  content: '#';
+}
+
+.ninjaSpinner3:before {
+  content: '$';
+}
+
+.ninjaSpinner4:before {
+  content: '%';
+}
+
+.ninjaSpinner5:before {
+  content: '&';
+}
+
+.ninjaSpinner6:before {
+  content: "'";
+}
+
+.ninjaSpinner7:before {
+  content: '(';
+}
+
+.ninjaSpinner8:before {
+  content: ')';
+}
+
+.ninjaSpinner9:before {
+  content: '*';
+}
+
+.ninjaSpinner10:before {
+  content: '+';
+}
+
+.ninjaSpinner11:before {
+  content: ',';
+}
+
+.ninjaSpinner12:before {
+  content: '-';
+}
