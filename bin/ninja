@@ -1,0 +1,86 @@
+#!/usr/bin/env node
+
+/*
+  Copyright 2011 Jamie Hoover
+  See README.md for License
+*/
+
+var version = '1.0beta3',
+  help = [
+    '',
+    'Usage: ninja <path> [options]',
+    '',
+    '<path>  Ninja UI directory, defaults to current',
+    '',
+    'Options:',
+    '',
+    '  -h, --help           Display help information',
+    '  -o, --output <path>  Output directory, if different than input',
+    '  -v, --version        Display program version',
+    ''
+  ].join('\n'),
+  options = {
+    input: '.',
+    output: '.'
+  },
+  args = process.argv.slice(2),
+  fs = require('fs'),
+  exec = require('child_process').exec,
+  ttfs = [],
+  arg,
+  ansiColors = {
+//  'black': 30, 'yellow': 33, 'blue': 34, 'magenta': 35, 'white': 37
+    'red': 31,
+    'green': 32,
+    'cyan': 36
+  },
+  color = function(color, str) {
+    if(!color) return str;
+    return '\033[' + ansiColors[color] + 'm' + str + '\033[0m';
+  };
+
+while (args.length) {
+  arg = args.shift();
+  switch (arg) {
+    case '-h':
+    case '--help':
+    case 'help':
+      console.log(help);
+      process.exit();
+      break;
+    case '-v':
+    case '--version':
+      console.log('Ninja UI ' + version);
+      process.exit();
+      break;
+    case '-o':
+    case '--out':
+      if (args.length) {
+        options.out = args.shift();
+        break;
+      }
+      console.error(color('red', 'Path required after -o, --output'));
+      process.exit(1);
+    default:
+      if (~arg.indexOf('/')) {
+        options.in = arg;
+        options.out = arg;
+      }
+  }
+}
+
+fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
+  console.log(color('cyan', 'Reading JavaScript source file...'));
+  if (err) throw err;
+  console.log(color('cyan', 'Writing version: ' + version));
+  scriptBuffer.replace('%VERSION%', version);
+  fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
+    console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
+    if (err) throw err;
+    console.log(color('cyan', 'Writing Base64 encoded CSS url...'));
+    scriptBuffer.replace('%STYLES%', styleBuffer.toString('base64'));
+    console.log(color('cyan', 'Writing final JavaScript file...'));
+    fs.writeFileSync(options.input + 'jquery.ninjaui.js', scriptBuffer);
+    console.log(color('cyan', 'Ninja UI build complete.'));
+  });
+});

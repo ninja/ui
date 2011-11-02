@@ -14,7 +14,7 @@
     $styles.attr('href', '../src/ninjaui.css');
   }
   else {
-    $styles.attr('href', 'data:text/css;base64,');
+    $styles.attr('href', 'data:text/css;base64,%STYLES%');
   }
 
   $('head').append($styles);
@@ -1068,7 +1068,7 @@
     },
 
     version: function () {
-      return '1.0beta3';
+      return '%VERSION%';
     }
 
   });
