@@ -7,7 +7,8 @@ Dependencies
 ------------
 
 [jQuery](https://github.com/jquery/jquery/)
-[npm](http://npmjs.org/) (Only needed for development)
+
+[npm](http://npmjs.org/) (Only for development)
 
 Custom Styling
 --------------
