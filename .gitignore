@@ -11,3 +11,5 @@ tmtags
 .idea
 
 jquery.ninjaui.js
+jquery.ninjaui.min.js
+node_modules/

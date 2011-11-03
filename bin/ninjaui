@@ -61,10 +61,11 @@ while (args.length) {
       }
       console.error(color('red', 'Path required after -o, --output'));
       process.exit(1);
+      break;
     default:
       if (~arg.indexOf('/')) {
-        options.in = arg;
-        options.out = arg;
+        options.input = arg;
+        options.output = arg;
       }
   }
 }
@@ -72,16 +73,19 @@ while (args.length) {
 fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   console.log(color('cyan', 'Reading JavaScript source file...'));
   if (err) throw err;
-  scriptString = scriptBuffer.toString();
-  console.log(color('cyan', 'Writing version: ' + version));
-  scriptString = scriptString.replace('%VERSION%', version);
+  scriptString = scriptBuffer.toString().replace('%VERSION%', version);
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
     if (err) throw err;
-    console.log(color('cyan', 'Writing Base64 encoded CSS url...'));
     scriptString = scriptString.replace('%STYLES%', styleBuffer.toString('base64'));
-    console.log(color('cyan', 'Writing final JavaScript file...'));
+    console.log(color('green', 'Writing JavaScript files...'));
     fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);
-    console.log(color('cyan', 'Ninja UI build complete.'));
+    var jsp = require('uglify-js').parser;
+    var pro = require('uglify-js').uglify;
+    var ast = jsp.parse(scriptString);
+    ast = pro.ast_mangle(ast);
+    ast = pro.ast_squeeze(ast);
+    fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', pro.gen_code(ast));
+    console.log('Ninja UI ' + version + ' build complete.');
   });
 });

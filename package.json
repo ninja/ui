@@ -4,11 +4,14 @@
   "description": "jQuery plugin enabling you to create beautiful web interface objects efficiently and unobtrusively.",
   "keywords": ["ui", "interface", "button", "icon", "slider", "popup", "window", "menu", "tab", "drawer", "list", "rating", "suggest", "jquery", "plugin", "css", "svg", "base64"],
   "authors": ["Jamie Hoover <dont.tase@me.com>", "Faisal Jawdat <faisal@faisal.com>"],
-  "homepage": "https://github.com/uipoet/webfonts",
+  "homepage": "https://ninjaui.com/",
   "bin": {
     "ninjaui": "./bin/ninjaui"
   },
   "engines": {
     "node": "0.4.x"
+  },
+  "dependencies": {
+    "uglify-js": "1.1.x"
   }
 }
