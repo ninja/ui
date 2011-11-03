@@ -1,0 +1,71 @@
+/*
+  Ninja Theme: Dojo
+  Copyright 2010 Jamie Hoover
+*/
+.ninja-theme-dojo {
+  color: #fff;
+}
+.ninja-theme-dojo .ninja {
+  background-color: #333;
+  border-color: #000;
+  color: #fff;
+}
+.ninja-theme-dojo .ninja-drawer-tray,
+.ninja-theme-dojo .ninja-editable {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+  border-color: #333;
+  border-bottom-color: #666;
+  border-top-color: #000;
+}
+.ninja-theme-dojo .ninja-editable input {
+  color: #fff;
+}
+.ninja-theme-dojo .ninja-list-spacer {
+  border-top-color: #666;
+}
+.ninja-theme-dojo .ninja-popup {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+}
+.ninja-theme-dojo .ninja-popup-button {
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.9);
+}
+.ninja-theme-dojo .ninja-popup-stem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+.ninja-theme-dojo .ninja-slider-groove {
+  background-color: #000;
+  border-color: #000;
+}
+.ninja-theme-dojo .ninja-slider-level {
+  background-color: #f00;
+  border-color: #600;
+}
+.ninja-theme-dojo .ninja-star {
+  color: #666;
+}
+.ninja-theme-dojo .ninja-star-average {
+  color: #39c;
+}
+.ninja-theme-dojo .ninja-star-user {
+  color: #c00;
+}
+.ninja-theme-dojo .ninja-tab {
+  border-left-color: transparent;
+}
+.ninja-theme-dojo .ninja-tab-first {
+  border-left-color: #000;
+}
+/* State changes, keep these last and in order! */
+.ninja-theme-dojo .ninja-state-selected,
+.ninja-theme-dojo .ninja-list-choice.ninja-state-hovered {
+  background-color: #c00;
+  border-color: #900;
+}
+.ninja-theme-dojo .ninja-state-hovered {
+  border-color: #900;
+}

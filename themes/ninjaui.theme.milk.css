@@ -1,0 +1,117 @@
+/*
+  Ninja Theme: Milk
+  Copyright 2010 Jamie Hoover
+*/
+
+.ninjaThemeMilk {
+  color: #333;
+}
+
+.ninjaThemeMilk .ninjaButton,
+.ninjaThemeMilk .ninjaSliderButton,
+.ninjaThemeMilk .ninjaTab {
+  background-color: #fff;
+  border-color: #bbb;
+  color: #333;
+}
+
+.ninjaThemeMilk .ninjaDrawerTray,
+.ninjaThemeMilk .ninjaEditable {
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.85);
+  border-color: #ccc;
+  border-bottom-color: #ddd;
+}
+
+.ninjaThemeMilk .ninjaDrawerTray {
+  border-top-color: #eee;
+}
+
+.ninjaThemeMilk .ninjaEditable {
+  border-top-color: #bbb;
+}
+
+.ninjaThemeMilk .ninjaEditable input {
+  color: #333;
+}
+
+.ninjaThemeMilk .ninjaListSpacer {
+  border-top-color: #ccc;
+}
+
+.ninjaThemeMilk .ninjaPopup {
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.85);
+}
+
+.ninjaThemeMilk .ninjaPopupButton {
+  background-color: #fff;
+  color: #333;
+}
+
+.ninjaThemeMilk .ninjaPopupStem {
+  color: #fff;
+  color: rgba(255,255,255,0.85);
+}
+
+.ninjaThemeMilk .ninjaSliderGroove {
+  background-color: #999;
+  border-color: #666;
+}
+
+.ninjaThemeMilk .ninjaSliderLevel {
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.ninjaThemeMilk .ninjaSpinner {
+  color: #bbb;
+}
+
+.ninjaThemeMilk .ninjaSpinner * {
+  color: #999;
+}
+
+.ninjaThemeMilk .ninjaPopup .ninjaSpinner {
+  color: #999;
+}
+
+.ninjaThemeMilk .ninjaPopup .ninjaSpinner * {
+  color: #ccc;
+}
+
+.ninjaThemeMilk .ninjaStar {
+  color: #fff;
+}
+
+.ninjaThemeMilk .ninjaStar.ninjaStarAverage {
+  color: #aaa;
+}
+
+.ninjaThemeMilk .ninjaStar.ninjaStarUser {
+  color: #333;
+}
+
+.ninjaThemeMilk .ninjaSuggest .ninjaSymbol {
+  color: #999;
+}
+
+.ninjaThemeMilk .ninjaTab {
+  border-left-color: transparent;
+}
+
+.ninjaThemeMilk .ninjaTabFirst {
+  border-left-color: #aaa;
+}
+
+/* State changes, keep these last and in order! */
+
+.ninjaThemeMilk .ninjaSelected,
+.ninjaThemeMilk .ninjaListChoice.ninjaHovered {
+  background-color: #ccc;
+}
+
+
+.ninjaThemeMilk .ninjaHovered {
+  border-color: #888;
+}

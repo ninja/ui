@@ -1,0 +1,105 @@
+/*
+  Ninja Theme: Neon
+  Copyright 2010 Jamie Hoover
+*/
+
+.ninja-theme-neon {
+  color: #0df;
+}
+
+.ninja-theme-neon .ninja-object {
+  background-color: #000;
+  border-color: #09c;
+  color: #0df;
+}
+
+.ninja-theme-neon .ninjaDrawerTray,
+.ninja-theme-neon .ninjaEditable {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+  border-color: #09c;
+}
+
+.ninja-theme-neon .ninjaEditable input {
+  color: #0df;
+}
+
+.ninja-theme-neon .ninjaListSpacer {
+  border-top-color: #09c;
+}
+
+.ninja-theme-neon .ninjaPopup {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.85);
+}
+
+.ninja-theme-neon .ninjaPopupButton {
+  background-color: #0df;
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninja-theme-neon .ninjaPopupStem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninja-theme-neon .ninjaSliderGroove {
+  background-color: #000;
+  border-color: #09c;
+}
+
+.ninja-theme-neon .ninjaSliderLevel {
+  background-color: #0df;
+  border-color: #09c;
+}
+
+.ninja-theme-neon .ninjaSpinner {
+  color: #069;
+}
+
+.ninja-theme-neon .ninjaSpinner * {
+  color: #09c;
+}
+
+.ninja-theme-neon .ninjaPopup .ninjaSpinner {
+  color: #999;
+}
+
+.ninja-theme-neon .ninjaPopup .ninjaSpinner * {
+  color: #333;
+}
+
+.ninja-theme-neon .ninjaStar {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+}
+
+.ninja-theme-neon .ninjaStar.ninjaStarAverage {
+  color: #09c;
+}
+
+.ninja-theme-neon .ninjaStar.ninjaStarUser {
+  color: #0df;
+}
+
+.ninja-theme-neon .ninjaTab {
+  border-left-color: transparent;
+}
+
+.ninja-theme-neon .ninjaTabFirst {
+  border-left-color: #09c;
+}
+
+/* State changes, keep these last and in order! */
+
+.ninja-theme-neon .ninjaSelected,
+.ninja-theme-neon .ninjaListChoice.ninjaHovered {
+  background-color: #0df;
+  border-color: #09c;
+  color: #000;
+}
+
+.ninja-theme-neon .ninjaHovered {
+  border-color: #0df;
+}
