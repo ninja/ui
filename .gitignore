@@ -9,3 +9,5 @@
 *.tmproj
 tmtags
 .idea
+
+jquery.ninjaui.js

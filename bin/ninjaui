@@ -72,15 +72,16 @@ while (args.length) {
 fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   console.log(color('cyan', 'Reading JavaScript source file...'));
   if (err) throw err;
+  scriptString = scriptBuffer.toString();
   console.log(color('cyan', 'Writing version: ' + version));
-  scriptBuffer.replace('%VERSION%', version);
+  scriptString = scriptString.replace('%VERSION%', version);
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
     if (err) throw err;
     console.log(color('cyan', 'Writing Base64 encoded CSS url...'));
-    scriptBuffer.replace('%STYLES%', styleBuffer.toString('base64'));
+    scriptString = scriptString.replace('%STYLES%', styleBuffer.toString('base64'));
     console.log(color('cyan', 'Writing final JavaScript file...'));
-    fs.writeFileSync(options.input + 'jquery.ninjaui.js', scriptBuffer);
+    fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);
     console.log(color('cyan', 'Ninja UI build complete.'));
   });
 });

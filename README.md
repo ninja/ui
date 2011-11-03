@@ -7,22 +7,31 @@ Dependencies
 ------------
 
 [jQuery](https://github.com/jquery/jquery/)
-
-Navigate to wherever you cloned/downloaded Ninja UI and grab submodules
-
-    cd ~/yoursite/public/ui
-    git submodule init
-    git submodule update
-
+[npm](http://npmjs.org/) (Only needed for development)
 
 Custom Styling
 --------------
 [Ninja Themes](http://ninjaui.com/themes)
 
+Development
+-----------
+Navigate to wherever you cloned/downloaded Ninja UI and npm link
+
+    cd ~/projects/ninjaui
+    npm link
+
+Build
+-----
+After making changes to either src/ninjaui.js or src/ninjaui.css run ninjaui
+
+    cd ~/projects/ninjaui
+    ninjaui
+
+
 Authors
 -------
 
-Jamie Hoover and Faisal Jawdat
+Jamie Hoover and Faisal N. Jawdat
 
 License
 -------
