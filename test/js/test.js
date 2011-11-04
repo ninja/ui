@@ -61,7 +61,7 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
     test('should accept html content on creation', function () {
       expect(1);
       $('#qunit-fixture').append($.ninja().button({html: '<b>New</b> Button'}));
-      equal($('#qunit-fixture .ninja').html(), '<b>New</b> Button', 'which jQuery can then render');
+      equal($button.html(), '<b>New</b> Button', 'which jQuery can then render');
     });
 
 });
