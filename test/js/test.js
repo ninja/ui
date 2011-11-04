@@ -7,6 +7,7 @@
 */
 
 var scriptPath;
+var jQueryVersions = ['1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5'];
 var development = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]) === 'development';
 
 if (development) {
@@ -16,7 +17,9 @@ else {
   scriptPath = '../jquery.ninjaui.min.js';
 }
 
-$versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5').load(scriptPath).execute(function ($, jQuery, version) {
+QUnit.config.hidepassed = true;
+
+$versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version) {
 
   'use strict';
 
