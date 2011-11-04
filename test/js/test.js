@@ -1,5 +1,5 @@
 /*globals
-  $versions, test, equal, ok, expect, module
+  QUnit, $versions, test, equal, ok, expect, module
 */
 
 /*jshint
@@ -41,14 +41,47 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   var $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body');
 
-  var $button = $.ninja().button({
-    css: {
-      'margin-right': '16px'
-    },
-    html: '<b>New</b> Button'
-  }).appendTo($examples);
+  module('.icon()');
+
+    var icons = ['', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'go', 'home', 'mail', 'search', 'star', 'stop', 'triangle', 'warn'];
+    $.each(icons, function(i, icon) {
+      var $icon = $.ninja().icon({
+        name: icon
+      });
+
+      $examples.append($icon, ' ');
+
+      test('should have icon class', function () {
+        expect(1);
+        ok($icon.is('.ninja-icon'), '.ninja-icon');
+      });
+
+      test('should be accessible', function () {
+        expect(3);
+        equal($icon.attr('aria-label'), icon, 'aria-label: ' + icon);
+        equal($icon.attr('role'), 'img', 'role: img');
+        equal($('title', $icon).text(), icon, 'title: ' + icon);
+      });
+    });
+    $examples.append($.ninja().icon({
+      color: '#c00',
+      name: 'stop'
+    }), ' ', $.ninja().icon({
+      color: 'goldenrod',
+      name: 'warn'
+    }), ' ', $.ninja().icon({
+      color: 'green',
+      name: 'go'
+    }), '<br/>');
 
   module('.button()');
+
+    var $button = $.ninja().button({
+      css: {
+        'margin-right': '16px'
+      },
+      html: '<b>New</b> Button'
+    }).appendTo($examples);
 
     test('should have Ninja UI\'s default class', function () {
       expect(1);

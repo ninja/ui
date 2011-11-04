@@ -207,11 +207,12 @@
 
     icon: function (options) {
       options = $.extend({
-        color: $('body').css('color')
+        color: $('body').css('color'),
+        name: 'spin'
       }, options);
       var defs = '', g = '', mask, points, number = uniqueNumber(), idMask = number + 'Mask', idSymbol = number + 'Symbol', idVector = number + 'Vector', script = '';
-      if ($.inArray(options.name, ['arrowDown', 'arrowRight']) > -1) {
-        if (options.name === 'arrowDown') {
+      if ($.inArray(options.name, ['arrow-down', 'arrow-right']) > -1) {
+        if (options.name === 'arrow-down') {
           points = '128,128 384,128 256,384';
         }
         else {
@@ -223,14 +224,14 @@
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/><circle cx="256" cy="288" r="160"/></mask></defs>';
         g = '<rect x="0" y="128" width="512" height="352" rx="64" ry="64" mask="url(#' + idMask + ')"/><polygon points="128,256 128,128 192,32 320,32 384,128 384,256" mask="url(#' + idMask + ')"/><circle cx="256" cy="288" r="96"/>';
       }
-      else if ($.inArray(options.name, ['circle', 'circleClear', 'circleMinus', 'circlePlus']) > -1) {
-        if (options.name === 'circleClear') {
+      else if ($.inArray(options.name, ['circle', 'circle-clear', 'circle-minus', 'circle-plus']) > -1) {
+        if (options.name === 'circle-clear') {
           mask = '<polygon points="224,128 288,128 288,224 384,224 384,288 288,288 288,384 224,384 224,288 128,288 128,224 224,224" transform="rotate(45 256 256)"/>';
         }
-        else if (options.name === 'circleMinus') {
+        else if (options.name === 'circle-minus') {
           mask = '<rect x="128" y="224" width="256" height="64"/>';
         }
-        else if (options.name === 'circlePlus') {
+        else if (options.name === 'circle-plus') {
           mask = '<polygon points="224,128 288,128 288,224 384,224 384,288 288,288 288,384 224,384 224,288 128,288 128,224 224,224"/>';
         }
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
@@ -252,7 +253,7 @@
         g = '<polygon points="0,196 196,196 256,0 316,196 512,196 354,316 414,512 256,392 98,512 158,316"/>';
       }
       else if (options.name === 'stop') {
-        g = '<polygon points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/><polygon fill="green" points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/>';
+        g = '<polygon points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/>';
       }
       else if ($.inArray(options.name, ['triangle', 'warn']) > -1) {
         if (options.name === 'warn') {
@@ -266,7 +267,7 @@
         defs = '<defs><rect id="' + idSymbol + '" x="224" rx="24" width="64" height="128"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 256 256)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      var $icon = '<svg class="ninja-icon"' + script + ' version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">' + defs + '<g fill="' + options.color + '" id="' + idVector + '">' + g + '</g></svg>';
+      var $icon = $('<svg aria-label="'+ options.name +'" class="ninja-icon"' + script + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>'+ options.name +'</title>' + defs + '<g fill="' + options.color + '" id="' + idVector + '">' + g + '</g></svg>');
       return $icon;
     },
 
