@@ -13,7 +13,7 @@
  */
 var $versions = (function() {
   // URL_TEMPLATE rewritten to only use cached local files for testing.
-  var URL_TEMPLATE = "js/jquery/jquery-{version}.min.js";
+  var URL_TEMPLATE = "js/lib/jquery/jquery-{version}.min.js";
 
   var _makeArray = function(pseudoArray) {
     var array = [];

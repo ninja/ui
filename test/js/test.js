@@ -6,7 +6,16 @@
   bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: false
 */
 
-$versions('1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5').load('../jquery.ninjaui.min.js').execute(function ($, jQuery, version) {
+var scriptPath;
+
+if (decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]) === 'development') {
+  scriptPath = '../src/ninjaui.js';
+}
+else {
+  scriptPath = '../jquery.ninjaui.min.js';
+}
+
+$versions('1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5').load(scriptPath).execute(function ($, jQuery, version) {
 
   'use strict';
 
