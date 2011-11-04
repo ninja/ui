@@ -24,7 +24,7 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
 
     test('should load jQuery and Ninja UI', function () {
       expect(2);
-      equal(jQuery.fn.jquery, version, 'jQuery');
+      equal($.fn.jquery, version, 'jQuery');
       ok($.ninja(), 'Ninja UI');
     });
 
@@ -35,17 +35,25 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
       });
     }
 
+  var $button = $.ninja().button({
+    css: {
+      'margin-right': '16px'
+    },
+    html: '<b>New</b> Button'
+  }).appendTo('#ninjaui-examples');
+
   module('.button()');
 
     test('should have Ninja UI\'s default class', function () {
       expect(1);
-      ok($.ninja().button().hasClass('ninja'), '.ninja');
+      ok($button.hasClass('ninja'), '.ninja');
     });
 
     test('should accept css overrides on creation', function () {
       expect(1);
-      equal($.ninja().button({css: {margin: '20em'}}).css('margin'), '20em', 'making them visible in jQuery\'s .css()');
+      equal($button.css('margin-right'), '16px', 'making them visible in jQuery\'s .css()');
       // Note that different browsers are not consistent in how they deal with invalid styles.
+      // Note also that values given and values returned do not always match, such as 1em returning 16px
     });
 
     test('should accept html content on creation', function () {
