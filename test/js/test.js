@@ -35,12 +35,14 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
       });
     }
 
+  var $examples = $('<div class="ninjaui-examples"><div>jQuery ' + version + ' Examples</div></div>').appendTo('body');
+
   var $button = $.ninja().button({
     css: {
       'margin-right': '16px'
     },
     html: '<b>New</b> Button'
-  }).appendTo('#ninjaui-examples');
+  }).appendTo($examples);
 
   module('.button()');
 
