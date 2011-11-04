@@ -39,7 +39,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
     }
 
-  var $examples = $('<div class="ninjaui-examples"><div>jQuery ' + version + ' Examples</div></div>').appendTo('body');
+  var $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body');
 
   var $button = $.ninja().button({
     css: {
