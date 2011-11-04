@@ -7,8 +7,9 @@
 */
 
 var scriptPath;
+var development = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]) === 'development';
 
-if (decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]) === 'development') {
+if (development) {
   scriptPath = '../src/ninjaui.js';
 }
 else {
@@ -27,6 +28,12 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
       ok($.ninja(), 'Ninja UI');
     });
 
+    if (development) {
+      test('should return Ninja UI version', function () {
+        expect(1);
+        equal($.ninja().version(), 'development', 'Ninja UI version: development');
+      });
+    }
 
   module('.button()');
 
