@@ -77,7 +77,7 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
     if (err) throw err;
-    scriptString = scriptString.replace('%STYLES%', styleBuffer.toString('base64'));
+    scriptString = scriptString.replace('../src/ninjaui.css', 'data:text/css;base64,' + styleBuffer.toString('base64'));
     console.log(color('green', 'Writing JavaScript files...'));
     fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);
     var jsp = require('uglify-js').parser;

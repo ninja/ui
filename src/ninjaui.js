@@ -6,18 +6,10 @@
 
   'use strict';
 
-  var $styles = $('<link/>', {
-    rel: 'stylesheet'
-  });
-
-  if (decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]) === 'development') {
-    $styles.attr('href', '../src/ninjaui.css');
-  }
-  else {
-    $styles.attr('href', 'data:text/css;base64,%STYLES%');
-  }
-
-  $('head').append($styles);
+  $('<link/>', {
+    rel: 'stylesheet',
+    href: '../src/ninjaui.css'
+  }).appendTo('head');
 
   var
     counter = 0,
