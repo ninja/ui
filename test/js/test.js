@@ -18,6 +18,7 @@ else {
 }
 
 QUnit.config.hidepassed = true;
+QUnit.config.reorder = true;
 
 $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version) {
 
