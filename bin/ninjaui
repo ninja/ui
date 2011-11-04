@@ -73,7 +73,7 @@ while (args.length) {
 fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   console.log(color('cyan', 'Reading JavaScript source file...'));
   if (err) throw err;
-  scriptString = scriptBuffer.toString().replace('%VERSION%', version);
+  scriptString = scriptBuffer.toString().replace('development', version);
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
     if (err) throw err;

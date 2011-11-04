@@ -1060,7 +1060,7 @@
     },
 
     version: function () {
-      return '%VERSION%';
+      return 'development';
     }
 
   });
