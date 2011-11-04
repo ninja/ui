@@ -20,7 +20,7 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
 
   'use strict';
 
-  module('Infrastructure with jQuery ' + version);
+  module('Load with jQuery ' + version);
 
     test('should load jQuery and Ninja UI', function () {
       expect(2);
@@ -37,21 +37,21 @@ $versions('1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1
 
   module('.button()');
 
-    test("should have Ninja UI's default class", function () {
+    test('should have Ninja UI\'s default class', function () {
       expect(1);
       ok($.ninja().button().hasClass('ninja'), '.ninja');
     });
 
-    test("should accept css overrides on creation", function () {
+    test('should accept css overrides on creation', function () {
       expect(1);
-      equal($.ninja().button({css: {margin: '20em'}}).css('margin'), '20em', "making them visible in jQuery's .css()");
+      equal($.ninja().button({css: {margin: '20em'}}).css('margin'), '20em', 'making them visible in jQuery\'s .css()');
       // Note that different browsers are not consistent in how they deal with invalid styles.
     });
 
-    test("should accept html content on creation", function () {
+    test('should accept html content on creation', function () {
       expect(1);
-      $('#qunit-fixture').append($.ninja().button({html: 'New Button'}));
-      equal($("#qunit-fixture .ninja").text(), "New Button", "which jQuery can then render");
+      $('#qunit-fixture').append($.ninja().button({html: '<b>New</b> Button'}));
+      equal($('#qunit-fixture .ninja').html(), '<b>New</b> Button', 'which jQuery can then render');
     });
 
 });
