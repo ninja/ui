@@ -87,5 +87,7 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
     ast = pro.ast_squeeze(ast);
     fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', pro.gen_code(ast));
     console.log('Ninja UI ' + version + ' build complete.');
+    var spawn = require('child_process').spawn;
+    spawn('open', [options.input + '/test/index.html']);
   });
 });
