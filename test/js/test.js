@@ -43,7 +43,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   module('.icon()');
 
-    var icons = ['arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'go', 'home', 'mail', 'search', 'star', 'stop', 'triangle', 'warn', ''];
+    var icons = ['', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'go', 'home', 'mail', 'search', 'star', 'stop', 'triangle', 'warn'];
     $.each(icons, function(i, icon) {
       var $icon = $.ninja().icon({
         name: icon
@@ -57,23 +57,21 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 
       test('should be accessible', function () {
-        expect(2);
+        expect(3);
         equal($icon.attr('aria-label'), icon, 'aria-label: ' + icon);
         equal($icon.attr('role'), 'img', 'role: img');
-//        equal($('title', $icon), icon, 'title: ' + icon);
+        equal($('title', $icon).text(), icon, 'title: ' + icon);
       });
     });
     $examples.append($.ninja().icon({
-      color: 'red',
+      color: '#c00',
       name: 'stop'
     }), ' ', $.ninja().icon({
-      color: 'yellow',
+      color: 'goldenrod',
       name: 'warn'
     }), ' ', $.ninja().icon({
       color: 'green',
       name: 'go'
-    }), ' ', $.ninja().icon({
-      color: 'cyan'
     }), '<br/>');
 
   module('.button()');

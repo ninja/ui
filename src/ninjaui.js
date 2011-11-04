@@ -253,7 +253,7 @@
         g = '<polygon points="0,196 196,196 256,0 316,196 512,196 354,316 414,512 256,392 98,512 158,316"/>';
       }
       else if (options.name === 'stop') {
-        g = '<polygon points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/><polygon fill="green" points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/>';
+        g = '<polygon points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/>';
       }
       else if ($.inArray(options.name, ['triangle', 'warn']) > -1) {
         if (options.name === 'warn') {
