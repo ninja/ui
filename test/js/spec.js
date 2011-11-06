@@ -92,7 +92,12 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
           css: {
             'margin-right': '16px'
           },
-          html: '<b>New</b> Button'
+          html: '<i>New</i> Button'
+        }).appendTo($examples);
+
+        var $buttonSelected = $.ninja().button({
+          html: '<i>Selected</i> Button',
+          select: true
         }).appendTo($examples);
 
         it('should have Ninja UI\'s default class', function() {
@@ -106,13 +111,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
         });
 
         it('should accept html content on creation', function() {
-          $('#qunit-fixture').append($.ninja().button({html: '<b>New</b> Button'}));
-
-          assert($button.html()).equals('<b>New</b> Button');
+          assert($button.html()).equals('<i>New</i> Button');
         });
       });
 
-      
+
     });
   });
 });
