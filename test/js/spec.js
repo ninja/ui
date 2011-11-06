@@ -14,6 +14,7 @@ if (environment === 'production') {
   scriptPath = '../jquery.ninjaui.min.js';
 }
 else {
+  environment = 'development';
   jQueryVersions = ['1.7'];
   scriptPath = '../src/ninjaui.js';
 }
