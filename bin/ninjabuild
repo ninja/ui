@@ -29,9 +29,10 @@ var version = '1.0beta3',
   ttfs = [],
   arg,
   ansiColors = {
-//  'black': 30, 'yellow': 33, 'blue': 34, 'magenta': 35, 'white': 37
+//  'black': 30, 'yellow': 33, 'blue': 34, 'white': 37
     'red': 31,
     'green': 32,
+    'magenta': 35,
     'cyan': 36
   },
   color = function(color, str) {
@@ -93,7 +94,7 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
     ast = pro.ast_squeeze(ast);
     fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', pro.gen_code(ast));
     console.log('Ninja UI ' + version + ' build complete.');
-    var spawn = require('child_process').spawn;
-    spawn('open', [options.input + '/test/index.html']);
+    var path = require('path');
+    console.log('Test URL: ' + color('magenta', 'file://' + path.normalize(__dirname + '/../test/index.html?environment=production')));
   });
 });

@@ -6,7 +6,7 @@
   "authors": ["Jamie Hoover <dont.tase@me.com>", "Faisal Jawdat <faisal@faisal.com>"],
   "homepage": "https://ninjaui.com/",
   "bin": {
-    "ninjaui": "./bin/ninjaui"
+    "ninjabuild": "./bin/ninjabuild"
   },
   "engines": {
     "node": "0.4.x"

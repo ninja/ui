@@ -6,15 +6,16 @@
   bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: false
 */
 
-var scriptPath;
-var jQueryVersions = ['1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5'];
-var development = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]) === 'development';
+var environment = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]);
+var jQueryVersions, scriptPath;
 
-if (development) {
-  scriptPath = '../src/ninjaui.js';
+if (environment === 'production') {
+  jQueryVersions = ['1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5'];
+  scriptPath = '../jquery.ninjaui.min.js';
 }
 else {
-  scriptPath = '../jquery.ninjaui.min.js';
+  jQueryVersions = ['1.7'];
+  scriptPath = '../src/ninjaui.js';
 }
 
 QUnit.config.hidepassed = true;
@@ -26,7 +27,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
 
   var $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body');
 
-  QUnit.specify('Ninja UI', function() {
+  QUnit.specify('Ninja UI (' + environment + ')', function() {
     describe('On jQuery ' + version, function() {
 
       describe('Infrastructure', function() {
@@ -38,8 +39,8 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
           assert($.ninja()).isDefined();
         });
 
-        if (development) {
-          it('should return development Ninja UI version if in development mode', function() {
+        if (environment !== 'production') {
+          it('should return development Ninja UI version if environment is not production', function() {
             assert($.ninja().version()).equals('development');
           });
         }
