@@ -73,10 +73,16 @@ while (args.length) {
 fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   console.log(color('cyan', 'Reading JavaScript source file...'));
   if (err) throw err;
-  scriptString = scriptBuffer.toString().replace('development', version);
+  var scriptString = scriptBuffer.toString().replace('development', version);
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
     if (err) throw err;
+    var imageGradientInString = fs.readFileSync(options.input + '/src/img/gradient.in.svg', 'base64');
+    var imageGradientOutString = fs.readFileSync(options.input + '/src/img/gradient.out.svg', 'base64');
+    var styleString = styleBuffer.toString()
+      .replace('../src/img/gradient.in.svg', 'data:image/svg+xml;base64,' + imageGradientInString)
+      .replace('../src/img/gradient.out.svg', 'data:image/svg+xml;base64,' + imageGradientOutString);
+    styleBuffer = new Buffer(styleString);
     scriptString = scriptString.replace('../src/ninjaui.css', 'data:text/css;base64,' + styleBuffer.toString('base64'));
     console.log(color('green', 'Writing JavaScript files...'));
     fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);
