@@ -1,4 +1,10 @@
 /**
+ * This is based on code from the jquery-versions project:
+ *   https://github.com/protonet/jquery-versions/
+ * and licensed under the therein.
+ */
+
+/**
  * $versions - Test your code/plugin in multiple jQuery versions
  * Works perfectly together with QUnit and other test libraries
  *
