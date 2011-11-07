@@ -130,6 +130,10 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
         it('should accept html content on creation', function() {
           assert($button.html()).equals('<i>New</i> Button');
         });
+
+        it('should have class of ninja-state-selected when select is true', function() {
+          assert($buttonSelected.hasClass('ninja-state-selected')).isTrue();
+        });
       });
 
 
