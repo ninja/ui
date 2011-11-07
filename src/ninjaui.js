@@ -191,7 +191,7 @@
           $object.bind('enable.ninja', callback);
         }
         else {
-          $object.fadeTo('fast', 1).removeClass('ninjaStateDisabled').trigger('enable.ninja');
+          $object.fadeTo('fast', 1).removeClass('ninja-state-disabled').trigger('enable.ninja');
         }
       });
     },
@@ -298,10 +298,10 @@
           html: choice.display || choice.html || choice
         });
         if (choice.spacer) {
-          $choice.addClass('ninjaListSpacer');
+          $choice.addClass('ninja-list-spacer');
         }
         else {
-          $choice.addClass('ninjaListChoice').bind({
+          $choice.addClass('ninja-list-choice').bind({
             'click.ninja': function () {
               $list.trigger({
                 type: 'select.ninja',
@@ -313,17 +313,14 @@
               }
             },
             'mouseenter.ninja': function () {
-              $('.ninjaStateHovered', $list).removeClass('ninjaStateHovered ninjaTexturePlastic');
-              $choice.addClass('ninjaStateHovered');
-              if (options.texture) {
-                $choice.addClass('ninjaTexturePlastic');
-              }
+              $('.ninja-state-hovered', $list).removeClass('ninja-state-hovered');
+              $choice.addClass('ninja-state-hovered');
             }
           });
         }
         $list.append($choice).bind({
           'mouseleave.ninja': function () {
-            $('.ninjaStateHovered', $list).removeClass('ninjaStateHovered ninjaTexturePlastic');
+            $('.ninja-state-hovered', $list).removeClass('ninja-state-hovered');
           }
         });
       });
@@ -335,7 +332,7 @@
         },
         'keyup.ninja': function (event) {
           if ($.inArray(event.keyCode, [13, 38, 40]) > -1) {/* return, down or up */
-            var $button = $('.ninjaStateHovered', $list);
+            var $button = $('.ninja-state-hovered', $list);
             if (event.keyCode === 13) {/* return */
               $button.click();
               $(document).unbind('keydown.ninja keyup.ninja');
@@ -396,7 +393,7 @@
       }
       $popup.bind({
         'detach.ninja remove.ninja': function () {
-          if ($object.is('.ninjaButton.ninjaStateSelected')) {
+          if ($object.is('.ninja.ninja-state-selected')) {
             $object.deselect();
           }
           $(document).unbind('click.ninja' + number);
@@ -406,7 +403,7 @@
           if (options.button) {
             var
               $button = $('<span/>', {
-                'class': 'ninjaPopupButton ninjaInline ninjaShadow ninjaSymbol ninjaSymbolClear'
+                'class': 'ninja-popup-button ninja-shadow'
               }).ninja().round({
                 radius: '0.6em'
               }).click(function () {
@@ -638,7 +635,7 @@
         if ($.isFunction(event)) {
           $object.bind('select.ninja', event);
         }
-        else if (!$object.is('.ninjaStateDisabled')) {
+        else if (!$object.is('.ninja-state-disabled')) {
           $object.trigger('select.ninja');
         }
       });
@@ -879,7 +876,7 @@
               }
               $input.val(options.placeholder);
             }
-            if ($('.ninjaStateHovered', $popup).length === 0) {
+            if ($('.ninja-state-hovered', $popup).length === 0) {
               $popup.hide();
             }
           }
