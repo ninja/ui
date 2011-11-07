@@ -118,29 +118,64 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
 
       describe('.button()', function() {
         var $button = $.ninja().button({
-          css: {
-            'margin-right': '16px'
-          },
-          html: '<i>New</i> Button'
-        }).appendTo($examples);
+          html: 'Button'
+        }).disable(function () {
+          $toggleSelect.attr({
+            disabled: 'disabled'
+          });
+        }).enable(function () {
+          $toggleSelect.attr({
+            disabled: false
+          });
+        });
 
         var $buttonSelected = $.ninja().button({
+          css: {
+            'margin-left': '16px'
+          },
           html: '<i>Selected</i> Button',
           select: true
-        }).appendTo($examples);
+        });
+
+        var $buttonDisabled = $.ninja().button({
+          html: '<i>Disabled</i> Button',
+          disable: true
+        });
+
+        var $toggleSelect = $('<input/>', {
+          type: 'checkbox'
+        }).change(function () {
+          if ($toggleSelect.attr('checked')) {
+            $button.select();
+          } else {
+            $button.deselect();
+          }
+        });
+
+        var $toggleDisable = $('<input/>', {
+          type: 'checkbox'
+        }).change(function () {
+          if ($toggleDisable.attr('checked')) {
+            $button.disable();
+          } else {
+            $button.enable();
+          }
+        });
+
+        $examples.append($button, ' ', $buttonSelected, ' ', $buttonDisabled, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable');
 
         it('should have Ninja UI\'s default class', function() {
           assert($button.hasClass('ninja')).isTrue();
         });
 
         it('should accept css overrides on creation', function() {
-          assert($button.css('margin-right')).equals('16px');
+          assert($buttonSelected.css('margin-left')).equals('16px');
           // Note that different browsers are not consistent in how they deal with invalid styles.
           // Note also that values given and values returned do not always match, such as 1em returning 16px
         });
 
         it('should accept html content on creation', function() {
-          assert($button.html()).equals('<i>New</i> Button');
+          assert($buttonSelected.html()).equals('<i>Selected</i> Button');
         });
 
         it('should have class of ninja-state-selected when select is true', function() {
