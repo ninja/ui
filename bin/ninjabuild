@@ -5,7 +5,8 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for more details.
 */
 
-var version = '1.0beta3',
+var version = '1.0',
+  copyright = '/*\n  Ninja UI jQuery Plugin ' + version + '\n  http://ninjaui.com/\n  Copyright 2008-2011 Jamie Hoover\n  Licensed per the terms of the Apache License v2.0\n  https://github.com/ninja/ui/blob/master/README.md for details\n*/\n',
   help = [
     '',
     'Usage: ninja <path> [options]',
@@ -92,7 +93,8 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
     var ast = jsp.parse(scriptString);
     ast = pro.ast_mangle(ast);
     ast = pro.ast_squeeze(ast);
-    fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', pro.gen_code(ast));
+    ast = pro.gen_code(ast);
+    fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', copyright + ast);
     console.log('Ninja UI ' + version + ' build complete.');
     var path = require('path');
     console.log('Test URL: ' + color('magenta', 'file://' + path.normalize(__dirname + '/../test/index.html?environment=production')));
