@@ -6,16 +6,16 @@
   bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: false
 */
 
+var jQueryVersions = ['1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5'];
 var environment = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]);
-var jQueryVersions, scriptPath;
+var scriptPath;
 
 if (environment === 'production') {
-  jQueryVersions = ['1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5'];
   scriptPath = '../jquery.ninjaui.min.js';
 }
 else {
   environment = 'development';
-  jQueryVersions = ['1.7'];
+  jQueryVersions = jQueryVersions[0];
   scriptPath = '../src/ninjaui.js';
 }
 
