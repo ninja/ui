@@ -37,7 +37,7 @@ Jamie Hoover and Faisal N. Jawdat
 License
 -------
 
-Copyright 2010 Jamie Hoover
+Copyright 2008-2011 Jamie Hoover.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

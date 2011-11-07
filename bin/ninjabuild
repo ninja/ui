@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /*
-  Copyright 2011 Jamie Hoover
-  See README.md for License
+  Copyright 2008-2011 Jamie Hoover.
+  Licensed per the terms of the Apache License v2.0. See Readme.md for more details.
 */
 
 var version = '1.0beta3',

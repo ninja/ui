@@ -1,4 +1,5 @@
-/*copyright 2008-2011 Jamie Hoover*/
+/* Copyright 2008-2011 Jamie Hoover. */
+/* Licensed per the terms of the Apache License v2.0. See Readme.md for details. */
 
 /*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: true*/
 
