@@ -1,9 +1,12 @@
-/* Copyright 2008-2011 Jamie Hoover. */
-/* Licensed per the terms of the Apache License v2.0. See Readme.md for details. */
+/*
+  Copyright 2008-2011 Jamie Hoover.
+  Licensed per the terms of the Apache License v2.0. See Readme.md for details.
+*/
 
 .ninja {
   background-color: #eee;
   background-image: url('../src/img/gradient.out.svg');
+  background-repeat: no-repeat;
   border: 1px solid #999;
   color: #333;
   display: inline-block;
