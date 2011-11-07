@@ -98,6 +98,18 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
           it('should have icon title', function() {
             assert($('title', $icon).text()).equals(iconName);
           });
+
+          it('should have the correct color', function() {
+            if (iconName === 'stop') {
+              assert($('g', $icon).attr('fill')).equals('#c00');
+            } else if (iconName === 'warn') {
+              assert($('g', $icon).attr('fill')).equals('goldenrod');
+            } else if (iconName === 'go') {
+              assert($('g', $icon).attr('fill')).equals('green');
+            } else {
+              assert($('g', $icon).attr('fill')).equals('rgb(0, 0, 0)');
+            }
+          });
         });
 
         $examples.append('<br/>');
