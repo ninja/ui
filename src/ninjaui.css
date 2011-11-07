@@ -1,7 +1,6 @@
 .ninja {
   background-color: #eee;
   background-image: url('../src/img/gradient.out.svg');
-  background-repeat: no-repeat;
   border: 1px solid #999;
   color: #333;
   display: inline-block;
