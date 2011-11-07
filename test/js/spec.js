@@ -48,7 +48,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
       });
 
       describe('.icon()', function() {
-        var icons = ['', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'go', 'home', 'mail', 'search', 'star', 'stop', 'triangle', 'warn'];
+        var icons = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'go', 'home', 'mail', 'search', 'star', 'stop', 'triangle', 'warn'];
 
         $.each(icons, function(i, icon) {
           var $icon = $.ninja().icon({
@@ -71,7 +71,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
 
         given(icons).
         it('should have icon class', function(iconName) {
-          assert($.ninja().icon({name: iconName}).is('.ninja-icon')).isTrue();
+          assert($.ninja().icon({name: iconName}).attr('class')).equals('ninja-icon');
         });
 
         given(icons).
