@@ -10,24 +10,31 @@ Dependencies
 
 [npm](http://npmjs.org/) (Only for development)
 
-Custom Styling
---------------
-[Ninja Themes](http://ninjaui.com/themes)
-
-Development
------------
+Develop
+-------
 Navigate to wherever you cloned/downloaded Ninja UI and npm link
 
     cd ~/projects/ninjaui
     npm link
 
+Test during development
+-----------------------
+Open test page in a web browser
+
+    file:///~/projects/ninjaui/test/index.html
+
 Build
 -----
-After making changes to either src/ninjaui.js or src/ninjaui.css run ninjaui
+After making changes to either src/ninjaui.js or src/ninjaui.css run ninjabuild
 
     cd ~/projects/ninjaui
-    ninjaui
+    ninjabuild
 
+Test after building
+-------------------
+Open test page in a web browser
+
+    file:///~/projects/ninjaui/test/index.html?environment=production
 
 Authors
 -------
