@@ -6,14 +6,20 @@
   https://github.com/ninja/ui/blob/master/README.md for details
 */
 
-/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, regexp: true, strict: true, undef: true, white: true*/
+/*globals CFInstall: false*/
+
+/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: true, regexp: true, strict: true, undef: true, white: true*/
 
 (function ($) {
 
   'use strict';
 
-  var ua = $.browser;
-  if (ua.msie && parseInt(ua.version, 10) < '9') {
+  var
+    browser = $.browser,
+    time,
+    ninja;
+
+  if (browser.msie && parseInt(browser.version, 10) < '9') {
     $('<script/>', {
       defer: '',
       src: 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'
@@ -25,18 +31,19 @@
     });
   }
 
+  time = new Date().getTime();
+
+  function uniqueId() {
+    time = time + 1;
+    return time;
+  }
+
   $('<link/>', {
     rel: 'stylesheet',
     href: '../src/ninjaui.css'
   }).appendTo('head');
 
-  var
-    counter = new Date().getTime(),
-    ninja = $.sub();
-
-  function uniqueNumber() {
-    return counter ++;
-  }
+  ninja = $.sub();
 
   ninja.fn.extend({
 
@@ -67,8 +74,7 @@
           if (!$button.is('.ninja-state-disabled')) {
             if ($button.is('.ninja-state-selected')) {
               $button.trigger('deselect.ninja');
-            }
-            else {
+            } else {
               $button.trigger('select.ninja');
             }
           }
@@ -104,8 +110,7 @@
         var $object = $(this);
         if ($.isFunction(callback)) {
           $object.bind('change.ninja', callback);
-        }
-        else {
+        } else {
           $object.trigger('change.ninja');
         }
       });
@@ -116,8 +121,7 @@
         var $object = $(this);
         if (callback && $.isFunction(callback)) {
           $object.bind('deselect.ninja', callback);
-        }
-        else if ($object.is('.ninja-state-selected') && !$object.is('.ninja-state-disabled')) {
+        } else if ($object.is('.ninja-state-selected') && !$object.is('.ninja-state-disabled')) {
           $object.trigger('deselect.ninja');
         }
       });
@@ -133,8 +137,7 @@
         var $object = $(this);
         if (callback && $.isFunction(callback)) {
           $object.bind('disable.ninja', callback);
-        }
-        else {
+        } else {
           $object.fadeTo('fast', 0.5).addClass('ninja-state-disabled').trigger('disable.ninja');
         }
       });
@@ -190,8 +193,7 @@
             radius: options.radius
           });
         }
-      }
-      else {
+      } else {
         $tray.hide();
       }
       return $drawer;
@@ -202,8 +204,7 @@
         var $object = $(this).ninja();
         if ($.isFunction(callback)) {
           $object.bind('enable.ninja', callback);
-        }
-        else {
+        } else {
           $object.fadeTo('fast', 1).removeClass('ninja-state-disabled').trigger('enable.ninja');
         }
       });
@@ -214,8 +215,7 @@
         var $object = $(this);
         if ($.isFunction(callback)) {
           $object.bind('error.ninja', callback);
-        }
-        else {
+        } else {
           $object.trigger({
             type: 'error.ninja',
             message: message
@@ -229,64 +229,61 @@
         color: $('body').css('color'),
         name: 'spin'
       }, options);
-      var defs = '', g = '', mask, points, number = uniqueNumber(), idMask = number + 'Mask', idSymbol = number + 'Symbol', idVector = number + 'Vector', onload = '';
+      var
+        $icon = '',
+        defs = '',
+        g = '',
+        id = uniqueId(),
+        idMask = id + 'Mask',
+        idSymbol = id + 'Symbol',
+        idVector = id + 'Vector',
+        mask = '',
+        onload = '',
+        points = '';
       if ($.inArray(options.name, ['arrow-down', 'arrow-right']) > -1) {
         if (options.name === 'arrow-down') {
           points = '128,128 384,128 256,384';
-        }
-        else {
+        } else {
           points = '128,128 384,256 128,384';
         }
         g = '<polygon points="' + points + '"/>';
-      }
-      else if (options.name === 'camera') {
+      } else if (options.name === 'camera') {
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/><circle cx="256" cy="288" r="160"/></mask></defs>';
         g = '<rect x="0" y="128" width="512" height="352" rx="64" ry="64" mask="url(#' + idMask + ')"/><polygon points="128,256 128,128 192,32 320,32 384,128 384,256" mask="url(#' + idMask + ')"/><circle cx="256" cy="288" r="96"/>';
-      }
-      else if ($.inArray(options.name, ['circle', 'circle-clear', 'circle-minus', 'circle-plus']) > -1) {
+      } else if ($.inArray(options.name, ['circle', 'circle-clear', 'circle-minus', 'circle-plus']) > -1) {
         if (options.name === 'circle-clear') {
           mask = '<polygon points="224,128 288,128 288,224 384,224 384,288 288,288 288,384 224,384 224,288 128,288 128,224 224,224" transform="rotate(45 256 256)"/>';
-        }
-        else if (options.name === 'circle-minus') {
+        } else if (options.name === 'circle-minus') {
           mask = '<rect x="128" y="224" width="256" height="64"/>';
-        }
-        else if (options.name === 'circle-plus') {
+        } else if (options.name === 'circle-plus') {
           mask = '<polygon points="224,128 288,128 288,224 384,224 384,288 288,288 288,384 224,384 224,288 128,288 128,224 224,224"/>';
         }
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
         g = '<circle cx="256" cy="256" mask="url(#' + idMask + ')" r="256"/>';
-      }
-      else if (options.name === 'go') {
+      } else if (options.name === 'go') {
         g = '<circle fill="none" stroke="' + options.color + '" stroke-width="64" cx="256" cy="256" r="224"/>';
-      }
-      else if (options.name === 'home') {
+      } else if (options.name === 'home') {
         g = '<polygon points="0,320 0,256 256,0 512,256 512,320 448,320 448,512 320,512 320,320 192,320 192,512 64,512 64,320"/><rect x="352" y="32" width="128" height="256"/>';
-      }
-      else if (options.name === 'mail') {
+      } else if (options.name === 'mail') {
         g = '<polygon points="0,112 128,240 0,368"/><polygon points="0,80 512,80 256,336"/><polygon points="384,240 512,112 512,368"/><polygon points="0,432 0,400 144,256 256,368 368,256 512,400 512,432"/>';
-      }
-      else if (options.name === 'search') {
+      } else if (options.name === 'search') {
         g = '<circle fill="none" stroke="' + options.color + '" stroke-width="48" cx="200" cy="200" r="176"/><polygon points="288,352 352,288 512,448 448,512"/>';
-      }
-      else if (options.name === 'star') {
+      } else if (options.name === 'star') {
         g = '<polygon points="0,196 196,196 256,0 316,196 512,196 354,316 414,512 256,392 98,512 158,316"/>';
-      }
-      else if (options.name === 'stop') {
+      } else if (options.name === 'stop') {
         g = '<polygon points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/>';
-      }
-      else if ($.inArray(options.name, ['triangle', 'warn']) > -1) {
+      } else if ($.inArray(options.name, ['triangle', 'warn']) > -1) {
         if (options.name === 'warn') {
           mask = '<polygon points="256,192 384,448 128,448"/>';
         }
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
         g = '<polygon mask="url(#' + idMask + ')" points="256,0 512,512 0,512"/>';
-      }
-      else {
+      } else {
         onload = ' onload="var frame=0, spin=setInterval(function(){frame=frame+30;if(frame===21600){clearInterval(spin)}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 256 256)\');},100)"';
         defs = '<defs><rect id="' + idSymbol + '" x="224" rx="24" width="64" height="128"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 256 256)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      var $icon = $('<svg aria-label="' + options.name + '" class="ninja-icon"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g fill="' + options.color + '" id="' + idVector + '">' + g + '</g></svg>');
+      $icon = $('<svg aria-label="' + options.name + '" class="ninja-icon"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g fill="' + options.color + '" id="' + idVector + '">' + g + '</g></svg>');
       return $icon;
     },
 
@@ -295,10 +292,11 @@
         radius: ninja().defaults.radius,
         texture: ninja().defaults.texture
       }, options);
-      var $object = this;
-      var $list = $.ninja('<div/>', {
-        'class': 'ninjaList'
-      });
+      var
+        $object = this,
+        $list = $.ninja('<div/>', {
+          'class': 'ninjaList'
+        });
       if (options.html) {
         $list.html(options.html);
       }
@@ -312,8 +310,7 @@
         });
         if (choice.spacer) {
           $choice.addClass('ninja-list-spacer');
-        }
-        else {
+        } else {
           $choice.addClass('ninja-list-choice').bind({
             'click.ninja': function () {
               $list.trigger({
@@ -349,28 +346,23 @@
             if (event.keyCode === 13) {/* return */
               $button.click();
               $(document).unbind('keydown.ninja keyup.ninja');
-            }
-            else if (event.keyCode === 40) {/* down arrow */
+            } else if (event.keyCode === 40) {/* down arrow */
               if ($button.length) {
                 $button.mouseleave();
                 if ($button.nextAll('.ninjaListChoice').length) {
                   $button.nextAll('.ninjaListChoice:first').trigger('mouseenter.ninja');
-                }
-                else {
+                } else {
                   $('.ninjaListChoice:first', $list).trigger('mouseenter.ninja');
                 }
-              }
-              else {
+              } else {
                 $('.ninjaListChoice:first', $list).trigger('mouseenter.ninja');
               }
-            }
-            else if (event.keyCode === 38) {/* up arrow */
+            } else if (event.keyCode === 38) {/* up arrow */
               if ($button.length) {
                 $button
                   .trigger('mouseleave.ninja')
                   .prevAll('.ninjaListChoice:first').trigger('mouseenter');
-              }
-              else {
+              } else {
                 $('.ninjaListChoice:last', $list).trigger('mouseenter');
               }
             }
@@ -395,7 +387,7 @@
             minWidth: $object.width()
           }
         }),
-        number = uniqueNumber();
+        id = uniqueId();
       if (options.css) {
         $popup.css(options.css);
       }
@@ -409,28 +401,27 @@
           if ($object.is('.ninja.ninja-state-selected')) {
             $object.deselect();
           }
-          $(document).unbind('click.ninja' + number);
+          $(document).unbind('click.ninja' + id);
         },
         'update.ninja': function (event) {
           $popup.html(event.html);
+          var $button, $theme, offset, $stem;
           if (options.button) {
-            var
-              $button = $('<span/>', {
-                'class': 'ninja-popup-button ninja-shadow'
-              }).ninja().round({
-                radius: '0.6em'
-              }).click(function () {
-                $popup.remove();
-              });
+            $button = $('<span/>', {
+              'class': 'ninja-popup-button ninja-shadow'
+            }).ninja().round({
+              radius: '0.6em'
+            }).click(function () {
+              $popup.remove();
+            });
             $popup.append($button);
           }
           if (options.theme) {
-            var $theme = $('<div/>', {
+            $theme = $('<div/>', {
               'class': 'ninjaTheme' + options.theme
             }).append($popup);
             $(document.body).append($theme);
-          }
-          else {
+          } else {
             $(document.body).append($popup);
           }
           if (options.window) {
@@ -438,13 +429,11 @@
               left: ($(window).width() / 2) - ($popup.outerWidth() / 2),
               top: ($(window).height() / 2) - ($popup.outerHeight() / 2) + $(window).scrollTop()
             });
-          }
-          else {
-            var
-              offset = $object.offset(),
-              $stem = $('<span/>', {
-                'class': 'ninjaPopupStem ninjaSymbol ninjaSymbolTriangle'
-              });
+          } else {
+            offset = $object.offset();
+            $stem = $('<span/>', {
+              'class': 'ninjaPopupStem ninjaSymbol ninjaSymbolTriangle'
+            });
             $popup.css({
               top: offset.top + $object.outerHeight()
             });
@@ -455,8 +444,7 @@
               $stem.css({
                 right: $object.outerWidth() / 2
               });
-            }
-            else {
+            } else {
               $popup.css({
                 left: offset.left
               });
@@ -465,7 +453,7 @@
               });
             }
             $popup.append($stem);
-            $(document).bind('click.ninja' + number, function (event) {
+            $(document).bind('click.ninja' + id, function (event) {
               if ($popup.is(':visible')) {
                 var $parents = $(event.target).parents();
                 if ($.inArray($popup[0], $parents) < 0 && $object[0] !== event.target && $.inArray($object[0], $parents) < 0) {
@@ -504,48 +492,46 @@
             var $star = $(star);
             if (iStar < options.starsAverage) {
               $star.addClass('ninjaStarAverage');
-            }
-            else {
+            } else {
               $star.removeClass('ninjaStarAverage');
             }
             if (iStar < options.starsUser) {
               $star.addClass('ninjaStarUser');
-            }
-            else {
+            } else {
               $star.removeClass('ninjaStarUser');
             }
           });
         }
       });
       $.each(options.choices, function (i, choice) {
-        var iChoice = i + 1;
-        var $choice = $('<span/>', {
-          'class': 'ninjaStar ninjaSymbol ninjaSymbolStar'
-        }).append(choice).bind({
-          'mouseenter.ninja': function (event) {
-            $('.ninjaStar', $rating).each(function (iStar, star) {
-              var $star = $(star);
-              if (iStar <= i) {
-                $star.addClass('ninjaStarUser');
+        var
+          iChoice = i + 1,
+          $choice = $('<span/>', {
+            'class': 'ninjaStar ninjaSymbol ninjaSymbolStar'
+          }).append(choice).bind({
+            'mouseenter.ninja': function (event) {
+              $('.ninjaStar', $rating).each(function (iStar, star) {
+                var $star = $(star);
+                if (iStar <= i) {
+                  $star.addClass('ninjaStarUser');
+                } else {
+                  $star.removeClass('ninjaStarUser');
+                }
+              });
+            },
+            'click.ninja' : function () {
+              options.starsUser = iChoice;
+              /* individual select function */
+              if (choice.select) {
+                choice.select();
               }
-              else {
-                $star.removeClass('ninjaStarUser');
-              }
-            });
-          },
-          'click.ninja' : function () {
-            options.starsUser = iChoice;
-            /* individual select function */
-            if (choice.select) {
-              choice.select();
+              /* global select function */
+              $rating.trigger({
+                type: 'select',
+                html: choice.html || choice
+              });
             }
-            /* global select function */
-            $rating.trigger({
-              type: 'select',
-              html: choice.html || choice
-            });
-          }
-        });
+          });
         if (iChoice <= options.starsAverage) {
           $choice.addClass('ninjaStarAverage');
         }
@@ -564,50 +550,40 @@
 
     round: function (options) {
       return this.each(function () {
-        var $object = $(this);
         options = $.extend({
           corners: null,
           radius: '0.3em'
         }, options);
+        var
+          $object = $(this),
+          borderRadius = false,
+          style = document.body.style,
+          radii;
         if (options.radius) {
-          var radii;
           if (options.corners === 'bottom') {
             radii = [0, 0, options.radius, options.radius];
-          }
-          else if (options.corners === 'bottomLeft') {
+          } else if (options.corners === 'bottomLeft') {
             radii = [0, 0, 0, options.radius];
-          }
-          else if (options.corners === 'bottomRight') {
+          } else if (options.corners === 'bottomRight') {
             radii = [0, 0, options.radius, 0];
-          }
-          else if (options.corners === 'left') {
+          } else if (options.corners === 'left') {
             radii = [options.radius, 0, 0, options.radius];
-          }
-          else if (options.corners === 'right') {
+          } else if (options.corners === 'right') {
             radii = [0, options.radius, options.radius, 0];
-          }
-          else if (options.corners === 'top') {
+          } else if (options.corners === 'top') {
             radii = [options.radius, options.radius, 0, 0];
-          }
-          else if (options.corners === 'topLeft') {
+          } else if (options.corners === 'topLeft') {
             radii = [options.radius, 0, 0, 0];
-          }
-          else if (options.corners === 'topRight') {
+          } else if (options.corners === 'topRight') {
             radii = [0, options.radius, 0, 0];
-          }
-          else {
+          } else {
             radii = [options.radius, options.radius, options.radius, options.radius];
           }
-          var
-            borderRadius = false,
-            style = document.body.style;
           if (style.borderRadius !== undefined) {
             borderRadius = 'border';
-          }
-          else if (style.WebkitBorderRadius !== undefined) {
+          } else if (style.WebkitBorderRadius !== undefined) {
             borderRadius = '-webkit-border';
-          }
-          else if (style.MozBorderRadius !== undefined) {
+          } else if (style.MozBorderRadius !== undefined) {
             borderRadius = '-moz-border';
           }
           if (borderRadius && borderRadius === 'border') {
@@ -615,22 +591,19 @@
               $object.css({
                 'border-radius': radii[0]
               });
-            }
-            else {
+            } else {
               $object.css({
                 'border-radius': radii.join(' ')
               });
             }
-          }
-          else if (borderRadius && borderRadius === '-moz-border') {
+          } else if (borderRadius && borderRadius === '-moz-border') {
             $object.css({
               '-moz-border-radius-topleft': radii[0],
               '-moz-border-radius-topright': radii[1],
               '-moz-border-radius-bottomright': radii[2],
               '-moz-border-radius-bottomleft': radii[3]
             });
-          }
-          else if (borderRadius && borderRadius === '-webkit-border') {
+          } else if (borderRadius && borderRadius === '-webkit-border') {
             $object.css({
               '-webkit-border-top-left-radius': radii[0],
               '-webkit-border-top-right-radius': radii[1],
@@ -647,8 +620,7 @@
         var $object = $(this);
         if ($.isFunction(event)) {
           $object.bind('select.ninja', event);
-        }
-        else if (!$object.is('.ninja-state-disabled')) {
+        } else if (!$object.is('.ninja-state-disabled')) {
           $object.trigger('select.ninja');
         }
       });
@@ -701,11 +673,9 @@
             var slot = function () {
               if (event.sliderX < 0) {
                 return 0;
-              }
-              else if (event.sliderX > slots) {
+              } else if (event.sliderX > slots) {
                 return slots;
-              }
-              else {
+              } else {
                 return event.sliderX;
               }
             };
@@ -759,8 +729,7 @@
           },
           text: options.title + ': '
         }));
-      }
-      else {
+      } else {
         $choice.css({
           marginLeft: buttonRadius
         });
@@ -818,9 +787,23 @@
       options = $.extend({
         radius: '0.3em'
       }, options);
-      var $suggest = $.ninja('<span/>', {
-        'class': 'ninjaEditable ninjaInline ninjaSuggest'
-      });
+      var
+        $suggest = $.ninja('<span/>', {
+          'class': 'ninjaEditable ninjaInline ninjaSuggest'
+        }),
+        $input = $('<input/>', {
+          'class': 'ninja',
+          type: 'text'
+        }),
+        $clear = $('<span/>', {
+          'class': 'ninjaSuggestClear ninjaSymbol ninjaSymbolClear'
+        }).bind('click.ninja', function () {
+          $input.val('').focus();
+          $clear.css({
+            visibility: 'hidden'
+          });
+        }),
+        $popup = $suggest.popup(), value;
       if (options.css) {
         $suggest.css(options.css);
       }
@@ -832,10 +815,6 @@
           radius: options.radius
         });
       }
-      var $input = $('<input/>', {
-        'class': 'ninja',
-        type: 'text'
-      });
       if (options.placeholder) {
         if ($.support.opacity) {
           $input.css({
@@ -844,15 +823,6 @@
         }
         $input.val(options.placeholder);
       }
-      var $clear = $('<span/>', {
-        'class': 'ninjaSuggestClear ninjaSymbol ninjaSymbolClear'
-      }).bind('click.ninja', function () {
-        $input.val('').focus();
-        $clear.css({
-          visibility: 'hidden'
-        });
-      });
-      var $popup = $suggest.popup(), value;
       $input.bind({
         'focus.ninja': function () {
           if (!$input.is('.ninjaFocused')) {
@@ -864,8 +834,7 @@
             var value = $input.val();
             if (options.placeholder && value === options.placeholder) {
               $input.val('');
-            }
-            else {
+            } else {
               if (value !== '') {
                 $suggest.trigger({
                   type: 'change.ninja',
@@ -901,8 +870,7 @@
           value = $input.val();
           if ($.inArray(event.keyCode, [13, 48, 56, 57, 219, 220]) > -1) {/* return or regular expression metacharacters */
             return false;
-          }
-          else if (event.keyCode === 8 && value.length === 1) {/* delete last character */
+          } else if (event.keyCode === 8 && value.length === 1) {/* delete last character */
             $clear.css({
               visibility: 'hidden'
             });
@@ -921,8 +889,7 @@
               });
             }
             $popup.hide();
-          }
-          else if ($.inArray(event.keyCode, [38, 40]) === -1) {/* not down nor up */
+          } else if ($.inArray(event.keyCode, [38, 40]) === -1) {/* not down nor up */
             var valueNew = $input.val();
             if (event.keyCode !== 8 && valueNew.length === 1) {/* first character */
               $clear.css({
@@ -952,8 +919,7 @@
         'select.ninja': function (event) {
           if (event.html) {
             $input.val($.trim(event.html.toString().replace(new RegExp('/<\/?[^>]+>/', 'gi'), '')));
-          }
-          else {
+          } else {
             event.html = $input.val();
           }
           $input.blur();
@@ -979,8 +945,7 @@
             }).css({
               minWidth: $suggest.outerWidth()
             });
-          }
-          else {
+          } else {
             $popup.hide();
           }
         }
@@ -993,12 +958,12 @@
         choice: 0,
         radius: ninja().defaults.radius
       }, options);
-      var $object = this;
-      var $tabs = $.ninja('<span/>');
+      var
+        $object = this,
+        $tabs = $.ninja('<span/>');
       if (options.vertical) {
         $tabs.addClass('ninja-tabs-vertical');
-      }
-      else {
+      } else {
         $tabs.addClass('ninja-tabs-horizontal');
       }
       if (options.css) {
@@ -1035,8 +1000,7 @@
             corners: 'left',
             radius: options.radius
           });
-        }
-        else if (i === options.choices.length - 1) {
+        } else if (i === options.choices.length - 1) {
           $choice.ninja().round({
             corners: 'right',
             radius: options.radius
@@ -1055,22 +1019,19 @@
         var $object = $(this);
         if ($.isFunction(callback)) {
           $object.bind('update.ninja', callback);
-        }
-        else if (callback) {
+        } else if (callback) {
           if (callback.html) {
             $object.trigger({
               type: 'update.ninja',
               html: callback.html
             });
-          }
-          else if (callback.choices) {
+          } else if (callback.choices) {
             $object.trigger({
               type: 'update.ninja',
               choices: callback.choices
             });
           }
-        }
-        else {
+        } else {
           $object.trigger('update.ninja');
         }
       });
