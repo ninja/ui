@@ -107,8 +107,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           });
         });
 
-        $examples.append('<br/>');
-
       });
 
       describe('.button()', function () {
@@ -126,7 +124,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         }),
         $buttonSelected = $.ninja().button({
           css: {
-            'margin-left': '16px'
+            'margin-right': '16px'
           },
           html: '<i>Selected</i> Button',
           select: true
@@ -156,14 +154,14 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }
         });
 
-        $examples.append($button, ' ', $buttonSelected, ' ', $buttonDisabled, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable');
+        $examples.append('<br/><br/>', $button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
 
         it('should have Ninja UI\'s default class', function () {
           assert($button.hasClass('ninja')).isTrue();
         });
 
         it('should accept css overrides on creation', function () {
-          assert($buttonSelected.css('margin-left')).equals('16px');
+          assert($buttonSelected.css('margin-right')).equals('16px');
           // Note that different browsers are not consistent in how they deal with invalid styles.
           // Note also that values given and values returned do not always match, such as 1em returning 16px
         });
