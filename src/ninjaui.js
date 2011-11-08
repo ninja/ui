@@ -18,7 +18,7 @@
   }).appendTo('head');
 
   var
-    counter = 0,
+    counter = new Date().getTime(),
     ninja = $.sub();
 
   function uniqueNumber() {
