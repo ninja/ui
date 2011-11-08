@@ -181,6 +181,10 @@ $versions(jQueryVersions).load(scriptPath).execute(function($, jQuery, version) 
         it('should have class of ninja-state-selected when select is true', function() {
           assert($buttonSelected.hasClass('ninja-state-selected')).isTrue();
         });
+
+        it('should have class of ninja-state-disabled when disable is true', function() {
+          assert($buttonDisabled.hasClass('ninja-state-disabled')).isTrue();
+        });
       });
 
 
