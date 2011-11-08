@@ -269,7 +269,7 @@
         g = '<polygon mask="url(#' + idMask + ')" points="256,0 512,512 0,512"/>';
       }
       else {
-        onload = ' onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame = 0}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 256 256)\');},100)"';
+        onload = ' onload="var frame=0, spin=setInterval(function(){frame=frame+30;if(frame===21600){clearInterval(spin)}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 256 256)\');},100)"';
         defs = '<defs><rect id="' + idSymbol + '" x="224" rx="24" width="64" height="128"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 256 256)"/><use xlink:href="#' + idSymbol + '"/>';
       }
