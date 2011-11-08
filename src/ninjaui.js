@@ -122,7 +122,7 @@
           $object.bind('disable.ninja', callback);
         }
         else {
-          $object.fadeTo('fast', 0.25).addClass('ninja-state-disabled').trigger('disable.ninja');
+          $object.fadeTo('fast', 0.5).addClass('ninja-state-disabled').trigger('disable.ninja');
         }
       });
     },
