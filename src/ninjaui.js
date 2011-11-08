@@ -12,6 +12,19 @@
 
   'use strict';
 
+  var ua = $.browser;
+  if (ua.msie && parseInt(ua.version, 10) < '9') {
+    $('<script/>', {
+      defer: '',
+      src: 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'
+    }).appendTo('head');
+    $(document).ready(function () {
+      CFInstall.check({
+        mode: 'overlay'
+      });
+    });
+  }
+
   $('<link/>', {
     rel: 'stylesheet',
     href: '../src/ninjaui.css'
