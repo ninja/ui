@@ -14,7 +14,7 @@
   padding: 0.2em 1em;
   position: relative;
   text-align: center;
-  text-shadow: 0 0.125em 0 #fff;
+  text-shadow: 0 1px 0 #fff;
   vertical-align: top;
   white-space: nowrap;
 }
@@ -118,7 +118,7 @@
 .ninja-list-choice.ninja-state-hovered {
   background-color: #999;
   color: #fff;
-  text-shadow: 0 0.125em 0 #666;
+  text-shadow: 0 1px 0 #666;
 }
 .ninja-state-selected {
   background-image: url('../src/img/gradient.in.svg');

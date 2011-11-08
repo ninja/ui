@@ -11,6 +11,7 @@
   background-color: #333;
   border-color: #000;
   color: #fff;
+  text-shadow: 0 1px 0 #000;
 }
 .ninja-theme-dojo .ninja-drawer-tray,
 .ninja-theme-dojo .ninja-editable {
