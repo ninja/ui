@@ -222,20 +222,6 @@
       });
     },
 
-    error: function (message, callback) {
-      return this.each(function () {
-        var $object = $(this);
-        if ($.isFunction(callback)) {
-          $object.bind('error.ninja', callback);
-        } else {
-          $object.trigger({
-            type: 'error.ninja',
-            message: message
-          });
-        }
-      });
-    },
-
     icon: function (options) {
       options = $.extend({
         color: ninja().defaults.color,
