@@ -16,8 +16,8 @@
 
   var
     browser = $.browser,
-    time,
-    ninja;
+    ninja,
+    time;
 
   if (browser.msie && parseInt(browser.version, 10) < '9') {
     $('<script/>', {
@@ -31,6 +31,11 @@
     });
   }
 
+  $('<link/>', {
+    rel: 'stylesheet',
+    href: '../src/ninjaui.css'
+  }).appendTo('head');
+
   time = new Date().getTime();
 
   function uniqueId() {
@@ -38,16 +43,13 @@
     return time;
   }
 
-  $('<link/>', {
-    rel: 'stylesheet',
-    href: '../src/ninjaui.css'
-  }).appendTo('head');
-
   ninja = $.sub();
 
   ninja.fn.extend({
 
     defaults: {
+      color: '#333',
+      colorSelected: '#fff',
       radius: '0.35em'
     },
 
@@ -145,8 +147,7 @@
 
     drawer: function (options) {
       options = $.extend({
-        radius: ninja().defaults.radius,
-        texture: ninja().defaults.texture
+        radius: ninja().defaults.radius
       }, options);
       var
         $tray = $('<div/>', {
@@ -157,10 +158,11 @@
           radius: options.radius
         }),
         $arrowDown = $.ninja().icon({
-          color: '#fff',
+          color: ninja().defaults.colorSelected,
           name: 'arrow-down'
         }),
         $arrowRight = $.ninja().icon({
+          color: ninja().defaults.color,
           name: 'arrow-right'
         }),
         $handle = $.ninja().button($.extend({}, options, {
@@ -232,7 +234,7 @@
 
     icon: function (options) {
       options = $.extend({
-        color: $('body').css('color'),
+        color: ninja().defaults.color,
         name: 'spin'
       }, options);
       var
@@ -296,7 +298,7 @@
     list: function (options) {
       options = $.extend({
         radius: ninja().defaults.radius,
-        texture: ninja().defaults.texture
+        texture: texture
       }, options);
       var
         $object = this,
@@ -382,7 +384,7 @@
     popup: function (options) {
       options = $.extend({
         button: false,
-        radius: '0.3em',
+        radius: ninja().defaults.radius,
         window: false
       }, options);
       var
@@ -558,7 +560,7 @@
       return this.each(function () {
         options = $.extend({
           corners: null,
-          radius: '0.3em'
+          radius: ninja().defaults.radius
         }, options);
         var
           $object = $(this),
@@ -670,7 +672,7 @@
             width: left
           }
         }).round({
-          radius: '0.3em'
+          radius: ninja().defaults.radius
         }),
         $slider = $('<span/>', {
           'class': 'ninjaInline ninjaSlider'
@@ -715,7 +717,7 @@
             opacity: 0.25
           }
         }).round({
-          radius: '0.3em'
+          radius: ninja().defaults.radius
         }).bind('click.ninja', function (event) {
           $button.trigger({
             type: 'select.ninja',
@@ -791,7 +793,7 @@
 
     suggest: function (options) {
       options = $.extend({
-        radius: '0.3em'
+        radius: ninja().defaults.radius
       }, options);
       var
         $suggest = $.ninja('<span/>', {

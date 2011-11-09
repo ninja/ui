@@ -102,7 +102,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             } else if (iconName === 'go') {
               assert($('g', $icon).attr('fill')).equals('green');
             } else {
-              assert($('g', $icon).attr('fill')).equals('rgb(0, 0, 0)');
+              assert($('g', $icon).attr('fill')).equals('#333');
             }
           });
         });
@@ -180,15 +180,16 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 
       describe('.drawer()', function () {
-        var $drawer = $.ninja().drawer({
+        var $drawer, $drawerSelect;
+        $drawer = $.ninja().drawer({
           css: {
             width: '360px'
           },
-          html: 'This is <b>HTML</b> inside the drawer.',
+          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           title: 'Drawer'
         });
-        var $drawerSelect = $.ninja().drawer({
-          html: 'This is <b>HTML</b> inside the drawer.',
+        $drawerSelect = $.ninja().drawer({
+          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           select: true,
           title: '<i>Selected</i> Drawer'
         });
@@ -205,7 +206,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept html content on creation', function () {
-          assert($('.ninja-tray', $drawer).html()).equals('This is <b>HTML</b> inside the drawer.');
+          assert($('.ninja-tray', $drawer).html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
         });
       });
 
