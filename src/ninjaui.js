@@ -150,20 +150,24 @@
       }, options);
       var
         $tray = $('<div/>', {
-          'class': 'ninja-drawer-tray',
-          css: options.css,
+          'class': 'ninja-tray',
           html: options.html
         }).ninja().round({
           corners: 'bottom',
           radius: options.radius
         }),
-        $icon = $('<span/>', {
-          'class': 'ninja-icon ninja-icon-arrow-right'
+        $arrowDown = $.ninja().icon({
+          color: '#fff',
+          name: 'arrow-down'
         }),
-        $handle = $.ninja().button($.extend(options, {
+        $arrowRight = $.ninja().icon({
+          name: 'arrow-right'
+        }),
+        $handle = $.ninja().button($.extend({}, options, {
+          css: null,
           select: options.select,
-          html: options.title
-        })).addClass('ninja-drawer-handle').bind({
+          html: ' ' + options.title
+        })).bind({
           'deselect.ninja': function () {
             $tray.slideUp('fast', function () {
               if (options.radius) {
@@ -182,18 +186,20 @@
             }
             $tray.slideDown('fast');
           }
-        }).prepend($icon, ' '),
+        }),
         $drawer = $('<div/>', {
-          'class': 'ninjaDrawer'
+          'class': 'ninja-drawer',
+          css: options.css
         }).append($handle, $tray);
       if (options.select) {
         if (options.radius) {
           $handle.ninja().round({
             corners: 'top',
             radius: options.radius
-          });
+          }).prepend($arrowDown);
         }
       } else {
+        $handle.prepend($arrowRight);
         $tray.hide();
       }
       return $drawer;

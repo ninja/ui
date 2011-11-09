@@ -10,7 +10,7 @@
   border: 1px solid #999;
   color: #333;
   display: inline-block;
-  font: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  line-height: 1.3em;
   padding: 0.2em 1em;
   position: relative;
   text-align: center;
@@ -18,17 +18,25 @@
   vertical-align: top;
   white-space: nowrap;
 }
-.ninja-drawer-handle {
+.ninja-drawer .ninja {
   display: block;
   text-align: left;
 }
-.ninja-drawer-tray {
-  padding: 0.5em;
+.ninja-tray {
+  background-color: #eee;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-bottom-color: #eee;
+  border-top-color: #666;
+  color: #333;
+  padding: 0.2em 1em;
 }
 .ninja-icon {
   display: inline-block;
-  height: 1em;
-  width: 1em;
+  height: 1.3em;
+  line-height: 1.3em;
+  vertical-align: bottom;
+  width: 1.3em;
 }
 .ninja-list {
   margin: 0 -0.6em;
@@ -120,7 +128,8 @@
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
-.ninja-state-selected {
+.ninja-state-selected,
+.ninja-tray {
   background-image: url('../src/img/gradient.in.svg');
 }
 .ninja-state-hovered {
@@ -133,14 +142,6 @@
 /* Ninja Default Theme */
 
 /*
-.ninja-drawer-tray,
-.ninja-editable {
-  background-color: #000;
-  background-color: rgba(0,0,0,0.85);
-  border-color: #333;
-  border-bottom-color: #666;
-  border-top-color: #000;
-}
 .ninja-editable input {
   color: #fff;
 }

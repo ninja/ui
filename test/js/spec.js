@@ -73,7 +73,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               name: iconName
             });
           }
-          $examples.append($icon, ' ');
+          $examples.append($icon, '&#160;', iconName, '&#160; ');
 
           it('should have icon class', function () {
             if (version !== '1.5.2' && version !== '1.5.1' && version !== '1.5') {
@@ -176,6 +176,36 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
         it('should have class of ninja-state-disabled when disable is true', function () {
           assert($buttonDisabled.hasClass('ninja-state-disabled')).isTrue();
+        });
+      });
+
+      describe('.drawer()', function () {
+        var $drawer = $.ninja().drawer({
+          css: {
+            width: '360px'
+          },
+          html: 'This is <b>HTML</b> inside the drawer.',
+          title: 'Drawer'
+        });
+        var $drawerSelect = $.ninja().drawer({
+          html: 'This is <b>HTML</b> inside the drawer.',
+          select: true,
+          title: '<i>Selected</i> Drawer'
+        });
+        $examples.append('<br/><br/>', $drawer, '<br/><br/>', $drawerSelect);
+
+        it('should have drawer class', function () {
+          assert($drawer.hasClass('ninja-drawer')).isTrue();
+        });
+
+        it('should accept css overrides on creation', function () {
+          assert($drawer.css('width')).equals('360px');
+          // Note that different browsers are not consistent in how they deal with invalid styles.
+          // Note also that values given and values returned do not always match, such as 1em returning 16px
+        });
+
+        it('should accept html content on creation', function () {
+          assert($('.ninja-tray', $drawer).html()).equals('This is <b>HTML</b> inside the drawer.');
         });
       });
 
