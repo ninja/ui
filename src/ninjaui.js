@@ -169,7 +169,7 @@
           css: null,
           select: options.select,
           html: ' ' + options.title
-        })).bind({
+        })).addClass('ninja-handle').bind({
           'deselect.ninja': function () {
             $tray.slideUp('fast', function () {
               if (options.radius) {
@@ -178,6 +178,8 @@
                 });
               }
             });
+            $arrowDown.remove();
+            $handle.prepend($arrowRight);
           },
           'select.ninja': function () {
             if (options.radius) {
@@ -186,6 +188,8 @@
                 radius: options.radius
               });
             }
+            $arrowRight.remove();
+            $handle.prepend($arrowDown);
             $tray.slideDown('fast');
           }
         }),
