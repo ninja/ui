@@ -48,6 +48,125 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         }
       });
 
+      describe('.button()', function () {
+        var $toggleSelect, $toggleDisable,
+        $button = $.ninja().button({
+          html: 'Button'
+        }).disable(function () {
+          $toggleSelect.attr({
+            disabled: 'disabled'
+          });
+        }).enable(function () {
+          $toggleSelect.attr({
+            disabled: false
+          });
+        }),
+        $buttonSelected = $.ninja().button({
+          css: {
+            'margin-right': '16px'
+          },
+          html: '<i>Selected</i> Button',
+          select: true
+        }),
+        $buttonDisabled = $.ninja().button({
+          html: '<i>Disabled</i> Button',
+          disable: true
+        });
+
+        $toggleSelect = $('<input/>', {
+          type: 'checkbox'
+        }).change(function () {
+          if ($toggleSelect.attr('checked')) {
+            $button.select();
+          } else {
+            $button.deselect();
+          }
+        });
+
+        $toggleDisable = $('<input/>', {
+          type: 'checkbox'
+        }).change(function () {
+          if ($toggleDisable.attr('checked')) {
+            $button.disable();
+          } else {
+            $button.enable();
+          }
+        });
+
+        $examples.append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
+
+        it('should have Ninja UI\'s default class', function () {
+          assert($button.hasClass('ninja')).isTrue();
+        });
+
+        it('should accept css overrides on creation', function () {
+          assert($buttonSelected.css('margin-right')).equals('16px');
+          // Note that different browsers are not consistent in how they deal with invalid styles.
+          // Note also that values given and values returned do not always match, such as 1em returning 16px
+        });
+
+        it('should accept html content on creation', function () {
+          assert($buttonSelected.html()).equals('<i>Selected</i> Button');
+        });
+
+        it('should have class of ninja-state-selected when select is true', function () {
+          assert($buttonSelected.hasClass('ninja-state-selected')).isTrue();
+        });
+
+        it('should have class of ninja-state-disabled when disable is true', function () {
+          assert($buttonDisabled.hasClass('ninja-state-disabled')).isTrue();
+        });
+      });
+
+      describe('.drawer()', function () {
+        var $drawer, $drawerSelect, $drawerHandle, $drawerTray, $drawerIcon, $drawerSelectHandle, $drawerSelectTray, $drawerSelectIcon;
+        $drawer = $.ninja().drawer({
+          css: {
+            width: '360px'
+          },
+          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
+          title: 'Drawer'
+        });
+
+        $drawerHandle = $('.ninja-handle', $drawer);
+        $drawerTray = $('.ninja-tray', $drawer);
+        $drawerIcon = $('.ninja-icon', $drawerHandle);
+
+        $drawerSelect = $.ninja().drawer({
+          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
+          select: true,
+          title: '<i>Selected</i> Drawer'
+        });
+
+        $drawerSelectHandle = $('.ninja-handle', $drawerSelect);
+        $drawerSelectTray = $('.ninja-tray', $drawerSelect);
+        $drawerSelectIcon = $('.ninja-icon', $drawerSelectHandle);
+
+        $examples.append('<br/><br/>', $drawer, '<br/>', $drawerSelect, '<br/><br/>Icons<br/>');
+
+        it('should have drawer class', function () {
+          assert($drawer.hasClass('ninja-drawer')).isTrue();
+        });
+
+        it('should accept css overrides on creation', function () {
+          assert($drawer.css('width')).equals('360px');
+          // Note that different browsers are not consistent in how they deal with invalid styles.
+          // Note also that values given and values returned do not always match, such as 1em returning 16px
+        });
+
+        it('should accept html content on creation', function () {
+          assert($drawerTray.html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
+        });
+
+        it('should have a right arrow before selecting', function () {
+          assert($drawerIcon.attr('aria-label')).equals('arrow-right');
+        });
+
+        it('should have a down arrow after selecting', function () {
+          assert($drawerSelectIcon.attr('aria-label')).equals('arrow-down');
+        });
+      });
+
       describe('.icon()', function () {
         var iconNames = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'warn', 'go'];
 
@@ -108,126 +227,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
       });
-
-      describe('.button()', function () {
-        var $toggleSelect, $toggleDisable,
-        $button = $.ninja().button({
-          html: 'Button'
-        }).disable(function () {
-          $toggleSelect.attr({
-            disabled: 'disabled'
-          });
-        }).enable(function () {
-          $toggleSelect.attr({
-            disabled: false
-          });
-        }),
-        $buttonSelected = $.ninja().button({
-          css: {
-            'margin-right': '16px'
-          },
-          html: '<i>Selected</i> Button',
-          select: true
-        }),
-        $buttonDisabled = $.ninja().button({
-          html: '<i>Disabled</i> Button',
-          disable: true
-        });
-
-        $toggleSelect = $('<input/>', {
-          type: 'checkbox'
-        }).change(function () {
-          if ($toggleSelect.attr('checked')) {
-            $button.select();
-          } else {
-            $button.deselect();
-          }
-        });
-
-        $toggleDisable = $('<input/>', {
-          type: 'checkbox'
-        }).change(function () {
-          if ($toggleDisable.attr('checked')) {
-            $button.disable();
-          } else {
-            $button.enable();
-          }
-        });
-
-        $examples.append('<br/><br/>', $button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
-
-        it('should have Ninja UI\'s default class', function () {
-          assert($button.hasClass('ninja')).isTrue();
-        });
-
-        it('should accept css overrides on creation', function () {
-          assert($buttonSelected.css('margin-right')).equals('16px');
-          // Note that different browsers are not consistent in how they deal with invalid styles.
-          // Note also that values given and values returned do not always match, such as 1em returning 16px
-        });
-
-        it('should accept html content on creation', function () {
-          assert($buttonSelected.html()).equals('<i>Selected</i> Button');
-        });
-
-        it('should have class of ninja-state-selected when select is true', function () {
-          assert($buttonSelected.hasClass('ninja-state-selected')).isTrue();
-        });
-
-        it('should have class of ninja-state-disabled when disable is true', function () {
-          assert($buttonDisabled.hasClass('ninja-state-disabled')).isTrue();
-        });
-      });
-
-      describe('.drawer()', function () {
-        var $drawer, $drawerSelect, $drawerHandle, $drawerTray, $drawerIcon, $drawerSelectHandle, $drawerSelectTray, $drawerSelectIcon;
-        $drawer = $.ninja().drawer({
-          css: {
-            width: '360px'
-          },
-          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
-          title: 'Drawer'
-        });
-
-        $drawerHandle = $('.ninja-handle', $drawer);
-        $drawerTray = $('.ninja-tray', $drawer);
-        $drawerIcon = $('.ninja-icon', $drawerHandle);
-
-        $drawerSelect = $.ninja().drawer({
-          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
-          select: true,
-          title: '<i>Selected</i> Drawer'
-        });
-
-        $drawerSelectHandle = $('.ninja-handle', $drawerSelect);
-        $drawerSelectTray = $('.ninja-tray', $drawerSelect);
-        $drawerSelectIcon = $('.ninja-icon', $drawerSelectHandle);
-
-        $examples.append('<br/><br/>', $drawer, '<br/><br/>', $drawerSelect);
-
-        it('should have drawer class', function () {
-          assert($drawer.hasClass('ninja-drawer')).isTrue();
-        });
-
-        it('should accept css overrides on creation', function () {
-          assert($drawer.css('width')).equals('360px');
-          // Note that different browsers are not consistent in how they deal with invalid styles.
-          // Note also that values given and values returned do not always match, such as 1em returning 16px
-        });
-
-        it('should accept html content on creation', function () {
-          assert($drawerTray.html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
-        });
-
-        it('should have a right arrow before selecting', function () {
-          assert($drawerIcon.attr('aria-label')).equals('arrow-right');
-        });
-
-        it('should have a down arrow after selecting', function () {
-          assert($drawerSelectIcon.attr('aria-label')).equals('arrow-down');
-        });
-      });
-
 
     });
   });

@@ -33,9 +33,12 @@
 .ninja-icon {
   display: inline-block;
   height: 1.3em;
+  vertical-align: middle;
+  width: 1.3em;
+}
+.ninja .ninja-icon {
   line-height: 1.3em;
   vertical-align: bottom;
-  width: 1.3em;
 }
 .ninja-list {
   margin: 0 -0.6em;

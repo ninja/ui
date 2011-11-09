@@ -287,8 +287,7 @@
 
     list: function (options) {
       options = $.extend({
-        radius: ninja().defaults.radius,
-        texture: texture
+        radius: ninja().defaults.radius
       }, options);
       var
         $object = this,
@@ -990,9 +989,6 @@
             $choice.removeClass('ninja-state-hovered');
           }
         });
-        if (options.texture) {
-          $choice.addClass(options.texture);
-        }
         if (i === 0) {
           $choice.addClass('ninja-tab-first').ninja().round({
             corners: 'left',
