@@ -184,7 +184,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
 /* $.ninja.icon() */
       describe('.icon()', function () {
-        $examples.append('<br/><br/>Icons<br/>');
+        $examples.append('<br/>');
 
         var iconNames = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'warn', 'go'];
 

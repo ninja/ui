@@ -1,10 +1,13 @@
 body {
   font: 13px/20px 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+  margin: 2em auto;
+  max-width: 640px;
 }
 
 .ninjaui-examples {
-  border-bottom: 1px solid #eee;
-  padding: 30px;
+  border: 1px solid #d2e0e6;
+  border-top: 0 none;
+  padding: 2em;
 }
 
 .ninjaui-examples-title {

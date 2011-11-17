@@ -142,6 +142,7 @@
         }
       });
     },
+
     remove: function () {
       this.trigger('remove.ninja');
       $.fn.remove.apply(this);
