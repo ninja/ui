@@ -3,14 +3,6 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
 .ninja,
-.ninja-menu-choice.ninja-state-hovered {
-  background-image: url('../src/img/gradient.out.svg');
-}
-.ninja-state-selected,
-.ninja-tray {
-  background-image: url('../src/img/gradient.in.svg');
-}
-.ninja,
 .ninja-menu-choice {
   background-repeat: no-repeat;
   color: #333;
