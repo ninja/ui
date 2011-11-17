@@ -130,7 +130,9 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
 /* $.ninja.drawer() */
       describe('.drawer()', function () {
-        var $drawer, $drawerSelect, $drawerHandle, $drawerTray, $drawerIcon, $drawerSelectHandle, $drawerSelectTray, $drawerSelectIcon;
+
+        var $drawer, $drawerSelect;
+
         $drawer = $.ninja.drawer({
           css: {
             width: '360px'
@@ -138,10 +140,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           title: 'Drawer'
         });
-
-        $drawerHandle = $('.ninja-handle', $drawer);
-        $drawerTray = $('.ninja-tray', $drawer);
-        $drawerIcon = $('.ninja-icon', $drawerHandle);
 
         $drawerSelect = $.ninja.drawer({
           css: {
@@ -151,10 +149,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           select: true,
           title: '<i>Selected</i> Drawer'
         });
-
-        $drawerSelectHandle = $('.ninja-handle', $drawerSelect);
-        $drawerSelectTray = $('.ninja-tray', $drawerSelect);
-        $drawerSelectIcon = $('.ninja-icon', $drawerSelectHandle);
 
         $examples.append('<br/><br/>', $drawer, $drawerSelect);
 
@@ -169,22 +163,23 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept html content on creation', function () {
-          assert($drawerTray.html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
+          assert($drawer.find('.ninja-tray').html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
         });
 
         it('should have a right arrow before selecting', function () {
-          assert($drawerIcon.attr('aria-label')).equals('arrow-right');
+          assert($drawer.find('.ninja-handle .ninja-icon').attr('aria-label')).equals('arrow-right');
         });
 
         it('should have a down arrow after selecting', function () {
-          assert($drawerSelectIcon.attr('aria-label')).equals('arrow-down');
+          assert($drawerSelect.find('.ninja-handle .ninja-icon').attr('aria-label')).equals('arrow-down');
         });
+
       });
 /* */
 
 /* $.ninja.icon() */
       describe('.icon()', function () {
-        $examples.append('<br/>');
+        $examples.append('<br/><br/>');
 
         var iconNames = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'warn', 'go'];
 

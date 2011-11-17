@@ -239,13 +239,17 @@
     drawer: function (options) {
       options = $.extend({}, defaults, options);
       var
+        $drawer = $('<div/>', {
+          'class': 'ninja-drawer',
+          css: options.css
+        }),
         $tray = $('<div/>', {
           'class': 'ninja-tray',
           html: options.html,
           css: {
             borderRadius: [0, 0, options.borderRadius, options.borderRadius].join(' ')
           }
-        }),
+        }).appendTo($drawer),
         $arrowDown = $.ninja.icon({
           name: 'arrow-down'
         }),
@@ -263,21 +267,17 @@
                 borderRadius: options.borderRadius
               });
             });
-            $arrowDown.remove();
+            $arrowDown.detach();
             $handle.prepend($arrowRight);
           },
           'select.ninja': function () {
-            $arrowRight.remove();
+            $arrowRight.detach();
             $handle.prepend($arrowDown).css({
               borderRadius: [options.borderRadius, options.borderRadius, 0, 0].join(' ')
             });
             $tray.slideDown('fast');
           }
-        }),
-        $drawer = $('<div/>', {
-          'class': 'ninja-drawer',
-          css: options.css
-        }).append($handle, $tray);
+        }).prependTo($drawer);
       if (options.select) {
         $handle.prepend($arrowDown).css({
           borderRadius: [options.borderRadius, options.borderRadius, 0, 0].join(' ')
