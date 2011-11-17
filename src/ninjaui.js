@@ -8,18 +8,13 @@
 
 /*globals CFInstall: false*/
 
-/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: true, regexp: true, strict: true, undef: true, white: true*/
+/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: true, undef: true, white: true*/
 
-(function ($) {
+(function ($, window, document, undefined) {
 
   'use strict';
 
-  var
-    browser = $.browser,
-    ninja,
-    time;
-
-  if (browser.msie && parseInt(browser.version, 10) < '9') {
+  if ($.browser.msie && parseInt($.browser.version, 10) < '9') {
     $('<script/>', {
       defer: '',
       src: 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'
@@ -36,76 +31,68 @@
     href: '../src/ninjaui.css'
   }).appendTo('head');
 
-  time = new Date().getTime();
+  var
+    browserPrefix,
+    corners = 'TopLeft TopRight BottomRight BottomLeft'.split(' '),
+    defaults,
+    objects,
+    methods,
+    style = document.body.style,
+    support = $.support,
+    time = $.now();
 
   function uniqueId() {
-    time = time + 1;
-    return time;
+    return time ++;
   }
 
-  ninja = $.sub();
+  function borderCornerRadius(corner, prefix) {
+    prefix = prefix === undefined || prefix === '' ? 'border' : prefix + 'Border';
+    if (support.borderRadius && support.borderRadius === 'MozBorderRadius') {
+      return prefix + 'Radius' + corner.charAt(0).toUpperCase() + corner.substr(1).toLowerCase();
+    } else {
+      return prefix + corner + 'Radius';
+    }
+  }
 
-  ninja.fn.extend({
+  if ($.cssHooks) {
+    support.borderRadius = style.borderRadius === '' ? 'borderRadius' :
+      (style.WebkitBorderRadius === '' ? 'WebkitBorderRadius' :
+      (style.MozBorderRadius === '' ? 'MozBorderRadius' :
+      (style.OBorderRadius === '' ? 'OBorderRadius' :
+      (style.MsBorderRadius === '' ? 'MsBorderRadius' : false))));
 
-    defaults: {
-      color: '#333',
-      colorSelected: '#fff',
-      radius: '0.35em'
-    },
-
-    button: function (options) {
-      options = $.extend({
-        radius: ninja().defaults.radius
-      }, options);
-      var $button = $.ninja('<span/>', {
-        'class': 'ninja'
-      });
-      if (options.radius) {
-        $button.round({
-          radius: options.radius
-        });
-      }
-      if (options.css) {
-        $button.css(options.css);
-      }
-      if (options.html) {
-        $button.html(options.html);
-      }
-      $button.bind({
-        'click.ninja': function () {
-          if (!$button.is('.ninja-state-disabled')) {
-            if ($button.is('.ninja-state-selected')) {
-              $button.trigger('deselect.ninja');
-            } else {
-              $button.trigger('select.ninja');
-            }
-          }
+    if (support.borderRadius && support.borderRadius !== 'borderRadius') {
+      browserPrefix = support.borderRadius.replace('BorderRadius', '');
+      $.cssHooks.borderRadius = {
+        get: function (element, computed, extra) {
+          return $.map(corners, function (corner) {
+            return $.css(element, borderCornerRadius(corner, browserPrefix));
+          }).join(' ');
         },
-        'deselect.ninja': function () {
-          $button.removeClass('ninja-state-selected');
-        },
-        'mouseenter.ninja': function () {
-          if (!$button.is('.ninja-state-disabled')) {
-            $button.addClass('ninja-state-hovered');
-          }
-        },
-        'mouseleave.ninja': function () {
-          if (!$button.is('.ninja-state-disabled')) {
-            $button.removeClass('ninja-state-hovered');
-          }
-        },
-        'select.ninja': function () {
-          $button.addClass('ninja-state-selected');
+        set: function (element, value) {
+          element.style[borderCornerRadius('', browserPrefix)] = value;
         }
+      };
+      $.each(corners, function (i, corner) {
+        $.cssHooks['borderRadius' + corner] = {
+          get: function (element, computed, extra) {
+            return $.css(element, borderCornerRadius(corner, browserPrefix));
+          },
+          set: function (element, value) {
+            element.style[borderCornerRadius(corner, browserPrefix)] = value;
+          }
+        };
       });
-      if (options.select) {
-        $button.trigger('select.ninja');
-      }
-      if (options.disable) {
-        $button.disable();
-      }
-      return $button;
-    },
+    }
+  } else {
+    $.error('Ninja UI requires jQuery 1.4.3 or higher to support CSS Border Radius');
+  }
+
+  defaults = {
+    borderRadius: '0.35em'
+  };
+
+  methods = {
 
     change: function (callback) {
       return this.each(function () {
@@ -145,72 +132,6 @@
       });
     },
 
-    drawer: function (options) {
-      options = $.extend({
-        radius: ninja().defaults.radius
-      }, options);
-      var
-        $tray = $('<div/>', {
-          'class': 'ninja-tray',
-          html: options.html
-        }).ninja().round({
-          corners: 'bottom',
-          radius: options.radius
-        }),
-        $arrowDown = $.ninja().icon({
-          color: ninja().defaults.colorSelected,
-          name: 'arrow-down'
-        }),
-        $arrowRight = $.ninja().icon({
-          color: ninja().defaults.color,
-          name: 'arrow-right'
-        }),
-        $handle = $.ninja().button($.extend({}, options, {
-          css: null,
-          select: options.select,
-          html: ' ' + options.title
-        })).addClass('ninja-handle').bind({
-          'deselect.ninja': function () {
-            $tray.slideUp('fast', function () {
-              if (options.radius) {
-                $handle.ninja().round({
-                  radius: options.radius
-                });
-              }
-            });
-            $arrowDown.remove();
-            $handle.prepend($arrowRight);
-          },
-          'select.ninja': function () {
-            if (options.radius) {
-              $handle.ninja().round({
-                corners: 'top',
-                radius: options.radius
-              });
-            }
-            $arrowRight.remove();
-            $handle.prepend($arrowDown);
-            $tray.slideDown('fast');
-          }
-        }),
-        $drawer = $('<div/>', {
-          'class': 'ninja-drawer',
-          css: options.css
-        }).append($handle, $tray);
-      if (options.select) {
-        if (options.radius) {
-          $handle.ninja().round({
-            corners: 'top',
-            radius: options.radius
-          }).prepend($arrowDown);
-        }
-      } else {
-        $handle.prepend($arrowRight);
-        $tray.hide();
-      }
-      return $drawer;
-    },
-
     enable: function (callback) {
       return this.each(function () {
         var $object = $(this).ninja();
@@ -221,14 +142,158 @@
         }
       });
     },
+    remove: function () {
+      this.trigger('remove.ninja');
+      $.fn.remove.apply(this);
+    },
+
+    select: function (event) {
+      return this.each(function () {
+        var $object = $(this);
+        if ($.isFunction(event)) {
+          $object.bind('select.ninja', event);
+        } else if (!$object.is('.ninja-state-disabled')) {
+          $object.trigger('select.ninja');
+        }
+      });
+    },
+
+    update: function (callback) {
+      return this.each(function () {
+        var $object = $(this);
+        if ($.isFunction(callback)) {
+          $object.bind('update.ninja', callback);
+        } else if (callback) {
+          if (callback.html) {
+            $object.trigger({
+              type: 'update.ninja',
+              html: callback.html
+            });
+          } else if (callback.choices) {
+            $object.trigger({
+              type: 'update.ninja',
+              choices: callback.choices
+            });
+          }
+        } else {
+          $object.trigger('update.ninja');
+        }
+      });
+    }
+
+  };
+
+  objects = {
+
+    button: function (options) {
+      options = $.extend({}, defaults, options);
+      var $button = $('<span/>', {
+        'class': 'ninja',
+        css: {
+          borderRadius: options.borderRadius
+        }
+      });
+      if (options.css) {
+        $button.css(options.css);
+      }
+      if (options.html) {
+        $button.html(options.html);
+      }
+      $button.bind({
+        'click.ninja': function () {
+          if (!$button.is('.ninja-state-disabled')) {
+            if ($button.is('.ninja-state-selected')) {
+              $button.trigger('deselect.ninja');
+            } else {
+              $button.trigger('select.ninja');
+            }
+          }
+        },
+        'deselect.ninja': function () {
+          $button.removeClass('ninja-state-selected');
+        },
+        'mouseenter.ninja': function () {
+          if (!$button.is('.ninja-state-disabled')) {
+            $button.addClass('ninja-state-hovered');
+          }
+        },
+        'mouseleave.ninja': function () {
+          if (!$button.is('.ninja-state-disabled')) {
+            $button.removeClass('ninja-state-hovered');
+          }
+        },
+        'select.ninja': function () {
+          $button.addClass('ninja-state-selected');
+        }
+      });
+      if (options.select) {
+        $button.trigger('select.ninja');
+      }
+      if (options.disable) {
+        $button.ninja().disable();
+      }
+      return $button.ninja();
+    },
+
+    drawer: function (options) {
+      options = $.extend({}, defaults, options);
+      var
+        $tray = $('<div/>', {
+          'class': 'ninja-tray',
+          html: options.html,
+          css: {
+            borderRadius: [0, 0, options.borderRadius, options.borderRadius].join(' ')
+          }
+        }),
+        $arrowDown = $.ninja.icon({
+          name: 'arrow-down'
+        }),
+        $arrowRight = $.ninja.icon({
+          name: 'arrow-right'
+        }),
+        $handle = $.ninja.button($.extend({}, options, {
+          css: null,
+          select: options.select,
+          html: options.title
+        })).addClass('ninja-handle').bind({
+          'deselect.ninja': function () {
+            $tray.slideUp('fast', function () {
+              $handle.css({
+                borderRadius: options.borderRadius
+              });
+            });
+            $arrowDown.remove();
+            $handle.prepend($arrowRight);
+          },
+          'select.ninja': function () {
+            $arrowRight.remove();
+            $handle.prepend($arrowDown).css({
+              borderRadius: [options.borderRadius, options.borderRadius, 0, 0].join(' ')
+            });
+            $tray.slideDown('fast');
+          }
+        }),
+        $drawer = $('<div/>', {
+          'class': 'ninja-drawer',
+          css: options.css
+        }).append($handle, $tray);
+      if (options.select) {
+        $handle.prepend($arrowDown).css({
+          borderRadius: [options.borderRadius, options.borderRadius, 0, 0].join(' ')
+        });
+      } else {
+        $handle.prepend($arrowRight);
+        $tray.hide();
+      }
+      return $drawer.ninja();
+    },
 
     icon: function (options) {
-      options = $.extend({
-        color: ninja().defaults.color,
+      options = $.extend({}, defaults, {
         name: 'spin'
       }, options);
       var
-        $icon = '',
+        $icon,
         defs = '',
         g = '',
         id = uniqueId(),
@@ -259,13 +324,13 @@
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
         g = '<circle cx="256" cy="256" mask="url(#' + idMask + ')" r="256"/>';
       } else if (options.name === 'go') {
-        g = '<circle fill="none" stroke="' + options.color + '" stroke-width="64" cx="256" cy="256" r="224"/>';
+        g = '<circle fill="none" stroke-width="64" cx="256" cy="256" r="224"/>';
       } else if (options.name === 'home') {
         g = '<polygon points="0,320 0,256 256,0 512,256 512,320 448,320 448,512 320,512 320,320 192,320 192,512 64,512 64,320"/><rect x="352" y="32" width="128" height="256"/>';
       } else if (options.name === 'mail') {
         g = '<polygon points="0,112 128,240 0,368"/><polygon points="0,80 512,80 256,336"/><polygon points="384,240 512,112 512,368"/><polygon points="0,432 0,400 144,256 256,368 368,256 512,400 512,432"/>';
       } else if (options.name === 'search') {
-        g = '<circle fill="none" stroke="' + options.color + '" stroke-width="48" cx="200" cy="200" r="176"/><polygon points="288,352 352,288 512,448 448,512"/>';
+        g = '<circle fill="none" stroke-width="48" cx="200" cy="200" r="176"/><polygon points="288,352 352,288 512,448 448,512"/>';
       } else if (options.name === 'star') {
         g = '<polygon points="0,196 196,196 256,0 316,196 512,196 354,316 414,512 256,392 98,512 158,316"/>';
       } else if (options.name === 'stop') {
@@ -277,59 +342,59 @@
         defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
         g = '<polygon mask="url(#' + idMask + ')" points="256,0 512,512 0,512"/>';
       } else {
-        onload = ' onload="var frame=0, spin=setInterval(function(){frame=frame+30;if(frame===21600){clearInterval(spin)}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 256 256)\');},100)"';
+        onload = ' onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 256 256)\');},100)"';
         defs = '<defs><rect id="' + idSymbol + '" x="224" rx="24" width="64" height="128"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 256 256)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      $icon = $('<svg aria-label="' + options.name + '" class="ninja-icon" height="16" width="16"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g fill="' + options.color + '" id="' + idVector + '">' + g + '</g></svg>');
+      $icon = $('<svg aria-label="' + options.name + '" class="ninja-icon" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke="#000">' + g + '</g></svg>');
+      if (options.css) {
+        $icon.find('g').css(options.css);
+      }
       return $icon;
     },
 
-    list: function (options) {
-      options = $.extend({
-        radius: ninja().defaults.radius
-      }, options);
+    menu: function (options) {
+      options = $.extend({}, defaults, options);
       var
-        $object = this,
-        $list = $.ninja('<div/>', {
-          'class': 'ninjaList'
-        });
-      if (options.html) {
-        $list.html(options.html);
-      }
-      if (options.css) {
-        $list.css(options.css);
-      }
+        $menu = $('<div/>', {
+          'class': 'ninja-menu'
+        }),
+        $popup = $('<div/>', {
+          'class': 'ninja-popup'
+        }),
+        $button = $.ninja.button($.extend({}, options, {
+          html: options.html,
+          select: options.select
+        })).append($.ninja.icon({
+          name: 'arrow-down'
+        })).select(function () {
+          $menu.append($popup).delegate('div.ninja-menu-choice', 'mouseenter.ninja', function () {
+            $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
+            $(this).addClass('ninja-state-hovered');
+          }).delegate('div.ninja-menu-choice', 'mouseleave.ninja', function () {
+            $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
+            $(this).addClass('ninja-state-hovered');
+          }).delegate('div.ninja-menu-choice', 'click.ninja', function () {
+            $popup.detach();
+          }).deselect(function () {
+            $popup.detach();
+          });
+        }).appendTo($menu);
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
-          'class': 'ninja',
           html: choice.display || choice.html || choice
-        });
+        }).appendTo($popup);
         if (choice.spacer) {
-          $choice.addClass('ninja-list-spacer');
+          $choice.addClass('ninja-menu-spacer');
         } else {
-          $choice.addClass('ninja-list-choice').bind({
-            'click.ninja': function () {
-              $list.trigger({
-                type: 'select.ninja',
-                html: choice.html || choice
-              });
-              /* individual select function */
-              if ($.isFunction(choice.select)) {
-                choice.select();
-              }
-            },
-            'mouseenter.ninja': function () {
-              $('.ninja-state-hovered', $list).removeClass('ninja-state-hovered');
-              $choice.addClass('ninja-state-hovered');
-            }
-          });
-        }
-        $list.append($choice).bind({
-          'mouseleave.ninja': function () {
-            $('.ninja-state-hovered', $list).removeClass('ninja-state-hovered');
+          $choice.addClass('ninja-menu-choice');
+          if ($.isFunction(choice.select)) {
+            $choice.bind('click.ninja', function () {
+              choice.select();
+              $button.ninja().deselect();
+            });
           }
-        });
+        }
       });
       $(document).unbind('keydown.ninja keyup.ninja').bind({
         'keydown.ninja': function (event) {
@@ -339,114 +404,100 @@
         },
         'keyup.ninja': function (event) {
           if ($.inArray(event.keyCode, [13, 38, 40]) > -1) {/* return, down or up */
-            var $button = $('.ninja-state-hovered', $list);
+            var $button = $('.ninja-state-hovered', $popup);
             if (event.keyCode === 13) {/* return */
               $button.click();
               $(document).unbind('keydown.ninja keyup.ninja');
             } else if (event.keyCode === 40) {/* down arrow */
               if ($button.length) {
                 $button.mouseleave();
-                if ($button.nextAll('.ninjaListChoice').length) {
-                  $button.nextAll('.ninjaListChoice:first').trigger('mouseenter.ninja');
+                if ($button.nextAll('.ninja-menu-choice').length) {
+                  $button.nextAll('.ninja-menu-choice:first').trigger('mouseenter.ninja');
                 } else {
-                  $('.ninjaListChoice:first', $list).trigger('mouseenter.ninja');
+                  $('.ninja-menu-choice:first', $popup).trigger('mouseenter.ninja');
                 }
               } else {
-                $('.ninjaListChoice:first', $list).trigger('mouseenter.ninja');
+                $('.ninja-menu-choice:first', $popup).trigger('mouseenter.ninja');
               }
             } else if (event.keyCode === 38) {/* up arrow */
               if ($button.length) {
                 $button
                   .trigger('mouseleave.ninja')
-                  .prevAll('.ninjaListChoice:first').trigger('mouseenter');
+                  .prevAll('.ninja-menu-choice:first').trigger('mouseenter.ninja');
               } else {
-                $('.ninjaListChoice:last', $list).trigger('mouseenter');
+                $('.ninja-menu-choice:last', $popup).trigger('mouseenter.ninja');
               }
             }
             return false;
           }
         }
       });
-      return $list;
+      return $menu.ninja();
     },
 
     popup: function (options) {
-      options = $.extend({
+      options = $.extend({}, defaults, {
         button: false,
-        radius: ninja().defaults.radius,
         window: false
       }, options);
       var
+        id = uniqueId(),
         $object = this,
-        $popup = $.ninja('<span/>', {
-          'class': 'ninjaPopup ninjaInline ninjaShadow',
+        $popup = $('<span/>', {
+          'class': 'ninja-popup',
           css: {
+            borderRadius: options.borderRadius,
             minWidth: $object.width()
           }
-        }),
-        id = uniqueId();
+        });
       if (options.css) {
         $popup.css(options.css);
       }
-      if (options.radius) {
-        $popup.round({
-          radius: options.radius
-        });
-      }
       $popup.bind({
         'detach.ninja remove.ninja': function () {
-          if ($object.is('.ninja.ninja-state-selected')) {
+          if ($object.is('.ninja-state-selected')) {
             $object.deselect();
           }
           $(document).unbind('click.ninja' + id);
         },
         'update.ninja': function (event) {
           $popup.html(event.html);
-          var $button, $theme, offset, $stem;
+          var $button, offset, $stem;
           if (options.button) {
-            $button = $('<span/>', {
-              'class': 'ninja-popup-button ninja-shadow'
-            }).ninja().round({
-              radius: '0.6em'
-            }).click(function () {
+            $button = $.ninja.icon({
+              name: 'circle-clear'
+            }).addClass('ninja-popup-button').click(function () {
               $popup.remove();
             });
             $popup.append($button);
           }
-          if (options.theme) {
-            $theme = $('<div/>', {
-              'class': 'ninjaTheme' + options.theme
-            }).append($popup);
-            $(document.body).append($theme);
-          } else {
-            $(document.body).append($popup);
-          }
+          $(document.body).append($popup);
           if (options.window) {
             $popup.css({
-              left: ($(window).width() / 2) - ($popup.outerWidth() / 2),
-              top: ($(window).height() / 2) - ($popup.outerHeight() / 2) + $(window).scrollTop()
+              left: ($(window).width() / 2) - ($popup.width() / 2),
+              top: ($(window).height() / 2) - ($popup.height() / 2) + $(window).scrollTop()
             });
           } else {
             offset = $object.offset();
-            $stem = $('<span/>', {
-              'class': 'ninjaPopupStem ninjaSymbol ninjaSymbolTriangle'
-            });
+            $stem = $.ninja.icon({
+              name: 'triangle'
+            }).addClass('ninja-popup-stem');
             $popup.css({
-              top: offset.top + $object.outerHeight()
+              top: offset.top + $object.height()
             });
-            if (offset.left + $popup.outerWidth() > $(window).width()) {
+            if (offset.left + $popup.width() > $(window).width()) {
               $popup.css({
                 right: 0
               });
               $stem.css({
-                right: $object.outerWidth() / 2
+                right: $object.width() / 2
               });
             } else {
               $popup.css({
                 left: offset.left
               });
               $stem.css({
-                left: $object.outerWidth() / 2
+                left: $object.width() / 2
               });
             }
             $popup.append($stem);
@@ -473,11 +524,11 @@
           html: options.html
         });
       }
-      return $popup;
+      return $popup.ninja();
     },
 
     rating: function (options) {
-      options = $.extend({
+      options = $.extend({}, defaults, {
         starsAverage: 0,
         starsUser: 0
       }, options);
@@ -537,94 +588,11 @@
         }
         $rating.append($choice);
       });
-      return $rating;
-    },
-
-    remove: function () {
-      this.trigger('remove.ninja');
-      $.fn.remove.apply(this);
-    },
-
-    round: function (options) {
-      return this.each(function () {
-        options = $.extend({
-          corners: null,
-          radius: ninja().defaults.radius
-        }, options);
-        var
-          $object = $(this),
-          borderRadius = false,
-          style = document.body.style,
-          radii;
-        if (options.radius) {
-          if (options.corners === 'bottom') {
-            radii = [0, 0, options.radius, options.radius];
-          } else if (options.corners === 'bottomLeft') {
-            radii = [0, 0, 0, options.radius];
-          } else if (options.corners === 'bottomRight') {
-            radii = [0, 0, options.radius, 0];
-          } else if (options.corners === 'left') {
-            radii = [options.radius, 0, 0, options.radius];
-          } else if (options.corners === 'right') {
-            radii = [0, options.radius, options.radius, 0];
-          } else if (options.corners === 'top') {
-            radii = [options.radius, options.radius, 0, 0];
-          } else if (options.corners === 'topLeft') {
-            radii = [options.radius, 0, 0, 0];
-          } else if (options.corners === 'topRight') {
-            radii = [0, options.radius, 0, 0];
-          } else {
-            radii = [options.radius, options.radius, options.radius, options.radius];
-          }
-          if (style.borderRadius !== undefined) {
-            borderRadius = 'border';
-          } else if (style.WebkitBorderRadius !== undefined) {
-            borderRadius = '-webkit-border';
-          } else if (style.MozBorderRadius !== undefined) {
-            borderRadius = '-moz-border';
-          }
-          if (borderRadius && borderRadius === 'border') {
-            if (radii[0] === radii[1] && radii[0] === radii[2] && radii[0] === radii[3]) {
-              $object.css({
-                'border-radius': radii[0]
-              });
-            } else {
-              $object.css({
-                'border-radius': radii.join(' ')
-              });
-            }
-          } else if (borderRadius && borderRadius === '-moz-border') {
-            $object.css({
-              '-moz-border-radius-topleft': radii[0],
-              '-moz-border-radius-topright': radii[1],
-              '-moz-border-radius-bottomright': radii[2],
-              '-moz-border-radius-bottomleft': radii[3]
-            });
-          } else if (borderRadius && borderRadius === '-webkit-border') {
-            $object.css({
-              '-webkit-border-top-left-radius': radii[0],
-              '-webkit-border-top-right-radius': radii[1],
-              '-webkit-border-bottom-right-radius': radii[2],
-              '-webkit-border-bottom-left-radius': radii[3]
-            });
-          }
-        }
-      });
-    },
-
-    select: function (event) {
-      return this.each(function () {
-        var $object = $(this);
-        if ($.isFunction(event)) {
-          $object.bind('select.ninja', event);
-        } else if (!$object.is('.ninja-state-disabled')) {
-          $object.trigger('select.ninja');
-        }
-      });
+      return $rating.ninja();
     },
 
     slider: function (options) {
-      options = $.extend({
+      options = $.extend({}, defaults, {
         slot: 0,
         width: 200
       }, options);
@@ -639,13 +607,12 @@
           'class': 'ninjaSliderChoice',
           html: options.choices[options.slot].html
         }),
-        $button = ninja('<span/>', {
+        $button = $('<span/>', {
           'class': 'ninjaSliderButton ninjaInline',
           css: {
+            borderRadius: '1em',
             left: left
           }
-        }).round({
-          radius: '1em'
         }),
         $temp = $button.clone().css({
           display: 'none'
@@ -653,15 +620,14 @@
         buttonDiameter = $temp.outerWidth(),
         buttonRadius = buttonDiameter / 2,
         trackWidth = options.width + buttonDiameter,
-        $level = ninja('<div/>', {
+        $level = $('<div/>', {
           'class': 'ninjaSliderLevel',
           css: {
+            borderRadius: options.borderRadius,
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
             width: left
           }
-        }).round({
-          radius: ninja().defaults.radius
         }),
         $slider = $('<span/>', {
           'class': 'ninjaInline ninjaSlider'
@@ -692,21 +658,20 @@
             }
           }
         }).append($choice),
-        $track = ninja('<div/>', {
+        $track = $('<div/>', {
           'class': 'ninjaSliderTrack',
           css: {
             width: trackWidth
           }
         }).appendTo($slider),
-        $groove = ninja('<div/>', {
+        $groove = $('<div/>', {
           'class': 'ninjaSliderGroove',
           css: {
+            borderRadius: options.borderRadius,
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
             opacity: 0.25
           }
-        }).round({
-          radius: ninja().defaults.radius
         }).bind('click.ninja', function (event) {
           $button.trigger({
             type: 'select.ninja',
@@ -777,16 +742,17 @@
           });
         }
       });
-      return $slider;
+      return $slider.ninja();
     },
 
     suggest: function (options) {
-      options = $.extend({
-        radius: ninja().defaults.radius
-      }, options);
+      options = $.extend({}, defaults, options);
       var
-        $suggest = $.ninja('<span/>', {
-          'class': 'ninjaEditable ninjaInline ninjaSuggest'
+        $suggest = $('<span/>', {
+          'class': 'ninjaEditable ninjaInline ninjaSuggest',
+          css: {
+            borderRadius: options.borderRadius
+          }
         }),
         $input = $('<input/>', {
           'class': 'ninja',
@@ -806,11 +772,6 @@
       }
       if (options.html) {
         $suggest.prepend(options.html);
-      }
-      if (options.radius) {
-        $suggest.round({
-          radius: options.radius
-        });
       }
       if (options.placeholder) {
         if ($.support.opacity) {
@@ -926,7 +887,7 @@
           if (event.choices.length) {
             value = $input.val();
             $popup.show().update({
-              html: $.ninja().list({
+              html: $.ninja.list({
                 choices: $.map(event.choices, function (choice) {
                   choice.display = choice.html.toString().replace(new RegExp(value, 'gi'), '<strong>' + value + '</strong>');
                   choice.html = choice.html || choice;
@@ -947,17 +908,16 @@
           }
         }
       }).append($input, $clear);
-      return $suggest;
+      return $suggest.ninja();
     },
 
     tabs: function (options) {
-      options = $.extend({
-        choice: 0,
-        radius: ninja().defaults.radius
+      options = $.extend({}, defaults, {
+        choice: 0
       }, options);
       var
         $object = this,
-        $tabs = $.ninja('<span/>');
+        $tabs = $('<span/>');
       if (options.vertical) {
         $tabs.addClass('ninja-tabs-vertical');
       } else {
@@ -967,12 +927,12 @@
         $tabs.css(options.css);
       }
       $.each(options.choices, function (i, choice) {
-        var $choice = ninja('<span/>', {
+        var $choice = $('<span/>', {
           'class': 'ninja ninja-tab',
           html: choice.html || choice
         }).bind({
           'click.ninja': function () {
-            ninja('.ninja-tab', $tabs).removeClass('ninja-state-selected');
+            $('.ninja-tab', $tabs).removeClass('ninja-state-selected');
             $choice.addClass('ninja-state-selected');
             $tabs.trigger({
               type: 'select.ninja',
@@ -990,14 +950,12 @@
           }
         });
         if (i === 0) {
-          $choice.addClass('ninja-tab-first').ninja().round({
-            corners: 'left',
-            radius: options.radius
+          $choice.addClass('ninja-tab-first').css({
+            borderRadius: [options.borderRadius, 0, 0, 0].join(' ')
           });
         } else if (i === options.choices.length - 1) {
-          $choice.ninja().round({
-            corners: 'right',
-            radius: options.radius
+          $choice.css({
+            borderRadius: [0, options.borderRadius, 0, 0].join(' ')
           });
         }
         if (i === options.choice - 1) {
@@ -1005,42 +963,19 @@
         }
         $tabs.append($choice);
       });
-      return $tabs;
-    },
-
-    update: function (callback) {
-      return this.each(function () {
-        var $object = $(this);
-        if ($.isFunction(callback)) {
-          $object.bind('update.ninja', callback);
-        } else if (callback) {
-          if (callback.html) {
-            $object.trigger({
-              type: 'update.ninja',
-              html: callback.html
-            });
-          } else if (callback.choices) {
-            $object.trigger({
-              type: 'update.ninja',
-              choices: callback.choices
-            });
-          }
-        } else {
-          $object.trigger('update.ninja');
-        }
-      });
+      return $tabs.ninja();
     },
 
     version: function () {
       return 'development';
     }
 
-  });
-
-  $.ninja = ninja;
-
-  $.fn.ninja = function () {
-    return ninja(this);
   };
 
-}(jQuery));
+  $.ninja = objects;
+
+  $.fn.ninja = function () {
+    return this.extend(methods);
+  };
+
+}(jQuery, window, document));

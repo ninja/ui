@@ -38,19 +38,20 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should load Ninja UI', function () {
-          assert($.ninja()).isDefined();
+          assert($.ninja).isDefined();
         });
 
         if (environment !== 'production') {
           it('should return development Ninja UI version if environment is not production', function () {
-            assert($.ninja().version()).equals('development');
+            assert($.ninja.version()).equals('development');
           });
         }
       });
 
+/* $.ninja.button() */
       describe('.button()', function () {
         var $toggleSelect, $toggleDisable,
-        $button = $.ninja().button({
+        $button = $.ninja.button({
           html: 'Button'
         }).disable(function () {
           $toggleSelect.attr({
@@ -60,15 +61,23 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           $toggleSelect.attr({
             disabled: false
           });
+        }).select(function () {
+          $toggleSelect.attr({
+            checked: 'checked'
+          });
+        }).deselect(function () {
+          $toggleSelect.attr({
+            checked: false
+          });
         }),
-        $buttonSelected = $.ninja().button({
+        $buttonSelected = $.ninja.button({
           css: {
             'margin-right': '16px'
           },
           html: '<i>Selected</i> Button',
           select: true
         }),
-        $buttonDisabled = $.ninja().button({
+        $buttonDisabled = $.ninja.button({
           html: '<i>Disabled</i> Button',
           disable: true
         });
@@ -117,10 +126,12 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           assert($buttonDisabled.hasClass('ninja-state-disabled')).isTrue();
         });
       });
+/* */
 
+/* $.ninja.drawer() */
       describe('.drawer()', function () {
         var $drawer, $drawerSelect, $drawerHandle, $drawerTray, $drawerIcon, $drawerSelectHandle, $drawerSelectTray, $drawerSelectIcon;
-        $drawer = $.ninja().drawer({
+        $drawer = $.ninja.drawer({
           css: {
             width: '360px'
           },
@@ -132,7 +143,10 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $drawerTray = $('.ninja-tray', $drawer);
         $drawerIcon = $('.ninja-icon', $drawerHandle);
 
-        $drawerSelect = $.ninja().drawer({
+        $drawerSelect = $.ninja.drawer({
+          css: {
+            width: '360px'
+          },
           html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           select: true,
           title: '<i>Selected</i> Drawer'
@@ -142,7 +156,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $drawerSelectTray = $('.ninja-tray', $drawerSelect);
         $drawerSelectIcon = $('.ninja-icon', $drawerSelectHandle);
 
-        $examples.append('<br/><br/>', $drawer, '<br/>', $drawerSelect, '<br/><br/>Icons<br/>');
+        $examples.append('<br/><br/>', $drawer, $drawerSelect);
 
         it('should have drawer class', function () {
           assert($drawer.hasClass('ninja-drawer')).isTrue();
@@ -166,36 +180,50 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           assert($drawerSelectIcon.attr('aria-label')).equals('arrow-down');
         });
       });
+/* */
 
+/* $.ninja.icon() */
       describe('.icon()', function () {
+        $examples.append('<br/><br/>Icons<br/>');
+
         var iconNames = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'warn', 'go'];
 
         $.each(iconNames, function (i, iconName) {
           var $icon;
           if (iconName === 'stop') {
-            $icon = $.ninja().icon({
-              color: '#c00',
+            $icon = $.ninja.icon({
+              css: {
+                fill: '#c00',
+                margin: '5em',
+                stroke: '#c00'
+              },
               name: iconName
             });
           } else if (iconName === 'warn') {
-            $icon = $.ninja().icon({
-              color: 'goldenrod',
+            $icon = $.ninja.icon({
+              css: {
+                fill: 'goldenrod',
+                stroke: 'goldenrod'
+              },
               name: iconName
             });
           } else if (iconName === 'go') {
-            $icon = $.ninja().icon({
-              color: 'green',
+            $icon = $.ninja.icon({
+              css: {
+                fill: 'green',
+                stroke: 'green'
+              },
               name: iconName
             });
           } else {
-            $icon = $.ninja().icon({
+            $icon = $.ninja.icon({
               name: iconName
             });
           }
           $examples.append($icon, '&#160;', iconName, '&#160; ');
 
           it('should have icon class', function () {
-            if (version !== '1.5.2' && version !== '1.5.1' && version !== '1.5') {
+            if ($.inArray(version, ['1.5.2', '1.5.1', '1.5']) === -1) {
               // can't test these due to a bug in these jQuery versions
               assert($icon.attr('class')).equals('ninja-icon');
             }
@@ -213,20 +241,73 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             assert($('title', $icon).text()).equals(iconName);
           });
 
-          it('should have the correct color', function () {
+          it('should accept css overrides on creation', function () {
             if (iconName === 'stop') {
-              assert($('g', $icon).attr('fill')).equals('#c00');
+              assert($icon.find('g').attr('style')).equals('fill: #cc0000; margin-top: 5em; margin-right: 5em; margin-bottom: 5em; margin-left: 5em; stroke: #cc0000; ');
             } else if (iconName === 'warn') {
-              assert($('g', $icon).attr('fill')).equals('goldenrod');
+              assert($icon.find('g').attr('style')).equals('fill: #daa520; stroke: #daa520; ');
             } else if (iconName === 'go') {
-              assert($('g', $icon).attr('fill')).equals('green');
-            } else {
-              assert($('g', $icon).attr('fill')).equals('#333');
+              assert($icon.find('g').attr('style')).equals('fill: #008000; stroke: #008000; ');
             }
           });
         });
 
       });
+/* */
+
+/* $.ninja.menu() */
+      describe('.menu()', function () {
+        var
+          $message = $('<span/>'),
+          please = function () {
+            $message.html(':( Try again.');
+          },
+          $menu = $.ninja.menu({
+            choices: [
+              {
+                html: '<div>Mo</div>',
+                select: function () {
+                  $message.html('Oh, a wise guy eh?');
+                }
+              },
+              {
+                html: '<div>Larry</div>',
+                select: function () {
+                  $message.html('Cut it out, ya puddinhead!');
+                }
+              },
+              {
+                html: '<div>Curly</div>',
+                select: function () {
+                  $message.html('Hey, Mo!');
+                }
+              },
+              { spacer: true },
+              {
+                html: '<div>Shemp</div>',
+                select: function () {
+                  please();
+                }
+              },
+              {
+                html: '<div>Joe</div>',
+                select: function () {
+                  please();
+                }
+              },
+              {
+                html: '<div>Curly Joe</div>',
+                select: function () {
+                  please();
+                }
+              }
+            ],
+            html: 'Menu'
+          });
+
+        $examples.append('<br/><br/>', $menu, ' ', $message);
+      });
+/* */
 
     });
   });

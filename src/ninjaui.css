@@ -2,33 +2,38 @@
   Copyright 2008-2011 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
-.ninja {
-  background-color: #eee;
+.ninja,
+.ninja-menu-choice.ninja-state-hovered {
   background-image: url('../src/img/gradient.out.svg');
+}
+.ninja-state-selected,
+.ninja-tray {
+  background-image: url('../src/img/gradient.in.svg');
+}
+.ninja,
+.ninja-menu-choice {
   background-repeat: no-repeat;
-  border: 1px solid #999;
   color: #333;
-  display: inline-block;
   line-height: 1.3em;
   padding: 0.2em 1em;
-  position: relative;
-  text-align: center;
   text-shadow: 0 1px 0 #fff;
-  vertical-align: top;
   white-space: nowrap;
+}
+.ninja,
+.ninja-menu {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+.ninja {
+  background-color: #eee;
+  border: 1px solid #999;
+  text-align: center;
 }
 .ninja-drawer .ninja {
   display: block;
+  padding-left: 0;
   text-align: left;
-}
-.ninja-tray {
-  background-color: #eee;
-  background-repeat: no-repeat;
-  border: 1px solid #ccc;
-  border-bottom-color: #eee;
-  border-top-color: #666;
-  color: #333;
-  padding: 0.2em 1em;
 }
 .ninja-icon {
   display: inline-block;
@@ -36,24 +41,34 @@
   vertical-align: middle;
   width: 1.3em;
 }
+.ninja-icon g {
+  fill: #333;
+  stroke: #000;
+}
 .ninja .ninja-icon {
   line-height: 1.3em;
   vertical-align: bottom;
 }
-.ninja-list {
-  margin: 0 -0.6em;
-}
-.ninja-list-spacer {
-  border-top: 1px solid transparent;
+.ninja-menu-spacer {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #ccc;
   margin: 0.4em 0;
-  white-space: nowrap;
 }
 .ninja-popup {
-  border-width: 0.2em;
+  background-color: rgba(255,255,255,0.85);
+  border: 1px solid #ccc;
+  -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  -o-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   margin: 1em 0.5em 0.5em 0;
   padding: 0.6em;
   position: absolute;
   z-index: +1;
+}
+.ninja-menu .ninja-popup {
+  padding: 0.6em 0;
 }
 .ninja-popup-button {
   cursor: pointer;
@@ -72,12 +87,14 @@
   position: absolute;
   top: -1em;
 }
-.ninja-shadow {
-  -ms-box-shadow: 0 0.2em 0.3em #000;
-  -moz-box-shadow: 0 0.2em 0.3em #000;
-  -o-box-shadow: 0 0.2em 0.3em #000;
-  -webkit-box-shadow: 0 0.2em 0.3em #000;
-  box-shadow: 0 0.2em 0.3em #000;
+.ninja-popup-button {
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.9);
+}
+.ninja-popup-stem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
 }
 .ninja-slider-groove {
   cursor: pointer;
@@ -124,15 +141,25 @@
   display: inline-block;
   white-space: nowrap;
 }
+.ninja-tray {
+  background-color: #eee;
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  border-bottom-color: #eee;
+  border-top-color: #666;
+  color: #333;
+  padding: 0.2em 1em;
+}
 .ninja-state-selected,
-.ninja-list-choice.ninja-state-hovered {
+.ninja-menu-choice.ninja-state-hovered {
   background-color: #999;
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
-.ninja-state-selected,
-.ninja-tray {
-  background-image: url('../src/img/gradient.in.svg');
+.ninja-state-selected .ninja-icon g,
+.ninja-menu-choice.ninja-state-hovered .ninja-icon g {
+  fill: #fff;
+  stroke: #fff;
 }
 .ninja-state-hovered {
   cursor: pointer;
@@ -146,22 +173,6 @@
 /*
 .ninja-editable input {
   color: #fff;
-}
-.ninja-list-spacer {
-  border-top-color: #666;
-}
-.ninja-popup {
-  background-color: #000;
-  background-color: rgba(0,0,0,0.85);
-}
-.ninja-popup-button {
-  background-color: #fff;
-  color: #000;
-  color: rgba(0,0,0,0.9);
-}
-.ninja-popup-stem {
-  color: #000;
-  color: rgba(0,0,0,0.85);
 }
 .ninja-slider-groove {
   background-color: #000;
