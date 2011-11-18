@@ -14,6 +14,20 @@
 
   'use strict';
 
+  var
+    defaults,
+    objects,
+    methods,
+    time,
+    version = $.fn.jquery.split('.'),
+    versionMinor = parseFloat(version[1]),
+    versionIncrement = parseFloat(version[2] || '0');
+
+  if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4)
+  {
+    $.error('Ninja UI requires jQuery 1.4.3 or higher to support SVG icon creation, CSS hooks and the $.now() utility.');
+  }
+
   if ($.browser.msie && parseInt($.browser.version, 10) < '9') {
     $('<script/>', {
       defer: '',
@@ -31,11 +45,7 @@
     href: '../src/ninjaui.css'
   }).appendTo('head');
 
-  var
-    defaults,
-    objects,
-    methods,
-    time = $.now();
+  time = $.now();
 
   function uniqueId() {
     return time ++;
