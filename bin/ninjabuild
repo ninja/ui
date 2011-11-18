@@ -5,6 +5,10 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for more details.
 */
 
+/*globals */
+
+/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, node: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: false, undef: true, white: true*/
+
 var version = '1.0',
   copyright = '/*\n  Ninja UI jQuery Plugin ' + version + '\n  http://ninjaui.com/\n  Copyright 2008-2011 Jamie Hoover\n  Licensed per the terms of the Apache License v2.0\n  https://github.com/ninja/ui/blob/master/README.md for details\n*/\n',
   help = [
@@ -36,67 +40,69 @@ var version = '1.0',
     'magenta': 35,
     'cyan': 36
   },
-  color = function(color, str) {
-    if(!color) return str;
-    return '\033[' + ansiColors[color] + 'm' + str + '\033[0m';
+  color = function (color, str) {
+    if (!color) {
+      return str;
+    }
+    return "\033[" + ansiColors[color] + 'm' + str + "\033[0m";
   };
 
 while (args.length) {
   arg = args.shift();
   switch (arg) {
-    case '-h':
-    case '--help':
-    case 'help':
-      console.log(help);
-      process.exit();
+  case '-h':
+  case '--help':
+  case 'help':
+    console.log(help);
+    process.exit();
+    break;
+  case '-v':
+  case '--version':
+    console.log('Ninja UI ' + version);
+    process.exit();
+    break;
+  case '-o':
+  case '--out':
+    if (args.length) {
+      options.out = args.shift();
       break;
-    case '-v':
-    case '--version':
-      console.log('Ninja UI ' + version);
-      process.exit();
-      break;
-    case '-o':
-    case '--out':
-      if (args.length) {
-        options.out = args.shift();
-        break;
-      }
-      console.error(color('red', 'Path required after -o, --output'));
-      process.exit(1);
-      break;
-    default:
-      if (~arg.indexOf('/')) {
-        options.input = arg;
-        options.output = arg;
-      }
+    }
+    console.error(color('red', 'Path required after -o, --output'));
+    process.exit(1);
+    break;
+  default:
+    if (arg.indexOf('/')) {
+      options.input = arg;
+      options.output = arg;
+    }
   }
 }
 
 fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   console.log(color('cyan', 'Reading JavaScript source file...'));
-  if (err) throw err;
+  if (err) {
+    throw err;
+  }
   var scriptString = scriptBuffer.toString().replace('development', version);
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
-    if (err) throw err;
-    var imageGradientInString = fs.readFileSync(options.input + '/src/img/gradient.in.svg', 'base64');
-    var imageGradientOutString = fs.readFileSync(options.input + '/src/img/gradient.out.svg', 'base64');
-    var styleString = styleBuffer.toString()
-      .replace('../src/img/gradient.in.svg', 'data:image/svg+xml;base64,' + imageGradientInString)
-      .replace('../src/img/gradient.out.svg', 'data:image/svg+xml;base64,' + imageGradientOutString);
-    styleBuffer = new Buffer(styleString);
+    if (err) {
+      throw err;
+    }
+    var
+      path = require('path'),
+      jsp = require('uglify-js').parser,
+      pro = require('uglify-js').uglify,
+      ast;
     scriptString = scriptString.replace('../src/ninjaui.css', 'data:text/css;base64,' + styleBuffer.toString('base64'));
     console.log(color('green', 'Writing JavaScript files...'));
     fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);
-    var jsp = require('uglify-js').parser;
-    var pro = require('uglify-js').uglify;
-    var ast = jsp.parse(scriptString);
+    ast = jsp.parse(scriptString);
     ast = pro.ast_mangle(ast);
     ast = pro.ast_squeeze(ast);
     ast = pro.gen_code(ast);
     fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', copyright + ast);
     console.log('Ninja UI ' + version + ' build complete.');
-    var path = require('path');
     console.log('Test URL: ' + color('magenta', 'file://' + path.normalize(__dirname + '/../test/index.html?environment=production')));
   });
 });

@@ -2,67 +2,105 @@
   Copyright 2008-2011 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
-.ninja,
-.ninja-menu-choice {
-  background-repeat: no-repeat;
+.ninja-object-button,
+.ninja-object-item.ninja-state-hovered {
+  background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
+  background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  background-image: -ms-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  background-image: -o-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  background-image: linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(255,255,255,0.2)', EndColorStr='rgba(0,0,0,0.1)');
+}
+.ninja-object-button,
+.ninja-object-item {
   color: #333;
   line-height: 1.3em;
   padding: 0.2em 1em;
   text-shadow: 0 1px 0 #fff;
   white-space: nowrap;
 }
-.ninja,
-.ninja-menu {
+.ninja-object-button,
+.ninja-object-menu {
   display: inline-block;
   position: relative;
   vertical-align: top;
 }
-.ninja {
+.ninja-object-button {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   background-color: #eee;
   border: 1px solid #999;
+  -webkit-border-radius: 0.35em;
+  -moz-border-radius: 0.35em;
+  border-radius: 0.35em;
   text-align: center;
 }
-.ninja-drawer .ninja {
+.ninja-object-button .ninja-object-icon {
+  line-height: 1.3em;
+  vertical-align: bottom;
+}
+.ninja-object-drawer .ninja-object-button {
   display: block;
   padding-left: 0;
   text-align: left;
 }
-.ninja-icon {
+.ninja-object-drawer .ninja-object-button.ninja-state-selected {
+  -webkit-border-radius: 0.35em 0.35em 0 0;
+  -moz-border-radius: 0.35em 0.35em 0 0;
+  border-radius: 0.35em 0.35em 0 0;
+
+}
+.ninja-object-icon {
   display: inline-block;
   height: 1.3em;
   vertical-align: middle;
   width: 1.3em;
 }
-.ninja-icon g {
+.ninja-object-icon g {
   fill: #333;
   stroke: #000;
 }
-.ninja .ninja-icon {
-  line-height: 1.3em;
-  vertical-align: bottom;
+.ninja-object-item.ninja-state-hovered,
+.ninja-state-selected {
+  background-color: #999;
+  color: #fff;
+  text-shadow: 0 1px 0 #666;
 }
-.ninja-menu-spacer {
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #ccc;
-  margin: 0.4em 0;
+.ninja-object-item.ninja-state-hovered g,
+.ninja-state-selected g {
+  fill: #fff;
+  stroke: #fff;
 }
-.ninja-popup {
+.ninja-object-menu .ninja-object-popup {
+  padding: 0.6em 0;
+}
+.ninja-object-popup {
   background-color: rgba(255,255,255,0.85);
   border: 1px solid #ccc;
-  -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  -moz-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  -o-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  -o-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   margin: 1em 0.5em 0.5em 0;
   padding: 0.6em;
   position: absolute;
   z-index: +1;
 }
-.ninja-menu .ninja-popup {
-  padding: 0.6em 0;
+.ninja-object-popup-stem {
+  color: #000;
+  color: rgba(0,0,0,0.85);
+  cursor: default;
+  margin-left: -0.5em;
+  position: absolute;
+  top: -1em;
 }
-.ninja-popup-button {
+.ninja-object-popup .ninja-object-x {
+  background-color: #fff;
+  color: #000;
+  color: rgba(0,0,0,0.9);
   cursor: pointer;
   font-size: 1.2em;
   height: 1.2em;
@@ -73,86 +111,82 @@
   top: -0.6em;
   width: 1.2em;
 }
-.ninja-popup-stem {
-  cursor: default;
-  margin-left: -0.5em;
-  position: absolute;
-  top: -1em;
+.ninja-object-rule {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #ccc;
+  margin: 0.4em 0;
 }
-.ninja-popup-button {
-  background-color: #fff;
-  color: #000;
-  color: rgba(0,0,0,0.9);
-}
-.ninja-popup-stem {
-  color: #000;
-  color: rgba(0,0,0,0.85);
-}
-.ninja-slider-groove {
-  cursor: pointer;
-  height: 0.3em;
-  margin: 0 0.6em;
-  top: 0.45em;
-}
-.ninja-slider-level {
-  height: 0.3em;
-  margin: 0 0.6em;
-  position: absolute;
-  top: 0.45em;
-}
-.ninja-slider-button {
+.ninja-object-slider-button {
   cursor: pointer;
   height: 1.2em;
   position: absolute;
   top: 0;
   width: 1.2em;
 }
-.ninja-slider-choice {
+.ninja-object-slider-choice {
   font-size: 0.85em;
 }
-.ninja-slider-title {
+.ninja-object-slider-groove {
+  cursor: pointer;
+  height: 0.3em;
+  margin: 0 0.6em;
+  top: 0.45em;
+}
+.ninja-object-slider-level {
+  height: 0.3em;
+  margin: 0 0.6em;
+  position: absolute;
+  top: 0.45em;
+}
+.ninja-object-slider-title {
   font-size: 0.85em;
   font-weight: bold;
 }
-.ninja-slider-track {
+.ninja-object-slider-track {
   height: 1.2em;
 }
-.ninja-suggest {
+.ninja-object-suggest {
   text-align: left;
 }
-.ninja-suggest * {
+.ninja-object-suggest * {
   font-size: inherit;
 }
-.ninja-suggest input {
+.ninja-object-suggest input {
   margin-right: 1.6em;
 }
-.ninja-suggest .ninja-icon-clear {
+.ninja-object-suggest .ninja-object-x {
   visibility: hidden;
 }
-.ninja-tabs-horizontal {
+.ninja-object-tabs-horizontal {
   display: inline-block;
   white-space: nowrap;
 }
-.ninja-tray {
+.ninja-object-tray,
+.ninja-state-selected {
+  background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.2)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0,0,0,0.2)', EndColorStr='rgba(255,255,255,0.1)');
+}
+.ninja-object-tray {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   background-color: #eee;
   background-repeat: no-repeat;
   border: 1px solid #ccc;
   border-bottom-color: #eee;
+  -webkit-border-radius: 0 0 0.35em 0.35em;
+  -moz-border-radius: 0 0 0.35em 0.35em;
+  border-radius: 0 0 0.35em 0.35em;
   border-top-color: #666;
   color: #333;
   padding: 0.2em 1em;
 }
-.ninja-state-selected,
-.ninja-menu-choice.ninja-state-hovered {
-  background-color: #999;
-  color: #fff;
-  text-shadow: 0 1px 0 #666;
-}
-.ninja-state-selected .ninja-icon g,
-.ninja-menu-choice.ninja-state-hovered .ninja-icon g {
-  fill: #fff;
-  stroke: #fff;
-}
+/* Must keep last two state classes in this order: hovered, then disabled! */
 .ninja-state-hovered {
   cursor: pointer;
 }

@@ -49,7 +49,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 
 /* $.ninja.button() */
-      describe('.button()', function () {
+      describe('$.ninja.button()', function () {
         var $toggleSelect, $toggleDisable,
         $button = $.ninja.button({
           html: 'Button'
@@ -104,8 +104,8 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
         $examples.append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
 
-        it('should have Ninja UI\'s default class', function () {
-          assert($button.hasClass('ninja')).isTrue();
+        it('should have button class', function () {
+          assert($button.hasClass('ninja-object-button')).isTrue();
         });
 
         it('should accept css overrides on creation', function () {
@@ -129,7 +129,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 /* */
 
 /* $.ninja.drawer() */
-      describe('.drawer()', function () {
+      describe('$.ninja.drawer()', function () {
 
         var $drawer, $drawerSelect;
 
@@ -153,7 +153,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $examples.append('<br/><br/>', $drawer, $drawerSelect);
 
         it('should have drawer class', function () {
-          assert($drawer.hasClass('ninja-drawer')).isTrue();
+          assert($drawer.hasClass('ninja-object-drawer')).isTrue();
         });
 
         it('should accept css overrides on creation', function () {
@@ -163,22 +163,22 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept html content on creation', function () {
-          assert($drawer.find('.ninja-tray').html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
+          assert($drawer.find('.ninja-object-tray').html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
         });
 
         it('should have a right arrow before selecting', function () {
-          assert($drawer.find('.ninja-handle .ninja-icon').attr('aria-label')).equals('arrow-right');
+          assert($drawer.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('arrow-right');
         });
 
         it('should have a down arrow after selecting', function () {
-          assert($drawerSelect.find('.ninja-handle .ninja-icon').attr('aria-label')).equals('arrow-down');
+          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('arrow-down');
         });
 
       });
 /* */
 
 /* $.ninja.icon() */
-      describe('.icon()', function () {
+      describe('$.ninja.icon()', function () {
         $examples.append('<br/><br/>');
 
         var iconNames = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'warn', 'go'];
@@ -220,7 +220,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           it('should have icon class', function () {
             if ($.inArray(version, ['1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3']) === -1) {
               // can't test these due to a bug in these jQuery versions
-              assert($icon.attr('class')).equals('ninja-icon');
+              assert($icon.attr('class')).equals('ninja-object-icon');
             }
           });
 
@@ -251,7 +251,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 /* */
 
 /* $.ninja.menu() */
-      describe('.menu()', function () {
+      describe('$.ninja.menu()', function () {
         var
           $message = $('<span/>'),
           please = function () {

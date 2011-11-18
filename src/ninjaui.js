@@ -32,65 +32,14 @@
   }).appendTo('head');
 
   var
-    browserPrefix,
-    corners = 'TopLeft TopRight BottomRight BottomLeft'.split(' '),
     defaults,
     objects,
     methods,
-    style = document.body.style,
-    support = $.support,
     time = $.now();
 
   function uniqueId() {
     return time ++;
   }
-
-  function borderCornerRadius(corner, prefix) {
-    prefix = prefix === undefined || prefix === '' ? 'border' : prefix + 'Border';
-    if (support.borderRadius && support.borderRadius === 'MozBorderRadius') {
-      return prefix + 'Radius' + corner.charAt(0).toUpperCase() + corner.substr(1).toLowerCase();
-    } else {
-      return prefix + corner + 'Radius';
-    }
-  }
-
-  if ($.cssHooks) {
-    support.borderRadius = style.borderRadius === '' ? 'borderRadius' :
-      (style.WebkitBorderRadius === '' ? 'WebkitBorderRadius' :
-      (style.MozBorderRadius === '' ? 'MozBorderRadius' :
-      (style.OBorderRadius === '' ? 'OBorderRadius' :
-      (style.MsBorderRadius === '' ? 'MsBorderRadius' : false))));
-
-    if (support.borderRadius && support.borderRadius !== 'borderRadius') {
-      browserPrefix = support.borderRadius.replace('BorderRadius', '');
-      $.cssHooks.borderRadius = {
-        get: function (element, computed, extra) {
-          return $.map(corners, function (corner) {
-            return $.css(element, borderCornerRadius(corner, browserPrefix));
-          }).join(' ');
-        },
-        set: function (element, value) {
-          element.style[borderCornerRadius('', browserPrefix)] = value;
-        }
-      };
-      $.each(corners, function (i, corner) {
-        $.cssHooks['borderRadius' + corner] = {
-          get: function (element, computed, extra) {
-            return $.css(element, borderCornerRadius(corner, browserPrefix));
-          },
-          set: function (element, value) {
-            element.style[borderCornerRadius(corner, browserPrefix)] = value;
-          }
-        };
-      });
-    }
-  } else {
-    $.error('Ninja UI requires jQuery 1.4.3 or higher to support CSS Border Radius');
-  }
-
-  defaults = {
-    borderRadius: '0.35em'
-  };
 
   methods = {
 
@@ -189,17 +138,10 @@
     button: function (options) {
       options = $.extend({}, defaults, options);
       var $button = $('<span/>', {
-        'class': 'ninja',
-        css: {
-          borderRadius: options.borderRadius
-        }
+        'class': 'ninja-object-button',
+        css: options.css,
+        html: options.html
       });
-      if (options.css) {
-        $button.css(options.css);
-      }
-      if (options.html) {
-        $button.html(options.html);
-      }
       $button.bind({
         'click.ninja': function () {
           if (!$button.is('.ninja-state-disabled')) {
@@ -240,15 +182,12 @@
       options = $.extend({}, defaults, options);
       var
         $drawer = $('<div/>', {
-          'class': 'ninja-drawer',
+          'class': 'ninja-object-drawer',
           css: options.css
         }),
         $tray = $('<div/>', {
-          'class': 'ninja-tray',
-          html: options.html,
-          css: {
-            borderRadius: [0, 0, options.borderRadius, options.borderRadius].join(' ')
-          }
+          'class': 'ninja-object-tray',
+          html: options.html
         }).appendTo($drawer),
         $arrowDown = $.ninja.icon({
           name: 'arrow-down'
@@ -260,28 +199,21 @@
           css: null,
           select: options.select,
           html: options.title
-        })).addClass('ninja-handle').bind({
+        })).bind({
           'deselect.ninja': function () {
             $tray.slideUp('fast', function () {
-              $handle.css({
-                borderRadius: options.borderRadius
-              });
+              $arrowDown.detach();
+              $handle.prepend($arrowRight);
             });
-            $arrowDown.detach();
-            $handle.prepend($arrowRight);
           },
           'select.ninja': function () {
             $arrowRight.detach();
-            $handle.prepend($arrowDown).css({
-              borderRadius: [options.borderRadius, options.borderRadius, 0, 0].join(' ')
-            });
+            $handle.prepend($arrowDown);
             $tray.slideDown('fast');
           }
         }).prependTo($drawer);
       if (options.select) {
-        $handle.prepend($arrowDown).css({
-          borderRadius: [options.borderRadius, options.borderRadius, 0, 0].join(' ')
-        });
+        $handle.prepend($arrowDown);
       } else {
         $handle.prepend($arrowRight);
         $tray.hide();
@@ -347,7 +279,7 @@
         defs = '<defs><rect id="' + idSymbol + '" x="224" rx="24" width="64" height="128"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 256 256)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      $icon = $('<svg aria-label="' + options.name + '" class="ninja-icon" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke="#000">' + g + '</g></svg>');
+      $icon = $('<svg aria-label="' + options.name + '" class="ninja-object-icon" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke="#000">' + g + '</g></svg>');
       if (options.css) {
         $icon.find('g').css(options.css);
       }
@@ -358,10 +290,10 @@
       options = $.extend({}, defaults, options);
       var
         $menu = $('<div/>', {
-          'class': 'ninja-menu'
+          'class': 'ninja-object-menu'
         }),
         $popup = $('<div/>', {
-          'class': 'ninja-popup'
+          'class': 'ninja-object-popup'
         }),
         $button = $.ninja.button($.extend({}, options, {
           html: options.html,
@@ -369,13 +301,13 @@
         })).append($.ninja.icon({
           name: 'arrow-down'
         })).select(function () {
-          $menu.append($popup).delegate('div.ninja-menu-choice', 'mouseenter.ninja', function () {
+          $menu.append($popup).delegate('div.ninja-object-item', 'mouseenter.ninja', function () {
             $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
             $(this).addClass('ninja-state-hovered');
           }).delegate('div.ninja-menu-choice', 'mouseleave.ninja', function () {
             $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
             $(this).addClass('ninja-state-hovered');
-          }).delegate('div.ninja-menu-choice', 'click.ninja', function () {
+          }).delegate('div.ninja-object-item', 'click.ninja', function () {
             $popup.detach();
           }).deselect(function () {
             $popup.detach();
@@ -386,9 +318,9 @@
           html: choice.display || choice.html || choice
         }).appendTo($popup);
         if (choice.spacer) {
-          $choice.addClass('ninja-menu-spacer');
+          $choice.addClass('ninja-object-rule');
         } else {
-          $choice.addClass('ninja-menu-choice');
+          $choice.addClass('ninja-object-item');
           if ($.isFunction(choice.select)) {
             $choice.bind('click.ninja', function () {
               choice.select();
@@ -412,13 +344,13 @@
             } else if (event.keyCode === 40) {/* down arrow */
               if ($button.length) {
                 $button.mouseleave();
-                if ($button.nextAll('.ninja-menu-choice').length) {
-                  $button.nextAll('.ninja-menu-choice:first').trigger('mouseenter.ninja');
+                if ($button.nextAll('.ninja-object-item').length) {
+                  $button.nextAll('.ninja-object-item:first').trigger('mouseenter.ninja');
                 } else {
-                  $('.ninja-menu-choice:first', $popup).trigger('mouseenter.ninja');
+                  $('.ninja-object-item:first', $popup).trigger('mouseenter.ninja');
                 }
               } else {
-                $('.ninja-menu-choice:first', $popup).trigger('mouseenter.ninja');
+                $('.ninja-object-item:first', $popup).trigger('mouseenter.ninja');
               }
             } else if (event.keyCode === 38) {/* up arrow */
               if ($button.length) {
@@ -446,14 +378,10 @@
         $object = this,
         $popup = $('<span/>', {
           'class': 'ninja-popup',
-          css: {
-            borderRadius: options.borderRadius,
+          css: $.extend(options.css, {
             minWidth: $object.width()
-          }
+          })
         });
-      if (options.css) {
-        $popup.css(options.css);
-      }
       $popup.bind({
         'detach.ninja remove.ninja': function () {
           if ($object.is('.ninja-state-selected')) {
@@ -611,7 +539,6 @@
         $button = $('<span/>', {
           'class': 'ninjaSliderButton ninjaInline',
           css: {
-            borderRadius: '1em',
             left: left
           }
         }),
@@ -624,7 +551,6 @@
         $level = $('<div/>', {
           'class': 'ninjaSliderLevel',
           css: {
-            borderRadius: options.borderRadius,
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
             width: left
@@ -668,7 +594,6 @@
         $groove = $('<div/>', {
           'class': 'ninjaSliderGroove',
           css: {
-            borderRadius: options.borderRadius,
             marginLeft: buttonRadius,
             marginRight: buttonRadius,
             opacity: 0.25
@@ -751,12 +676,11 @@
       var
         $suggest = $('<span/>', {
           'class': 'ninjaEditable ninjaInline ninjaSuggest',
-          css: {
-            borderRadius: options.borderRadius
-          }
+          css: options.css,
+          html: options.html
         }),
         $input = $('<input/>', {
-          'class': 'ninja',
+          'class': 'ninja-object-suggest',
           type: 'text'
         }),
         $clear = $('<span/>', {
@@ -768,12 +692,6 @@
           });
         }),
         $popup = $suggest.popup(), value;
-      if (options.css) {
-        $suggest.css(options.css);
-      }
-      if (options.html) {
-        $suggest.prepend(options.html);
-      }
       if (options.placeholder) {
         if ($.support.opacity) {
           $input.css({
@@ -918,14 +836,13 @@
       }, options);
       var
         $object = this,
-        $tabs = $('<span/>');
+        $tabs = $('<span/>', {
+          css: options.css
+        });
       if (options.vertical) {
         $tabs.addClass('ninja-tabs-vertical');
       } else {
         $tabs.addClass('ninja-tabs-horizontal');
-      }
-      if (options.css) {
-        $tabs.css(options.css);
       }
       $.each(options.choices, function (i, choice) {
         var $choice = $('<span/>', {
@@ -951,13 +868,9 @@
           }
         });
         if (i === 0) {
-          $choice.addClass('ninja-tab-first').css({
-            borderRadius: [options.borderRadius, 0, 0, 0].join(' ')
-          });
+          $choice.addClass('ninja-tab-first');
         } else if (i === options.choices.length - 1) {
-          $choice.css({
-            borderRadius: [0, options.borderRadius, 0, 0].join(' ')
-          });
+          $choice.addClass('ninja-tab-last');
         }
         if (i === options.choice - 1) {
           $choice.addClass('ninja-state-selected');
