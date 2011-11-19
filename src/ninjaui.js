@@ -15,6 +15,7 @@
   'use strict';
 
   var
+    browser = $.browser,
     defaults,
     objects,
     methods,
@@ -23,12 +24,11 @@
     versionMinor = parseFloat(version[1]),
     versionIncrement = parseFloat(version[2] || '0');
 
-  if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4)
-  {
-    $.error('Ninja UI requires jQuery 1.4.3 or higher to support SVG icon creation, CSS hooks and the $.now() utility.');
+  if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4) {
+    $.error('Ninja UI requires jQuery 1.4.3 or higher.');
   }
 
-  if ($.browser.msie && parseInt($.browser.version, 10) < '9') {
+  if (browser.msie && parseFloat(browser.version) < '9') {
     $('<script/>', {
       defer: '',
       src: 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'
