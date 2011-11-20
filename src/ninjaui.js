@@ -326,6 +326,17 @@
           }).deselect(function () {
             $popup.detach();
           });
+          var offset = $popup.offset();
+          if ((offset.top + $popup.outerHeight()) > $(window).height()) {
+            $popup.css({
+              bottom: $button.outerHeight()
+            });
+          }
+          if ((offset.left + $popup.outerWidth()) > $(window).width()) {
+            $popup.css({
+              right: 0
+            });
+          }
         }).appendTo($menu);
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
