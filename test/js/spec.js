@@ -181,7 +181,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       describe('$.ninja.icon()', function () {
         $examples.append('<br/><br/>');
 
-        var iconNames = ['spin', 'arrow-down', 'arrow-right', 'camera', 'circle', 'circle-clear', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'warn', 'go'];
+        var iconNames = ['spin', 'arrow-down', 'arrow-right', 'arrows-updown', 'camera', 'circle', 'circle-x', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'yield', 'go'];
 
         $.each(iconNames, function (i, iconName) {
           var $icon;
@@ -194,7 +194,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               },
               name: iconName
             });
-          } else if (iconName === 'warn') {
+          } else if (iconName === 'yield') {
             $icon = $.ninja.icon({
               css: {
                 fill: 'goldenrod',

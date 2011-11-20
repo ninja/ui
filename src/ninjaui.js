@@ -237,6 +237,7 @@
       }, options);
       var
         $icon,
+        border = ' fill="none" stroke-width="2"',
         defs = '',
         g = '',
         id = uniqueId(),
@@ -244,52 +245,55 @@
         idSymbol = id + 'Symbol',
         idVector = id + 'Vector',
         mask = '',
+        maskBackground = '<rect fill="#fff" x="0" y="0" width="16" height="16"/>',
         onload = '',
-        points = '';
+        points = '',
+        rotate = '';
       if ($.inArray(options.name, ['arrow-down', 'arrow-right']) > -1) {
         if (options.name === 'arrow-down') {
-          points = '128,128 384,128 256,384';
+          points = '4,4 12,4 8,12';
         } else {
-          points = '128,128 384,256 128,384';
+          points = '4,4 12,8 4,12';
         }
         g = '<polygon points="' + points + '"/>';
+      } else if (options.name === 'arrows-updown') {
+        g = '<polygon points="5,7 8,2 11,7"/><polygon points="5,9 8,14 11,9"/>';
       } else if (options.name === 'camera') {
-        defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/><circle cx="256" cy="288" r="160"/></mask></defs>';
-        g = '<rect x="0" y="128" width="512" height="352" rx="64" ry="64" mask="url(#' + idMask + ')"/><polygon points="128,256 128,128 192,32 320,32 384,128 384,256" mask="url(#' + idMask + ')"/><circle cx="256" cy="288" r="96"/>';
-      } else if ($.inArray(options.name, ['circle', 'circle-clear', 'circle-minus', 'circle-plus']) > -1) {
-        if (options.name === 'circle-clear') {
-          mask = '<polygon points="224,128 288,128 288,224 384,224 384,288 288,288 288,384 224,384 224,288 128,288 128,224 224,224" transform="rotate(45 256 256)"/>';
-        } else if (options.name === 'circle-minus') {
-          mask = '<rect x="128" y="224" width="256" height="64"/>';
-        } else if (options.name === 'circle-plus') {
-          mask = '<polygon points="224,128 288,128 288,224 384,224 384,288 288,288 288,384 224,384 224,288 128,288 128,224 224,224"/>';
+        defs = '<defs><mask id="' + idMask + '">' + maskBackground + '<circle cx="8" cy="9" r="5"/></mask></defs>';
+        g = '<rect x="0" y="4" width="16" height="11" rx="2" ry="2" mask="url(#' + idMask + ')"/><polygon points="4,8 4,4 6,1 10,1 12,4 12,8" mask="url(#' + idMask + ')"/><circle cx="8" cy="9" r="3"/>';
+      } else if ($.inArray(options.name, ['circle', 'circle-x', 'circle-minus', 'circle-plus']) > -1) {
+        if (options.name === 'circle-minus') {
+          mask = '<rect x="4" y="7" width="8" height="2"/>';
+        } else if (options.name === 'circle-x' || options.name === 'circle-plus') {
+          if (options.name === 'circle-x') {
+            rotate = ' transform="rotate(45 8 8)"';
+          }
+          mask = '<polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
         }
-        defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
-        g = '<circle cx="256" cy="256" mask="url(#' + idMask + ')" r="256"/>';
+        defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
+        g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
       } else if (options.name === 'go') {
-        g = '<circle fill="none" stroke-width="64" cx="256" cy="256" r="224"/>';
+        g = '<circle' + border + ' cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="5"/>';
       } else if (options.name === 'home') {
-        g = '<polygon points="0,320 0,256 256,0 512,256 512,320 448,320 448,512 320,512 320,320 192,320 192,512 64,512 64,320"/><rect x="352" y="32" width="128" height="256"/>';
+        g = '<polygon points="0,10 0,8 8,0 16,8 16,10 14,10 14,16 10,16 10,10 6,10 6,16 2,16 2,10"/><rect x="11" y="16" width="4" height="8"/>';
       } else if (options.name === 'mail') {
-        g = '<polygon points="0,112 128,240 0,368"/><polygon points="0,80 512,80 256,336"/><polygon points="384,240 512,112 512,368"/><polygon points="0,432 0,400 144,256 256,368 368,256 512,400 512,432"/>';
+        g = '<polygon points="0,2 8,10 16,2"/><polygon points="16,4 12,8 16,12"/><polygon points="0,14 5,9 8,12 11,9 16,14"/><polygon points="0,4 4,8 0,12"/>';
       } else if (options.name === 'search') {
-        g = '<circle fill="none" stroke-width="48" cx="200" cy="200" r="176"/><polygon points="288,352 352,288 512,448 448,512"/>';
+        g = '<circle' + border + ' cx="7" cy="7" r="5"/><polygon points="9,11 11,9 16,14 14,16"/>';
       } else if (options.name === 'star') {
-        g = '<polygon points="0,196 196,196 256,0 316,196 512,196 354,316 414,512 256,392 98,512 158,316"/>';
+        g = '<polygon points="0,6 6,6 8,0 10,6 16,6 11,10 13,16 8,12 3,16 5,10"/>';
       } else if (options.name === 'stop') {
-        g = '<polygon points="0,362 0,150 150,0 362,0 512,150 512,362 362,512 150,512"/>';
-      } else if ($.inArray(options.name, ['triangle', 'warn']) > -1) {
-        if (options.name === 'warn') {
-          mask = '<polygon points="256,192 384,448 128,448"/>';
-        }
-        defs = '<defs><mask id="' + idMask + '"><rect fill="#fff" x="0" y="0" width="512" height="512"/>' + mask + '</mask></defs>';
-        g = '<polygon mask="url(#' + idMask + ')" points="256,0 512,512 0,512"/>';
+        g = '<polygon' + border + ' points="1,11 1,5 5,1 11,1 15,5 15,11 11,15 5,15"/><polygon points="3,10 3,6 6,3 10,3 13,6 13,10 10,13 6,13"/>';
+      } else if (options.name === 'triangle') {
+        g = '<polygon points="8,0 16,16 0,16"/>';
+      } else if (options.name === 'yield') {
+        g = '<polygon' + border + ' points="8,1 15,15 1,15"/><polygon points="8,5 12,13 4,13"/>';
       } else {
-        onload = ' onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 256 256)\');},100)"';
-        defs = '<defs><rect id="' + idSymbol + '" x="224" rx="24" width="64" height="128"/></defs>';
-        g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 256 256)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 256 256)"/><use xlink:href="#' + idSymbol + '"/>';
+        onload = ' onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 8 8)\');},100)"';
+        defs = '<defs><rect id="' + idSymbol + '" x="7" width="2" height="4"/></defs>';
+        g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 8 8)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      $icon = $('<svg aria-label="' + options.name + '" class="ninja-object-icon" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke="#000">' + g + '</g></svg>');
+      $icon = $('<svg aria-label="' + options.name + '" class="ninja-object-icon" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke-width="0">' + g + '</g></svg>');
       if (options.css) {
         $icon.find('g').css(options.css);
       }
@@ -309,7 +313,7 @@
           html: options.html,
           select: options.select
         })).append($.ninja.icon({
-          name: 'arrow-down'
+          name: 'arrows-updown'
         })).select(function () {
           $menu.append($popup).delegate('div.ninja-object-item', 'mouseenter.ninja', function () {
             $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
