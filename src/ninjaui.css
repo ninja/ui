@@ -61,9 +61,22 @@
   vertical-align: middle;
   width: 1.3em;
 }
+.ninja-object-icon[aria-label=close] {
+  cursor: pointer;
+  height: 1.6em;
+  line-height: 1.6em;
+  width: 1.6em;
+}
 .ninja-object-icon g {
   fill: #333;
   stroke: #000;
+}
+.ninja-object-icon[aria-label=close] g {
+  fill: #eee;
+  stroke: #999;
+}
+.ninja-object-icon-symbol {
+  fill: #333;
 }
 .ninja-object-item.ninja-state-hovered,
 .ninja-state-selected {
@@ -79,7 +92,7 @@
 .ninja-object-menu .ninja-object-button {
   padding-right: 0;
 }
-.ninja-object-menu [aria-label=arrows-updown] {
+.ninja-object-menu [aria-label=menu] {
   margin-left: 1em;
 }
 .ninja-object-menu .ninja-object-popup {
@@ -97,27 +110,10 @@
   position: absolute;
   z-index: +1;
 }
-.ninja-object-popup-stem {
-  color: #000;
-  color: rgba(0,0,0,0.85);
-  cursor: default;
-  margin-left: -0.5em;
+.ninja-object-popup .ninja-object-icon[aria-label=close] {
   position: absolute;
-  top: -1em;
-}
-.ninja-object-popup .ninja-object-x {
-  background-color: #fff;
-  color: #000;
-  color: rgba(0,0,0,0.9);
-  cursor: pointer;
-  font-size: 1.2em;
-  height: 1.2em;
-  line-height: 1.2em;
-  position: absolute;
-  right: -0.6em;
-  text-align: center;
-  top: -0.6em;
-  width: 1.2em;
+  right: -0.8em;
+  top: -0.8em;
 }
 .ninja-object-rule {
   border-bottom: 1px solid #eee;

@@ -167,11 +167,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should have a right arrow before selecting', function () {
-          assert($drawer.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('arrow-right');
+          assert($drawer.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('drawer');
         });
 
         it('should have a down arrow after selecting', function () {
-          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('arrow-down');
+          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('drawer-selected');
         });
 
       });
@@ -181,10 +181,10 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       describe('$.ninja.icon()', function () {
         $examples.append('<br/><br/>');
 
-        var iconNames = ['spin', 'arrow-down', 'arrow-right', 'arrows-updown', 'camera', 'circle', 'circle-x', 'circle-minus', 'circle-plus', 'home', 'mail', 'search', 'star', 'triangle', 'stop', 'yield', 'go'];
+        var iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-selected', 'home', 'mail', 'menu', 'search', 'star', 'close'];
 
         $.each(iconNames, function (i, iconName) {
-          var $icon;
+          var $example, $icon;
           if (iconName === 'stop') {
             $icon = $.ninja.icon({
               css: {
@@ -215,7 +215,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               name: iconName
             });
           }
-          $examples.append($icon, '&#160;', iconName, '&#160; ');
+          $example = $('<span/>', {
+            'class': 'ninjaui-example-icon'
+          });
+          $example.append($icon, ' ', iconName);
+          $examples.append($example);
 
           it('should have icon class', function () {
             if ($.inArray(version, ['1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3']) === -1) {
