@@ -150,7 +150,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           title: '<i>Selected</i> Drawer'
         });
 
-        $examples.append('<br/><br/>', $drawer, $drawerSelect);
+        $examples.append('<br/><br/>', $drawer, '<br/>', $drawerSelect);
 
         it('should have drawer class', function () {
           assert($drawer.hasClass('ninja-object-drawer')).isTrue();
@@ -179,7 +179,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
 /* $.ninja.icon() */
       describe('$.ninja.icon()', function () {
-        $examples.append('<br/><br/>');
+        $examples.append('<br/>');
 
         var iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-selected', 'home', 'mail', 'menu', 'search', 'star', 'close'];
 
