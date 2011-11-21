@@ -331,7 +331,7 @@
               }
             },
             'keyup.ninja': function (event) {
-              if ($.inArray(event.keyCode, [13, 38, 40]) > -1) {/* return, down or up */
+              if ($.inArray(event.keyCode, [13, 27, 38, 40]) > -1) {/* return, escape, down or up */
                 if (event.keyCode === 13) {/* return */
                   $hover.trigger('click.ninja');
                 } else if (event.keyCode === 40) {/* down arrow */
@@ -354,6 +354,11 @@
                   } else {
                     $popup.find('.ninja-object-item:last').trigger('mouseenter.ninja');
                   }
+                } else if (event.keyCode === 27) {/* escape */
+                  $(document).unbind('keydown.ninja keyup.ninja');
+                  $popup.detach();
+                  $hover.removeClass('ninja-state-hover');
+                  $button.ninja().deselect();
                 }
                 return false;
               }
