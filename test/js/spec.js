@@ -12,10 +12,10 @@ var
   environment = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]),
   scriptPath;
 
-if (environment === 'Production') {
+if (environment === 'production') {
   scriptPath = '../jquery.ninjaui.min.js';
 } else {
-  environment = 'Development';
+  environment = 'development';
   jQueryVersions = jQueryVersions[0];
   scriptPath = '../src/ninjaui.js';
 }
