@@ -12,10 +12,10 @@ var
   environment = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]),
   scriptPath;
 
-if (environment === 'production') {
+if (environment === 'Production') {
   scriptPath = '../jquery.ninjaui.min.js';
 } else {
-  environment = 'development';
+  environment = 'Development';
   jQueryVersions = jQueryVersions[0];
   scriptPath = '../src/ninjaui.js';
 }
@@ -29,8 +29,8 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   var $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body');
 
-  QUnit.specify('Ninja UI (' + environment + ')', function () {
-    describe('On jQuery ' + version, function () {
+  QUnit.specify('<b>Ninja UI</b> ' + environment, function () {
+    describe('jQuery ' + version, function () {
 
       describe('Infrastructure', function () {
         it('should load jQuery ' + version, function () {
