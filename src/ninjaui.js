@@ -355,15 +355,23 @@
                     $popup.find('.ninja-object-item:last').trigger('mouseenter.ninja');
                   }
                 } else if (event.keyCode === 27) {/* escape */
-                  $(document).unbind('keydown.ninja keyup.ninja');
-                  $popup.detach();
-                  $hover.removeClass('ninja-state-hover');
-                  $button.ninja().deselect();
+                  $button.trigger('deselect.ninja');
                 }
                 return false;
               }
+            },
+            'click.ninja': function (event) {
+              if ($.inArray($menu[0], $(event.target).parents()) === -1) {
+                $button.trigger('deselect.ninja');
+              }
             }
           });
+        }).deselect(function () {
+          $(document).unbind('click.ninja keydown.ninja keyup.ninja');
+          $popup.detach();
+          if ($hover) {
+            $hover.removeClass('ninja-state-hover');
+          }
         }).appendTo($menu);
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
@@ -376,10 +384,7 @@
           if ($.isFunction(choice.select)) {
             $choice.bind({
               'click.ninja': function () {
-                $(document).unbind('keydown.ninja keyup.ninja');
-                $popup.detach();
-                $hover.removeClass('ninja-state-hover');
-                $button.ninja().deselect();
+                $button.trigger('deselect.ninja');
                 choice.select();
               },
               'mouseenter.ninja': function () {
