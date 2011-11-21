@@ -4,9 +4,41 @@ body {
   max-width: 640px;
 }
 
+#qunit-header {
+  background-color: #666;
+  -webkit-border-radius: 0.35em 0.35em 0 0;
+  -moz-border-radius: 0.35em 0.35em 0 0;
+  border-radius: 0.35em 0.35em 0 0;
+  color: #fff;
+}
+
+#qunit-testrunner-toolbar {
+  background-color: #eee;
+  color: #333;
+}
+
+#qunit-testresult {
+  background-color: #eee;
+  border: none;
+  color: #333;
+  border-top: 1px solid #fff;
+}
+
+#qunit-tests .pass {
+  background-color: #eee;
+  color: #333;
+  border-bottom: none;
+  border-top: 1px solid #fff;
+}
+
+#qunit-tests > li:last-child {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
 .ninjaui-examples {
-  border: 1px solid #d2e0e6;
-  border-top: 0 none;
+  border: 1px solid #eee;
   padding: 2em;
 }
 
