@@ -3,7 +3,7 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
 .ninja-object-button,
-.ninja-object-item.ninja-state-hovered {
+.ninja-object-item.ninja-state-hover {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
   background-image: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
@@ -20,6 +20,11 @@
   text-shadow: 0 1px 0 #fff;
   white-space: nowrap;
 }
+.ninja-object-button:hover,
+.ninja-object-item.ninja-state-hover {
+  cursor: pointer;
+}
+
 .ninja-object-button,
 .ninja-object-menu {
   display: inline-block;
@@ -49,7 +54,7 @@
   padding-left: 0;
   text-align: left;
 }
-.ninja-object-drawer .ninja-object-button.ninja-state-selected {
+.ninja-object-drawer .ninja-object-button.ninja-state-select {
   -webkit-border-radius: 0.35em 0.35em 0 0;
   -moz-border-radius: 0.35em 0.35em 0 0;
   border-radius: 0.35em 0.35em 0 0;
@@ -78,14 +83,14 @@
 .ninja-object-icon-symbol {
   fill: #333;
 }
-.ninja-object-item.ninja-state-hovered,
-.ninja-state-selected {
+.ninja-object-item.ninja-state-hover,
+.ninja-state-select {
   background-color: #999;
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
-.ninja-object-item.ninja-state-hovered g,
-.ninja-state-selected g {
+.ninja-object-item.ninja-state-hover g,
+.ninja-state-select g {
   fill: #fff;
   stroke: #fff;
 }
@@ -180,8 +185,8 @@
   color: #333;
   padding: 0.2em 1em;
 }
-/* Must keep state classes in this order: selected, hovered then disabled! */
-.ninja-state-selected {
+/* State changes, keep these last and in order! */
+.ninja-state-select {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
@@ -190,11 +195,8 @@
   background-image: linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0,0,0,0.2)', EndColorStr='rgba(255,255,255,0.1)');
 }
-.ninja-state-hovered {
-  cursor: pointer;
-}
-.ninja-state-disabled {
-  cursor: default;
+.ninja-state-disable {
+  cursor: default !important;
 }
 
 /* Ninja Default Theme */
@@ -226,9 +228,3 @@
 .ninja-tab-first {
   border-left-color: #000;
 }
-/* State changes, keep these last and in order! */
-/*
-.ninja-state-hovered {
-  border-color: #900;
-}
-*/

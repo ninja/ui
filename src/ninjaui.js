@@ -69,7 +69,7 @@
         var $object = $(this);
         if (callback && $.isFunction(callback)) {
           $object.bind('deselect.ninja', callback);
-        } else if ($object.is('.ninja-state-selected') && !$object.is('.ninja-state-disabled')) {
+        } else if ($object.is('.ninja-state-select') && !$object.is('.ninja-state-disable')) {
           $object.trigger('deselect.ninja');
         }
       });
@@ -86,7 +86,7 @@
         if (callback && $.isFunction(callback)) {
           $object.bind('disable.ninja', callback);
         } else {
-          $object.fadeTo('fast', 0.5).addClass('ninja-state-disabled').trigger('disable.ninja');
+          $object.fadeTo('fast', 0.5).addClass('ninja-state-disable').trigger('disable.ninja');
         }
       });
     },
@@ -97,7 +97,7 @@
         if ($.isFunction(callback)) {
           $object.bind('enable.ninja', callback);
         } else {
-          $object.fadeTo('fast', 1).removeClass('ninja-state-disabled').trigger('enable.ninja');
+          $object.fadeTo('fast', 1).removeClass('ninja-state-disable').trigger('enable.ninja');
         }
       });
     },
@@ -112,7 +112,7 @@
         var $object = $(this);
         if ($.isFunction(event)) {
           $object.bind('select.ninja', event);
-        } else if (!$object.is('.ninja-state-disabled')) {
+        } else if (!$object.is('.ninja-state-disable')) {
           $object.trigger('select.ninja');
         }
       });
@@ -154,8 +154,8 @@
       });
       $button.bind({
         'click.ninja': function () {
-          if (!$button.is('.ninja-state-disabled')) {
-            if ($button.is('.ninja-state-selected')) {
+          if (!$button.is('.ninja-state-disable')) {
+            if ($button.is('.ninja-state-select')) {
               $button.trigger('deselect.ninja');
             } else {
               $button.trigger('select.ninja');
@@ -163,20 +163,10 @@
           }
         },
         'deselect.ninja': function () {
-          $button.removeClass('ninja-state-selected');
-        },
-        'mouseenter.ninja': function () {
-          if (!$button.is('.ninja-state-disabled')) {
-            $button.addClass('ninja-state-hovered');
-          }
-        },
-        'mouseleave.ninja': function () {
-          if (!$button.is('.ninja-state-disabled')) {
-            $button.removeClass('ninja-state-hovered');
-          }
+          $button.removeClass('ninja-state-select');
         },
         'select.ninja': function () {
-          $button.addClass('ninja-state-selected');
+          $button.addClass('ninja-state-select');
         }
       });
       if (options.select) {
@@ -200,7 +190,7 @@
           html: options.html
         }).appendTo($drawer),
         $arrowDown = $.ninja.icon({
-          name: 'drawer-selected'
+          name: 'drawer-select'
         }),
         $arrowRight = $.ninja.icon({
           name: 'drawer'
@@ -249,8 +239,8 @@
         onload = '',
         points = '',
         rotate = '';
-      if ($.inArray(options.name, ['drawer', 'drawer-selected']) > -1) {
-        if (options.name === 'drawer-selected') {
+      if ($.inArray(options.name, ['drawer', 'drawer-select']) > -1) {
+        if (options.name === 'drawer-select') {
           points = '4,4 12,4 8,12';
         } else {
           points = '4,4 12,8 4,12';
@@ -304,6 +294,7 @@
     menu: function (options) {
       options = $.extend({}, defaults, options);
       var
+        $hover,
         $menu = $('<div/>', {
           'class': 'ninja-object-menu'
         }),
@@ -316,15 +307,8 @@
         })).append($.ninja.icon({
           name: 'menu'
         })).select(function () {
-          $menu.append($popup).delegate('div.ninja-object-item', 'mouseenter.ninja', function () {
-            $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
-            $(this).addClass('ninja-state-hovered');
-          }).delegate('div.ninja-menu-choice', 'mouseleave.ninja', function () {
-            $popup.find('.ninja-state-hovered').removeClass('ninja-state-hovered');
-            $(this).addClass('ninja-state-hovered');
-          }).delegate('div.ninja-object-item', 'click.ninja', function () {
-            $popup.detach();
-          }).deselect(function () {
+          $hover = null;
+          $menu.append($popup).deselect(function () {
             $popup.detach();
           });
           var
@@ -340,6 +324,41 @@
               right: 0
             });
           }
+          $(document).bind({
+            'keydown.ninja': function (event) {
+              if ($.inArray(event.keyCode, [38, 40]) > -1) {/* down or up */
+                return false;/* prevents page scrolling via the arrow keys when a list is active */
+              }
+            },
+            'keyup.ninja': function (event) {
+              if ($.inArray(event.keyCode, [13, 38, 40]) > -1) {/* return, down or up */
+                if (event.keyCode === 13) {/* return */
+                  $hover.trigger('click.ninja');
+                } else if (event.keyCode === 40) {/* down arrow */
+                  if ($hover) {
+                    if ($hover.nextAll('.ninja-object-item').length) {
+                      $hover.nextAll('.ninja-object-item:first').trigger('mouseenter.ninja');
+                    } else {
+                      $popup.find('.ninja-object-item:first').trigger('mouseenter.ninja');
+                    }
+                  } else {
+                    $popup.find('.ninja-object-item:first').trigger('mouseenter.ninja');
+                  }
+                } else if (event.keyCode === 38) {/* up arrow */
+                  if ($hover) {
+                    if ($hover.prevAll('.ninja-object-item').length) {
+                      $hover.prevAll('.ninja-object-item:first').trigger('mouseenter.ninja');
+                    } else {
+                      $popup.find('.ninja-object-item:last').trigger('mouseenter.ninja');
+                    }
+                  } else {
+                    $popup.find('.ninja-object-item:last').trigger('mouseenter.ninja');
+                  }
+                }
+                return false;
+              }
+            }
+          });
         }).appendTo($menu);
       $.each(options.choices, function (i, choice) {
         var $choice = $('<div/>', {
@@ -350,46 +369,24 @@
         } else {
           $choice.addClass('ninja-object-item');
           if ($.isFunction(choice.select)) {
-            $choice.bind('click.ninja', function () {
-              choice.select();
-              $button.ninja().deselect();
-            });
-          }
-        }
-      });
-      $(document).unbind('keydown.ninja keyup.ninja').bind({
-        'keydown.ninja': function (event) {
-          if ($.inArray(event.keyCode, [38, 40]) > -1) {/* down or up */
-            return false;/* prevents page scrolling via the arrow keys when a list is active */
-          }
-        },
-        'keyup.ninja': function (event) {
-          if ($.inArray(event.keyCode, [13, 38, 40]) > -1) {/* return, down or up */
-            var $button = $('.ninja-state-hovered', $popup);
-            if (event.keyCode === 13) {/* return */
-              $button.click();
-              $(document).unbind('keydown.ninja keyup.ninja');
-            } else if (event.keyCode === 40) {/* down arrow */
-              if ($button.length) {
-                $button.mouseleave();
-                if ($button.nextAll('.ninja-object-item').length) {
-                  $button.nextAll('.ninja-object-item:first').trigger('mouseenter.ninja');
-                } else {
-                  $('.ninja-object-item:first', $popup).trigger('mouseenter.ninja');
+            $choice.bind({
+              'click.ninja': function () {
+                $(document).unbind('keydown.ninja keyup.ninja');
+                $popup.detach();
+                $hover.removeClass('ninja-state-hover');
+                $button.ninja().deselect();
+                choice.select();
+              },
+              'mouseenter.ninja': function () {
+                if ($hover) {
+                  $hover.removeClass('ninja-state-hover');
                 }
-              } else {
-                $('.ninja-object-item:first', $popup).trigger('mouseenter.ninja');
+                $hover = $(this).addClass('ninja-state-hover');
+              },
+              'mouseleave.ninja': function () {
+                $hover.removeClass('ninja-state-hover');
               }
-            } else if (event.keyCode === 38) {/* up arrow */
-              if ($button.length) {
-                $button
-                  .trigger('mouseleave.ninja')
-                  .prevAll('.ninja-menu-choice:first').trigger('mouseenter.ninja');
-              } else {
-                $('.ninja-menu-choice:last', $popup).trigger('mouseenter.ninja');
-              }
-            }
-            return false;
+            });
           }
         }
       });
@@ -412,7 +409,7 @@
         });
       $popup.bind({
         'detach.ninja remove.ninja': function () {
-          if ($object.is('.ninja-state-selected')) {
+          if ($object.is('.ninja-state-select')) {
             $object.deselect();
           }
           $(document).unbind('click.ninja' + id);
@@ -763,7 +760,7 @@
               }
               $input.val(options.placeholder);
             }
-            if ($('.ninja-state-hovered', $popup).length === 0) {
+            if ($popup.find('.ninja-state-hover').length === 0) {
               $popup.hide();
             }
           }
@@ -878,8 +875,8 @@
           html: choice.html || choice
         }).bind({
           'click.ninja': function () {
-            $('.ninja-tab', $tabs).removeClass('ninja-state-selected');
-            $choice.addClass('ninja-state-selected');
+            $('.ninja-tab', $tabs).removeClass('ninja-state-select');
+            $choice.addClass('ninja-state-select');
             $tabs.trigger({
               type: 'select.ninja',
               html: choice.html || choice
@@ -887,12 +884,6 @@
             if ($.isFunction(choice.select)) {
               choice.select();
             }
-          },
-          'mouseenter.ninja': function () {
-            $choice.addClass('ninja-state-hovered');
-          },
-          'mouseleave.ninja': function () {
-            $choice.removeClass('ninja-state-hovered');
           }
         });
         if (i === 0) {
@@ -901,7 +892,7 @@
           $choice.addClass('ninja-tab-last');
         }
         if (i === options.choice - 1) {
-          $choice.addClass('ninja-state-selected');
+          $choice.addClass('ninja-state-select');
         }
         $tabs.append($choice);
       });

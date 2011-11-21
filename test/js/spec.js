@@ -55,11 +55,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           html: 'Button'
         }).disable(function () {
           $toggleSelect.attr({
-            disabled: 'disabled'
+            disable: 'disable'
           });
         }).enable(function () {
           $toggleSelect.attr({
-            disabled: false
+            disable: false
           });
         }).select(function () {
           $toggleSelect.attr({
@@ -118,12 +118,12 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           assert($buttonSelected.html()).equals('<i>Selected</i> Button');
         });
 
-        it('should have class of ninja-state-selected when select is true', function () {
-          assert($buttonSelected.hasClass('ninja-state-selected')).isTrue();
+        it('should have class of ninja-state-select when select is true', function () {
+          assert($buttonSelected.hasClass('ninja-state-select')).isTrue();
         });
 
-        it('should have class of ninja-state-disabled when disable is true', function () {
-          assert($buttonDisabled.hasClass('ninja-state-disabled')).isTrue();
+        it('should have class of ninja-state-disable when disable is true', function () {
+          assert($buttonDisabled.hasClass('ninja-state-disable')).isTrue();
         });
       });
 /* */
@@ -171,7 +171,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should have a down arrow after selecting', function () {
-          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('drawer-selected');
+          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('drawer-select');
         });
 
       });
@@ -181,7 +181,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       describe('$.ninja.icon()', function () {
         $examples.append('<br/>');
 
-        var iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-selected', 'home', 'mail', 'menu', 'search', 'star', 'close'];
+        var iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star', 'close'];
 
         $.each(iconNames, function (i, iconName) {
           var $example, $icon;
