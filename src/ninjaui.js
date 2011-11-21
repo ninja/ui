@@ -327,13 +327,15 @@
           }).deselect(function () {
             $popup.detach();
           });
-          var offset = $popup.offset();
-          if ((offset.top + $popup.outerHeight()) > $(window).height()) {
+          var
+            offset = $popup.offset(),
+            scrollTop = $(window).scrollTop();
+          if ((offset.top + $popup.outerHeight()) > (scrollTop + $(window).height())) {
             $popup.css({
               bottom: $button.outerHeight()
             });
           }
-          if ((offset.left + $popup.outerWidth()) > $(window).width()) {
+          if ((offset.left + $popup.outerWidth()) > (scrollTop + $(window).width())) {
             $popup.css({
               right: 0
             });
