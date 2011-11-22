@@ -379,7 +379,9 @@
             'keyup.ninja': function (event) {
               if ($.inArray(event.keyCode, [13, 27, 38, 40]) > -1) {/* return, escape, down or up */
                 if (event.keyCode === 13) {/* return */
-                  $hover.trigger('click.ninja');
+                  if ($hover) {
+                    $hover.trigger('click.ninja');
+                  }
                 } else if (event.keyCode === 40) {/* down arrow */
                   if ($hover) {
                     if ($hover.nextAll('.ninja-object-item').length) {
