@@ -66,7 +66,7 @@
 
     change: function (callback) {
       return this.each(function () {
-        var $object = $(this);
+        var $object = $(this).ninja();
         if ($.isFunction(callback)) {
           $object.bind('change.ninja', callback);
         } else {
@@ -77,8 +77,8 @@
 
     deselect: function (callback) {
       return this.each(function () {
-        var $object = $(this);
-        if (callback && $.isFunction(callback)) {
+        var $object = $(this).ninja();
+        if ($.isFunction(callback)) {
           $object.bind('deselect.ninja', callback);
         } else if ($object.is('.ninja-state-select') && !$object.is('.ninja-state-disable')) {
           $object.trigger('deselect.ninja');
@@ -100,8 +100,8 @@
 
     disable: function (callback) {
       return this.each(function () {
-        var $object = $(this);
-        if (callback && $.isFunction(callback)) {
+        var $object = $(this).ninja();
+        if ($.isFunction(callback)) {
           $object.bind('disable.ninja', callback);
         } else {
           $object.fadeTo('fast', 0.5).addClass('ninja-state-disable').trigger('disable.ninja');
@@ -122,34 +122,11 @@
 
     select: function (event) {
       return this.each(function () {
-        var $object = $(this);
+        var $object = $(this).ninja();
         if ($.isFunction(event)) {
           $object.bind('select.ninja', event);
         } else if (!$object.is('.ninja-state-disable')) {
           $object.trigger('select.ninja');
-        }
-      });
-    },
-
-    update: function (callback) {
-      return this.each(function () {
-        var $object = $(this);
-        if ($.isFunction(callback)) {
-          $object.bind('update.ninja', callback);
-        } else if (callback) {
-          if (callback.html) {
-            $object.trigger({
-              type: 'update.ninja',
-              html: callback.html
-            });
-          } else if (callback.choices) {
-            $object.trigger({
-              type: 'update.ninja',
-              choices: callback.choices
-            });
-          }
-        } else {
-          $object.trigger('update.ninja');
         }
       });
     }
@@ -160,7 +137,7 @@
 
     button: function (options) {
       options = $.extend({}, defaults, options);
-      var $button = $('<span/>', {
+      var $button = $('<button/>', {
         'class': 'ninja-object-button',
         css: options.css,
         html: options.html
@@ -177,6 +154,16 @@
         },
         'deselect.ninja': function () {
           $button.removeClass('ninja-state-select');
+        },
+        'disable.ninja': function () {
+          $button.attr({
+            disabled: 'disabled'
+          });
+        },
+        'enable.ninja': function () {
+          $button.attr({
+            disabled: false
+          });
         },
         'select.ninja': function () {
           $button.addClass('ninja-state-select');
@@ -255,7 +242,6 @@
           name: 'drawer'
         }),
         $handle = $.ninja.button($.extend({}, options, {
-          css: null,
           select: options.select,
           html: options.title
         })).bind({
@@ -385,6 +371,7 @@
           }
           $(document).bind({
             'keydown.ninja': function (event) {
+              $button.blur();
               if ($.inArray(event.keyCode, [38, 40]) > -1) {/* down or up */
                 return false;/* prevents page scrolling via the arrow keys when a list is active */
               }

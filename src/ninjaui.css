@@ -30,13 +30,6 @@
 .ninja-object-item.ninja-state-hover {
   cursor: pointer;
 }
-
-.ninja-object-button,
-.ninja-object-menu {
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
-}
 .ninja-object-button,
 .ninja-object-popup {
   -moz-background-clip: padding;
@@ -49,6 +42,9 @@
   border-radius: 0.35em;
 }
 .ninja-object-button {
+  font-size: inherit;
+  margin: 0;
+  outline-width: 1px;
   text-align: center;
 }
 .ninja-object-button .ninja-object-icon {
@@ -99,6 +95,11 @@
 .ninja-state-select g {
   fill: #fff;
   stroke: #fff;
+}
+.ninja-object-menu {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
 }
 .ninja-object-menu .ninja-object-button {
   padding-right: 0;
