@@ -2,6 +2,12 @@
   Copyright 2008-2011 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
+.ninja-object-blocker {
+  background-color: rgba(255,255,255,0.5);
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 .ninja-object-button,
 .ninja-object-item.ninja-state-hover {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));

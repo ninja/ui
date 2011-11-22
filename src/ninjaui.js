@@ -53,6 +53,17 @@
 
   methods = {
 
+    attach: function (callback) {
+      return this.each(function () {
+        var $object = $(this).ninja();
+        if ($.isFunction(callback)) {
+          $object.bind('attach.ninja', callback);
+        } else {
+          $object.trigger('attach.ninja');
+        }
+      });
+    },
+
     change: function (callback) {
       return this.each(function () {
         var $object = $(this);
@@ -75,9 +86,16 @@
       });
     },
 
-    detach: function () {
-      this.trigger('detach.ninja');
-      $.fn.detach.apply(this);
+    detach: function (callback) {
+      return this.each(function () {
+        var $object = $(this).ninja();
+        if ($.isFunction(callback)) {
+          $object.bind('detach.ninja', callback);
+        } else {
+          $object.trigger('detach.ninja');
+          $.fn.detach.apply($object);
+        }
+      });
     },
 
     disable: function (callback) {
@@ -100,11 +118,6 @@
           $object.fadeTo('fast', 1).removeClass('ninja-state-disable').trigger('enable.ninja');
         }
       });
-    },
-
-    remove: function () {
-      this.trigger('remove.ninja');
-      $.fn.remove.apply(this);
     },
 
     select: function (event) {
@@ -176,6 +189,52 @@
         $button.ninja().disable();
       }
       return $button.ninja();
+    },
+
+    dialog: function (options) {
+      options = $.extend({}, defaults, {
+        $parent: $('body')
+      }, options);
+      var
+        $popup = $('<span/>', {
+          'class': 'ninja-object-popup',
+          css: options.css,
+          html: options.html
+        }),
+        $button = $.ninja.icon({
+          name: 'close'
+        }).bind('click.ninja', function () {
+          $popup.detach();
+        }).appendTo($popup),
+        $blocker = $('<div/>', {
+          'class': 'ninja-object-blocker'
+        }).bind('click.ninja', function (event) {
+          if ($.inArray($popup[0], $(event.target).parents()) === -1) {
+            $popup.detach();
+          }
+        });
+      $popup.bind({
+        'attach.ninja': function (event) {
+          options.$parent.append($blocker, $popup);
+          $blocker.height(options.$parent.height());
+          $popup.css({
+            left: ($(window).width() / 2) - ($popup.width() / 2),
+            top: ($(window).height() / 2) - ($popup.height() / 2) + $(window).scrollTop()
+          });
+          $(document).bind({
+            'keyup.ninja': function (event) {
+              if (event.keyCode === 27) {/* escape */
+                $popup.detach();
+              }
+            }
+          });
+        },
+        'detach.ninja remove.ninja': function () {
+          $(document).unbind('click.ninja keydown.ninja');
+          $blocker.detach();
+        }
+      });
+      return $popup.ninja();
     },
 
     drawer: function (options) {
@@ -401,94 +460,6 @@
         }
       });
       return $menu.ninja();
-    },
-
-    popup: function (options) {
-      options = $.extend({}, defaults, {
-        button: false,
-        window: false
-      }, options);
-      var
-        id = uniqueId(),
-        $object = this,
-        $popup = $('<span/>', {
-          'class': 'ninja-popup',
-          css: $.extend(options.css, {
-            minWidth: $object.width()
-          })
-        });
-      $popup.bind({
-        'detach.ninja remove.ninja': function () {
-          if ($object.is('.ninja-state-select')) {
-            $object.deselect();
-          }
-          $(document).unbind('click.ninja' + id);
-        },
-        'update.ninja': function (event) {
-          $popup.html(event.html);
-          var $button, offset, $stem;
-          if (options.button) {
-            $button = $.ninja.icon({
-              name: 'circle-clear'
-            }).addClass('ninja-popup-button').click(function () {
-              $popup.remove();
-            });
-            $popup.append($button);
-          }
-          $(document.body).append($popup);
-          if (options.window) {
-            $popup.css({
-              left: ($(window).width() / 2) - ($popup.width() / 2),
-              top: ($(window).height() / 2) - ($popup.height() / 2) + $(window).scrollTop()
-            });
-          } else {
-            offset = $object.offset();
-            $stem = $.ninja.icon({
-              name: 'triangle'
-            }).addClass('ninja-popup-stem');
-            $popup.css({
-              top: offset.top + $object.height()
-            });
-            if (offset.left + $popup.width() > $(window).width()) {
-              $popup.css({
-                right: 0
-              });
-              $stem.css({
-                right: $object.width() / 2
-              });
-            } else {
-              $popup.css({
-                left: offset.left
-              });
-              $stem.css({
-                left: $object.width() / 2
-              });
-            }
-            $popup.append($stem);
-            $(document).bind('click.ninja' + id, function (event) {
-              if ($popup.is(':visible')) {
-                var $parents = $(event.target).parents();
-                if ($.inArray($popup[0], $parents) < 0 && $object[0] !== event.target && $.inArray($object[0], $parents) < 0) {
-                  $popup.detach();
-                }
-              }
-            });
-          }
-          $(document).bind('keydown.ninja', function (event) {
-            if (event.keyCode === 27) {/* escape */
-              $popup.detach();
-              $(document).unbind('keydown.ninja');
-            }
-          });
-        }
-      });
-      if (options.html) {
-        $popup.trigger({
-          type: 'update.ninja',
-          html: options.html
-        });
-      }
-      return $popup.ninja();
     },
 
     rating: function (options) {
@@ -907,6 +878,94 @@
         $tabs.append($choice);
       });
       return $tabs.ninja();
+    },
+
+    tooltip: function (options) {
+      options = $.extend({}, defaults, {
+        button: false,
+        window: false
+      }, options);
+      var
+        id = uniqueId(),
+        $object = this,
+        $popup = $('<span/>', {
+          'class': 'ninja-popup',
+          css: $.extend(options.css, {
+            minWidth: $object.width()
+          })
+        });
+      $popup.bind({
+        'detach.ninja remove.ninja': function () {
+          if ($object.is('.ninja-state-select')) {
+            $object.deselect();
+          }
+          $(document).unbind('click.ninja' + id);
+        },
+        'attach.ninja': function (event) {
+          $popup.html(event.html);
+          var $button, offset, $stem;
+          if (options.button) {
+            $button = $.ninja.icon({
+              name: 'circle-clear'
+            }).addClass('ninja-popup-button').click(function () {
+              $popup.remove();
+            });
+            $popup.append($button);
+          }
+          $(document.body).append($popup);
+          if (options.window) {
+            $popup.css({
+              left: ($(window).width() / 2) - ($popup.width() / 2),
+              top: ($(window).height() / 2) - ($popup.height() / 2) + $(window).scrollTop()
+            });
+          } else {
+            offset = $object.offset();
+            $stem = $.ninja.icon({
+              name: 'triangle'
+            }).addClass('ninja-popup-stem');
+            $popup.css({
+              top: offset.top + $object.height()
+            });
+            if (offset.left + $popup.width() > $(window).width()) {
+              $popup.css({
+                right: 0
+              });
+              $stem.css({
+                right: $object.width() / 2
+              });
+            } else {
+              $popup.css({
+                left: offset.left
+              });
+              $stem.css({
+                left: $object.width() / 2
+              });
+            }
+            $popup.append($stem);
+            $(document).bind('click.ninja' + id, function (event) {
+              if ($popup.is(':visible')) {
+                var $parents = $(event.target).parents();
+                if ($.inArray($popup[0], $parents) < 0 && $object[0] !== event.target && $.inArray($object[0], $parents) < 0) {
+                  $popup.detach();
+                }
+              }
+            });
+          }
+          $(document).bind('keydown.ninja', function (event) {
+            if (event.keyCode === 27) {/* escape */
+              $popup.detach();
+              $(document).unbind('keydown.ninja');
+            }
+          });
+        }
+      });
+      if (options.html) {
+        $popup.trigger({
+          type: 'update.ninja',
+          html: options.html
+        });
+      }
+      return $popup.ninja();
     },
 
     version: function () {

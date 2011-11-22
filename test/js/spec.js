@@ -128,6 +128,34 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 /* */
 
+/* $.ninja.dialog() */
+      describe('$.ninja.dialog()', function () {
+        var
+          $toggleDialog,
+          $dialog = $.ninja.dialog({
+            html: '<div style="padding: 50px">This is <b>HTML</b> inside the dialog.</div>'
+          }).attach(function () {
+            $toggleDialog.attr({
+              checked: 'checked'
+            });
+          }).detach(function () {
+            $toggleDialog.attr({
+              checked: false
+            });
+          });
+        $toggleDialog = $('<input/>', {
+          type: 'checkbox'
+        }).change(function () {
+          if ($toggleDialog.attr('checked')) {
+            $dialog.attach();
+          } else {
+            $dialog.detach();
+          }
+        });
+        $examples.append('<br/><br/>', $toggleDialog, 'Attach Dialog');
+      });
+/* */
+
 /* $.ninja.drawer() */
       describe('$.ninja.drawer()', function () {
 
