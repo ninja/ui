@@ -55,11 +55,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           html: 'Button'
         }).disable(function () {
           $toggleSelect.attr({
-            disable: 'disable'
+            disabled: 'disabled'
           });
         }).enable(function () {
           $toggleSelect.attr({
-            disable: false
+            disabled: false
           });
         }).select(function () {
           $toggleSelect.attr({
