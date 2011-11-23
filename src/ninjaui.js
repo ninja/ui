@@ -137,7 +137,7 @@
           $stem.find('g').css(options.css);
         }
         $object.bind({
-          'deselect.ninja mouseenter.ninja': function () {
+          'deselect.ninja focus.ninja mouseenter.ninja': function () {
             $popup.css({
               top: $object.outerHeight() + 5
             }).appendTo($object);
@@ -157,7 +157,7 @@
               });
             }
           },
-          'mouseleave.ninja select.ninja': function () {
+          'blur.ninja mouseleave.ninja select.ninja': function () {
             $popup.detach();
           }
         });
