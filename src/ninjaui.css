@@ -23,6 +23,7 @@
   color: #333;
   line-height: 1.3em;
   padding: 0.2em 1em;
+  position: relative;
   text-shadow: 0 1px 0 #fff;
   white-space: nowrap;
 }
@@ -98,7 +99,6 @@
 }
 .ninja-object-menu {
   display: inline-block;
-  position: relative;
   vertical-align: top;
 }
 .ninja-object-menu .ninja-object-button {
@@ -160,6 +160,17 @@
 }
 .ninja-object-slider-track {
   height: 1.2em;
+}
+.ninja-object-stem {
+  display: inline-block;
+  height: 8px;
+  position: absolute;
+  top: -8px;
+  width: 8px;
+}
+.ninja-object-stem g {
+  fill: rgba(255,255,255,0.85);
+  stroke: #ccc;
 }
 .ninja-object-suggest {
   text-align: left;

@@ -120,6 +120,50 @@
       });
     },
 
+    hint: function (options) {
+      return this.each(function () {
+        options = $.extend({}, defaults, options);
+        var
+          $object = $(this),
+          $popup = $('<span/>', {
+            'class': 'ninja-object-popup',
+            css: $.extend(options.css, {
+              minWidth: $object.width()
+            }),
+            html: options.html
+          }),
+          $stem = $('<svg class="ninja-object-stem" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($popup);
+        if (options.css) {
+          $stem.find('g').css(options.css);
+        }
+        $object.bind({
+          'deselect.ninja mouseenter.ninja': function () {
+            $popup.css({
+              top: $object.outerHeight() + 5
+            }).appendTo($object);
+            if ($object.offset().left + $popup.outerWidth() > $(window).width()) {
+              $popup.css({
+                right: 0
+              });
+              $stem.css({
+                right: ($object.outerWidth() / 2) - 4
+              });
+            } else {
+              $popup.css({
+                left: ($object.outerWidth() - $popup.outerWidth()) / 2
+              });
+              $stem.css({
+                left: ($popup.outerWidth() / 2) - 4
+              });
+            }
+          },
+          'mouseleave.ninja select.ninja': function () {
+            $popup.detach();
+          }
+        });
+      });
+    },
+
     select: function (event) {
       return this.each(function () {
         var $object = $(this).ninja();
@@ -867,94 +911,6 @@
         $tabs.append($choice);
       });
       return $tabs.ninja();
-    },
-
-    tooltip: function (options) {
-      options = $.extend({}, defaults, {
-        button: false,
-        window: false
-      }, options);
-      var
-        id = uniqueId(),
-        $object = this,
-        $popup = $('<span/>', {
-          'class': 'ninja-popup',
-          css: $.extend(options.css, {
-            minWidth: $object.width()
-          })
-        });
-      $popup.bind({
-        'detach.ninja remove.ninja': function () {
-          if ($object.is('.ninja-state-select')) {
-            $object.deselect();
-          }
-          $(document).unbind('click.ninja' + id);
-        },
-        'attach.ninja': function (event) {
-          $popup.html(event.html);
-          var $button, offset, $stem;
-          if (options.button) {
-            $button = $.ninja.icon({
-              name: 'circle-clear'
-            }).addClass('ninja-popup-button').click(function () {
-              $popup.remove();
-            });
-            $popup.append($button);
-          }
-          $(document.body).append($popup);
-          if (options.window) {
-            $popup.css({
-              left: ($(window).width() / 2) - ($popup.width() / 2),
-              top: ($(window).height() / 2) - ($popup.height() / 2) + $(window).scrollTop()
-            });
-          } else {
-            offset = $object.offset();
-            $stem = $.ninja.icon({
-              name: 'triangle'
-            }).addClass('ninja-popup-stem');
-            $popup.css({
-              top: offset.top + $object.height()
-            });
-            if (offset.left + $popup.width() > $(window).width()) {
-              $popup.css({
-                right: 0
-              });
-              $stem.css({
-                right: $object.width() / 2
-              });
-            } else {
-              $popup.css({
-                left: offset.left
-              });
-              $stem.css({
-                left: $object.width() / 2
-              });
-            }
-            $popup.append($stem);
-            $(document).bind('click.ninja' + id, function (event) {
-              if ($popup.is(':visible')) {
-                var $parents = $(event.target).parents();
-                if ($.inArray($popup[0], $parents) < 0 && $object[0] !== event.target && $.inArray($object[0], $parents) < 0) {
-                  $popup.detach();
-                }
-              }
-            });
-          }
-          $(document).bind('keydown.ninja', function (event) {
-            if (event.keyCode === 27) {/* escape */
-              $popup.detach();
-              $(document).unbind('keydown.ninja');
-            }
-          });
-        }
-      });
-      if (options.html) {
-        $popup.trigger({
-          type: 'update.ninja',
-          html: options.html
-        });
-      }
-      return $popup.ninja();
     },
 
     version: function () {
