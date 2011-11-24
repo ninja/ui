@@ -871,44 +871,46 @@
 
     tabs: function (options) {
       options = $.extend({}, defaults, {
-        choice: 0
+        choice: 1
       }, options);
-      var
-        $object = this,
-        $tabs = $('<span/>', {
-          css: options.css
-        });
+      var $tabs = $('<span/>');
       if (options.vertical) {
-        $tabs.addClass('ninja-tabs-vertical');
+        $tabs.addClass('ninja-object-tabs-vertical');
       } else {
-        $tabs.addClass('ninja-tabs-horizontal');
+        $tabs.addClass('ninja-object-tabs-horizontal');
       }
       $.each(options.choices, function (i, choice) {
-        var $choice = $('<span/>', {
-          'class': 'ninja ninja-tab',
+        var $tab = $('<button/>', {
+          'class': 'ninja-object-tab',
+          css: options.css,
           html: choice.html || choice
         }).bind({
           'click.ninja': function () {
-            $('.ninja-tab', $tabs).removeClass('ninja-state-select');
-            $choice.addClass('ninja-state-select');
-            $tabs.trigger({
-              type: 'select.ninja',
-              html: choice.html || choice
+            if (!$tab.is('.ninja-state-disable') && !$tab.is('.ninja-state-select')) {
+              $tab.trigger('select.ninja');
+            }
+          },
+          'disable.ninja': function () {
+            $tab.attr({
+              disabled: 'disabled'
             });
+          },
+          'enable.ninja': function () {
+            $tab.attr({
+              disabled: false
+            });
+          },
+          'select.ninja': function () {
+            $tabs.children().not($tab).removeClass('ninja-state-select');
+            $tab.addClass('ninja-state-select');
             if ($.isFunction(choice.select)) {
               choice.select();
             }
           }
-        });
-        if (i === 0) {
-          $choice.addClass('ninja-tab-first');
-        } else if (i === options.choices.length - 1) {
-          $choice.addClass('ninja-tab-last');
-        }
+        }).appendTo($tabs);
         if (i === options.choice - 1) {
-          $choice.addClass('ninja-state-select');
+          $tab.select();
         }
-        $tabs.append($choice);
       });
       return $tabs.ninja();
     },

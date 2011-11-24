@@ -348,6 +348,40 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 /* */
 
+/* $.ninja.tabs() */
+      describe('$.ninja.tabs()', function () {
+        var
+          $message = $('<span/>'),
+          poorly = function () {
+            $message.html('You have chosen... poorly.');
+          },
+          $tabs = $.ninja.tabs({
+            choices: [
+              {
+                html: '<div><i>Gold</i> Tab</div>',
+                select: function () {
+                  poorly();
+                }
+              },
+              {
+                html: '<div><i>Silver</i> Tab</div>',
+                select: function () {
+                  poorly();
+                }
+              },
+              {
+                html: '<div><i>Wood</i> Tab</div>',
+                select: function () {
+                  $message.html('You have chosen... wisely.');
+                }
+              }
+            ]
+          });
+
+        $examples.append('<br/><br/>', $tabs, ' ', $message);
+      });
+/* */
+
     });
   });
 });

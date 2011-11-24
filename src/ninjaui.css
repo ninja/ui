@@ -9,7 +9,8 @@
   width: 100%;
 }
 .ninja-object-button,
-.ninja-object-item.ninja-state-hover {
+.ninja-object-item.ninja-state-hover,
+.ninja-object-tab {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
   background-image: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
@@ -19,7 +20,8 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(255,255,255,0.2)', EndColorStr='rgba(0,0,0,0.1)');
 }
 .ninja-object-button,
-.ninja-object-item {
+.ninja-object-item,
+.ninja-object-tab {
   color: #333;
   line-height: 1.3em;
   padding: 0.2em 1em;
@@ -28,27 +30,34 @@
   white-space: nowrap;
 }
 .ninja-object-button:hover,
-.ninja-object-item.ninja-state-hover {
+.ninja-object-item.ninja-state-hover,
+.ninja-object-tab:hover {
   cursor: pointer;
 }
 .ninja-object-button,
-.ninja-object-popup {
+.ninja-object-popup,
+.ninja-object-tab {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   background-color: #eee;
   border: 1px solid #999;
+}
+.ninja-object-button,
+.ninja-object-popup {
   -webkit-border-radius: 0.35em;
   -moz-border-radius: 0.35em;
   border-radius: 0.35em;
 }
-.ninja-object-button {
+.ninja-object-button,
+.ninja-object-tab {
   font-size: inherit;
   margin: 0;
   outline-width: 1px;
   text-align: center;
 }
-.ninja-object-button .ninja-object-icon {
+.ninja-object-button .ninja-object-icon,
+.ninja-object-tab .ninja-object-icon {
   line-height: 1.3em;
   vertical-align: bottom;
 }
@@ -184,9 +193,40 @@
 .ninja-object-suggest .ninja-object-x {
   visibility: hidden;
 }
+.ninja-object-tabs-horizontal,
+.ninja-object-tabs-vertical {
+  white-space: nowrap;
+}
 .ninja-object-tabs-horizontal {
   display: inline-block;
-  white-space: nowrap;
+}
+.ninja-object-tabs-vertical .ninja-object-tab {
+  display: block;
+}
+.ninja-object-tab {
+  border-left-color: #ccc;
+}
+.ninja-object-tab:first-child {
+  border-left-color: #999;
+  -webkit-border-radius: 0.35em 0 0 0.35em;
+  -moz-border-radius: 0.35em 0 0 0.35em;
+  border-radius: 0.35em 0 0 0.35em;
+}
+.ninja-object-tab:last-child {
+  border-right-color: #999;
+  -webkit-border-radius: 0 0.35em 0.35em 0;
+  -moz-border-radius: 0 0.35em 0.35em 0;
+  border-radius: 0 0.35em 0.35em 0;
+}
+.ninja-object-tab.ninja-state-select {
+  border-left-color: #666;
+  border-right-color: #666;
+}
+.ninja-object-tab:first-child.ninja-state-select {
+  border-left-color: #999;
+}
+.ninja-object-tab:last-child.ninja-state-select {
+  border-right-color: #999;
 }
 .ninja-object-tray {
   -moz-background-clip: padding;
@@ -216,9 +256,6 @@
 .ninja-state-disable {
   cursor: default !important;
 }
-
-/* Ninja Default Theme */
-
 /*
 .ninja-editable input {
   color: #fff;
@@ -240,9 +277,4 @@
 .ninja-star-user {
   color: #c00;
 }
-.ninja-tab {
-  border-left-color: transparent;
-}
-.ninja-tab-first {
-  border-left-color: #000;
-}
+*/
