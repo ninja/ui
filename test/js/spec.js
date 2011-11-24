@@ -348,6 +348,19 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 /* */
 
+/* $.ninja.rating() */
+      describe('$.ninja.rating()', function () {
+        var
+          $message = $('<span/>'),
+          $rating = $.ninja.rating({
+            average: 3
+          }).select(function (event) {
+            $message.html('New rating: ' + event.stars + ' stars');
+          });
+        $examples.append('<br/><br/>', $rating, ' ', $message);
+      });
+/* */
+
 /* $.ninja.tabs() */
       describe('$.ninja.tabs()', function () {
         var

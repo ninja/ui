@@ -473,23 +473,23 @@
           $choice.addClass('ninja-object-rule');
         } else {
           $choice.addClass('ninja-object-item');
-          if ($.isFunction(choice.select)) {
-            $choice.bind({
-              'click.ninja': function () {
-                $button.trigger('deselect.ninja');
+          $choice.bind({
+            'click.ninja': function () {
+              $button.trigger('deselect.ninja');
+              if ($.isFunction(choice.select)) {
                 choice.select();
-              },
-              'mouseenter.ninja': function () {
-                if ($hover) {
-                  $hover.removeClass('ninja-state-hover');
-                }
-                $hover = $(this).addClass('ninja-state-hover');
-              },
-              'mouseleave.ninja': function () {
+              }
+            },
+            'mouseenter.ninja': function () {
+              if ($hover) {
                 $hover.removeClass('ninja-state-hover');
               }
-            });
-          }
+              $hover = $(this).addClass('ninja-state-hover');
+            },
+            'mouseleave.ninja': function () {
+              $hover.removeClass('ninja-state-hover');
+            }
+          });
         }
       });
       return $menu.ninja();
@@ -497,65 +497,65 @@
 
     rating: function (options) {
       options = $.extend({}, defaults, {
-        starsAverage: 0,
-        starsUser: 0
+        average: 0,
+        select: 0,
+        stars: 5
       }, options);
-      var $rating = $('<span/>', {
-        'class': 'ninjaInline ninjaRating'
-      }).bind({
-        'mouseleave.ninja': function (event) {
-          $('.ninjaStar', $rating).each(function (iStar, star) {
-            var $star = $(star);
-            if (iStar < options.starsAverage) {
-              $star.addClass('ninjaStarAverage');
-            } else {
-              $star.removeClass('ninjaStarAverage');
-            }
-            if (iStar < options.starsUser) {
-              $star.addClass('ninjaStarUser');
-            } else {
-              $star.removeClass('ninjaStarUser');
-            }
-          });
-        }
-      });
-      $.each(options.choices, function (i, choice) {
-        var
-          iChoice = i + 1,
-          $choice = $('<span/>', {
-            'class': 'ninjaStar ninjaSymbol ninjaSymbolStar'
-          }).append(choice).bind({
-            'mouseenter.ninja': function (event) {
-              $('.ninjaStar', $rating).each(function (iStar, star) {
-                var $star = $(star);
-                if (iStar <= i) {
-                  $star.addClass('ninjaStarUser');
+      var
+        i,
+        $rating = $('<span/>', {
+          'class': 'ninja-object-rating'
+        }).bind({
+          'mouseleave.ninja': function () {
+            $rating.find('.ninja-object-star').each(function (ii, star) {
+              var $star = $(star);
+              if (options.select === 0) {
+                if (ii < options.average) {
+                  $star.addClass('ninja-state-average');
                 } else {
-                  $star.removeClass('ninjaStarUser');
+                  $star.removeClass('ninja-state-average');
                 }
-              });
-            },
-            'click.ninja' : function () {
-              options.starsUser = iChoice;
-              /* individual select function */
-              if (choice.select) {
-                choice.select();
               }
-              /* global select function */
-              $rating.trigger({
-                type: 'select',
-                html: choice.html || choice
-              });
-            }
-          });
-        if (iChoice <= options.starsAverage) {
-          $choice.addClass('ninjaStarAverage');
-        }
-        if (iChoice <= options.starsUser) {
-          $choice.addClass('ninjaStarUser');
-        }
-        $rating.append($choice);
+              if (ii < options.select) {
+                $star.addClass('ninja-state-individual');
+              } else {
+                $star.removeClass('ninja-state-individual');
+              }
+            });
+          }
+        });
+      for (i = 0; i < options.stars; i++) {
+        $('<button/>', {
+          'class': 'ninja-object-star',
+          html: $.ninja.icon({
+            'name': 'star'
+          })
+        }).appendTo($rating);
+      }
+      $rating.find('.ninja-object-star').each(function (i, star) {
+        i++;
+        var $star = $(star);
+        $star.bind({
+          'click.ninja select.ninja': function () {
+            options.select = i;
+            $rating.trigger('mouseleave.ninja').trigger({
+              type: 'select',
+              stars: i
+            });
+          },
+          'mouseenter.ninja': function () {
+            $rating.find('.ninja-object-star').each(function (ii, star) {
+              var $star = $(star).removeClass('ninja-state-average');
+              if (ii < i) {
+                $star.addClass('ninja-state-individual');
+              } else {
+                $star.removeClass('ninja-state-individual');
+              }
+            });
+          }
+        });
       });
+      $rating.trigger('mouseleave.ninja');
       return $rating.ninja();
     },
 

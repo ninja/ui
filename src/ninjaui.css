@@ -31,6 +31,7 @@
 }
 .ninja-object-button:hover,
 .ninja-object-item.ninja-state-hover,
+.ninja-object-star:hover,
 .ninja-object-tab:hover {
   cursor: pointer;
 }
@@ -50,6 +51,7 @@
   border-radius: 0.35em;
 }
 .ninja-object-button,
+.ninja-object-star,
 .ninja-object-tab {
   font-size: inherit;
   margin: 0;
@@ -170,6 +172,24 @@
 .ninja-object-slider-track {
   height: 1.2em;
 }
+.ninja-object-star {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.ninja-object-star g {
+  fill: #eee;
+  stroke: #ccc;
+  stroke-width: 1;
+}
+.ninja-object-star.ninja-state-average g {
+  fill: #c00;
+  stroke: #900;
+}
+.ninja-object-star.ninja-state-individual g {
+  fill: #c96;
+  stroke: #963;
+}
 .ninja-object-stem {
   display: inline-block;
   height: 8px;
@@ -267,14 +287,5 @@
 .ninja-slider-level {
   background-color: #f00;
   border-color: #600;
-}
-.ninja-star {
-  color: #666;
-}
-.ninja-star-average {
-  color: #39c;
-}
-.ninja-star-user {
-  color: #c00;
 }
 */
