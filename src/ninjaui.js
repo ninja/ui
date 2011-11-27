@@ -64,13 +64,13 @@
       });
     },
 
-    change: function (callback) {
+    delist: function (callback) {
       return this.each(function () {
         var $object = $(this).ninja();
         if ($.isFunction(callback)) {
-          $object.bind('change.ninja', callback);
+          $object.bind('delist.ninja', callback);
         } else {
-          $object.trigger('change.ninja');
+          $object.trigger('delist.ninja');
         }
       });
     },
@@ -138,10 +138,11 @@
         }
         $object.bind({
           'deselect.ninja focus.ninja mouseenter.ninja': function () {
+            var offset = $object.offset();
             $popup.css({
-              top: $object.outerHeight() + 5
-            }).appendTo($object);
-            if ($object.offset().left + $popup.outerWidth() > $(window).width()) {
+              top: offset.top + $object.outerHeight() + 5
+            }).appendTo('body');
+            if (offset.left + $popup.outerWidth() > $(window).width()) {
               $popup.css({
                 right: 0
               });
@@ -150,7 +151,7 @@
               });
             } else {
               $popup.css({
-                left: ($object.outerWidth() - $popup.outerWidth()) / 2
+                left: offset.left + (($object.outerWidth() - $popup.outerWidth()) / 2)
               });
               $stem.css({
                 left: ($popup.outerWidth() / 2) - 4
@@ -164,6 +165,166 @@
       });
     },
 
+    list: function (options) {
+      return this.each(function () {
+        options = $.extend({}, defaults, options);
+        if (options.choices.length) {
+          var
+            $hover = null,
+            $object = $(this).ninja(),
+            $list = $('<div/>', {
+              'class': 'ninja-object-list'
+            }),
+            offset = $object.offset(),
+            scrollTop = $(window).scrollTop(),
+            bottom = offset.top + $object.outerHeight(),
+            right = offset.left + $object.outerWidth();
+          $object.bind({
+            'delist.ninja': function () {
+              $(document).unbind('click.ninja keydown.ninja keyup.ninja');
+              $list.detach();
+              if ($hover) {
+                $hover.removeClass('ninja-state-hover');
+              }
+            }
+          });
+          $('body').append($list);
+          if (bottom > (scrollTop + $(window).height())) {
+            $list.css({
+              bottom: $object.outerHeight()
+            });
+          } else {
+            $list.css({
+              top: bottom
+            });
+          }
+          if (right > $(window).width()) {
+            $list.css({
+              right: right
+            });
+          } else {
+            $list.css({
+              left: offset.left
+            });
+          }
+          $(document).bind({
+            'keydown.ninja': function (event) {
+              if ($.inArray(event.keyCode, [9, 38, 40]) > -1) {/* down or up */
+                event.preventDefault();/* prevents page scrolling and tabbing when a list is active */
+              }
+            },
+            'keyup.ninja': function (event) {
+              if ($.inArray(event.keyCode, [9, 13, 27, 38, 40]) > -1) {/* tab, return, escape, down or up */
+                if (event.keyCode === 13) {/* return */
+                  if ($hover) {
+                    $hover.click();
+                  }
+                } else if (event.keyCode === 27) {/* escape */
+                  $object.delist();
+                } else if ($.inArray(event.keyCode, [9, 40]) > -1 && !event.shiftKey) {/* tab or down arrow */
+                  if ($hover) {
+                    if ($hover.nextAll('.ninja-object-item').length) {
+                      $hover.nextAll('.ninja-object-item:first').trigger('mouseenter.ninja');
+                    } else {
+                      $list.find('.ninja-object-item:first').trigger('mouseenter.ninja');
+                    }
+                  } else {
+                    $list.find('.ninja-object-item:first').trigger('mouseenter.ninja');
+                  }
+                } else if (event.keyCode === 38 || (event.shiftKey && event.keyCode === 9)) {/* shift+tab or up arrow */
+                  if ($hover) {
+                    if ($hover.prevAll('.ninja-object-item').length) {
+                      $hover.prevAll('.ninja-object-item:first').trigger('mouseenter.ninja');
+                    } else {
+                      $list.find('.ninja-object-item:last').trigger('mouseenter.ninja');
+                    }
+                  } else {
+                    $list.find('.ninja-object-item:last').trigger('mouseenter.ninja');
+                  }
+                }
+                return false;
+              }
+            },
+            'click.ninja': function (event) {
+              $object.delist();
+            }
+          });
+          if (options.query) {
+            options.choices = $.map(options.choices, function (item) {
+              item.value = item.value  || item.html || item;
+              if (item.html) {
+                item.html = item.html.toString().replace(new RegExp(options.query, 'gi'), '<b>' + options.query + '</b>');
+              }
+              return item;
+            });
+          }
+          $.each(options.choices, function (i, choice) {
+            var $choice;
+            if (choice.spacer) {
+              $choice = $('<div/>', {
+                'class': 'ninja-object-rule'
+              });
+            } else {
+              $choice = $('<button/>', {
+                'class': 'ninja-object-item'
+              });
+              $choice.bind({
+                'mouseleave.ninja': function () {
+                  $hover.removeClass('ninja-state-hover');
+                },
+                'click.ninja': function () {
+                  $object.trigger('delist.ninja').focus();
+                  if ($object.is('input[type=text]')) {
+                    $object.val(choice.value);
+                  }
+                  if ($.isFunction(choice.select)) {
+                    choice.select();
+                  }
+                },
+                'mouseenter.ninja': function () {
+                  if ($hover) {
+                    $hover.trigger('mouseleave.ninja');
+                  }
+                  $hover = $choice.addClass('ninja-state-hover');
+                }
+              });
+            }
+            $choice.html(choice.html || choice).appendTo($list);
+          });
+        }
+      });
+    },
+
+    placeholder: function (placeholder) {
+      return this.each(function () {
+        var
+          $object = $(this).ninja(),
+          value;
+        if ($object.is('input[type=search], input[type=text]')) {
+          if ('placeholder' in $object) {
+            $object.attr('placeholder', placeholder);
+          } else {
+            $object.bind({
+              'blur.ninja': function () {
+                value = $object.val();
+                if (value === '' || value === placeholder) {
+                  $object.addClass('ninja-state-placeholder');
+                  if (value === '') {
+                    $object.val(placeholder);
+                  }
+                }
+              },
+              'focus.ninja': function () {
+                if ($object.val() === placeholder) {
+                  $object.removeClass('ninja-state-placeholder').val('');
+                }
+              }
+            }).trigger('blur.ninja');
+          }
+        }
+      });
+    },
+
     select: function (event) {
       return this.each(function () {
         var $object = $(this).ninja();
@@ -173,11 +334,65 @@
           $object.trigger('select.ninja');
         }
       });
+    },
+
+    source: function (callback) {
+      return this.each(function () {
+        var $object = $(this).ninja();
+        if ($.isFunction(callback)) {
+          $object.bind('source.ninja', callback);
+        } else if ($object.val() !== '') {
+          $object.trigger('source.ninja');
+        }
+      });
     }
 
   };
 
   objects = {
+
+    autocomplete: function (options) {
+      options = $.extend({}, defaults, options);
+      var
+        timer,
+        $x,
+        $input = $('<input/>', {
+          'class': 'ninja-object-autocomplete',
+          type: 'text'
+        }).bind({
+          'keyup.ninja': function (event) {
+            clearTimeout(timer);
+            if ($.inArray(event.keyCode, [9, 13, 27, 38, 40]) === -1) {/* not tab, return, escape, down or up */
+              timer = setTimeout(function () {
+                $input.source();
+              }, 1000);
+            }
+          },
+          'select.ninja': function (event) {
+            if (event.html) {
+              $input.val($.trim(event.html.toString().replace(new RegExp('/<\/?[^>]+>/', 'gi'), '')));
+            } else {
+              event.html = $input.val();
+            }
+          },
+          'source.ninja': function (event) {
+            $input.delist();
+            event.query = $input.val();
+          }
+        });
+      $x = $.ninja.icon({
+        name: 'x'
+      }).bind('click.ninja', function () {
+        $input.val('').focus();
+        $x.css({
+          visibility: 'hidden'
+        });
+      });
+      if (options.placeholder) {
+        $input.ninja().placeholder(options.placeholder);
+      }
+      return $input.ninja();
+    },
 
     button: function (options) {
       options = $.extend({}, defaults, options);
@@ -187,7 +402,7 @@
         html: options.html
       });
       $button.bind({
-        'click.ninja': function () {
+        'click.ninja': function (event) {
           if (!$button.is('.ninja-state-disable')) {
             if ($button.is('.ninja-state-select')) {
               $button.trigger('deselect.ninja');
@@ -195,6 +410,7 @@
               $button.trigger('select.ninja');
             }
           }
+          event.stopImmediatePropagation();
         },
         'deselect.ninja': function () {
           $button.removeClass('ninja-state-select');
@@ -382,117 +598,18 @@
 
     menu: function (options) {
       options = $.extend({}, defaults, options);
-      var
-        $hover,
-        $menu = $('<div/>', {
-          'class': 'ninja-object-menu'
-        }),
-        $popup = $('<div/>', {
-          'class': 'ninja-object-popup'
-        }),
-        $button = $.ninja.button($.extend({}, options, {
-          html: options.html,
-          select: options.select
-        })).append($.ninja.icon({
-          name: 'menu'
-        })).select(function () {
-          $hover = null;
-          $menu.append($popup).deselect(function () {
-            $popup.detach();
-          });
-          var
-            offset = $popup.offset(),
-            scrollTop = $(window).scrollTop();
-          if ((offset.top + $popup.outerHeight()) > (scrollTop + $(window).height())) {
-            $popup.css({
-              bottom: $button.outerHeight()
-            });
-          }
-          if ((offset.left + $popup.outerWidth()) > (scrollTop + $(window).width())) {
-            $popup.css({
-              right: 0
-            });
-          }
-          $(document).bind({
-            'keydown.ninja': function (event) {
-              $button.blur();
-              if ($.inArray(event.keyCode, [38, 40]) > -1) {/* down or up */
-                return false;/* prevents page scrolling via the arrow keys when a list is active */
-              }
-            },
-            'keyup.ninja': function (event) {
-              if ($.inArray(event.keyCode, [13, 27, 38, 40]) > -1) {/* return, escape, down or up */
-                if (event.keyCode === 13) {/* return */
-                  if ($hover) {
-                    $hover.trigger('click.ninja');
-                  }
-                } else if (event.keyCode === 40) {/* down arrow */
-                  if ($hover) {
-                    if ($hover.nextAll('.ninja-object-item').length) {
-                      $hover.nextAll('.ninja-object-item:first').trigger('mouseenter.ninja');
-                    } else {
-                      $popup.find('.ninja-object-item:first').trigger('mouseenter.ninja');
-                    }
-                  } else {
-                    $popup.find('.ninja-object-item:first').trigger('mouseenter.ninja');
-                  }
-                } else if (event.keyCode === 38) {/* up arrow */
-                  if ($hover) {
-                    if ($hover.prevAll('.ninja-object-item').length) {
-                      $hover.prevAll('.ninja-object-item:first').trigger('mouseenter.ninja');
-                    } else {
-                      $popup.find('.ninja-object-item:last').trigger('mouseenter.ninja');
-                    }
-                  } else {
-                    $popup.find('.ninja-object-item:last').trigger('mouseenter.ninja');
-                  }
-                } else if (event.keyCode === 27) {/* escape */
-                  $button.trigger('deselect.ninja');
-                }
-                return false;
-              }
-            },
-            'click.ninja': function (event) {
-              if ($.inArray($menu[0], $(event.target).parents()) === -1) {
-                $button.trigger('deselect.ninja');
-              }
-            }
-          });
-        }).deselect(function () {
-          $(document).unbind('click.ninja keydown.ninja keyup.ninja');
-          $popup.detach();
-          if ($hover) {
-            $hover.removeClass('ninja-state-hover');
-          }
-        }).appendTo($menu);
-      $.each(options.choices, function (i, choice) {
-        var $choice = $('<div/>', {
-          html: choice.display || choice.html || choice
-        }).appendTo($popup);
-        if (choice.spacer) {
-          $choice.addClass('ninja-object-rule');
-        } else {
-          $choice.addClass('ninja-object-item');
-          $choice.bind({
-            'click.ninja': function () {
-              $button.trigger('deselect.ninja');
-              if ($.isFunction(choice.select)) {
-                choice.select();
-              }
-            },
-            'mouseenter.ninja': function () {
-              if ($hover) {
-                $hover.removeClass('ninja-state-hover');
-              }
-              $hover = $(this).addClass('ninja-state-hover');
-            },
-            'mouseleave.ninja': function () {
-              $hover.removeClass('ninja-state-hover');
-            }
-          });
-        }
+      var $menu = $.ninja.button($.extend({}, options, {
+        html: options.html
+      })).addClass('ninja-object-menu').append($.ninja.icon({
+        name: 'menu'
+      })).select(function () {
+        $menu.blur().list(options);
+      }).deselect(function () {
+        $menu.delist();
+      }).delist(function () {
+        $menu.deselect();
       });
-      return $menu.ninja();
+      return $menu;
     },
 
     rating: function (options) {
@@ -708,165 +825,6 @@
         }
       });
       return $slider.ninja();
-    },
-
-    suggest: function (options) {
-      options = $.extend({}, defaults, options);
-      var
-        $suggest = $('<span/>', {
-          'class': 'ninjaEditable ninjaInline ninjaSuggest',
-          css: options.css,
-          html: options.html
-        }),
-        $input = $('<input/>', {
-          'class': 'ninja-object-suggest',
-          type: 'text'
-        }),
-        $clear = $('<span/>', {
-          'class': 'ninjaSuggestClear ninjaSymbol ninjaSymbolClear'
-        }).bind('click.ninja', function () {
-          $input.val('').focus();
-          $clear.css({
-            visibility: 'hidden'
-          });
-        }),
-        $popup = $suggest.popup(), value;
-      if (options.placeholder) {
-        if ($.support.opacity) {
-          $input.css({
-            opacity: 0.25
-          });
-        }
-        $input.val(options.placeholder);
-      }
-      $input.bind({
-        'focus.ninja': function () {
-          if (!$input.is('.ninjaFocused')) {
-            if ($.support.opacity) {
-              $input.addClass('ninjaFocused').css({
-                opacity: 1
-              });
-            }
-            var value = $input.val();
-            if (options.placeholder && value === options.placeholder) {
-              $input.val('');
-            } else {
-              if (value !== '') {
-                $suggest.trigger({
-                  type: 'change.ninja',
-                  value: value
-                });
-                $clear.css({
-                  visibility: 'visible'
-                });
-              }
-            }
-          }
-        },
-        'blur.ninja': function (event) {
-          if ($input.is('.ninjaFocused')) {
-            $input.removeClass('ninjaFocused');
-            if (options.placeholder && $input.val() === '') {
-              if ($.support.opacity) {
-                $input.css({
-                  opacity: 0.25
-                });
-              }
-              $input.val(options.placeholder);
-            }
-            if ($popup.find('.ninja-state-hover').length === 0) {
-              $popup.hide();
-            }
-          }
-        },
-        'change.ninja select.ninja': function () {/* prevent these events from submitting prematurely */
-          return false;
-        },
-        'keydown.ninja': function (event) {
-          value = $input.val();
-          if ($.inArray(event.keyCode, [13, 48, 56, 57, 219, 220]) > -1) {/* return or regular expression metacharacters */
-            return false;
-          } else if (event.keyCode === 8 && value.length === 1) {/* delete last character */
-            $clear.css({
-              visibility: 'hidden'
-            });
-            $popup.hide();
-          }
-        },
-        'keyup.ninja': function (event) {
-          if (event.keyCode === 27) {/* escape */
-            $input.blur();
-          }
-          if (event.keyCode === 13) {/* return */
-            if ($('.ninjaStateHovered', $popup).length === 0) {
-              $suggest.trigger({
-                type: 'select.ninja',
-                html: $input.val()
-              });
-            }
-            $popup.hide();
-          } else if ($.inArray(event.keyCode, [38, 40]) === -1) {/* not down nor up */
-            var valueNew = $input.val();
-            if (event.keyCode !== 8 && valueNew.length === 1) {/* first character */
-              $clear.css({
-                visibility: 'visible'
-              });
-            }
-            if (valueNew.length > 0 && value !== valueNew) {
-              $suggest.trigger({
-                type: 'change.ninja',
-                value: valueNew
-              });
-            }
-          }
-        }
-      });
-      $suggest.bind({
-        'error.ninja': function (event) {
-          $popup.update({
-            html: $('<div/>', {
-              'class': 'ninjaError',
-              text: 'Error: ' + event.message
-            })
-          }).css({
-            minWidth: $suggest.outerWidth()
-          });
-        },
-        'select.ninja': function (event) {
-          if (event.html) {
-            $input.val($.trim(event.html.toString().replace(new RegExp('/<\/?[^>]+>/', 'gi'), '')));
-          } else {
-            event.html = $input.val();
-          }
-          $input.blur();
-          $popup.hide();
-        },
-        'update.ninja': function (event) {
-          if (event.choices.length) {
-            value = $input.val();
-            $popup.show().update({
-              html: $.ninja.list({
-                choices: $.map(event.choices, function (choice) {
-                  choice.display = choice.html.toString().replace(new RegExp(value, 'gi'), '<strong>' + value + '</strong>');
-                  choice.html = choice.html || choice;
-                  choice.select = function () {
-                    $suggest.trigger({
-                      type: 'select.ninja',
-                      html: choice.html || choice
-                    });
-                  };
-                  return choice;
-                })
-              })
-            }).css({
-              minWidth: $suggest.outerWidth()
-            });
-          } else {
-            $popup.hide();
-          }
-        }
-      }).append($input, $clear);
-      return $suggest.ninja();
     },
 
     tabs: function (options) {

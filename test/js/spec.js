@@ -48,6 +48,45 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         }
       });
 
+/* $.ninja.autocomplete() */
+
+      describe('$.ninja.autocomplete()', function () {
+
+        var $autocomplete = $.ninja.autocomplete({
+          placeholder: 'United States Cities'
+        }).source(function (event) {
+          $.ajax({
+            url: 'http://ws.geonames.org/searchJSON',
+            dataType: 'jsonp',
+            data: {
+              country: 'US',
+              featureClass: 'P',
+              fuzzy: 0,
+              maxRows: 10,
+              q: event.query
+            },
+            success: function (data) {
+              $autocomplete.list({
+                choices: $.map(data.geonames, function (item) {
+                  return {
+                    html: item.name + ', ' + item.adminName1,
+                    value: item.name + ', ' + item.adminCode1
+                  };
+                }),
+                query: event.query
+              });
+            },
+            error: function (request, status, message) {
+              $.error(message);
+            }
+          });
+        });
+
+        $examples.append($autocomplete);
+
+      });
+/* */
+
 /* $.ninja.button() */
       describe('$.ninja.button()', function () {
         var $toggleSelect, $toggleDisable,
@@ -102,7 +141,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }
         });
 
-        $examples.append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
+        $examples.append('<br/><br/>', $button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
 
         it('should have button class', function () {
           assert($button.hasClass('ninja-object-button')).isTrue();
