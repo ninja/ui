@@ -246,7 +246,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       });
 /* */
 
-/* $('#object').ninja().hint() */
+/* $('#foo').ninja().hint() */
       describe('$(\'#object\').ninja().hint()', function () {
         var
           $buttonHint = $.ninja.button({
@@ -254,7 +254,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).hint({
             html: '<div>This is <b>HTML</b> inside the hint.</div>'
           });
-        $examples.append('<div>$.ninja.hint()</div>', $example.clone().append($buttonHint));
+        $examples.append('<div>$.ninja.x.hint() or $(\'#foo\').ninja().hint()</div>', $example.clone().append($buttonHint));
       });
 /* */
 
