@@ -46,14 +46,22 @@ body {
 }
 
 .ninjaui-examples {
-  border: 1px solid #eee;
+  background-color: #eee;
+  border-top: 1px solid #fff;
   padding: 2em;
 }
 
 .ninjaui-examples-title {
-  color: #0D3349;
+  color: #333;
   font-weight: bold;
   margin-bottom: 1em;
+}
+
+.ninjaui-example {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin: 0.25em 0 1em 0;
 }
 
 .ninjaui-example-icon {

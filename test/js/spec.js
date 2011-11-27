@@ -27,7 +27,9 @@ QUnit.specify.globalApi = true;
 $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version) {
   'use strict';
 
-  var $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body');
+  var
+    $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body'),
+    $example = $('<div class="ninjaui-example"/>');
 
   QUnit.specify('<b>Ninja UI</b> ' + environment, function () {
     describe('jQuery ' + version, function () {
@@ -82,7 +84,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           });
         });
 
-        $examples.append($autocomplete);
+        $examples.append('<div>$.ninja.autocomplete()</div>', $example.clone().append($autocomplete));
 
       });
 /* */
@@ -141,7 +143,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }
         });
 
-        $examples.append('<br/><br/>', $button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled);
+        $examples.append('<div>$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
 
         it('should have button class', function () {
           assert($button.hasClass('ninja-object-button')).isTrue();
@@ -191,7 +193,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             $dialog.detach();
           }
         });
-        $examples.append('<br/><br/>', $toggleDialog, 'Attach Dialog');
+        $examples.append('<div>$.ninja.dialog()</div>', $example.clone().append($toggleDialog, 'Attach Dialog'));
       });
 /* */
 
@@ -217,7 +219,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           title: '<i>Selected</i> Drawer'
         });
 
-        $examples.append('<br/><br/>', $drawer, '<br/>', $drawerSelect);
+        $examples.append('<div>$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
 
         it('should have drawer class', function () {
           assert($drawer.hasClass('ninja-object-drawer')).isTrue();
@@ -252,18 +254,21 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).hint({
             html: '<div>This is <b>HTML</b> inside the hint.</div>'
           });
-        $examples.append('<br/>', $buttonHint, '<br/>');
+        $examples.append('<div>$.ninja.hint()</div>', $example.clone().append($buttonHint));
       });
 /* */
 
 /* $.ninja.icon() */
       describe('$.ninja.icon()', function () {
-        $examples.append('<br/>');
 
-        var iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star', 'close'];
+        $examples.append('<div>$.ninja.icon()</div>');
+
+        var
+          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star', 'close'],
+          $exampleIcons = $example.clone().appendTo($examples);
 
         $.each(iconNames, function (i, iconName) {
-          var $example, $icon;
+          var $exampleIcon, $icon;
           if (iconName === 'stop') {
             $icon = $.ninja.icon({
               css: {
@@ -294,11 +299,9 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               name: iconName
             });
           }
-          $example = $('<span/>', {
+          $exampleIcon = $('<span/>', {
             'class': 'ninjaui-example-icon'
-          });
-          $example.append($icon, ' ', iconName);
-          $examples.append($example);
+          }).append($icon, ' ', iconName).appendTo($exampleIcons);
 
           it('should have icon class', function () {
             if ($.inArray(version, ['1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3']) === -1) {
@@ -383,7 +386,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             html: 'Menu'
           });
 
-        $examples.append('<br/><br/>', $menu, ' ', $message);
+        $examples.append('<div>$.ninja.menu()</div>', $example.clone().append($menu, ' ', $message));
       });
 /* */
 
@@ -396,7 +399,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).select(function (event) {
             $message.html('New rating: ' + event.stars + ' stars');
           });
-        $examples.append('<br/><br/>', $rating, ' ', $message);
+        $examples.append('<div>$.ninja.rating()</div>', $example.clone().append($rating, ' ', $message));
       });
 /* */
 
@@ -430,7 +433,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             ]
           });
 
-        $examples.append('<br/><br/>', $tabs, ' ', $message);
+        $examples.append('<div>$.ninja.tabs()</div>', $example.clone().append($tabs, ' ', $message));
       });
 /* */
 
