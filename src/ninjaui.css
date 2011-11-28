@@ -10,6 +10,8 @@
 }
 .ninja-object-button,
 .ninja-object-item.ninja-state-hover,
+.ninja-object-slider-button,
+.ninja-object-slider-level,
 .ninja-object-tab {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
@@ -30,6 +32,8 @@
 }
 .ninja-object-button:hover,
 .ninja-object-item.ninja-state-hover,
+.ninja-object-slider-button,
+.ninja-object-slider-groove,
 .ninja-object-star:hover,
 .ninja-object-tab:hover {
   cursor: pointer;
@@ -37,10 +41,22 @@
 .ninja-object-button,
 .ninja-object-list,
 .ninja-object-popup,
-.ninja-object-tab {
+.ninja-object-slider-button,
+.ninja-object-slider-groove,
+.ninja-object-slider-level,
+.ninja-object-tab,
+.ninja-object-tray {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+}
+.ninja-object-button,
+.ninja-object-list,
+.ninja-object-popup,
+.ninja-object-slider-button,
+.ninja-object-slider-groove,
+.ninja-object-tab,
+.ninja-object-tray {
   background-color: #eee;
   border: 1px solid #999;
 }
@@ -53,6 +69,7 @@
 }
 .ninja-object-button,
 .ninja-object-item,
+.ninja-object-slider-button,
 .ninja-object-star,
 .ninja-object-tab {
   margin: 0;
@@ -60,6 +77,7 @@
 }
 .ninja-object-button,
 .ninja-object-item,
+.ninja-object-slider-button,
 .ninja-object-tab {
   font-size: inherit;
 }
@@ -107,8 +125,12 @@
   fill: #333;
 }
 .ninja-object-item.ninja-state-hover,
+.ninja-object-slider-groove,
 .ninja-state-select {
   background-color: #999;
+}
+.ninja-object-item.ninja-state-hover,
+.ninja-state-select {
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
@@ -161,42 +183,51 @@
   border-top: 1px solid #ccc;
   margin: 0.4em 0;
 }
+.ninja-object-slider {
+  display: inline-block;
+}
+.ninja-object-slider-button,
+.ninja-object-slider-groove,
+.ninja-object-slider-level {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
 .ninja-object-slider-button {
-  cursor: pointer;
-  height: 1.2em;
+  height: 16px;
+  left: 0;
   position: absolute;
   top: 0;
-  width: 1.2em;
+  width: 16px;
 }
-.ninja-object-slider-choice {
-  font-size: 0.85em;
+.ninja-object-slider-groove,
+.ninja-state-select {
+  background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
+  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  background-image: linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0,0,0,0.2)', EndColorStr='rgba(255,255,255,0.1)');
 }
 .ninja-object-slider-groove {
   cursor: pointer;
-  height: 0.3em;
-  margin: 0 0.6em;
-  top: 0.45em;
+  height: 2px;
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 6px;
 }
 .ninja-object-slider-level {
-  height: 0.3em;
-  margin: 0 0.6em;
-  position: absolute;
-  top: 0.45em;
+  background-color: #6cf;
+  height: 2px;
 }
 .ninja-object-slider-title {
-  font-size: 0.85em;
   font-weight: bold;
 }
 .ninja-object-slider-track {
-  height: 1.2em;
-}
-.ninja-object-slider-groove {
-  background-color: #000;
-  border-color: #000;
-}
-.ninja-object-slider-level {
-  background-color: #f00;
-  border-color: #600;
+  height: 1.3em;
+  position: relative;
 }
 .ninja-object-star {
   background: none;
@@ -226,18 +257,6 @@
 .ninja-object-stem g {
   fill: rgba(255,255,255,0.85);
   stroke: #ccc;
-}
-.ninja-object-suggest {
-  text-align: left;
-}
-.ninja-object-suggest * {
-  font-size: inherit;
-}
-.ninja-object-suggest input {
-  margin-right: 1.6em;
-}
-.ninja-object-suggest .ninja-object-x {
-  visibility: hidden;
 }
 .ninja-object-tabs-horizontal,
 .ninja-object-tabs-vertical {
@@ -275,11 +294,6 @@
   border-right-color: #999;
 }
 .ninja-object-tray {
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #eee;
-  background-repeat: no-repeat;
   border: 1px solid #ccc;
   border-bottom-color: #eee;
   -webkit-border-radius: 0 0 0.35em 0.35em;
@@ -292,15 +306,6 @@
 /* State changes, keep these last and in order! */
 .ninja-state-placeholder {
   color: #999;
-}
-.ninja-state-select {
-  background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: -o-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0,0,0,0.2)', EndColorStr='rgba(255,255,255,0.1)');
 }
 .ninja-state-disable {
   cursor: default !important;

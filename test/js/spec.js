@@ -50,8 +50,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         }
       });
 
-/* $.ninja.autocomplete() */
-
       describe('$.ninja.autocomplete()', function () {
 
         var $autocomplete = $.ninja.autocomplete({
@@ -87,9 +85,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $examples.append('<div>$.ninja.autocomplete()</div>', $example.clone().append($autocomplete));
 
       });
-/* */
 
-/* $.ninja.button() */
       describe('$.ninja.button()', function () {
         var $toggleSelect, $toggleDisable,
         $button = $.ninja.button({
@@ -167,9 +163,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           assert($buttonDisabled.hasClass('ninja-state-disable')).isTrue();
         });
       });
-/* */
 
-/* $.ninja.dialog() */
       describe('$.ninja.dialog()', function () {
         var
           $toggleDialog,
@@ -195,9 +189,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
         $examples.append('<div>$.ninja.dialog()</div>', $example.clone().append($toggleDialog, 'Attach Dialog'));
       });
-/* */
 
-/* $.ninja.drawer() */
       describe('$.ninja.drawer()', function () {
 
         var $drawer, $drawerSelect;
@@ -244,9 +236,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
       });
-/* */
 
-/* $('#foo').ninja().hint() */
       describe('$(\'#object\').ninja().hint()', function () {
         var
           $buttonHint = $.ninja.button({
@@ -256,9 +246,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           });
         $examples.append('<div>$.ninja.x.hint() or $(\'#foo\').ninja().hint()</div>', $example.clone().append($buttonHint));
       });
-/* */
 
-/* $.ninja.icon() */
       describe('$.ninja.icon()', function () {
 
         $examples.append('<div>$.ninja.icon()</div>');
@@ -334,9 +322,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
       });
-/* */
 
-/* $.ninja.menu() */
       describe('$.ninja.menu()', function () {
         var
           $message = $('<span/>'),
@@ -388,9 +374,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
         $examples.append('<div>$.ninja.menu()</div>', $example.clone().append($menu, ' ', $message));
       });
-/* */
 
-/* $.ninja.rating() */
       describe('$.ninja.rating()', function () {
         var
           $message = $('<span/>'),
@@ -401,9 +385,40 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           });
         $examples.append('<div>$.ninja.rating()</div>', $example.clone().append($rating, ' ', $message));
       });
-/* */
 
-/* $.ninja.tabs() */
+      describe('$.ninja.slider()', function () {
+        var
+          poorly = function () {
+            var foo = 'bar';
+          },
+          $slider = $.ninja.slider({
+            choices: [
+              {
+                html: '<span title="Silence">0 dB</span>',
+                select: function (event) {
+                  poorly();
+                }
+              },
+              { html: '<span title="Light leaf rustling, calm breathing">10 dB</span>' },
+              { html: '<span title="Very calm room">20-30 dB</span>' },
+              { html: '<span title="Normal conversation at 1 m">40-60 dB</span>' },
+              { html: '<span title="TV set at home level at 1 m">60 dB</span>' },
+              { html: '<span title="Passenger car at 10 m">60-80 dB</span>' },
+              { html: '<span title="Hearing damage over long-term exposure">78 dB</span>' },
+              { html: '<span title="Traffic on a busy roadway at 10 m">80-90 dB</span>' },
+              { html: '<span title="Jack hammer at 1 m">100 dB</span>' },
+              { html: '<span title="Hearing damage immediately possible">120 dB</span>' },
+              { html: '<span title="Threshold of pain">130 dB</span>' },
+              { html: '<span title="Jet engine at 30 m">150 dB</span>' },
+              { html: '<span title="M1 Garand rifle being fired at 1 m">168 dB</span>' }
+            ],
+            slot: 3,
+            title: 'Volume'
+          });
+
+        $examples.append('<div>$.ninja.slider()</div>', $example.clone().append($slider));
+      });
+
       describe('$.ninja.tabs()', function () {
         var
           $message = $('<span/>'),

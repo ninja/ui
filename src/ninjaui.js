@@ -683,57 +683,41 @@
       }, options);
       var
         drag = false,
-        offsetX = 0,
-        touch,
         slots = options.choices.length - 1,
         increment = options.width / slots,
         left = options.slot * increment,
+        offsetX = 0,
+        touch,
+        trackWidth = options.width + 16,
+        $button = $('<button/>', {
+          'class': 'ninja-object-slider-button',
+          css: { left: left }
+        }),
         $choice = $('<span/>', {
-          'class': 'ninjaSliderChoice',
+          'class': 'ninja-object-slider-choice',
           html: options.choices[options.slot].html
         }),
-        $button = $('<span/>', {
-          'class': 'ninjaSliderButton ninjaInline',
-          css: {
-            left: left
-          }
-        }),
-        $temp = $button.clone().css({
-          display: 'none'
-        }).appendTo('body'),
-        buttonDiameter = $temp.outerWidth(),
-        buttonRadius = buttonDiameter / 2,
-        trackWidth = options.width + buttonDiameter,
         $level = $('<div/>', {
-          'class': 'ninjaSliderLevel',
-          css: {
-            marginLeft: buttonRadius,
-            marginRight: buttonRadius,
-            width: left
-          }
+          'class': 'ninja-object-slider-level',
+          css: { width: left }
         }),
         $slider = $('<span/>', {
-          'class': 'ninjaInline ninjaSlider'
+          'class': 'ninja-object-slider'
         }).bind({
           'change.ninja select.ninja': function (event) {
-            var slot = function () {
-              if (event.sliderX < 0) {
-                return 0;
-              } else if (event.sliderX > slots) {
-                return slots;
-              } else {
-                return event.sliderX;
-              }
-            };
-            event.choice = options.choices[slot()];
+            var slot;
+            if (event.sliderX < 0) {
+              slot = 0;
+            } else if (event.sliderX > slots) {
+              slot = slots;
+            } else {
+              slot = event.sliderX;
+            }
+            event.choice = options.choices[slot];
             $choice.html(event.choice.html);
-            left = slot() * increment;
-            $button.css({
-              left: left
-            });
-            $level.css({
-              width: left
-            });
+            left = slot * increment;
+            $button.css({ left: left });
+            $level.css({ width: left });
           },
           'select.ninja': function (event) {
             if (event.choice.select) {
@@ -742,41 +726,22 @@
           }
         }).append($choice),
         $track = $('<div/>', {
-          'class': 'ninjaSliderTrack',
-          css: {
-            width: trackWidth
-          }
+          'class': 'ninja-object-slider-track',
+          css: { width: trackWidth }
         }).appendTo($slider),
         $groove = $('<div/>', {
-          'class': 'ninjaSliderGroove',
-          css: {
-            marginLeft: buttonRadius,
-            marginRight: buttonRadius,
-            opacity: 0.25
-          }
+          'class': 'ninja-object-slider-groove'
         }).bind('click.ninja', function (event) {
           $button.trigger({
             type: 'select.ninja',
             sliderX: Math.round((event.pageX - $track.offset().left) / increment)
           });
-        });
-      $track.append($level, $groove, $button);
-      $temp.remove();
-      $choice.css({
-        marginRight: buttonRadius
-      });
+        }).append($level).appendTo($track);
       if (options.title) {
         $choice.before($('<span/>', {
-          'class': 'ninjaSliderTitle',
-          css: {
-            marginLeft: buttonRadius
-          },
+          'class': 'ninja-object-slider-title',
           text: options.title + ': '
         }));
-      } else {
-        $choice.css({
-          marginLeft: buttonRadius
-        });
       }
       $button.bind({
         'mousedown.ninja': function (event) {
@@ -823,7 +788,7 @@
             sliderX: Math.round((touch.pageX - offsetX) / increment)
           });
         }
-      });
+      }).appendTo($track);
       return $slider.ninja();
     },
 
