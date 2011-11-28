@@ -2,6 +2,17 @@
   Copyright 2008-2011 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
+.ninja-object-autocomplete {
+  padding-right: 20px;
+}
+.ninja-object-autocomplete-spin {
+  position: relative;
+}
+.ninja-object-autocomplete-spin  .ninja-object-icon {
+  left: -20px;
+  position: absolute;
+  top: 1px;
+}
 .ninja-object-blocker {
   background-color: rgba(255,255,255,0.5);
   position: absolute;
@@ -41,6 +52,7 @@
 .ninja-object-button,
 .ninja-object-list,
 .ninja-object-dialog,
+.ninja-object-hint,
 .ninja-object-slider-button,
 .ninja-object-slider-groove,
 .ninja-object-slider-level,
@@ -53,6 +65,7 @@
 .ninja-object-button,
 .ninja-object-list,
 .ninja-object-dialog,
+.ninja-object-hint,
 .ninja-object-slider-button,
 .ninja-object-slider-groove,
 .ninja-object-tab,
@@ -62,7 +75,8 @@
 }
 .ninja-object-button,
 .ninja-object-list,
-.ninja-object-dialog {
+.ninja-object-dialog,
+.ninja-object-hint{
   -webkit-border-radius: 0.35em;
   -moz-border-radius: 0.35em;
   border-radius: 0.35em;
@@ -90,7 +104,8 @@
   line-height: 1.3em;
   vertical-align: bottom;
 }
-.ninja-object-dialog {
+.ninja-object-dialog,
+.ninja-object-hint {
   padding: 0.6em;
 }
 .ninja-object-dialog .ninja-object-icon[aria-label=x] {
@@ -148,7 +163,8 @@
   margin-left: 1em;
 }
 .ninja-object-list,
-.ninja-object-dialog {
+.ninja-object-dialog,
+.ninja-object-hint {
   background-color: rgba(255,255,255,0.85);
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);

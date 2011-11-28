@@ -125,41 +125,41 @@
         options = $.extend({}, defaults, options);
         var
           $object = $(this),
-          $popup = $('<span/>', {
-            'class': 'ninja-object-popup',
+          $hint = $('<span/>', {
+            'class': 'ninja-object-hint',
             css: $.extend(options.css, {
               minWidth: $object.width()
             }),
             html: options.html
           }),
-          $stem = $('<svg class="ninja-object-stem" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($popup);
+          $stem = $('<svg class="ninja-object-stem" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($hint);
         if (options.css) {
           $stem.find('g').css(options.css);
         }
         $object.bind({
           'deselect.ninja focus.ninja mouseenter.ninja': function () {
             var offset = $object.offset();
-            $popup.css({
+            $hint.css({
               top: offset.top + $object.outerHeight() + 5
             }).appendTo('body');
-            if (offset.left + $popup.outerWidth() > $(window).width()) {
-              $popup.css({
+            if (offset.left + $hint.outerWidth() > $(window).width()) {
+              $hint.css({
                 right: 0
               });
               $stem.css({
                 right: ($object.outerWidth() / 2) - 4
               });
             } else {
-              $popup.css({
-                left: offset.left + (($object.outerWidth() - $popup.outerWidth()) / 2)
+              $hint.css({
+                left: offset.left + (($object.outerWidth() - $hint.outerWidth()) / 2)
               });
               $stem.css({
-                left: ($popup.outerWidth() / 2) - 4
+                left: ($hint.outerWidth() / 2) - 4
               });
             }
           },
           'blur.ninja mouseleave.ninja select.ninja': function () {
-            $popup.detach();
+            $hint.detach();
           }
         });
       });
@@ -168,17 +168,20 @@
     list: function (options) {
       return this.each(function () {
         options = $.extend({}, defaults, options);
+        var
+          $hover = null,
+          $object = $(this).ninja(),
+          $list = $('<div/>', {
+            'class': 'ninja-object-list'
+          }),
+          offset = $object.offset(),
+          scrollTop = $(window).scrollTop(),
+          bottom = offset.top + $object.outerHeight(),
+          right = offset.left + $object.outerWidth();
+        if ($object.is('.ninja-object-autocomplete')) {
+          $object.next('.ninja-object-autocomplete-spin').hide();
+        }
         if (options.choices.length) {
-          var
-            $hover = null,
-            $object = $(this).ninja(),
-            $list = $('<div/>', {
-              'class': 'ninja-object-list'
-            }),
-            offset = $object.offset(),
-            scrollTop = $(window).scrollTop(),
-            bottom = offset.top + $object.outerHeight(),
-            right = offset.left + $object.outerWidth();
           $object.bind({
             'delist.ninja': function () {
               $(document).unbind('click.ninja keydown.ninja keyup.ninja');
@@ -356,14 +359,25 @@
       var
         timer,
         $x,
+        $spin = $('<span/>', {
+          'class': 'ninja-object-autocomplete-spin'
+        }),
         $input = $('<input/>', {
           'class': 'ninja-object-autocomplete',
           type: 'text'
         }).bind({
           'keyup.ninja': function (event) {
             clearTimeout(timer);
-            if ($.inArray(event.keyCode, [9, 13, 27, 38, 40]) === -1) {/* not tab, return, escape, down or up */
+            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1) {/* not tab, return, escape, left , up, right or down */
               timer = setTimeout(function () {
+                if ($input.next('.ninja-object-autocomplete-spin').is(':hidden')) {
+                  $spin.show();
+                } else {
+                  $spin.html($.ninja.icon({
+                    name: 'spin'
+                  }));
+                  $input.after($spin);
+                }
                 $input.source();
               }, 1000);
             }
