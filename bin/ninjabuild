@@ -91,9 +91,11 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
     }
     var
       path = require('path'),
+      cleanCSS = require('clean-css'),
       jsp = require('uglify-js').parser,
       pro = require('uglify-js').uglify,
       ast;
+    styleBuffer = new Buffer(cleanCSS.process(styleBuffer.toString()));
     scriptString = scriptString.replace('../src/ninjaui.css', 'data:text/css;base64,' + styleBuffer.toString('base64'));
     console.log(color('green', 'Writing JavaScript files...'));
     fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);

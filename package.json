@@ -12,6 +12,7 @@
     "node": "0.4.x"
   },
   "dependencies": {
-    "uglify-js": "1.1.x"
+    "uglify-js": "1.1.x",
+    "clean-css": "0.2.x"
   }
 }
