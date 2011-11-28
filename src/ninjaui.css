@@ -40,7 +40,7 @@
 }
 .ninja-object-button,
 .ninja-object-list,
-.ninja-object-popup,
+.ninja-object-dialog,
 .ninja-object-slider-button,
 .ninja-object-slider-groove,
 .ninja-object-slider-level,
@@ -52,7 +52,7 @@
 }
 .ninja-object-button,
 .ninja-object-list,
-.ninja-object-popup,
+.ninja-object-dialog,
 .ninja-object-slider-button,
 .ninja-object-slider-groove,
 .ninja-object-tab,
@@ -62,7 +62,7 @@
 }
 .ninja-object-button,
 .ninja-object-list,
-.ninja-object-popup {
+.ninja-object-dialog {
   -webkit-border-radius: 0.35em;
   -moz-border-radius: 0.35em;
   border-radius: 0.35em;
@@ -90,6 +90,14 @@
   line-height: 1.3em;
   vertical-align: bottom;
 }
+.ninja-object-dialog {
+  padding: 0.6em;
+}
+.ninja-object-dialog .ninja-object-icon[aria-label=x] {
+  position: absolute;
+  right: -0.8em;
+  top: -0.8em;
+}
 .ninja-object-drawer .ninja-object-button {
   display: block;
   padding-left: 0;
@@ -107,22 +115,9 @@
   vertical-align: middle;
   width: 1.3em;
 }
-.ninja-object-icon[aria-label=close] {
-  cursor: pointer;
-  height: 1.6em;
-  line-height: 1.6em;
-  width: 1.6em;
-}
 .ninja-object-icon g {
   fill: #333;
   stroke: #000;
-}
-.ninja-object-icon[aria-label=close] g {
-  fill: #eee;
-  stroke: #999;
-}
-.ninja-object-icon-symbol {
-  fill: #333;
 }
 .ninja-object-item.ninja-state-hover,
 .ninja-object-slider-groove,
@@ -153,7 +148,7 @@
   margin-left: 1em;
 }
 .ninja-object-list,
-.ninja-object-popup {
+.ninja-object-dialog {
   background-color: rgba(255,255,255,0.85);
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
@@ -169,14 +164,6 @@
 .ninja-object-list {
   padding: 0.6em 0;
   text-align: left;
-}
-.ninja-object-popup {
-  padding: 0.6em;
-}
-.ninja-object-popup .ninja-object-icon[aria-label=close] {
-  position: absolute;
-  right: -0.8em;
-  top: -0.8em;
 }
 .ninja-object-rule {
   border-bottom: 1px solid #eee;
@@ -200,6 +187,13 @@
   top: 0;
   width: 16px;
 }
+.ninja-object-slider-button.ninja-state-select {
+  background-color: #ccc;
+}
+.ninja-object-slider-groove,
+.ninja-object-slider-level {
+  height: 4px;
+}
 .ninja-object-slider-groove,
 .ninja-state-select {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
@@ -212,15 +206,13 @@
 }
 .ninja-object-slider-groove {
   cursor: pointer;
-  height: 2px;
   left: 8px;
   position: absolute;
   right: 8px;
-  top: 6px;
+  top: 5px;
 }
 .ninja-object-slider-level {
   background-color: #6cf;
-  height: 2px;
 }
 .ninja-object-slider-title {
   font-weight: bold;
@@ -232,6 +224,7 @@
 .ninja-object-star {
   background: none;
   border: none;
+  margin-right: 1px;
   padding: 0;
 }
 .ninja-object-star g {
@@ -240,8 +233,8 @@
   stroke-width: 1;
 }
 .ninja-object-star.ninja-state-average g {
-  fill: #c00;
-  stroke: #900;
+  fill: #6cf;
+  stroke: #39c;
 }
 .ninja-object-star.ninja-state-individual g {
   fill: #c96;

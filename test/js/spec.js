@@ -252,7 +252,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $examples.append('<div>$.ninja.icon()</div>');
 
         var
-          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star', 'close'],
+          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star'],
           $exampleIcons = $example.clone().appendTo($examples);
 
         $.each(iconNames, function (i, iconName) {

@@ -443,35 +443,35 @@
         $parent: $('body')
       }, options);
       var
-        $popup = $('<span/>', {
-          'class': 'ninja-object-popup',
+        $dialog = $('<span/>', {
+          'class': 'ninja-object-dialog',
           css: options.css,
           html: options.html
         }),
         $button = $.ninja.icon({
-          name: 'close'
+          name: 'x'
         }).bind('click.ninja', function () {
-          $popup.detach();
-        }).appendTo($popup),
+          $dialog.detach();
+        }).appendTo($dialog),
         $blocker = $('<div/>', {
           'class': 'ninja-object-blocker'
         }).bind('click.ninja', function (event) {
-          if ($.inArray($popup[0], $(event.target).parents()) === -1) {
-            $popup.detach();
+          if ($.inArray($dialog[0], $(event.target).parents()) === -1) {
+            $dialog.detach();
           }
         });
-      $popup.bind({
+      $dialog.bind({
         'attach.ninja': function (event) {
-          options.$parent.append($blocker, $popup);
+          options.$parent.append($blocker, $dialog);
           $blocker.height(options.$parent.height());
-          $popup.css({
-            left: ($(window).width() / 2) - ($popup.width() / 2),
-            top: ($(window).height() / 2) - ($popup.height() / 2) + $(window).scrollTop()
+          $dialog.css({
+            left: ($(window).width() / 2) - ($dialog.width() / 2),
+            top: ($(window).height() / 2) - ($dialog.height() / 2) + $(window).scrollTop()
           });
           $(document).bind({
             'keyup.ninja': function (event) {
               if (event.keyCode === 27) {/* escape */
-                $popup.detach();
+                $dialog.detach();
               }
             }
           });
@@ -481,7 +481,7 @@
           $blocker.detach();
         }
       });
-      return $popup.ninja();
+      return $dialog.ninja();
     },
 
     drawer: function (options) {
@@ -565,9 +565,6 @@
         }
         defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
         g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
-      } else if (options.name === 'close') {
-        defs = '<defs><linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#fff;stop-opacity:0.2"/><stop offset="100%" style="stop-color:#000;stop-opacity:0.1"/></linearGradient></defs>';
-        g = '<circle cx="8" cy="8" r="7" stroke-width="1"/><circle cx="8" cy="8" r="7" fill="url(#g)"/><polygon class="ninja-object-icon-symbol" points="7,5 9,5 9,7 11,7 11,9 9,9 9,11 7,11 7,9 5,9 5,7 7,7" transform="rotate(45 8 8)"/>';
       } else if (options.name === 'go') {
         g = '<circle' + border + ' cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="5"/>';
       } else if (options.name === 'home') {
@@ -744,6 +741,27 @@
         }));
       }
       $button.bind({
+        'keyup.ninja': function (event) {
+          if ($.inArray(event.keyCode, [37, 39]) > -1) {/* right or left */
+            var
+              choice,
+              slot = Math.round($button.position().left / increment);
+            if (slot > 0 && event.keyCode === 37) {/* left arrow */
+              slot--;
+            } else if (slot < slots && event.keyCode === 39) {/* right arrow */
+              slot++;
+            }
+            choice = options.choices[slot];
+            $choice.html(choice.html);
+            left = slot * increment;
+            $button.css({ left: left });
+            $level.css({ width: left });
+            return false;
+          }
+        },
+        'mousedown.ninja touchstart.ninja': function () {
+          $button.addClass('ninja-state-select');
+        },
         'mousedown.ninja': function (event) {
           event.preventDefault();
           offsetX = event.pageX - $button.position().left;
@@ -759,6 +777,7 @@
               });
             },
             'mouseup.ninja': function (event) {
+              $button.removeClass('ninja-state-select');
               drag = false;
               $button.trigger({
                 type: 'select.ninja',
@@ -782,6 +801,7 @@
           });
         },
         'touchend.ninja': function (event) {
+          $button.removeClass('ninja-state-select');
           event.preventDefault();
           $button.trigger({
             type: 'select.ninja',
