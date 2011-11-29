@@ -9,8 +9,9 @@
 
 /*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, node: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: false, undef: true, white: true*/
 
-var version = '1.0',
-  copyright = '/*\n  Ninja UI jQuery Plugin ' + version + '\n  http://ninjaui.com/\n  Copyright 2008-2011 Jamie Hoover\n  Licensed per the terms of the Apache License v2.0\n  https://github.com/ninja/ui/blob/master/README.md for details\n*/\n',
+var
+  version = '1.0.0rc1',
+  copyright = '/*! Ninja UI v' + version + ' ninjaui.com | ninjaui.com/license */\n',
   help = [
     '',
     'Usage: ninja <path> [options]',
@@ -56,6 +57,11 @@ while (args.length) {
     console.log(help);
     process.exit();
     break;
+  case '-vn':
+  case '--versionnumber':
+    console.log(version);
+    process.exit();
+    break;
   case '-v':
   case '--version':
     console.log('Ninja UI ' + version);
@@ -81,7 +87,7 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
   if (err) {
     throw err;
   }
-  var scriptString = scriptBuffer.toString().replace('development', version);
+  var scriptString = scriptBuffer.toString().replace('development', version).replace('development', version);
   fs.readFile(options.input + '/src/ninjaui.css', function (err, styleBuffer) {
     console.log(color('cyan', 'Reading Cascading Style Sheet source file...'));
     if (err) {

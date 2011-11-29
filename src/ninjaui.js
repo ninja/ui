@@ -1,9 +1,10 @@
-/*
-  Ninja UI jQuery Plugin development
+/*!
+  Ninja UI jQuery Plugin vdevelopment
   http://ninjaui.com/
+
   Copyright 2008-2011 Jamie Hoover
   Licensed per the terms of the Apache License v2.0
-  https://github.com/ninja/ui/blob/master/README.md for details
+  http://ninjaui.com/license
 */
 
 /*globals CFInstall: false*/
