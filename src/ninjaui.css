@@ -312,7 +312,9 @@
   color: #333;
   padding: 0.2em 1em;
 }
-/* State changes, keep these last and in order! */
+/*
+  State changes, keep these last and in order!
+*/
 .ninja-state-placeholder {
   color: #999;
 }

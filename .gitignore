@@ -10,6 +10,8 @@
 tmtags
 .idea
 
+node_modules/
+
+# Ninja UI built files
 jquery.ninjaui.js
 jquery.ninjaui.min.js
-node_modules/
