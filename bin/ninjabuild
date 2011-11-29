@@ -62,19 +62,17 @@ while (args.length) {
     process.exit();
     break;
   case '-o':
-  case '--out':
+  case '--output':
     if (args.length) {
-      options.out = args.shift();
+      options.output = args.shift();
       break;
     }
     console.error(color('red', 'Path required after -o, --output'));
     process.exit(1);
     break;
   default:
-    if (arg.indexOf('/')) {
-      options.input = arg;
-      options.output = arg;
-    }
+    options.input = arg;
+    options.output = arg;
   }
 }
 
@@ -98,12 +96,12 @@ fs.readFile(options.input + '/src/ninjaui.js', function (err, scriptBuffer) {
     styleBuffer = new Buffer(cleanCSS.process(styleBuffer.toString()));
     scriptString = scriptString.replace('../src/ninjaui.css', 'data:text/css;base64,' + styleBuffer.toString('base64'));
     console.log(color('green', 'Writing JavaScript files...'));
-    fs.writeFileSync(options.input + '/jquery.ninjaui.js', scriptString);
+    fs.writeFileSync(options.output + '/jquery.ninjaui.js', scriptString);
     ast = jsp.parse(scriptString);
     ast = pro.ast_mangle(ast);
     ast = pro.ast_squeeze(ast);
     ast = pro.gen_code(ast);
-    fs.writeFileSync(options.input + '/jquery.ninjaui.min.js', copyright + ast);
+    fs.writeFileSync(options.output + '/jquery.ninjaui.min.js', copyright + ast);
     console.log('Ninja UI ' + version + ' build complete.');
     console.log('Test URL: ' + color('magenta', 'file://' + path.normalize(__dirname + '/../test/index.html?environment=production')));
   });
