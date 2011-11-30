@@ -369,7 +369,7 @@
         }).bind({
           'keyup.ninja': function (event) {
             clearTimeout(timer);
-            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1) {/* not tab, return, escape, left , up, right or down */
+            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1 && $input.val() !== '') {/* not tab, return, escape, left , up, right or down */
               timer = setTimeout(function () {
                 if ($input.next('.ninja-object-autocomplete-spin').is(':hidden')) {
                   $spin.show();
