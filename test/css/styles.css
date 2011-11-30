@@ -51,8 +51,12 @@ body {
   padding: 2em;
 }
 
-.ninjaui-examples-title {
+.ninjaui-examples-title,
+.ninjaui-example-title {
   color: #333;
+}
+
+.ninjaui-examples-title {
   font-weight: bold;
   margin-bottom: 1em;
 }
@@ -69,4 +73,12 @@ body {
   margin-right: 1em;
   min-width: 22%;
   white-space: nowrap;
+}
+
+.ninja-theme-dojo .ninjaui-example {
+  background-color: #333;
+}
+
+.ninja-theme-neon .ninjaui-example {
+  background-color: #000;
 }

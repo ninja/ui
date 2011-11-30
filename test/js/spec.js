@@ -10,6 +10,7 @@
 var
   jQueryVersions = ['1.7.1', '1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3'],
   environment = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]),
+  theme = decodeURI((new RegExp('theme' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]),
   scriptPath;
 
 if (environment === 'production') {
@@ -26,6 +27,14 @@ QUnit.specify.globalApi = true;
 
 $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version) {
   'use strict';
+
+  if ($.inArray(theme, ['dojo']) > -1) {
+    $('<link/>', {
+      rel: 'stylesheet',
+      href: '../themes/ninjaui.theme.' + theme + '.css'
+    }).appendTo('head');
+    $('body').addClass('ninja-theme-' + theme);
+  }
 
   var
     $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body'),
@@ -82,7 +91,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           });
         });
 
-        $examples.append('<div>$.ninja.autocomplete()</div>', $example.clone().append($autocomplete));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.autocomplete()</div>', $example.clone().append($autocomplete));
 
       });
 
@@ -139,7 +148,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }
         });
 
-        $examples.append('<div>$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
 
         it('should have button class', function () {
           assert($button.hasClass('ninja-object-button')).isTrue();
@@ -187,7 +196,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             $dialog.detach();
           }
         });
-        $examples.append('<div>$.ninja.dialog()</div>', $example.clone().append($toggleDialog, 'Attach Dialog'));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.dialog()</div>', $example.clone().append($toggleDialog, 'Attach Dialog'));
       });
 
       describe('$.ninja.drawer()', function () {
@@ -208,7 +217,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           title: '<i>Selected</i> Drawer'
         });
 
-        $examples.append('<div>$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
 
         it('should have drawer class', function () {
           assert($drawer.hasClass('ninja-object-drawer')).isTrue();
@@ -241,15 +250,15 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).hint({
             html: '<div>This is <b>HTML</b> inside the hint.</div>'
           });
-        $examples.append('<div>$.ninja.x.hint() or $(\'#foo\').ninja().hint()</div>', $example.clone().append($buttonHint));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.x.hint() or $(\'#foo\').ninja().hint()</div>', $example.clone().append($buttonHint));
       });
 
       describe('$.ninja.icon()', function () {
 
-        $examples.append('<div>$.ninja.icon()</div>');
+        $examples.append('<div class="ninjaui-example-title">$.ninja.icon()</div>');
 
         var
-          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star'],
+          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star', 'X'],
           $exampleIcons = $example.clone().appendTo($examples);
 
         $.each(iconNames, function (i, iconName) {
@@ -369,7 +378,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             html: 'Menu'
           });
 
-        $examples.append('<div>$.ninja.menu()</div>', $example.clone().append($menu, ' ', $message));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.menu()</div>', $example.clone().append($menu, ' ', $message));
       });
 
       describe('$.ninja.rating()', function () {
@@ -380,7 +389,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).select(function (event) {
             $message.html('New rating: ' + event.stars + ' stars');
           });
-        $examples.append('<div>$.ninja.rating()</div>', $example.clone().append($rating, ' ', $message));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.rating()</div>', $example.clone().append($rating, ' ', $message));
       });
 
       describe('$.ninja.slider()', function () {
@@ -413,7 +422,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             title: 'Volume'
           });
 
-        $examples.append('<div>$.ninja.slider()</div>', $example.clone().append($slider));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.slider()</div>', $example.clone().append($slider));
       });
 
       describe('$.ninja.tabs()', function () {
@@ -445,7 +454,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             ]
           });
 
-        $examples.append('<div>$.ninja.tabs()</div>', $example.clone().append($tabs, ' ', $message));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.tabs()</div>', $example.clone().append($tabs, ' ', $message));
       });
 /* */
 
