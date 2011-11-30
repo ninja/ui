@@ -58,8 +58,8 @@
 .ninja-object-slider-level,
 .ninja-object-tab,
 .ninja-object-tray {
-  -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
   background-clip: padding-box;
 }
 .ninja-object-button,
@@ -117,6 +117,7 @@
   display: block;
   padding-left: 0;
   text-align: left;
+  width: 100%;
 }
 .ninja-object-drawer .ninja-object-button.ninja-state-select {
   -webkit-border-radius: 0.35em 0.35em 0 0;

@@ -195,9 +195,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         var $drawer, $drawerSelect;
 
         $drawer = $.ninja.drawer({
-          css: {
-            width: '360px'
-          },
           html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           title: 'Drawer'
         });
@@ -218,7 +215,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept css overrides on creation', function () {
-          assert($drawer.css('width')).equals('360px');
+          assert($drawerSelect.css('width')).equals('360px');
           // Note that different browsers are not consistent in how they deal with invalid styles.
           // Note also that values given and values returned do not always match, such as 1em returning 16px
         });
