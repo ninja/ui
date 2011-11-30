@@ -13,8 +13,12 @@
   position: absolute;
   top: 1px;
 }
+.ninja-object-autocomplete-spin  .ninja-object-icon g {
+  fill: #999 !important;
+}
 .ninja-object-blocker {
   background-color: rgba(255,255,255,0.5);
+  left: 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -108,10 +112,11 @@
 .ninja-object-hint {
   padding: 0.6em;
 }
-.ninja-object-dialog .ninja-object-icon[aria-label=x] {
+.ninja-object-dialog .ninja-object-icon[aria-label=X] {
+  cursor: pointer;
   position: absolute;
-  right: -0.8em;
-  top: -0.8em;
+  right: -11px;
+  top: -11px;
 }
 .ninja-object-drawer .ninja-object-button {
   display: block;
@@ -134,6 +139,17 @@
 .ninja-object-icon g {
   fill: #333;
   stroke: #000;
+}
+.ninja-object-icon[aria-label=X] {
+  height: 22px;
+  width: 22px;
+}
+.ninja-object-icon[aria-label=X] circle {
+  stroke: #999;
+  stroke-width: 1;
+}
+.ninja-object-icon[aria-label=X] polygon {
+  fill: #fff;
 }
 .ninja-object-item.ninja-state-hover,
 .ninja-object-slider-groove,
@@ -310,7 +326,6 @@
   -moz-border-radius: 0 0 0.35em 0.35em;
   border-radius: 0 0 0.35em 0.35em;
   border-top-color: #666;
-  color: #333;
   padding: 0.2em 1em;
 }
 /*

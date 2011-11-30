@@ -464,7 +464,7 @@
           html: options.html
         }),
         $button = $.ninja.icon({
-          name: 'x'
+          name: 'X'
         }).bind('click.ninja', function () {
           $dialog.detach();
         }).appendTo($dialog),
@@ -569,7 +569,7 @@
       } else if (options.name === 'camera') {
         defs = '<defs><mask id="' + idMask + '">' + maskBackground + '<circle cx="8" cy="9" r="5"/></mask></defs>';
         g = '<rect x="0" y="4" width="16" height="11" rx="2" ry="2" mask="url(#' + idMask + ')"/><polygon points="4,8 4,4 6,1 10,1 12,4 12,8" mask="url(#' + idMask + ')"/><circle cx="8" cy="9" r="3"/>';
-      } else if ($.inArray(options.name, ['x', '-', '+']) > -1) {
+      } else if ($.inArray(options.name, ['X', 'x', '-', '+']) > -1) {
         if (options.name === '-') {
           mask = '<rect x="4" y="7" width="8" height="2"/>';
         } else {
@@ -578,8 +578,12 @@
           }
           mask = '<polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
         }
-        defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
-        g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
+        if (options.name === 'X') {
+          g = '<circle cx="8" cy="8" r="7"/><polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
+        } else {
+          defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
+          g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
+        }
       } else if (options.name === 'go') {
         g = '<circle' + border + ' cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="5"/>';
       } else if (options.name === 'home') {
