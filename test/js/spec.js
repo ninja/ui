@@ -37,10 +37,10 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
   }
 
   var
-    $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples</div></div>').appendTo('body'),
+    $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples (' + environment + ')</div></div>').appendTo('body'),
     $example = $('<div class="ninjaui-example"/>');
 
-  QUnit.specify('<b>Ninja UI</b> ' + environment, function () {
+  QUnit.specify('Ninja User Interface', function () {
     describe('jQuery ' + version, function () {
 
       describe('Infrastructure', function () {
@@ -148,7 +148,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }
         });
 
-        $examples.append('<div class="ninjaui-example-title">$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, 'Select ', $toggleDisable, 'Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, ' Select ', $toggleDisable, ' Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
 
         it('should have button class', function () {
           assert($button.hasClass('ninja-object-button')).isTrue();
@@ -196,7 +196,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             $dialog.detach();
           }
         });
-        $examples.append('<div class="ninjaui-example-title">$.ninja.dialog()</div>', $example.clone().append($toggleDialog, 'Attach Dialog'));
+        $examples.append('<div class="ninjaui-example-title">$.ninja.dialog()</div>', $example.clone().append($toggleDialog, ' Attach Dialog'));
       });
 
       describe('$.ninja.drawer()', function () {
