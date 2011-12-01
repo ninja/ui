@@ -39,11 +39,9 @@
 .ninja-object-button,
 .ninja-object-item,
 .ninja-object-tab {
-  color: #333;
-  line-height: 1.3em;
+  line-height: 1em;
   padding: 0.2em 1em;
   text-shadow: 0 1px 0 #fff;
-  white-space: nowrap;
 }
 .ninja-object-button:hover,
 .ninja-object-item.ninja-state-hover,
@@ -75,15 +73,15 @@
 .ninja-object-tab,
 .ninja-object-tray {
   background-color: #eee;
-  border: 1px solid #999;
+  border: 1px solid #666;
 }
 .ninja-object-button,
 .ninja-object-list,
 .ninja-object-dialog,
 .ninja-object-hint{
-  -webkit-border-radius: 0.35em;
-  -moz-border-radius: 0.35em;
-  border-radius: 0.35em;
+  -webkit-border-radius: 0.4em;
+  -moz-border-radius: 0.4em;
+  border-radius: 0.4em;
 }
 .ninja-object-button,
 .ninja-object-item,
@@ -94,18 +92,12 @@
   outline-width: 1px;
 }
 .ninja-object-button,
-.ninja-object-item,
-.ninja-object-slider-button,
-.ninja-object-tab {
-  font-size: inherit;
-}
-.ninja-object-button,
 .ninja-object-tab {
   text-align: center;
 }
 .ninja-object-button .ninja-object-icon,
+.ninja-object-item .ninja-object-icon,
 .ninja-object-tab .ninja-object-icon {
-  line-height: 1.3em;
   vertical-align: bottom;
 }
 .ninja-object-dialog,
@@ -132,9 +124,9 @@
 }
 .ninja-object-icon {
   display: inline-block;
-  height: 1.3em;
+  height: 1em;
   vertical-align: middle;
-  width: 1.3em;
+  width: 1em;
 }
 .ninja-object-icon g {
   fill: #333;
@@ -209,16 +201,17 @@
 .ninja-object-slider-button,
 .ninja-object-slider-groove,
 .ninja-object-slider-level {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
 }
 .ninja-object-slider-button {
-  height: 16px;
+  height: 18px;
   left: 0;
+  padding: 0;
   position: absolute;
   top: 0;
-  width: 16px;
+  width: 18px;
 }
 .ninja-object-slider-button.ninja-state-select {
   background-color: #ccc;
@@ -239,9 +232,9 @@
 }
 .ninja-object-slider-groove {
   cursor: pointer;
-  left: 8px;
+  left: 9px;
   position: absolute;
-  right: 8px;
+  right: 9px;
   top: 5px;
 }
 .ninja-object-slider-level {
@@ -251,7 +244,7 @@
   font-weight: bold;
 }
 .ninja-object-slider-track {
-  height: 1.3em;
+  height: 18px;
   position: relative;
 }
 .ninja-object-star {
@@ -259,6 +252,10 @@
   border: none;
   margin-right: 1px;
   padding: 0;
+}
+.ninja-object-star .ninja-object-icon {
+  height: 18px;
+  width: 18px;
 }
 .ninja-object-star g {
   fill: #eee;
