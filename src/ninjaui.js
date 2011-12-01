@@ -699,20 +699,20 @@
       }, options);
       var
         drag = false,
+        offsetX = 0,
+        touch,
         slots = options.choices.length - 1,
         increment = options.width / slots,
         left = options.slot * increment,
-        offsetX = 0,
-        touch,
-        trackWidth = options.width + 16,
-        $button = $('<button/>', {
-          'class': 'ninja-object-slider-button',
-          css: { left: left }
-        }),
         $choice = $('<span/>', {
           'class': 'ninja-object-slider-choice',
           html: options.choices[options.slot].html
         }),
+        $button = $('<button/>', {
+          'class': 'ninja-object-slider-button',
+          css: { left: left }
+        }),
+        trackWidth = options.width + 18,
         $level = $('<div/>', {
           'class': 'ninja-object-slider-level',
           css: { width: left }
@@ -752,7 +752,8 @@
             type: 'select.ninja',
             sliderX: Math.round((event.pageX - $track.offset().left) / increment)
           });
-        }).append($level).appendTo($track);
+        });
+      $track.append($groove.append($level), $button);
       if (options.title) {
         $choice.before($('<span/>', {
           'class': 'ninja-object-slider-title',
@@ -778,11 +779,12 @@
             return false;
           }
         },
-        'mousedown.ninja touchstart.ninja': function () {
+        'mousedown.ninja touchstart.ninja': function (event) {
+          event.preventDefault();
           $button.addClass('ninja-state-select');
+          return false;
         },
         'mousedown.ninja': function (event) {
-          event.preventDefault();
           offsetX = event.pageX - $button.position().left;
           drag = true;
           $(document).bind({
@@ -807,12 +809,14 @@
           });
         },
         'touchstart.ninja': function (event) {
-          event.preventDefault();
           touch = event.originalEvent.targetTouches[0] || event.originalEvent.changedTouches[0];
           offsetX = touch.pageX - $button.position().left;
         },
         'touchmove.ninja': function (event) {
           event.preventDefault();
+          if (!touch) {
+            return;
+          }
           touch = event.originalEvent.targetTouches[0] || event.originalEvent.changedTouches[0];
           $slider.trigger({
             type: 'change.ninja',
@@ -820,14 +824,13 @@
           });
         },
         'touchend.ninja': function (event) {
-          $button.removeClass('ninja-state-select');
           event.preventDefault();
-          $button.trigger({
+          $button.removeClass('ninja-state-select').trigger({
             type: 'select.ninja',
             sliderX: Math.round((touch.pageX - offsetX) / increment)
           });
         }
-      }).appendTo($track);
+      });
       return $slider.ninja();
     },
 
