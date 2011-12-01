@@ -138,7 +138,7 @@
           $stem.find('g').css(options.css);
         }
         $object.bind({
-          'deselect.ninja focus.ninja mouseenter.ninja': function () {
+          'focus.ninja mouseenter.ninja': function () {
             var offset = $object.offset();
             $hint.css({
               top: offset.top + $object.outerHeight() + 5
