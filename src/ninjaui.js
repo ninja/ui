@@ -128,9 +128,7 @@
           $object = $(this),
           $hint = $('<span/>', {
             'class': 'ninja-object-hint',
-            css: $.extend(options.css, {
-              minWidth: $object.width()
-            }),
+            css: options.css,
             html: options.html
           }),
           $stem = $('<svg class="ninja-object-stem" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($hint);
@@ -138,28 +136,31 @@
           $stem.find('g').css(options.css);
         }
         $object.bind({
-          'focus.ninja mouseenter.ninja': function () {
-            var offset = $object.offset();
+          'mouseenter.ninja': function () {
             $hint.css({
-              top: offset.top + $object.outerHeight() + 5
-            }).appendTo('body');
-            if (offset.left + $hint.outerWidth() > $(window).width()) {
+              top: $object.outerHeight() + 6
+            }).appendTo($object);
+            if (($hint.offset().left + $hint.outerWidth()) > ($(window).scrollLeft() + $(window).width())) {
               $hint.css({
+                left: 'auto',
                 right: 0
               });
               $stem.css({
+                left: 'auto',
                 right: ($object.outerWidth() / 2) - 4
               });
             } else {
               $hint.css({
-                left: offset.left + (($object.outerWidth() - $hint.outerWidth()) / 2)
+                left: 0,
+                right: 'auto'
               });
               $stem.css({
-                left: ($hint.outerWidth() / 2) - 4
+                left: ($object.outerWidth() / 2) - 4,
+                right: 'auto'
               });
             }
           },
-          'blur.ninja mouseleave.ninja select.ninja': function () {
+          'mouseleave.ninja select.ninja': function () {
             $hint.detach();
           }
         });
@@ -174,13 +175,9 @@
           $object = $(this).ninja(),
           $list = $('<div/>', {
             'class': 'ninja-object-list'
-          }),
-          offset = $object.offset(),
-          scrollTop = $(window).scrollTop(),
-          bottom = offset.top + $object.outerHeight(),
-          right = offset.left + $object.outerWidth();
+          });
         if ($object.is('.ninja-object-autocomplete')) {
-          $object.next('.ninja-object-autocomplete-spin').hide();
+          $object.find('.ninja-object-icon[aria-label=spin]').hide();
         }
         if (options.choices.length) {
           $object.bind({
@@ -192,25 +189,7 @@
               }
             }
           });
-          $('body').append($list);
-          if (bottom > (scrollTop + $(window).height())) {
-            $list.css({
-              bottom: $object.outerHeight()
-            });
-          } else {
-            $list.css({
-              top: bottom
-            });
-          }
-          if (right > $(window).width()) {
-            $list.css({
-              right: right
-            });
-          } else {
-            $list.css({
-              left: offset.left
-            });
-          }
+          $object.append($list);
           $(document).bind({
             'keydown.ninja': function (event) {
               if ($.inArray(event.keyCode, [9, 38, 40]) > -1) {/* down or up */
@@ -295,6 +274,24 @@
             }
             $choice.html(choice.html || choice).appendTo($list);
           });
+          if (($list.offset().top + $list.outerHeight()) > ($(window).scrollTop() + $(window).height())) {
+            $list.css({
+              bottom: 0
+            });
+          } else {
+            $list.css({
+              top: $object.outerHeight()
+            });
+          }
+          if (($list.offset().left + $list.outerWidth()) > ($(window).scrollLeft() + $(window).width())) {
+            $list.css({
+              right: 0
+            });
+          } else {
+            $list.css({
+              left: 0
+            });
+          }
         }
       });
     },
@@ -359,30 +356,9 @@
       options = $.extend({}, defaults, options);
       var
         timer,
-        $x,
-        $spin = $('<span/>', {
-          'class': 'ninja-object-autocomplete-spin'
-        }),
-        $input = $('<input/>', {
-          'class': 'ninja-object-autocomplete',
-          type: 'text'
+        $autocomplete = $('<span/>', {
+          'class': 'ninja-object-autocomplete'
         }).bind({
-          'keyup.ninja': function (event) {
-            clearTimeout(timer);
-            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1 && $input.val() !== '') {/* not tab, return, escape, left , up, right or down */
-              timer = setTimeout(function () {
-                if ($input.next('.ninja-object-autocomplete-spin').is(':hidden')) {
-                  $spin.show();
-                } else {
-                  $spin.html($.ninja.icon({
-                    name: 'spin'
-                  }));
-                  $input.after($spin);
-                }
-                $input.source();
-              }, 1000);
-            }
-          },
           'select.ninja': function (event) {
             if (event.html) {
               $input.val($.trim(event.html.toString().replace(new RegExp('/<\/?[^>]+>/', 'gi'), '')));
@@ -394,19 +370,32 @@
             $input.delist();
             event.query = $input.val();
           }
-        });
-      $x = $.ninja.icon({
-        name: 'x'
-      }).bind('click.ninja', function () {
-        $input.val('').focus();
-        $x.css({
-          visibility: 'hidden'
-        });
-      });
+        }),
+        $input = $('<input/>', {
+          'class': 'ninja-object-input',
+          type: 'text'
+        }).bind({
+          'keyup.ninja': function (event) {
+            clearTimeout(timer);
+            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1 && $input.val() !== '') {/* not tab, return, escape, left , up, right or down */
+              timer = setTimeout(function () {
+                var $spin = $autocomplete.find('.ninja-object-icon[aria-label=spin]');
+                if ($spin.is(':hidden')) {
+                  $spin.show();
+                } else {
+                  $.ninja.icon({
+                    name: 'spin'
+                  }).appendTo($autocomplete);
+                }
+                $input.source();
+              }, 1000);
+            }
+          }
+        }).appendTo($autocomplete);
       if (options.placeholder) {
         $input.ninja().placeholder(options.placeholder);
       }
-      return $input.ninja();
+      return $autocomplete.ninja();
     },
 
     button: function (options) {

@@ -3,17 +3,14 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
 .ninja-object-autocomplete {
-  padding-right: 20px;
-}
-.ninja-object-autocomplete-spin {
   position: relative;
 }
-.ninja-object-autocomplete-spin  .ninja-object-icon {
-  left: -20px;
+.ninja-object-autocomplete .ninja-object-icon[aria-label=spin] {
   position: absolute;
+  right: -20px;
   top: 1px;
 }
-.ninja-object-autocomplete-spin  .ninja-object-icon g {
+.ninja-object-autocomplete .ninja-object-icon[aria-label=spin] g {
   fill: #999 !important;
 }
 .ninja-object-blocker {
@@ -35,6 +32,7 @@
   background-image: -o-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
   background-image: linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(255,255,255,0.2)', EndColorStr='rgba(0,0,0,0.1)');
+  position: relative;
 }
 .ninja-object-button,
 .ninja-object-item,
@@ -122,6 +120,9 @@
   border-radius: 0.35em 0.35em 0 0;
 
 }
+.ninja-object-hint    {
+  white-space: nowrap;
+}
 .ninja-object-icon {
   display: inline-block;
   height: 1em;
@@ -142,6 +143,9 @@
 }
 .ninja-object-icon[aria-label=X] polygon {
   fill: #fff;
+}
+.ninja-object-input {
+  padding-right: 20px;
 }
 .ninja-object-item.ninja-state-hover,
 .ninja-object-slider-groove,
@@ -173,7 +177,7 @@
 }
 .ninja-object-list,
 .ninja-object-dialog,
-.ninja-object-hint {
+.ninja-object-hint    {
   background-color: rgba(255,255,255,0.85);
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
@@ -181,7 +185,6 @@
   -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   -o-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  left: 0;
   padding: 0.6em;
   position: absolute;
   z-index: +1;
