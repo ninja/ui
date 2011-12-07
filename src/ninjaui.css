@@ -77,6 +77,9 @@
 .ninja-object-list,
 .ninja-object-dialog,
 .ninja-object-hint{
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
   -webkit-border-radius: 0.4em;
   -moz-border-radius: 0.4em;
   border-radius: 0.4em;
