@@ -172,12 +172,6 @@
   text-align: left;
   width: 100%;
 }
-.ninja-object-menu.ninja-object-button {
-  padding-right: 0;
-}
-.ninja-object-menu [aria-label=menu] {
-  margin-left: 1em;
-}
 .ninja-object-list,
 .ninja-object-dialog,
 .ninja-object-hint    {

@@ -500,10 +500,10 @@
           html: options.html
         }).appendTo($drawer),
         $arrowDown = $.ninja.icon({
-          name: 'drawer-select'
+          name: 'arrow-down'
         }),
         $arrowRight = $.ninja.icon({
-          name: 'drawer'
+          name: 'arrow-right'
         }),
         $handle = $.ninja.button($.extend({}, options, {
           select: options.select,
@@ -548,8 +548,8 @@
         onload = '',
         points = '',
         rotate = '';
-      if ($.inArray(options.name, ['drawer', 'drawer-select']) > -1) {
-        if (options.name === 'drawer-select') {
+      if ($.inArray(options.name, ['arrow-down', 'arrow-right']) > -1) {
+        if (options.name === 'arrow-down') {
           points = '4,4 12,4 8,12';
         } else {
           points = '4,4 12,8 4,12';
@@ -573,14 +573,12 @@
           defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
           g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
         }
+      } else if (options.name === 'email') {
+        g = '<polygon points="0,2 8,10 16,2"/><polygon points="16,4 12,8 16,12"/><polygon points="0,14 5,9 8,12 11,9 16,14"/><polygon points="0,4 4,8 0,12"/>';
       } else if (options.name === 'go') {
         g = '<circle' + border + ' cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="5"/>';
       } else if (options.name === 'home') {
         g = '<polygon points="0,10 0,8 8,0 16,8 16,10 14,10 14,16 10,16 10,10 6,10 6,16 2,16 2,10"/><rect x="11" y="16" width="4" height="8"/>';
-      } else if (options.name === 'mail') {
-        g = '<polygon points="0,2 8,10 16,2"/><polygon points="16,4 12,8 16,12"/><polygon points="0,14 5,9 8,12 11,9 16,14"/><polygon points="0,4 4,8 0,12"/>';
-      } else if (options.name === 'menu') {
-        g = '<polygon points="5,7 8,2 11,7"/><polygon points="5,9 8,14 11,9"/>';
       } else if (options.name === 'search') {
         g = '<circle' + border + ' cx="7" cy="7" r="5"/><polygon points="9,11 11,9 16,14 14,16"/>';
       } else if (options.name === 'star') {
@@ -606,7 +604,7 @@
       var $menu = $.ninja.button($.extend({}, options, {
         html: options.html
       })).addClass('ninja-object-menu').append($.ninja.icon({
-        name: 'menu'
+        name: 'arrow-down'
       })).select(function () {
         $menu.blur().list(options);
       }).deselect(function () {

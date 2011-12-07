@@ -234,11 +234,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should have a right arrow before selecting', function () {
-          assert($drawer.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('drawer');
+          assert($drawer.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('arrow-right');
         });
 
         it('should have a down arrow after selecting', function () {
-          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('drawer-select');
+          assert($drawerSelect.find('.ninja-object-button .ninja-object-icon').attr('aria-label')).equals('arrow-down');
         });
 
       });
@@ -258,7 +258,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $examples.append('<div class="ninjaui-example-title">$.ninja.icon()</div>');
 
         var
-          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'drawer', 'drawer-select', 'home', 'mail', 'menu', 'search', 'star', 'X'],
+          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'arrow-down', 'arrow-right', 'home', 'email', 'search', 'star', 'X'],
           $exampleIcons = $example.clone().appendTo($examples);
 
         $.each(iconNames, function (i, iconName) {
