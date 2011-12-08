@@ -4,103 +4,103 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
 
-.nui-neon {
+.nui-thm-neon {
   color: #0df;
 }
 
-.nui-neon .ninja-object {
+.nui-thm-neon .ninja-object {
   background-color: #000;
   border-color: #09c;
   color: #0df;
 }
 
-.nui-neon .ninjaDrawerTray,
-.nui-neon .ninjaEditable {
+.nui-thm-neon .ninjaDrawerTray,
+.nui-thm-neon .ninjaEditable {
   background-color: #000;
   background-color: rgba(0,0,0,0.85);
   border-color: #09c;
 }
 
-.nui-neon .ninjaEditable input {
+.nui-thm-neon .ninjaEditable input {
   color: #0df;
 }
 
-.nui-neon .ninjaListSpacer {
+.nui-thm-neon .ninjaListSpacer {
   border-top-color: #09c;
 }
 
-.nui-neon .ninjaPopup {
+.nui-thm-neon .ninjaPopup {
   background-color: #000;
   background-color: rgba(0,0,0,0.85);
 }
 
-.nui-neon .ninjaPopupButton {
+.nui-thm-neon .ninjaPopupButton {
   background-color: #0df;
   color: #000;
   color: rgba(0,0,0,0.85);
 }
 
-.nui-neon .ninjaPopupStem {
+.nui-thm-neon .ninjaPopupStem {
   color: #000;
   color: rgba(0,0,0,0.85);
 }
 
-.nui-neon .ninjaSliderGroove {
+.nui-thm-neon .ninjaSliderGroove {
   background-color: #000;
   border-color: #09c;
 }
 
-.nui-neon .ninjaSliderLevel {
+.nui-thm-neon .ninjaSliderLevel {
   background-color: #0df;
   border-color: #09c;
 }
 
-.nui-neon .ninjaSpinner {
+.nui-thm-neon .ninjaSpinner {
   color: #069;
 }
 
-.nui-neon .ninjaSpinner * {
+.nui-thm-neon .ninjaSpinner * {
   color: #09c;
 }
 
-.nui-neon .ninjaPopup .ninjaSpinner {
+.nui-thm-neon .ninjaPopup .ninjaSpinner {
   color: #999;
 }
 
-.nui-neon .ninjaPopup .ninjaSpinner * {
+.nui-thm-neon .ninjaPopup .ninjaSpinner * {
   color: #333;
 }
 
-.nui-neon .ninjaStar {
+.nui-thm-neon .ninjaStar {
   color: #000;
   color: rgba(0,0,0,0.85);
 }
 
-.nui-neon .ninjaStar.ninjaStarAverage {
+.nui-thm-neon .ninjaStar.ninjaStarAverage {
   color: #09c;
 }
 
-.nui-neon .ninjaStar.ninjaStarUser {
+.nui-thm-neon .ninjaStar.ninjaStarUser {
   color: #0df;
 }
 
-.nui-neon .ninjaTab {
+.nui-thm-neon .ninjaTab {
   border-left-color: transparent;
 }
 
-.nui-neon .ninjaTabFirst {
+.nui-thm-neon .ninjaTabFirst {
   border-left-color: #09c;
 }
 
 /* State changes, keep these last and in order! */
 
-.nui-neon .ninjaSelected,
-.nui-neon .ninjaListChoice.ninjaHovered {
+.nui-thm-neon .ninjaSelected,
+.nui-thm-neon .ninjaListChoice.ninjaHovered {
   background-color: #0df;
   border-color: #09c;
   color: #000;
 }
 
-.nui-neon .ninjaHovered {
+.nui-thm-neon .ninjaHovered {
   border-color: #0df;
 }
