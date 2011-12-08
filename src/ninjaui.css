@@ -2,28 +2,34 @@
   Copyright 2008-2011 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
-.nui-autocomplete {
+
+/* autocomplete */
+.nui-atc {
   position: relative;
 }
-.nui-autocomplete .nui-icon[aria-label=spin] {
+/* autocomplete icon[aria-label=spin] */
+.nui-atc .nui-icn[aria-label=spin] {
   position: absolute;
   right: -20px;
   top: 1px;
 }
-.nui-autocomplete .nui-icon[aria-label=spin] g {
+/* autocomplete icon[aria-label=spin] g */
+.nui-atc .nui-icn[aria-label=spin] g {
   fill: #999 !important;
 }
-.nui-blocker {
+/* blocker */
+.nui-blk {
   background-color: rgba(255,255,255,0.5);
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
-.nui-button,
-.nui-item.nui-hover,
-.nui-slider-button,
-.nui-slider-level,
+/* button, item.hover, slider-button, slider-level, tab */
+.nui-btn,
+.nui-itm.nui-hvr,
+.nui-sld-btn,
+.nui-sld-lvl,
 .nui-tab {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
@@ -34,49 +40,54 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(255,255,255,0.2)', EndColorStr='rgba(0,0,0,0.1)');
   position: relative;
 }
-.nui-button,
-.nui-item,
+/* button, item, tab */
+.nui-btn,
+.nui-itm,
 .nui-tab {
   line-height: 1em;
   padding: 0.2em 1em;
   text-shadow: 0 1px 0 #fff;
 }
-.nui-button:hover,
-.nui-item.nui-hover,
-.nui-slider-button,
-.nui-slider-groove,
-.nui-star:hover,
+/* button:hover, item.hover, slider-button, slider-groove, star:hover, tab:hover */
+.nui-btn:hover,
+.nui-itm.nui-hvr,
+.nui-sld-btn,
+.nui-sld-grv,
+.nui-str:hover,
 .nui-tab:hover {
   cursor: pointer;
 }
-.nui-button,
-.nui-list,
-.nui-dialog,
-.nui-hint,
-.nui-slider-button,
-.nui-slider-groove,
-.nui-slider-level,
+/* button, list, dialog, hint, slider-button, slider-groove, slider-level, tab, tray */
+.nui-btn,
+.nui-lst,
+.nui-dlg,
+.nui-hnt,
+.nui-sld-btn,
+.nui-sld-grv,
+.nui-sld-lvl,
 .nui-tab,
-.nui-tray {
+.nui-try {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
-.nui-button,
-.nui-list,
-.nui-dialog,
-.nui-hint,
-.nui-slider-button,
-.nui-slider-groove,
+/* button, list, dialog, hint, slider-button, slider-groove, tab, tray */
+.nui-btn,
+.nui-lst,
+.nui-dlg,
+.nui-hnt,
+.nui-sld-btn,
+.nui-sld-grv,
 .nui-tab,
-.nui-tray {
+.nui-try {
   background-color: #eee;
   border: 1px solid #666;
 }
-.nui-button,
-.nui-list,
-.nui-dialog,
-.nui-hint{
+/* button, list, dialog, hint */
+.nui-btn,
+.nui-lst,
+.nui-dlg,
+.nui-hnt{
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -84,97 +95,116 @@
   -moz-border-radius: 0.4em;
   border-radius: 0.4em;
 }
-.nui-button,
-.nui-item,
-.nui-slider-button,
-.nui-star,
+/* button, item, slider-button, star, tab */
+.nui-btn,
+.nui-itm,
+.nui-sld-btn,
+.nui-str,
 .nui-tab {
   margin: 0;
   outline-width: 1px;
 }
-.nui-button,
+/* button, tab */
+.nui-btn,
 .nui-tab {
   text-align: center;
 }
-.nui-button .nui-icon,
-.nui-item .nui-icon,
-.nui-tab .nui-icon {
+/* button icon, item icon, tab icon */
+.nui-btn .nui-icn,
+.nui-itm .nui-icn,
+.nui-tab .nui-icn {
   vertical-align: bottom;
 }
-.nui-dialog,
-.nui-hint {
+/* dialog, hint */
+.nui-dlg,
+.nui-hnt {
   padding: 0.6em;
 }
-.nui-dialog .nui-icon[aria-label=X] {
+/* dialog, icon[aria-label=X] */
+.nui-dlg .nui-icn[aria-label=X] {
   cursor: pointer;
   position: absolute;
   right: -11px;
   top: -11px;
 }
-.nui-drawer .nui-button {
+/* drawer button */
+.nui-drw .nui-btn {
   display: block;
   padding-left: 0;
   text-align: left;
   width: 100%;
 }
-.nui-drawer .nui-button.nui-select {
+/* drawer button.select */
+.nui-drw .nui-btn.nui-slc {
   -webkit-border-radius: 0.35em 0.35em 0 0;
   -moz-border-radius: 0.35em 0.35em 0 0;
   border-radius: 0.35em 0.35em 0 0;
 
 }
-.nui-hint    {
+/* hint */
+.nui-hnt    {
   white-space: nowrap;
 }
-.nui-icon {
+/* icon */
+.nui-icn {
   display: inline-block;
   height: 1em;
   vertical-align: middle;
   width: 1em;
 }
-.nui-icon g {
+/* icon g */
+.nui-icn g {
   fill: #333;
   stroke: #000;
 }
-.nui-icon[aria-label=X] {
+/* icon[aria-label=X] */
+.nui-icn[aria-label=X] {
   height: 22px;
   width: 22px;
 }
-.nui-icon[aria-label=X] circle {
+/* icon[aria-label=X] circle */
+.nui-icn[aria-label=X] circle {
   stroke: #999;
   stroke-width: 1;
 }
-.nui-icon[aria-label=X] polygon {
+/* icon[aria-label=X] polygon */
+.nui-icn[aria-label=X] polygon {
   fill: #fff;
 }
-.nui-input {
+/* input */
+.nui-inp {
   padding-right: 20px;
 }
-.nui-item.nui-hover,
-.nui-slider-groove,
-.nui-select {
+/* item.hover, slider-groove, select */
+.nui-itm.nui-hvr,
+.nui-sld-grv,
+.nui-slc {
   background-color: #999;
 }
-.nui-item.nui-hover,
-.nui-select {
+/* item.hover, select */
+.nui-itm.nui-hvr,
+.nui-slc {
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
-.nui-item.nui-hover g,
-.nui-select g {
+/* item.hover g, select g */
+.nui-itm.nui-hvr g,
+.nui-slc g {
   fill: #fff;
   stroke: #fff;
 }
-.nui-item {
+/* item */
+.nui-itm {
   background: none;
   border: none;
   display: block;
   text-align: left;
   width: 100%;
 }
-.nui-list,
-.nui-dialog,
-.nui-hint    {
+/* list, dialog, hint */
+.nui-lst,
+.nui-dlg,
+.nui-hnt    {
   background-color: rgba(255,255,255,0.85);
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
@@ -186,26 +216,31 @@
   position: absolute;
   z-index: +1;
 }
-.nui-list {
+/* list */
+.nui-lst {
   padding: 0.6em 0;
   text-align: left;
 }
-.nui-rule {
+/* rule */
+.nui-rul {
   border-bottom: 1px solid #eee;
   border-top: 1px solid #ccc;
   margin: 0.4em 0;
 }
-.nui-slider {
+/* slider */
+.nui-sld {
   display: inline-block;
 }
-.nui-slider-button,
-.nui-slider-groove,
-.nui-slider-level {
+/* slider-button, slider-groove, slider-level */
+.nui-sld-btn,
+.nui-sld-grv,
+.nui-sld-lvl {
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
 }
-.nui-slider-button {
+/* slider-button */
+.nui-sld-btn {
   height: 18px;
   left: 0;
   padding: 0;
@@ -213,15 +248,18 @@
   top: 0;
   width: 18px;
 }
-.nui-slider-button.nui-select {
+/* slider-button.select */
+.nui-sld-btn.nui-slc {
   background-color: #ccc;
 }
-.nui-slider-groove,
-.nui-slider-level {
+/* slider-groove, slider-level */
+.nui-sld-grv,
+.nui-sld-lvl {
   height: 4px;
 }
-.nui-slider-groove,
-.nui-select {
+/* slider-groove, select */
+.nui-sld-grv,
+.nui-slc {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
@@ -230,93 +268,114 @@
   background-image: linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0,0,0,0.2)', EndColorStr='rgba(255,255,255,0.1)');
 }
-.nui-slider-groove {
+/* slider-groove */
+.nui-sld-grv {
   cursor: pointer;
   left: 9px;
   position: absolute;
   right: 9px;
   top: 5px;
 }
-.nui-slider-level {
+/* slider-level */
+.nui-sld-lvl {
   background-color: #6cf;
 }
-.nui-slider-title {
+/* slider-title */
+.nui-sld-ttl {
   font-weight: bold;
 }
-.nui-slider-track {
+/* slider-track */
+.nui-sld-trk {
   height: 18px;
   position: relative;
 }
-.nui-star {
+/* star */
+.nui-str {
   background: none;
   border: none;
   margin-right: 1px;
   padding: 0;
 }
-.nui-star .nui-icon {
+/* star icon */
+.nui-str .nui-icn {
   height: 18px;
   width: 18px;
 }
-.nui-star g {
+/* star g */
+.nui-str g {
   fill: #eee;
   stroke: #ccc;
   stroke-width: 1;
 }
-.nui-star.nui-average g {
+/* star.average g */
+.nui-str.nui-avg g {
   fill: #6cf;
   stroke: #39c;
 }
-.nui-star.nui-individual g {
+/* star.individual g */
+.nui-str.nui-ind g {
   fill: #c96;
   stroke: #963;
 }
-.nui-stem {
+/* stem */
+.nui-stm {
   display: inline-block;
   height: 8px;
   position: absolute;
   top: -8px;
   width: 8px;
 }
-.nui-stem g {
+/* stem g */
+.nui-stm g {
   fill: rgba(255,255,255,0.85);
   stroke: #ccc;
 }
-.nui-tabs-horizontal,
-.nui-tabs-vertical {
+/* tabs-horizontal, tabs-vertical */
+.nui-tab-hrz,
+.nui-tab-vrt {
   white-space: nowrap;
 }
-.nui-tabs-horizontal {
+/* tabs-horizontal */
+.nui-tab-hrz {
   display: inline-block;
 }
-.nui-tabs-vertical .nui-tab {
+/* tabs-vertical tab */
+.nui-tab-vrt .nui-tab {
   display: block;
 }
+/* tab */
 .nui-tab {
   border-left-color: #ccc;
 }
+/* tab:first-child */
 .nui-tab:first-child {
   border-left-color: #999;
   -webkit-border-radius: 0.35em 0 0 0.35em;
   -moz-border-radius: 0.35em 0 0 0.35em;
   border-radius: 0.35em 0 0 0.35em;
 }
+/* tab:last-child */
 .nui-tab:last-child {
   border-right-color: #999;
   -webkit-border-radius: 0 0.35em 0.35em 0;
   -moz-border-radius: 0 0.35em 0.35em 0;
   border-radius: 0 0.35em 0.35em 0;
 }
-.nui-tab.nui-select {
+/* tab.select */
+.nui-tab.nui-slc {
   border-left-color: #666;
   border-right-color: #666;
 }
-.nui-tab:first-child.nui-select {
+/* tab:first-child.select */
+.nui-tab:first-child.nui-slc {
   border-left-color: #999;
 }
-.nui-tab:last-child.nui-select {
+/* tab:last-child.select */
+.nui-tab:last-child.nui-slc {
   border-right-color: #999;
 }
-.nui-tray {
+/* tray */
+.nui-try {
   border: 1px solid #ccc;
   border-bottom-color: #eee;
   -webkit-border-radius: 0 0 0.35em 0.35em;
@@ -328,9 +387,11 @@
 /*
   State changes, keep these last and in order!
 */
-.nui-placeholder {
+/* placeholder */
+.nui-plc {
   color: #999;
 }
-.nui-disable {
+/* disable */
+.nui-dsb {
   cursor: default !important;
 }

@@ -151,7 +151,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $examples.append('<div class="ninjaui-example-title">$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, ' Select ', $toggleDisable, ' Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
 
         it('should have button class', function () {
-          assert($button.hasClass('nui-button')).isTrue();
+          assert($button.hasClass('nui-btn')).isTrue();
         });
 
         it('should accept css overrides on creation', function () {
@@ -164,12 +164,12 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           assert($buttonSelected.html()).equals('<i>Selected</i> Button');
         });
 
-        it('should have class of nui-select when select is true', function () {
-          assert($buttonSelected.hasClass('nui-select')).isTrue();
+        it('should have class of nui-slc when select is true', function () {
+          assert($buttonSelected.hasClass('nui-slc')).isTrue();
         });
 
-        it('should have class of nui-disable when disable is true', function () {
-          assert($buttonDisabled.hasClass('nui-disable')).isTrue();
+        it('should have class of nui-dsb when disable is true', function () {
+          assert($buttonDisabled.hasClass('nui-dsb')).isTrue();
         });
       });
 
@@ -220,7 +220,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         $examples.append('<div class="ninjaui-example-title">$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
 
         it('should have drawer class', function () {
-          assert($drawer.hasClass('nui-drawer')).isTrue();
+          assert($drawer.hasClass('nui-drw')).isTrue();
         });
 
         it('should accept css overrides on creation', function () {
@@ -230,15 +230,15 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept html content on creation', function () {
-          assert($drawer.find('.nui-tray').html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
+          assert($drawer.find('.nui-try').html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
         });
 
         it('should have a right arrow before selecting', function () {
-          assert($drawer.find('.nui-button .nui-icon').attr('aria-label')).equals('arrow-right');
+          assert($drawer.find('.nui-btn .nui-icn').attr('aria-label')).equals('arrow-right');
         });
 
         it('should have a down arrow after selecting', function () {
-          assert($drawerSelect.find('.nui-button .nui-icon').attr('aria-label')).equals('arrow-down');
+          assert($drawerSelect.find('.nui-btn .nui-icn').attr('aria-label')).equals('arrow-down');
         });
 
       });
@@ -300,7 +300,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           it('should have icon class', function () {
             if ($.inArray(version, ['1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3']) === -1) {
               // can't test these due to a bug in these jQuery versions
-              assert($icon.attr('class')).equals('nui-icon');
+              assert($icon.attr('class')).equals('nui-icn');
             }
           });
 

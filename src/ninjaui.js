@@ -81,7 +81,7 @@
         var $object = $(this).ninja();
         if ($.isFunction(callback)) {
           $object.bind('deselect.ninja', callback);
-        } else if ($object.is('.nui-select') && !$object.is('.nui-disable')) {
+        } else if ($object.is('.nui-slc') && !$object.is('.nui-dsb')) {
           $object.trigger('deselect.ninja');
         }
       });
@@ -105,7 +105,7 @@
         if ($.isFunction(callback)) {
           $object.bind('disable.ninja', callback);
         } else {
-          $object.fadeTo('fast', 0.5).addClass('nui-disable').trigger('disable.ninja');
+          $object.fadeTo('fast', 0.5).addClass('nui-dsb').trigger('disable.ninja');
         }
       });
     },
@@ -116,7 +116,7 @@
         if ($.isFunction(callback)) {
           $object.bind('enable.ninja', callback);
         } else {
-          $object.fadeTo('fast', 1).removeClass('nui-disable').trigger('enable.ninja');
+          $object.fadeTo('fast', 1).removeClass('nui-dsb').trigger('enable.ninja');
         }
       });
     },
@@ -127,11 +127,11 @@
         var
           $object = $(this),
           $hint = $('<span/>', {
-            'class': 'nui-hint',
+            'class': 'nui-hnt',
             css: options.css,
             html: options.html
           }),
-          $stem = $('<svg class="nui-stem" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($hint);
+          $stem = $('<svg class="nui-stm" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($hint);
         if (options.css) {
           $stem.find('g').css(options.css);
         }
@@ -174,10 +174,10 @@
           $hover = null,
           $object = $(this).ninja(),
           $list = $('<div/>', {
-            'class': 'nui-list'
+            'class': 'nui-lst'
           });
-        if ($object.is('.nui-autocomplete')) {
-          $object.find('.nui-icon[aria-label=spin]').hide();
+        if ($object.is('.nui-atc')) {
+          $object.find('.nui-icn[aria-label=spin]').hide();
         }
         if (options.choices.length) {
           $object.bind({
@@ -185,7 +185,7 @@
               $(document).unbind('click.ninja keydown.ninja keyup.ninja');
               $list.detach();
               if ($hover) {
-                $hover.removeClass('nui-hover');
+                $hover.removeClass('nui-hvr');
               }
             }
           });
@@ -206,23 +206,23 @@
                   $object.delist();
                 } else if ($.inArray(event.keyCode, [9, 40]) > -1 && !event.shiftKey) {/* tab or down arrow */
                   if ($hover) {
-                    if ($hover.nextAll('.nui-item').length) {
-                      $hover.nextAll('.nui-item:first').trigger('mouseenter.ninja');
+                    if ($hover.nextAll('.nui-itm').length) {
+                      $hover.nextAll('.nui-itm:first').trigger('mouseenter.ninja');
                     } else {
-                      $list.find('.nui-item:first').trigger('mouseenter.ninja');
+                      $list.find('.nui-itm:first').trigger('mouseenter.ninja');
                     }
                   } else {
-                    $list.find('.nui-item:first').trigger('mouseenter.ninja');
+                    $list.find('.nui-itm:first').trigger('mouseenter.ninja');
                   }
                 } else if (event.keyCode === 38 || (event.shiftKey && event.keyCode === 9)) {/* shift+tab or up arrow */
                   if ($hover) {
-                    if ($hover.prevAll('.nui-item').length) {
-                      $hover.prevAll('.nui-item:first').trigger('mouseenter.ninja');
+                    if ($hover.prevAll('.nui-itm').length) {
+                      $hover.prevAll('.nui-itm:first').trigger('mouseenter.ninja');
                     } else {
-                      $list.find('.nui-item:last').trigger('mouseenter.ninja');
+                      $list.find('.nui-itm:last').trigger('mouseenter.ninja');
                     }
                   } else {
-                    $list.find('.nui-item:last').trigger('mouseenter.ninja');
+                    $list.find('.nui-itm:last').trigger('mouseenter.ninja');
                   }
                 }
                 return false;
@@ -245,15 +245,15 @@
             var $choice;
             if (choice.spacer) {
               $choice = $('<div/>', {
-                'class': 'nui-rule'
+                'class': 'nui-rul'
               });
             } else {
               $choice = $('<button/>', {
-                'class': 'nui-item'
+                'class': 'nui-itm'
               });
               $choice.bind({
                 'mouseleave.ninja': function () {
-                  $hover.removeClass('nui-hover');
+                  $hover.removeClass('nui-hvr');
                 },
                 'click.ninja': function () {
                   $object.trigger('delist.ninja').focus();
@@ -268,7 +268,7 @@
                   if ($hover) {
                     $hover.trigger('mouseleave.ninja');
                   }
-                  $hover = $choice.addClass('nui-hover');
+                  $hover = $choice.addClass('nui-hvr');
                 }
               });
             }
@@ -309,7 +309,7 @@
               'blur.ninja': function () {
                 value = $object.val();
                 if (value === '' || value === placeholder) {
-                  $object.addClass('nui-placeholder');
+                  $object.addClass('nui-plc');
                   if (value === '') {
                     $object.val(placeholder);
                   }
@@ -317,7 +317,7 @@
               },
               'focus.ninja': function () {
                 if ($object.val() === placeholder) {
-                  $object.removeClass('nui-placeholder').val('');
+                  $object.removeClass('nui-plc').val('');
                 }
               }
             }).trigger('blur.ninja');
@@ -331,7 +331,7 @@
         var $object = $(this).ninja();
         if ($.isFunction(event)) {
           $object.bind('select.ninja', event);
-        } else if (!$object.is('.nui-disable')) {
+        } else if (!$object.is('.nui-dsb')) {
           $object.trigger('select.ninja');
         }
       });
@@ -357,7 +357,7 @@
       var
         timer,
         $autocomplete = $('<span/>', {
-          'class': 'nui-autocomplete'
+          'class': 'nui-atc'
         }).bind({
           'select.ninja': function (event) {
             if (event.html) {
@@ -372,14 +372,14 @@
           }
         }),
         $input = $('<input/>', {
-          'class': 'nui-input',
+          'class': 'nui-inp',
           type: 'text'
         }).bind({
           'keyup.ninja': function (event) {
             clearTimeout(timer);
             if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1 && $input.val() !== '') {/* not tab, return, escape, left , up, right or down */
               timer = setTimeout(function () {
-                var $spin = $autocomplete.find('.nui-icon[aria-label=spin]');
+                var $spin = $autocomplete.find('.nui-icn[aria-label=spin]');
                 if ($spin.is(':hidden')) {
                   $spin.show();
                 } else {
@@ -401,14 +401,14 @@
     button: function (options) {
       options = $.extend({}, defaults, options);
       var $button = $('<button/>', {
-        'class': 'nui-button',
+        'class': 'nui-btn',
         css: options.css,
         html: options.html
       });
       $button.bind({
         'click.ninja': function (event) {
-          if (!$button.is('.nui-disable')) {
-            if ($button.is('.nui-select')) {
+          if (!$button.is('.nui-dsb')) {
+            if ($button.is('.nui-slc')) {
               $button.trigger('deselect.ninja');
             } else {
               $button.trigger('select.ninja');
@@ -417,7 +417,7 @@
           event.stopImmediatePropagation();
         },
         'deselect.ninja': function () {
-          $button.removeClass('nui-select');
+          $button.removeClass('nui-slc');
         },
         'disable.ninja': function () {
           $button.attr({
@@ -430,7 +430,7 @@
           });
         },
         'select.ninja': function () {
-          $button.addClass('nui-select');
+          $button.addClass('nui-slc');
         }
       });
       if (options.select) {
@@ -448,7 +448,7 @@
       }, options);
       var
         $dialog = $('<span/>', {
-          'class': 'nui-dialog',
+          'class': 'nui-dlg',
           css: options.css,
           html: options.html
         }),
@@ -458,7 +458,7 @@
           $dialog.detach();
         }).appendTo($dialog),
         $blocker = $('<div/>', {
-          'class': 'nui-blocker'
+          'class': 'nui-blk'
         }).bind('click.ninja', function (event) {
           if ($.inArray($dialog[0], $(event.target).parents()) === -1) {
             $dialog.detach();
@@ -492,11 +492,11 @@
       options = $.extend({}, defaults, options);
       var
         $drawer = $('<div/>', {
-          'class': 'nui-drawer',
+          'class': 'nui-drw',
           css: options.css
         }),
         $tray = $('<div/>', {
-          'class': 'nui-tray',
+          'class': 'nui-try',
           html: options.html
         }).appendTo($drawer),
         $arrowDown = $.ninja.icon({
@@ -592,7 +592,7 @@
         defs = '<defs><rect id="' + idSymbol + '" x="7" width="2" height="4"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 8 8)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      $icon = $('<svg aria-label="' + options.name + '" class="nui-icon" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke-width="0">' + g + '</g></svg>');
+      $icon = $('<svg aria-label="' + options.name + '" class="nui-icn" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke-width="0">' + g + '</g></svg>');
       if (options.css) {
         $icon.find('g').css(options.css);
       }
@@ -603,7 +603,7 @@
       options = $.extend({}, defaults, options);
       var $menu = $.ninja.button($.extend({}, options, {
         html: options.html
-      })).addClass('nui-menu').append($.ninja.icon({
+      })).addClass('nui-mnu').append($.ninja.icon({
         name: 'arrow-down'
       })).select(function () {
         $menu.blur().list(options);
@@ -627,32 +627,32 @@
           'class': 'nui-rating'
         }).bind({
           'mouseleave.ninja': function () {
-            $rating.find('.nui-star').each(function (ii, star) {
+            $rating.find('.nui-str').each(function (ii, star) {
               var $star = $(star);
               if (options.select === 0) {
                 if (ii < options.average) {
-                  $star.addClass('nui-average');
+                  $star.addClass('nui-avg');
                 } else {
-                  $star.removeClass('nui-average');
+                  $star.removeClass('nui-avg');
                 }
               }
               if (ii < options.select) {
-                $star.addClass('nui-individual');
+                $star.addClass('nui-ind');
               } else {
-                $star.removeClass('nui-individual');
+                $star.removeClass('nui-ind');
               }
             });
           }
         });
       for (i = 0; i < options.stars; i++) {
         $('<button/>', {
-          'class': 'nui-star',
+          'class': 'nui-str',
           html: $.ninja.icon({
             'name': 'star'
           })
         }).appendTo($rating);
       }
-      $rating.find('.nui-star').each(function (i, star) {
+      $rating.find('.nui-str').each(function (i, star) {
         i++;
         var $star = $(star);
         $star.bind({
@@ -664,12 +664,12 @@
             });
           },
           'mouseenter.ninja': function () {
-            $rating.find('.nui-star').each(function (ii, star) {
-              var $star = $(star).removeClass('nui-average');
+            $rating.find('.nui-str').each(function (ii, star) {
+              var $star = $(star).removeClass('nui-avg');
               if (ii < i) {
-                $star.addClass('nui-individual');
+                $star.addClass('nui-ind');
               } else {
-                $star.removeClass('nui-individual');
+                $star.removeClass('nui-ind');
               }
             });
           }
@@ -692,20 +692,20 @@
         increment = options.width / slots,
         left = options.slot * increment,
         $choice = $('<span/>', {
-          'class': 'nui-slider-choice',
+          'class': 'nui-sld-choice',
           html: options.choices[options.slot].html
         }),
         $button = $('<button/>', {
-          'class': 'nui-slider-button',
+          'class': 'nui-sld-btn',
           css: { left: left }
         }),
         trackWidth = options.width + 18,
         $level = $('<div/>', {
-          'class': 'nui-slider-level',
+          'class': 'nui-sld-lvl',
           css: { width: left }
         }),
         $slider = $('<span/>', {
-          'class': 'nui-slider'
+          'class': 'nui-sld'
         }).bind({
           'change.ninja select.ninja': function (event) {
             var slot;
@@ -729,11 +729,11 @@
           }
         }).append($choice),
         $track = $('<div/>', {
-          'class': 'nui-slider-track',
+          'class': 'nui-sld-trk',
           css: { width: trackWidth }
         }).appendTo($slider),
         $groove = $('<div/>', {
-          'class': 'nui-slider-groove'
+          'class': 'nui-sld-grv'
         }).bind('click.ninja', function (event) {
           $button.trigger({
             type: 'select.ninja',
@@ -743,7 +743,7 @@
       $track.append($groove.append($level), $button);
       if (options.title) {
         $choice.before($('<span/>', {
-          'class': 'nui-slider-title',
+          'class': 'nui-sld-ttl',
           text: options.title + ': '
         }));
       }
@@ -768,7 +768,7 @@
         },
         'mousedown.ninja touchstart.ninja': function (event) {
           event.preventDefault();
-          $button.addClass('nui-select');
+          $button.addClass('nui-slc');
           return false;
         },
         'mousedown.ninja': function (event) {
@@ -785,7 +785,7 @@
               });
             },
             'mouseup.ninja': function (event) {
-              $button.removeClass('nui-select');
+              $button.removeClass('nui-slc');
               drag = false;
               $button.trigger({
                 type: 'select.ninja',
@@ -812,7 +812,7 @@
         },
         'touchend.ninja': function (event) {
           event.preventDefault();
-          $button.removeClass('nui-select').trigger({
+          $button.removeClass('nui-slc').trigger({
             type: 'select.ninja',
             sliderX: Math.round((touch.pageX - offsetX) / increment)
           });
@@ -827,9 +827,9 @@
       }, options);
       var $tabs = $('<span/>');
       if (options.vertical) {
-        $tabs.addClass('nui-tabs-vertical');
+        $tabs.addClass('nui-tab-vrt');
       } else {
-        $tabs.addClass('nui-tabs-horizontal');
+        $tabs.addClass('nui-tab-hrz');
       }
       $.each(options.choices, function (i, choice) {
         var $tab = $('<button/>', {
@@ -838,7 +838,7 @@
           html: choice.html || choice
         }).bind({
           'click.ninja': function () {
-            if (!$tab.is('.nui-disable') && !$tab.is('.nui-select')) {
+            if (!$tab.is('.nui-dsb') && !$tab.is('.nui-slc')) {
               $tab.trigger('select.ninja');
             }
           },
@@ -853,8 +853,8 @@
             });
           },
           'select.ninja': function () {
-            $tabs.children().not($tab).removeClass('nui-select');
-            $tab.addClass('nui-select');
+            $tabs.children().not($tab).removeClass('nui-slc');
+            $tab.addClass('nui-slc');
             if ($.isFunction(choice.select)) {
               choice.select();
             }
