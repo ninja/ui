@@ -266,25 +266,21 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           if (iconName === 'stop') {
             $icon = $.ninja.icon({
               css: {
-                fill: '#c00',
-                margin: '5em',
-                stroke: '#c00'
+                margin: '80px'
               },
               name: iconName
             });
           } else if (iconName === 'yield') {
             $icon = $.ninja.icon({
               css: {
-                fill: 'goldenrod',
-                stroke: 'goldenrod'
+                margin: '96px'
               },
               name: iconName
             });
           } else if (iconName === 'go') {
             $icon = $.ninja.icon({
               css: {
-                fill: 'green',
-                stroke: 'green'
+                margin: '64px'
               },
               name: iconName
             });
@@ -318,11 +314,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
           it('should accept css overrides on creation', function () {
             if (iconName === 'stop') {
-              assert($icon.find('g').attr('style')).equals('fill: #cc0000; margin-top: 5em; margin-right: 5em; margin-bottom: 5em; margin-left: 5em; stroke: #cc0000; ');
-            } else if (iconName === 'warn') {
-              assert($icon.find('g').attr('style')).equals('fill: #daa520; stroke: #daa520; ');
+              assert($icon.find('g').css('margin-top')).equals('80px');
+            } else if (iconName === 'yield') {
+              assert($icon.find('g').css('margin-top')).equals('96px');
             } else if (iconName === 'go') {
-              assert($icon.find('g').attr('style')).equals('fill: #008000; stroke: #008000; ');
+              assert($icon.find('g').css('margin-top')).equals('64px');
             }
           });
         });
