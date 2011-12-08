@@ -4,106 +4,106 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
 
-.ninja-theme-dojo {
+.nui-dojo {
   color: #fff;
 }
-.ninja-theme-dojo .ninja-object-blocker {
+.nui-dojo .nui-blocker {
   background-color: rgba(0,0,0,0.4);
 }
-.ninja-theme-dojo .ninja-object-button,
-.ninja-theme-dojo .ninja-object-item,
-.ninja-theme-dojo .ninja-object-tab {
+.nui-dojo .nui-button,
+.nui-dojo .nui-item,
+.nui-dojo .nui-tab {
   color: #fff;
   text-shadow: 0 1px 0 #000;
 }
-.ninja-theme-dojo .ninja-object-button,
-.ninja-theme-dojo .ninja-object-list,
-.ninja-theme-dojo .ninja-object-slider-button,
-.ninja-theme-dojo .ninja-object-slider-groove,
-.ninja-theme-dojo .ninja-object-tab {
+.nui-dojo .nui-button,
+.nui-dojo .nui-list,
+.nui-dojo .nui-slider-button,
+.nui-dojo .nui-slider-groove,
+.nui-dojo .nui-tab {
   background-color: #333;
   border-color: #000;
 }
-.ninja-theme-dojo .ninja-object-dialog,
-.ninja-theme-dojo .ninja-object-list,
-.ninja-theme-dojo .ninja-object-hint {
+.nui-dojo .nui-dialog,
+.nui-dojo .nui-list,
+.nui-dojo .nui-hint {
   background-color: rgba(0,0,0,0.8);
   border: none;
 }
-.ninja-theme-dojo .ninja-object-icon g {
+.nui-dojo .nui-icon g {
   fill: #fff;
   stroke: #fff;
 }
-.ninja-theme-dojo .ninja-object-icon[aria-label=X] g {
+.nui-dojo .nui-icon[aria-label=X] g {
   fill: #900;
 }
-.ninja-theme-dojo .ninja-object-icon[aria-label=X] circle {
+.nui-dojo .nui-icon[aria-label=X] circle {
   stroke: #fff;
 }
-.ninja-theme-dojo .ninja-object-icon[aria-label=X] polygon {
+.nui-dojo .nui-icon[aria-label=X] polygon {
   fill: #fff;
 }
-.ninja-theme-dojo .ninja-object-item.ninja-state-hover,
-.ninja-theme-dojo .ninja-state-select {
+.nui-dojo .nui-item.nui-hover,
+.nui-dojo .nui-select {
   background-color: #c00;
   border-color: #900;
 }
-.ninja-theme-dojo .ninja-object-item.ninja-state-hover,
-.ninja-theme-dojo .ninja-state-select {
+.nui-dojo .nui-item.nui-hover,
+.nui-dojo .nui-select {
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
-.ninja-theme-dojo .ninja-object-item.ninja-state-hover g,
-.ninja-theme-dojo .ninja-state-select g {
+.nui-dojo .nui-item.nui-hover g,
+.nui-dojo .nui-select g {
   fill: #fff;
   stroke: #fff;
 }
-.ninja-theme-dojo .ninja-object-rule {
+.nui-dojo .nui-rule {
   border-bottom-color: #333;
   border-top-color: #000;
 }
-.ninja-theme-dojo .ninja-object-slider-button.ninja-state-select {
+.nui-dojo .nui-slider-button.nui-select {
   background-color: #000;
 }
-.ninja-theme-dojo .ninja-object-slider-level {
+.nui-dojo .nui-slider-level {
   background-color: #f00;
 }
-.ninja-theme-dojo .ninja-object-star g {
+.nui-dojo .nui-star g {
   fill: #eee;
   stroke: #ccc;
 }
-.ninja-theme-dojo .ninja-object-star.ninja-state-average g {
+.nui-dojo .nui-star.nui-average g {
   fill: #c96;
   stroke: #963;
 }
-.ninja-theme-dojo .ninja-object-star.ninja-state-individual g {
+.nui-dojo .nui-star.nui-individual g {
   fill: #c00;
   stroke: #900;
 }
-.ninja-theme-dojo .ninja-object-stem g {
+.nui-dojo .nui-stem g {
   fill: rgba(0,0,0,0.85);
   stroke: none;
 }
-.ninja-theme-dojo .ninja-object-tab {
+.nui-dojo .nui-tab {
   border-left-color: #333;
 }
-.ninja-theme-dojo .ninja-object-tab:first-child {
+.nui-dojo .nui-tab:first-child {
   border-left-color: #000;
 }
-.ninja-theme-dojo .ninja-object-tab:last-child {
+.nui-dojo .nui-tab:last-child {
   border-right-color: #000;
 }
-.ninja-theme-dojo .ninja-object-tab.ninja-state-select {
+.nui-dojo .nui-tab.nui-select {
   border-left-color: #300;
   border-right-color: #300;
 }
-.ninja-theme-dojo .ninja-object-tab:first-child.ninja-state-select {
+.nui-dojo .nui-tab:first-child.nui-select {
   border-left-color: #000;
 }
-.ninja-theme-dojo .ninja-object-tab:last-child.ninja-state-select {
+.nui-dojo .nui-tab:last-child.nui-select {
   border-right-color: #000;
 }
-.ninja-theme-dojo .ninja-object-tray {
+.nui-dojo .nui-tray {
   background-color: #222;
   border-color: #111;
   border-bottom-color: #444;

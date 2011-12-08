@@ -2,29 +2,29 @@
   Copyright 2008-2011 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
-.ninja-object-autocomplete {
+.nui-autocomplete {
   position: relative;
 }
-.ninja-object-autocomplete .ninja-object-icon[aria-label=spin] {
+.nui-autocomplete .nui-icon[aria-label=spin] {
   position: absolute;
   right: -20px;
   top: 1px;
 }
-.ninja-object-autocomplete .ninja-object-icon[aria-label=spin] g {
+.nui-autocomplete .nui-icon[aria-label=spin] g {
   fill: #999 !important;
 }
-.ninja-object-blocker {
+.nui-blocker {
   background-color: rgba(255,255,255,0.5);
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
-.ninja-object-button,
-.ninja-object-item.ninja-state-hover,
-.ninja-object-slider-button,
-.ninja-object-slider-level,
-.ninja-object-tab {
+.nui-button,
+.nui-item.nui-hover,
+.nui-slider-button,
+.nui-slider-level,
+.nui-tab {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
   background-image: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
@@ -34,49 +34,49 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(255,255,255,0.2)', EndColorStr='rgba(0,0,0,0.1)');
   position: relative;
 }
-.ninja-object-button,
-.ninja-object-item,
-.ninja-object-tab {
+.nui-button,
+.nui-item,
+.nui-tab {
   line-height: 1em;
   padding: 0.2em 1em;
   text-shadow: 0 1px 0 #fff;
 }
-.ninja-object-button:hover,
-.ninja-object-item.ninja-state-hover,
-.ninja-object-slider-button,
-.ninja-object-slider-groove,
-.ninja-object-star:hover,
-.ninja-object-tab:hover {
+.nui-button:hover,
+.nui-item.nui-hover,
+.nui-slider-button,
+.nui-slider-groove,
+.nui-star:hover,
+.nui-tab:hover {
   cursor: pointer;
 }
-.ninja-object-button,
-.ninja-object-list,
-.ninja-object-dialog,
-.ninja-object-hint,
-.ninja-object-slider-button,
-.ninja-object-slider-groove,
-.ninja-object-slider-level,
-.ninja-object-tab,
-.ninja-object-tray {
+.nui-button,
+.nui-list,
+.nui-dialog,
+.nui-hint,
+.nui-slider-button,
+.nui-slider-groove,
+.nui-slider-level,
+.nui-tab,
+.nui-tray {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
-.ninja-object-button,
-.ninja-object-list,
-.ninja-object-dialog,
-.ninja-object-hint,
-.ninja-object-slider-button,
-.ninja-object-slider-groove,
-.ninja-object-tab,
-.ninja-object-tray {
+.nui-button,
+.nui-list,
+.nui-dialog,
+.nui-hint,
+.nui-slider-button,
+.nui-slider-groove,
+.nui-tab,
+.nui-tray {
   background-color: #eee;
   border: 1px solid #666;
 }
-.ninja-object-button,
-.ninja-object-list,
-.ninja-object-dialog,
-.ninja-object-hint{
+.nui-button,
+.nui-list,
+.nui-dialog,
+.nui-hint{
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -84,97 +84,97 @@
   -moz-border-radius: 0.4em;
   border-radius: 0.4em;
 }
-.ninja-object-button,
-.ninja-object-item,
-.ninja-object-slider-button,
-.ninja-object-star,
-.ninja-object-tab {
+.nui-button,
+.nui-item,
+.nui-slider-button,
+.nui-star,
+.nui-tab {
   margin: 0;
   outline-width: 1px;
 }
-.ninja-object-button,
-.ninja-object-tab {
+.nui-button,
+.nui-tab {
   text-align: center;
 }
-.ninja-object-button .ninja-object-icon,
-.ninja-object-item .ninja-object-icon,
-.ninja-object-tab .ninja-object-icon {
+.nui-button .nui-icon,
+.nui-item .nui-icon,
+.nui-tab .nui-icon {
   vertical-align: bottom;
 }
-.ninja-object-dialog,
-.ninja-object-hint {
+.nui-dialog,
+.nui-hint {
   padding: 0.6em;
 }
-.ninja-object-dialog .ninja-object-icon[aria-label=X] {
+.nui-dialog .nui-icon[aria-label=X] {
   cursor: pointer;
   position: absolute;
   right: -11px;
   top: -11px;
 }
-.ninja-object-drawer .ninja-object-button {
+.nui-drawer .nui-button {
   display: block;
   padding-left: 0;
   text-align: left;
   width: 100%;
 }
-.ninja-object-drawer .ninja-object-button.ninja-state-select {
+.nui-drawer .nui-button.nui-select {
   -webkit-border-radius: 0.35em 0.35em 0 0;
   -moz-border-radius: 0.35em 0.35em 0 0;
   border-radius: 0.35em 0.35em 0 0;
 
 }
-.ninja-object-hint    {
+.nui-hint    {
   white-space: nowrap;
 }
-.ninja-object-icon {
+.nui-icon {
   display: inline-block;
   height: 1em;
   vertical-align: middle;
   width: 1em;
 }
-.ninja-object-icon g {
+.nui-icon g {
   fill: #333;
   stroke: #000;
 }
-.ninja-object-icon[aria-label=X] {
+.nui-icon[aria-label=X] {
   height: 22px;
   width: 22px;
 }
-.ninja-object-icon[aria-label=X] circle {
+.nui-icon[aria-label=X] circle {
   stroke: #999;
   stroke-width: 1;
 }
-.ninja-object-icon[aria-label=X] polygon {
+.nui-icon[aria-label=X] polygon {
   fill: #fff;
 }
-.ninja-object-input {
+.nui-input {
   padding-right: 20px;
 }
-.ninja-object-item.ninja-state-hover,
-.ninja-object-slider-groove,
-.ninja-state-select {
+.nui-item.nui-hover,
+.nui-slider-groove,
+.nui-select {
   background-color: #999;
 }
-.ninja-object-item.ninja-state-hover,
-.ninja-state-select {
+.nui-item.nui-hover,
+.nui-select {
   color: #fff;
   text-shadow: 0 1px 0 #666;
 }
-.ninja-object-item.ninja-state-hover g,
-.ninja-state-select g {
+.nui-item.nui-hover g,
+.nui-select g {
   fill: #fff;
   stroke: #fff;
 }
-.ninja-object-item {
+.nui-item {
   background: none;
   border: none;
   display: block;
   text-align: left;
   width: 100%;
 }
-.ninja-object-list,
-.ninja-object-dialog,
-.ninja-object-hint    {
+.nui-list,
+.nui-dialog,
+.nui-hint    {
   background-color: rgba(255,255,255,0.85);
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
@@ -186,26 +186,26 @@
   position: absolute;
   z-index: +1;
 }
-.ninja-object-list {
+.nui-list {
   padding: 0.6em 0;
   text-align: left;
 }
-.ninja-object-rule {
+.nui-rule {
   border-bottom: 1px solid #eee;
   border-top: 1px solid #ccc;
   margin: 0.4em 0;
 }
-.ninja-object-slider {
+.nui-slider {
   display: inline-block;
 }
-.ninja-object-slider-button,
-.ninja-object-slider-groove,
-.ninja-object-slider-level {
+.nui-slider-button,
+.nui-slider-groove,
+.nui-slider-level {
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   border-radius: 9px;
 }
-.ninja-object-slider-button {
+.nui-slider-button {
   height: 18px;
   left: 0;
   padding: 0;
@@ -213,15 +213,15 @@
   top: 0;
   width: 18px;
 }
-.ninja-object-slider-button.ninja-state-select {
+.nui-slider-button.nui-select {
   background-color: #ccc;
 }
-.ninja-object-slider-groove,
-.ninja-object-slider-level {
+.nui-slider-groove,
+.nui-slider-level {
   height: 4px;
 }
-.ninja-object-slider-groove,
-.ninja-state-select {
+.nui-slider-groove,
+.nui-select {
   background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
   background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
@@ -230,93 +230,93 @@
   background-image: linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0,0,0,0.2)', EndColorStr='rgba(255,255,255,0.1)');
 }
-.ninja-object-slider-groove {
+.nui-slider-groove {
   cursor: pointer;
   left: 9px;
   position: absolute;
   right: 9px;
   top: 5px;
 }
-.ninja-object-slider-level {
+.nui-slider-level {
   background-color: #6cf;
 }
-.ninja-object-slider-title {
+.nui-slider-title {
   font-weight: bold;
 }
-.ninja-object-slider-track {
+.nui-slider-track {
   height: 18px;
   position: relative;
 }
-.ninja-object-star {
+.nui-star {
   background: none;
   border: none;
   margin-right: 1px;
   padding: 0;
 }
-.ninja-object-star .ninja-object-icon {
+.nui-star .nui-icon {
   height: 18px;
   width: 18px;
 }
-.ninja-object-star g {
+.nui-star g {
   fill: #eee;
   stroke: #ccc;
   stroke-width: 1;
 }
-.ninja-object-star.ninja-state-average g {
+.nui-star.nui-average g {
   fill: #6cf;
   stroke: #39c;
 }
-.ninja-object-star.ninja-state-individual g {
+.nui-star.nui-individual g {
   fill: #c96;
   stroke: #963;
 }
-.ninja-object-stem {
+.nui-stem {
   display: inline-block;
   height: 8px;
   position: absolute;
   top: -8px;
   width: 8px;
 }
-.ninja-object-stem g {
+.nui-stem g {
   fill: rgba(255,255,255,0.85);
   stroke: #ccc;
 }
-.ninja-object-tabs-horizontal,
-.ninja-object-tabs-vertical {
+.nui-tabs-horizontal,
+.nui-tabs-vertical {
   white-space: nowrap;
 }
-.ninja-object-tabs-horizontal {
+.nui-tabs-horizontal {
   display: inline-block;
 }
-.ninja-object-tabs-vertical .ninja-object-tab {
+.nui-tabs-vertical .nui-tab {
   display: block;
 }
-.ninja-object-tab {
+.nui-tab {
   border-left-color: #ccc;
 }
-.ninja-object-tab:first-child {
+.nui-tab:first-child {
   border-left-color: #999;
   -webkit-border-radius: 0.35em 0 0 0.35em;
   -moz-border-radius: 0.35em 0 0 0.35em;
   border-radius: 0.35em 0 0 0.35em;
 }
-.ninja-object-tab:last-child {
+.nui-tab:last-child {
   border-right-color: #999;
   -webkit-border-radius: 0 0.35em 0.35em 0;
   -moz-border-radius: 0 0.35em 0.35em 0;
   border-radius: 0 0.35em 0.35em 0;
 }
-.ninja-object-tab.ninja-state-select {
+.nui-tab.nui-select {
   border-left-color: #666;
   border-right-color: #666;
 }
-.ninja-object-tab:first-child.ninja-state-select {
+.nui-tab:first-child.nui-select {
   border-left-color: #999;
 }
-.ninja-object-tab:last-child.ninja-state-select {
+.nui-tab:last-child.nui-select {
   border-right-color: #999;
 }
-.ninja-object-tray {
+.nui-tray {
   border: 1px solid #ccc;
   border-bottom-color: #eee;
   -webkit-border-radius: 0 0 0.35em 0.35em;
@@ -328,9 +328,9 @@
 /*
   State changes, keep these last and in order!
 */
-.ninja-state-placeholder {
+.nui-placeholder {
   color: #999;
 }
-.ninja-state-disable {
+.nui-disable {
   cursor: default !important;
 }

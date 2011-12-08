@@ -281,11 +281,11 @@ td { vertical-align: top; }
   white-space: nowrap;
 }
 
-.ninja-theme-dojo .ninjaui-example {
+.nui-dojo .ninjaui-example {
   background-color: #333;
 }
 
-.ninja-theme-neon .ninjaui-example {
+.nui-neon .ninjaui-example {
   background-color: #000;
 }
 
