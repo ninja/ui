@@ -14,7 +14,7 @@
 .nui-thm-dojo .nui-itm,
 .nui-thm-dojo .nui-tab {
   color: #fff;
-  text-shadow: 0 1px 0 #000;
+  text-shadow: 0 -1px 1px #000;
 }
 .nui-thm-dojo .nui-btn,
 .nui-thm-dojo .nui-lst,
@@ -25,6 +25,7 @@
   border-color: #000;
 }
 .nui-thm-dojo .nui-dlg,
+.nui-thm-dojo .nui-inp,
 .nui-thm-dojo .nui-lst,
 .nui-thm-dojo .nui-hnt {
   background-color: rgba(0,0,0,0.8);
@@ -43,6 +44,9 @@
 .nui-thm-dojo .nui-icn[aria-label=X] polygon {
   fill: #fff;
 }
+.nui-thm-dojo .nui-inp {
+  color: #fff;
+}
 .nui-thm-dojo .nui-itm.nui-hvr,
 .nui-thm-dojo .nui-slc {
   background-color: #c00;
@@ -51,7 +55,6 @@
 .nui-thm-dojo .nui-itm.nui-hvr,
 .nui-thm-dojo .nui-slc {
   color: #fff;
-  text-shadow: 0 1px 0 #666;
 }
 .nui-thm-dojo .nui-itm.nui-hvr g,
 .nui-thm-dojo .nui-slc g {
@@ -66,7 +69,7 @@
   background-color: #000;
 }
 .nui-thm-dojo .nui-sld-lvl {
-  background-color: #f00;
+  background-color: #c00;
 }
 .nui-thm-dojo .nui-str g {
   fill: #eee;
@@ -83,25 +86,6 @@
 .nui-thm-dojo .nui-stm g {
   fill: rgba(0,0,0,0.85);
   stroke: none;
-}
-.nui-thm-dojo .nui-tab {
-  border-left-color: #333;
-}
-.nui-thm-dojo .nui-tab:first-child {
-  border-left-color: #000;
-}
-.nui-thm-dojo .nui-tab:last-child {
-  border-right-color: #000;
-}
-.nui-thm-dojo .nui-tab.nui-slc {
-  border-left-color: #300;
-  border-right-color: #300;
-}
-.nui-thm-dojo .nui-tab:first-child.nui-slc {
-  border-left-color: #000;
-}
-.nui-thm-dojo .nui-tab:last-child.nui-slc {
-  border-right-color: #000;
 }
 .nui-thm-dojo .nui-try {
   background-color: #222;
