@@ -10,7 +10,7 @@
 /*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, node: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: false, undef: true, white: true*/
 
 var
-  version = '1.0.0rc1',
+  version = '1.0.0rc2',
   copyright = '/*! Ninja UI v' + version + ' ninjaui.com | ninjaui.com/#license */\n',
   help = [
     '',
