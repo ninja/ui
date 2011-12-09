@@ -190,20 +190,6 @@
 .nui-inp {
   padding-right: 17px;
 }
-/* item.hover, select */
-.nui-itm.nui-hvr,
-.nui-slc {
-  background-color: #06c;
-  border-color: #06c;
-  color: #fff;
-  text-shadow: 0 -1px 1px #06c;
-}
-/* item.hover g, select g */
-.nui-itm.nui-hvr g,
-.nui-slc g {
-  fill: #fff;
-  stroke: #fff;
-}
 /* item */
 .nui-itm {
   background: none;
@@ -290,10 +276,6 @@
   right: 9px;
   top: 5px;
 }
-/* slider-level */
-.nui-sld-lvl {
-  background-color: #6cf;
-}
 /* slider-title */
 .nui-sld-ttl {
   font-weight: bold;
@@ -324,13 +306,13 @@
 }
 /* star.average g */
 .nui-str.nui-avg g {
-  fill: #6cf;
-  stroke: #39c;
+  fill: #666;
+  stroke: #333;
 }
 /* star.individual g */
 .nui-str.nui-ind g {
-  fill: #c96;
-  stroke: #963;
+  fill: #06c;
+  stroke: #039;
 }
 /* stem */
 .nui-stm {
@@ -388,6 +370,25 @@
 /*
   State changes, keep these last and in order!
 */
+/* item.hover, select */
+/* slider-level */
+.nui-itm.nui-hvr,
+.nui-slc,
+.nui-sld-lvl {
+  background-color: #06c;
+}
+.nui-itm.nui-hvr,
+.nui-slc {
+  border-color: #06c;
+  color: #fff;
+  text-shadow: 0 -1px 1px #06c;
+}
+/* item.hover g, select g */
+.nui-itm.nui-hvr g,
+.nui-slc g {
+  fill: #fff;
+  stroke: #fff;
+}
 /* placeholder */
 .nui-plc {
   color: #999;

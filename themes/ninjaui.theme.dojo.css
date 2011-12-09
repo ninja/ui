@@ -72,12 +72,12 @@
   background-color: #c00;
 }
 .nui-thm-dojo .nui-str g {
-  fill: #eee;
-  stroke: #ccc;
+  fill: #999;
+  stroke: #666;
 }
 .nui-thm-dojo .nui-str.nui-avg g {
-  fill: #c96;
-  stroke: #963;
+  fill: #fff;
+  stroke: #ccc;
 }
 .nui-thm-dojo .nui-str.nui-ind g {
   fill: #c00;
