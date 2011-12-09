@@ -6,9 +6,9 @@ jQuery plugin enabling you to create beautiful web interface objects efficiently
 Dependencies
 ------------
 
-[jQuery](https://github.com/jquery/jquery/)
+[jQuery](http://jquery.com/)
 
-[npm](http://npmjs.org/) (Only for development)
+[Node.js](http://nodejs.org/) (Only for development)
 
 Develop
 -------
@@ -51,7 +51,7 @@ you may not use this file except in compliance with the License.
 
 You may obtain a copy of the License at
 
-[apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+[ninjaui.com/LICENSE](http://ninjaui.com/LICENSE)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

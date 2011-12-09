@@ -1,6 +1,9 @@
-/*
-  Copyright 2008-2011 Jamie Hoover.
-  Licensed per the terms of the Apache License v2.0. See Readme.md for details.
+/*!
+  Ninja User Interface jQuery Plugin vdevelopment
+  http://ninjaui.com/
+  Copyright 2008-2011 Jamie Hoover
+  Licensed per the terms of the Apache License v2.0
+  http://ninjaui.com/#license
 */
 
 /* autocomplete */
@@ -17,6 +20,7 @@
 .nui-atc .nui-icn[aria-label=spin] g {
   fill: #999 !important;
 }
+
 /* blocker */
 .nui-blk {
   background-color: rgba(255,255,255,0.5);
@@ -25,6 +29,7 @@
   top: 0;
   width: 100%;
 }
+
 /* button, item.hover, slider-button, slider-level, tab */
 .nui-btn,
 .nui-itm.nui-hvr,
@@ -40,6 +45,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(255,255,255,0.2)', EndColorStr='rgba(0,0,0,0.1)');
   position: relative;
 }
+
 /* button, item, tab */
 .nui-btn,
 .nui-itm,
@@ -48,6 +54,7 @@
   padding: 0.2em 1em;
   text-shadow: 0 1px 0 #fff;
 }
+
 /* button:hover, item.hover, slider-button, slider-groove, star:hover, tab:hover */
 .nui-btn:hover,
 .nui-itm.nui-hvr,
@@ -57,6 +64,7 @@
 .nui-tab:hover {
   cursor: pointer;
 }
+
 /* button, list, dialog, hint, slider-button, slider-groove, slider-level, tab, tray */
 .nui-btn,
 .nui-lst,
@@ -71,6 +79,7 @@
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
+
 /* button, list, dialog, hint, slider-button, slider-groove, tab, tray */
 .nui-btn,
 .nui-lst,
@@ -83,6 +92,7 @@
   background-color: #eee;
   border: 1px solid #666;
 }
+
 /* button, list, dialog, hint */
 .nui-btn,
 .nui-lst,
@@ -95,6 +105,7 @@
   -moz-border-radius: 0.4em;
   border-radius: 0.4em;
 }
+
 /* button, item, slider-button, star, tab */
 .nui-btn,
 .nui-itm,
@@ -104,17 +115,20 @@
   margin: 0;
   outline-width: 1px;
 }
+
 /* button, tab */
 .nui-btn,
 .nui-tab {
   text-align: center;
 }
+
 /* button icon, item icon, tab icon */
 .nui-btn .nui-icn,
 .nui-itm .nui-icn,
 .nui-tab .nui-icn {
   vertical-align: bottom;
 }
+
 /* dialog, hint */
 .nui-dlg,
 .nui-hnt {
@@ -127,6 +141,7 @@
   right: -11px;
   top: -11px;
 }
+
 /* drawer button */
 .nui-drw .nui-btn {
   display: block;
@@ -134,6 +149,7 @@
   text-align: left;
   width: 100%;
 }
+
 /* drawer button.select */
 .nui-drw .nui-btn.nui-slc {
   -webkit-border-radius: 0.35em 0.35em 0 0;
@@ -141,10 +157,12 @@
   border-radius: 0.35em 0.35em 0 0;
 
 }
+
 /* hint */
 .nui-hnt    {
   white-space: nowrap;
 }
+
 /* icon */
 .nui-icn {
   display: inline-block;
@@ -152,6 +170,7 @@
   vertical-align: middle;
   width: 1em;
 }
+
 /* icon g */
 .nui-icn g {
   fill: #333;
