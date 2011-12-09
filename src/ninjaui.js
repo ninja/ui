@@ -191,7 +191,7 @@
           $object.append($list);
           $(document).bind({
             'keydown.ninja': function (event) {
-              if ($.inArray(event.keyCode, [9, 38, 40]) > -1) {/* down or up */
+              if ($.inArray(event.keyCode, [9, 38, 40]) > -1) {/* tab, down or up */
                 event.preventDefault();/* prevents page scrolling and tabbing when a list is active */
               }
             },
@@ -255,12 +255,13 @@
                   $hover.removeClass('nui-hvr');
                 },
                 'click.ninja': function () {
-                  $object.trigger('delist.ninja').focus();
-                  if ($object.is('input[type=text]')) {
-                    $object.val(choice.value);
+                  var $input;
+                  if ($object.find('.nui-inp')) {
+                    $('.nui-inp').val(choice.value || choice.html || choice).focus();
                   }
                   if ($.isFunction(choice.select)) {
                     choice.select();
+                    $object.focus();
                   }
                 },
                 'mouseenter.ninja': function () {
