@@ -255,9 +255,9 @@
                   $hover.removeClass('nui-hvr');
                 },
                 'click.ninja': function () {
-                  var $input;
-                  if ($object.find('.nui-inp')) {
-                    $('.nui-inp').val(choice.value || choice.html || choice).focus();
+                  var $input = $object.find('.nui-inp');
+                  if ($input) {
+                    $input.val(choice.value || choice.html || choice).focus();
                   }
                   if ($.isFunction(choice.select)) {
                     choice.select();
