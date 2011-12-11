@@ -623,7 +623,7 @@
         var $star = $(star);
         $star.bind({
           'click.ninja select.ninja': function () {
-            options.select = i;
+            options.individual = i;
             $rating.trigger('mouseleave.ninja').trigger({
               type: 'select',
               stars: i
