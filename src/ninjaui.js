@@ -584,13 +584,13 @@
     rating: function (options) {
       options = $.extend({}, defaults, {
         average: 0,
-        select: 0,
+        individual: 0,
         stars: 5
       }, options);
       var
         i,
         $rating = $('<span/>', {
-          'class': 'nui-rating'
+          'class': 'nui-rtn'
         }).bind({
           'mouseleave.ninja': function () {
             $rating.find('.nui-str').each(function (ii, star) {
@@ -602,7 +602,7 @@
                   $star.removeClass('nui-avg');
                 }
               }
-              if (ii < options.select) {
+              if (ii < options.individual) {
                 $star.addClass('nui-ind');
               } else {
                 $star.removeClass('nui-ind');
