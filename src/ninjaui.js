@@ -172,6 +172,8 @@
         var
           $hover = null,
           $object = $(this).ninja(),
+          $button = $object.find('button'),
+          $input = $object.find('input'),
           $list = $('<div/>', {
             'class': 'nui-lst'
           });
@@ -255,16 +257,20 @@
                   $hover.removeClass('nui-hvr');
                 },
                 'click.ninja': function () {
-                  var $input = $object.find('.nui-inp');
+                  if ($button) {
+                    $button.focus();
+                  }
                   if ($input) {
                     $input.val(choice.value || choice.html || choice).focus();
                   }
                   if ($.isFunction(choice.select)) {
                     choice.select();
-                    $object.focus();
                   }
                 },
                 'mouseenter.ninja': function () {
+                  if ($button) {
+                    $button.blur();
+                  }
                   if ($hover) {
                     $hover.trigger('mouseleave.ninja');
                   }
@@ -372,7 +378,6 @@
           }
         }),
         $input = $('<input/>', {
-          'class': 'nui-inp',
           type: 'text'
         }).bind({
           'keyup.ninja': function (event) {
@@ -601,18 +606,25 @@
 
     menu: function (options) {
       options = $.extend({}, defaults, options);
-      var $menu = $.ninja.button($.extend({}, options, {
-        html: options.html
-      })).addClass('nui-mnu').append($.ninja.icon({
-        name: 'arrow-down'
-      })).select(function () {
-        $menu.blur().list(options);
-      }).deselect(function () {
-        $menu.delist();
-      }).delist(function () {
-        $menu.deselect();
-      });
-      return $menu;
+      var
+        $menu = $('<span/>', {
+          'class': 'nui-mnu'
+        }),
+        $button = $.ninja.button($.extend({}, options, {
+          html: options.html
+        })).select(function () {
+          $menu.list(options);
+        }).deselect(function () {
+          $menu.delist();
+        }).append($.ninja.icon({
+          name: 'arrow-down'
+        }));
+      $menu.bind({
+        'delist.ninja': function () {
+          $button.deselect();
+        }
+      }).append($button);
+      return $menu.ninja();
     },
 
     rating: function (options) {
