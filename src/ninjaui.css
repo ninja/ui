@@ -6,14 +6,14 @@
   http://ninjaui.com/#license
 */
 
-/* autocomplete, menu and slider-track */
+/* autocomplete, menu, slider-track */
 .nui-atc,
 .nui-mnu,
 .nui-sld-trk {
   position: relative;
 }
 
-/* autocomplete-spin, blocker, dialog, dialog-X, list, slider-button, slider-groove */
+/* autocomplete-icon-spin, blocker, dialog, dialog-icon-X, list, slider-button, slider-groove */
 .nui-atc .nui-icn[aria-label=spin],
 .nui-blk,
 .nui-dlg,
@@ -24,7 +24,16 @@
   position: absolute;
 }
 
-/* autocomplete-spin */
+/* autocomplete, icon, menu, slider, tabs-horizontal */
+.nui-atc,
+.nui-icn,
+.nui-mnu,
+.nui-sld,
+.nui-tab-hrz {
+  display: inline-block;
+}
+
+/* autocomplete-icon-spin */
 .nui-atc .nui-icn[aria-label=spin] {
   opacity: 0.5;
   right: 1px;
@@ -40,10 +49,10 @@
 .nui-blk,
 .nui-dlg,
 .nui-lst {
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgba(255,255,255,0.8);
 }
 
-/* blocker, drawer-button */
+/* blocker, drawer-button, item */
 .nui-blk,
 .nui-drw .nui-btn,
 .nui-itm {
@@ -57,7 +66,7 @@
   top: 0;
 }
 
-/* button, item-hover, slider-button, slider-level, tab */
+/* button, item.hover, slider-button, slider-level, tab */
 .nui-btn,
 .nui-itm.nui-hvr,
 .nui-sld-btn,
@@ -70,7 +79,7 @@
   background-image: -o-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
 }
 
-/* button, item, tab */
+/* button, item, tab, tray */
 .nui-btn,
 .nui-itm,
 .nui-tab,
@@ -86,21 +95,21 @@
   text-shadow: 0 1px 0 #fff;
 }
 
-/* button:hover, item.hover, slider-button, slider-groove, star:hover, tab:hover */
-.nui-btn:hover,
+/* button, dialog-icon-X, item, slider-button, slider-groove, star, tab */
+.nui-btn,
 .nui-dlg .nui-icn[aria-label=X],
-.nui-itm.nui-hvr,
+.nui-itm,
 .nui-sld-btn,
 .nui-sld-grv,
-.nui-str:hover,
-.nui-tab:hover {
+.nui-str,
+.nui-tab {
   cursor: pointer;
 }
 
-/* button, list, dialog, slider-button, slider-groove, slider-level, tab, tray */
+/* button, dialog, list, slider-button, slider-groove, slider-level, tab, tray */
 .nui-btn,
-.nui-lst,
 .nui-dlg,
+.nui-lst,
 .nui-sld-btn,
 .nui-sld-grv,
 .nui-sld-lvl,
@@ -111,25 +120,29 @@
   background-clip: padding-box;
 }
 
-/* button, list, dialog, slider-button, slider-groove, tab, tray */
+/* button, slider-button, slider-groove, tab, tray */
 .nui-btn,
-.nui-lst,
-.nui-dlg,
 .nui-sld-btn,
 .nui-sld-grv,
 .nui-tab,
 .nui-try {
   background-color: #eee;
-  border: 1px solid #666;
+  border: 1px solid #999;
 }
 
-/* button, list, dialog */
+/* button, dialog, list */
 .nui-btn,
-.nui-lst,
-.nui-dlg {
+.nui-dlg,
+.nui-lst {
   -webkit-border-radius: 0.4em;
   -moz-border-radius: 0.4em;
   border-radius: 0.4em;
+}
+
+/* dialog, list */
+.nui-dlg,
+.nui-lst {
+  border: 1px solid #ccc;
 }
 
 /* button, item, slider-button, star, tab */
@@ -148,17 +161,16 @@
   text-align: center;
 }
 
-/* button icon, item icon, tab icon */
+/* button-icon, item-icon, tab=icon */
 .nui-btn .nui-icn,
 .nui-itm .nui-icn,
 .nui-tab .nui-icn {
   vertical-align: bottom;
 }
 
-/* dialog and list */
+/* dialog, list */
 .nui-dlg,
 .nui-lst {
-  border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   -moz-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
@@ -172,7 +184,7 @@
   padding: 0.6em;
 }
 
-/* dialog, icon[aria-label=X] */
+/* dialog, icon-X */
 .nui-dlg .nui-icn[aria-label=X] {
   right: -11px;
   top: -11px;
@@ -204,20 +216,6 @@
   border-radius: 0.4em 0.4em 0 0;
 }
 
-/* list, tabs-horizontal, tabs-vertical */
-.nui-lst,
-.nui-tab-hrz,
-.nui-tab-vrt {
-  white-space: nowrap;
-}
-
-/* icon, slider, tabs-horizontal */
-.nui-icn,
-.nui-sld,
-.nui-tab-hrz {
-  display: inline-block;
-}
-
 /* icon */
 .nui-icn {
   height: 1em;
@@ -225,10 +223,24 @@
   width: 1em;
 }
 
-/* icon g */
+/* icon */
 .nui-icn g {
   fill: #333;
   stroke: #333;
+}
+
+/* icon-X, item.hover, select */
+.nui-icn[aria-label=X] polygon,
+.nui-itm.nui-hvr g,
+.nui-slc g {
+  fill: #fff;
+}
+
+/* icon-X, star */
+.nui-icn[aria-label=X] circle,
+.nui-str g {
+  stroke: #ccc;
+  stroke-width: 1;
 }
 
 /* icon-X */
@@ -237,25 +249,20 @@
   width: 22px;
 }
 
-/* icon-circle and star g */
-.nui-icn[aria-label=X] circle,
-.nui-str g {
-  stroke: #ccc;
-  stroke-width: 1;
-}
-
-/* icon-X polygon, item.hover and select */
-.nui-icn[aria-label=X] polygon,
-.nui-itm.nui-hvr g,
-.nui-slc g {
-  fill: #fff;
-}
 
 /* item, star */
 .nui-itm,
 .nui-str {
   background: none;
   border: none;
+}
+
+/* list, rating, tabs-horizontal, tabs-vertical */
+.nui-lst,
+.nui-rtn,
+.nui-tab-hrz,
+.nui-tab-vrt {
+  white-space: nowrap;
 }
 
 /* list */
@@ -278,7 +285,7 @@
   border-radius: 9px;
 }
 
-/* slider-button and star */
+/* slider-button, star */
 .nui-sld-btn,
 .nui-str {
   padding: 0;
@@ -327,24 +334,8 @@
 }
 
 /* star */
-.nui-str {
-  margin-right: 1px;
-}
-
-/* star g */
 .nui-str g {
   fill: #eee;
-}
-
-/* star.average g */
-.nui-str.nui-avg g {
-  fill: #666;
-}
-
-/* star.individual g */
-.nui-str.nui-ind g {
-  fill: #06c;
-  stroke: #039;
 }
 
 /* tab */
@@ -352,7 +343,7 @@
   border-left-style: none;
 }
 
-/* tab:first-child */
+/* tab-first */
 .nui-tab:first-child {
   border-left-style: solid;
   -webkit-border-radius: 0.4em 0 0 0.4em;
@@ -360,7 +351,7 @@
   border-radius: 0.4em 0 0 0.4em;
 }
 
-/* tab:last-child */
+/* tab-last */
 .nui-tab:last-child {
   -webkit-border-radius: 0 0.4em 0.4em 0;
   -moz-border-radius: 0 0.4em 0.4em 0;
@@ -369,7 +360,6 @@
 
 /* tray */
 .nui-try {
-  border: 1px solid #999;
   border-bottom-color: #ccc;
   -webkit-border-radius: 0 0 0.4em 0.4em;
   -moz-border-radius: 0 0 0.4em 0.4em;
@@ -396,7 +386,7 @@
   text-shadow: 0 -1px 1px #06c;
 }
 
-/* item.hover g, select g */
+/* item.hover, select */
 .nui-itm.nui-hvr g,
 .nui-slc g {
   stroke: #fff;
@@ -410,6 +400,18 @@
 /* slider-button.select */
 .nui-sld-btn.nui-slc {
   background-color: #ccc;
+  border-color: #999;
+}
+
+/* star.average */
+.nui-str.nui-avg g {
+  fill: #666;
+}
+
+/* star.individual */
+.nui-str.nui-ind g {
+  fill: #06c;
+  stroke: #039;
 }
 
 /* disable */

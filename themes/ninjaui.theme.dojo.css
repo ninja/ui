@@ -4,87 +4,113 @@
   Licensed per the terms of the Apache License v2.0.
   http://ninjaui.com/#license
 */
-.nui-thm-dojo {
+
+/* button, item, select, tab */
+.nui-thm-dojo .nui-btn,
+.nui-thm-dojo .nui-itm,
+.nui-thm-dojo .nui-slc,
+.nui-thm-dojo .nui-tab {
   color: #fff;
 }
-.nui-thm-dojo .nui-blk {
-  background-color: rgba(0,0,0,0.4);
+
+/* blocker, dialog, list */
+.nui-thm-dojo .nui-blk,
+.nui-thm-dojo .nui-dlg,
+.nui-thm-dojo .nui-lst {
+  background-color: rgba(0,0,0,0.8);
 }
+
+/* button, item, tab */
 .nui-thm-dojo .nui-btn,
 .nui-thm-dojo .nui-itm,
 .nui-thm-dojo .nui-tab {
-  color: #fff;
   text-shadow: 0 -1px 1px #000;
 }
+
+/* button, slider-button, slider-button.select, slider-groove, tab, tray */
 .nui-thm-dojo .nui-btn,
-.nui-thm-dojo .nui-lst,
 .nui-thm-dojo .nui-sld-btn,
+.nui-thm-dojo .nui-sld-btn.nui-slc,
+.nui-thm-dojo .nui-sld-grv,
+.nui-thm-dojo .nui-tab,
+.nui-thm-dojo .nui-try {
+  border-color: #000;
+}
+
+/* button, slider-button, slider-button.select, slider-groove, tab */
+.nui-thm-dojo .nui-btn,
+.nui-thm-dojo .nui-sld-btn,
+.nui-thm-dojo .nui-sld-btn.nui-slc,
 .nui-thm-dojo .nui-sld-grv,
 .nui-thm-dojo .nui-tab {
   background-color: #333;
-  border-color: #000;
 }
+
+/* dialog, list */
 .nui-thm-dojo .nui-dlg,
-.nui-thm-dojo .nui-inp,
 .nui-thm-dojo .nui-lst {
-  background-color: rgba(0,0,0,0.8);
-  border: none;
+  border-color: #666;
 }
-.nui-thm-dojo .nui-icn g {
+
+/* icon, item.hover, select, star.average */
+.nui-thm-dojo .nui-icn g,
+.nui-thm-dojo .nui-itm.nui-hvr g,
+.nui-thm-dojo .nui-slc g,
+.nui-thm-dojo .nui-str.nui-avg g {
   fill: #fff;
+}
+
+/* icon, icon-X, item.hover, select */
+.nui-thm-dojo .nui-icn g,
+.nui-thm-dojo .nui-icn[aria-label=X] circle,
+.nui-thm-dojo .nui-icn[aria-label=X] polygon,
+.nui-thm-dojo .nui-itm.nui-hvr g,
+.nui-thm-dojo .nui-slc g {
   stroke: #fff;
 }
+
+/* icon-X */
 .nui-thm-dojo .nui-icn[aria-label=X] g {
   fill: #900;
 }
-.nui-thm-dojo .nui-icn[aria-label=X] circle {
-  stroke: #fff;
-}
-.nui-thm-dojo .nui-icn[aria-label=X] polygon {
-  fill: #fff;
-}
-.nui-thm-dojo .nui-inp {
-  color: #fff;
-}
+
+/* item.hover, select */
 .nui-thm-dojo .nui-itm.nui-hvr,
 .nui-thm-dojo .nui-slc {
   background-color: #c00;
   border-color: #900;
+  text-shadow: 0 -1px 1px #300;
 }
-.nui-thm-dojo .nui-itm.nui-hvr,
-.nui-thm-dojo .nui-slc {
-  color: #fff;
-}
-.nui-thm-dojo .nui-itm.nui-hvr g,
-.nui-thm-dojo .nui-slc g {
-  fill: #fff;
-  stroke: #fff;
-}
+
+/* rule */
 .nui-thm-dojo .nui-rul {
-  border-bottom-color: #333;
-  border-top-color: #000;
+  border-top-color: #666;
 }
-.nui-thm-dojo .nui-sld-btn.nui-slc {
-  background-color: #000;
-}
+
+/* slider-level */
 .nui-thm-dojo .nui-sld-lvl {
   background-color: #c00;
 }
+
+/* star */
 .nui-thm-dojo .nui-str g {
   fill: #999;
   stroke: #666;
 }
+
+/* star.average */
 .nui-thm-dojo .nui-str.nui-avg g {
-  fill: #fff;
   stroke: #ccc;
 }
+
+/* star.individual */
 .nui-thm-dojo .nui-str.nui-ind g {
   fill: #c00;
   stroke: #900;
 }
+
+/* tray */
 .nui-thm-dojo .nui-try {
   background-color: #222;
-  border-color: #111;
   border-bottom-color: #444;
-  border-top-color: #000;
 }
