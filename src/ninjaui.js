@@ -120,52 +120,6 @@
       });
     },
 
-    hint: function (options) {
-      return this.each(function () {
-        options = $.extend({}, defaults, options);
-        var
-          $object = $(this),
-          $hint = $('<span/>', {
-            'class': 'nui-hnt',
-            css: options.css,
-            html: options.html
-          }),
-          $stem = $('<svg class="nui-stm" height="1" width="1" version="1.1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg"><g><polygon points="4,1 8,8 1,8" stroke-width="0"/><line x1="4" x2="0" y2="8"/><line x1="4" x2="8" y2="8"/></g></svg>').appendTo($hint);
-        if (options.css) {
-          $stem.find('g').css(options.css);
-        }
-        $object.bind({
-          'mouseenter.ninja': function () {
-            $hint.css({
-              top: $object.outerHeight() + 6
-            }).appendTo($object);
-            if (($hint.offset().left + $hint.outerWidth()) > ($(window).scrollLeft() + $(window).width())) {
-              $hint.css({
-                left: 'auto',
-                right: 0
-              });
-              $stem.css({
-                left: 'auto',
-                right: ($object.outerWidth() / 2) - 4
-              });
-            } else {
-              $hint.css({
-                left: 0,
-                right: 'auto'
-              });
-              $stem.css({
-                left: ($object.outerWidth() / 2) - 4,
-                right: 'auto'
-              });
-            }
-          },
-          'mouseleave.ninja select.ninja': function () {
-            $hint.detach();
-          }
-        });
-      });
-    },
-
     list: function (options) {
       return this.each(function () {
         options = $.extend({}, defaults, options);

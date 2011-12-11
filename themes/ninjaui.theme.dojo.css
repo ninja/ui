@@ -26,8 +26,7 @@
 }
 .nui-thm-dojo .nui-dlg,
 .nui-thm-dojo .nui-inp,
-.nui-thm-dojo .nui-lst,
-.nui-thm-dojo .nui-hnt {
+.nui-thm-dojo .nui-lst {
   background-color: rgba(0,0,0,0.8);
   border: none;
 }
@@ -82,10 +81,6 @@
 .nui-thm-dojo .nui-str.nui-ind g {
   fill: #c00;
   stroke: #900;
-}
-.nui-thm-dojo .nui-stm g {
-  fill: rgba(0,0,0,0.85);
-  stroke: none;
 }
 .nui-thm-dojo .nui-try {
   background-color: #222;
