@@ -134,7 +134,7 @@
         if ($object.is('.nui-atc')) {
           $object.find('.nui-icn[aria-label=spin]').hide();
         }
-        if (options.choices.length) {
+        if (options.values.length) {
           $object.bind({
             'delist.ninja': function () {
               $(document).unbind('click.ninja keydown.ninja keyup.ninja');
@@ -188,7 +188,7 @@
             }
           });
           if (options.query) {
-            options.choices = $.map(options.choices, function (item) {
+            options.values = $.map(options.values, function (item) {
               item.value = item.value  || item.html || item;
               if (item.html) {
                 item.html = item.html.toString().replace(new RegExp(options.query, 'gi'), '<b>' + options.query + '</b>');
@@ -196,17 +196,17 @@
               return item;
             });
           }
-          $.each(options.choices, function (i, choice) {
-            var $choice;
-            if (choice.spacer) {
-              $choice = $('<div/>', {
+          $.each(options.values, function (i, value) {
+            var $value;
+            if (value.rule) {
+              $value = $('<div/>', {
                 'class': 'nui-rul'
               });
             } else {
-              $choice = $('<button/>', {
+              $value = $('<button/>', {
                 'class': 'nui-itm'
               });
-              $choice.bind({
+              $value.bind({
                 'mouseleave.ninja': function () {
                   $hover.removeClass('nui-hvr');
                 },
@@ -215,10 +215,10 @@
                     $button.focus();
                   }
                   if ($input) {
-                    $input.val(choice.value || choice.html || choice).focus();
+                    $input.val(value.value || value.html || value).focus();
                   }
-                  if ($.isFunction(choice.select)) {
-                    choice.select();
+                  if ($.isFunction(value.select)) {
+                    value.select();
                   }
                 },
                 'mouseenter.ninja': function () {
@@ -228,11 +228,11 @@
                   if ($hover) {
                     $hover.trigger('mouseleave.ninja');
                   }
-                  $hover = $choice.addClass('nui-hvr');
+                  $hover = $value.addClass('nui-hvr');
                 }
               });
             }
-            $choice.html(choice.html || choice).appendTo($list);
+            $value.html(value.html || value).appendTo($list);
           });
           if (($list.offset().top + $list.outerHeight()) > ($(window).scrollTop() + $(window).height())) {
             $list.css({
@@ -297,13 +297,13 @@
       });
     },
 
-    source: function (callback) {
+    values: function (callback) {
       return this.each(function () {
         var $object = $(this).ninja();
         if ($.isFunction(callback)) {
-          $object.bind('source.ninja', callback);
+          $object.bind('values.ninja', callback);
         } else if ($object.val() !== '') {
-          $object.trigger('source.ninja');
+          $object.trigger('values.ninja');
         }
       });
     }
@@ -326,7 +326,7 @@
               event.html = $input.val();
             }
           },
-          'source.ninja': function (event) {
+          'values.ninja': function (event) {
             $input.delist();
             event.query = $input.val();
           }
@@ -343,10 +343,10 @@
                   $spin.show();
                 } else {
                   $.ninja.icon({
-                    name: 'spin'
+                    value: 'spin'
                   }).appendTo($autocomplete);
                 }
-                $input.source();
+                $input.values();
               }, 1000);
             }
           }
@@ -412,7 +412,7 @@
           html: options.html
         }),
         $button = $.ninja.icon({
-          name: 'X'
+          value: 'X'
         }).bind('click.ninja', function () {
           $dialog.detach();
         }).appendTo($dialog),
@@ -459,14 +459,14 @@
           html: options.html
         }).appendTo($drawer),
         $arrowDown = $.ninja.icon({
-          name: 'arrow-down'
+          value: 'arrow-down'
         }),
         $arrowRight = $.ninja.icon({
-          name: 'arrow-right'
+          value: 'arrow-right'
         }),
         $handle = $.ninja.button($.extend({}, options, {
           select: options.select,
-          html: options.title
+          html: options.value
         })).bind({
           'deselect.ninja': function () {
             $tray.slideUp('fast', function () {
@@ -491,7 +491,7 @@
 
     icon: function (options) {
       options = $.extend({}, defaults, {
-        name: 'spin'
+        value: 'spin'
       }, options);
       var
         $icon,
@@ -507,51 +507,51 @@
         onload = '',
         points = '',
         rotate = '';
-      if ($.inArray(options.name, ['arrow-down', 'arrow-right']) > -1) {
-        if (options.name === 'arrow-down') {
+      if ($.inArray(options.value, ['arrow-down', 'arrow-right']) > -1) {
+        if (options.value === 'arrow-down') {
           points = '4,4 12,4 8,12';
         } else {
           points = '4,4 12,8 4,12';
         }
         g = '<polygon points="' + points + '"/>';
-      } else if (options.name === 'camera') {
+      } else if (options.value === 'camera') {
         defs = '<defs><mask id="' + idMask + '">' + maskBackground + '<circle cx="8" cy="9" r="5"/></mask></defs>';
         g = '<rect x="0" y="4" width="16" height="11" rx="2" ry="2" mask="url(#' + idMask + ')"/><polygon points="4,8 4,4 6,1 10,1 12,4 12,8" mask="url(#' + idMask + ')"/><circle cx="8" cy="9" r="3"/>';
-      } else if ($.inArray(options.name, ['X', 'x', '-', '+']) > -1) {
-        if (options.name === '-') {
+      } else if ($.inArray(options.value, ['X', 'x', '-', '+']) > -1) {
+        if (options.value === '-') {
           mask = '<rect x="4" y="7" width="8" height="2"/>';
         } else {
-          if (options.name !== '+') {
+          if (options.value !== '+') {
             rotate = ' transform="rotate(45 8 8)"';
           }
           mask = '<polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
         }
-        if (options.name === 'X') {
+        if (options.value === 'X') {
           g = '<circle cx="8" cy="8" r="7"/><polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
         } else {
           defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
           g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
         }
-      } else if (options.name === 'email') {
+      } else if (options.value === 'email') {
         g = '<polygon points="0,2 8,10 16,2"/><polygon points="16,4 12,8 16,12"/><polygon points="0,14 5,9 8,12 11,9 16,14"/><polygon points="0,4 4,8 0,12"/>';
-      } else if (options.name === 'go') {
+      } else if (options.value === 'go') {
         g = '<circle' + border + ' cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="5"/>';
-      } else if (options.name === 'home') {
+      } else if (options.value === 'home') {
         g = '<polygon points="0,10 0,8 8,0 16,8 16,10 14,10 14,16 10,16 10,10 6,10 6,16 2,16 2,10"/><rect x="11" y="16" width="4" height="8"/>';
-      } else if (options.name === 'search') {
+      } else if (options.value === 'search') {
         g = '<circle' + border + ' cx="7" cy="7" r="5"/><polygon points="9,11 11,9 16,14 14,16"/>';
-      } else if (options.name === 'star') {
+      } else if (options.value === 'star') {
         g = '<polygon points="0,6 6,6 8,0 10,6 16,6 11,10 13,16 8,12 3,16 5,10"/>';
-      } else if (options.name === 'stop') {
+      } else if (options.value === 'stop') {
         g = '<polygon' + border + ' points="1,11 1,5 5,1 11,1 15,5 15,11 11,15 5,15"/><polygon points="3,10 3,6 6,3 10,3 13,6 13,10 10,13 6,13"/>';
-      } else if (options.name === 'yield') {
+      } else if (options.value === 'yield') {
         g = '<polygon' + border + ' points="8,1 15,15 1,15"/><polygon points="8,5 12,13 4,13"/>';
-      } else if (options.name === 'spin') {
+      } else if (options.value === 'spin') {
         onload = ' onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 8 8)\');},100)"';
         defs = '<defs><rect id="' + idSymbol + '" x="7" width="2" height="4"/></defs>';
         g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 8 8)"/><use xlink:href="#' + idSymbol + '"/>';
       }
-      $icon = $('<svg aria-label="' + options.name + '" class="nui-icn" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>' + options.name + '</title>' + defs + '<g id="' + idVector + '" stroke-width="0">' + g + '</g></svg>');
+      $icon = $('<svg aria-label="' + options.value + '" class="nui-icn" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>' + options.value + '</title>' + defs + '<g id="' + idVector + '" stroke-width="0">' + g + '</g></svg>');
       if (options.css) {
         $icon.find('g').css(options.css);
       }
@@ -571,7 +571,7 @@
         }).deselect(function () {
           $menu.delist();
         }).append($.ninja.icon({
-          name: 'arrow-down'
+          value: 'arrow-down'
         }));
       $menu.bind({
         'delist.ninja': function () {
@@ -585,7 +585,7 @@
       options = $.extend({}, defaults, {
         average: 0,
         individual: 0,
-        stars: 5
+        values: 5
       }, options);
       var
         i,
@@ -610,11 +610,11 @@
             });
           }
         });
-      for (i = 0; i < options.stars; i++) {
+      for (i = 0; i < options.values; i++) {
         $('<button/>', {
           'class': 'nui-str',
           html: $.ninja.icon({
-            'name': 'star'
+            value: 'star'
           })
         }).appendTo($rating);
       }
@@ -626,7 +626,7 @@
             options.individual = i;
             $rating.trigger('mouseleave.ninja').trigger({
               type: 'select',
-              stars: i
+              value: i
             });
           },
           'mouseenter.ninja': function () {
@@ -647,19 +647,19 @@
 
     slider: function (options) {
       options = $.extend({}, defaults, {
-        slot: 0,
+        value: 0,
         width: 200
       }, options);
       var
         drag = false,
         offsetX = 0,
         touch,
-        slots = options.choices.length - 1,
+        slots = options.values.length - 1,
         increment = options.width / slots,
-        left = options.slot * increment,
-        $choice = $('<span/>', {
-          'class': 'nui-sld-choice',
-          html: options.choices[options.slot].html
+        left = options.value * increment,
+        $value = $('<span/>', {
+          'class': 'nui-sld-value',
+          html: options.values[options.value].html
         }),
         $button = $('<button/>', {
           'class': 'nui-sld-btn',
@@ -682,18 +682,18 @@
             } else {
               slot = event.sliderX;
             }
-            event.choice = options.choices[slot];
-            $choice.html(event.choice.html);
+            event.value = options.values[slot];
+            $value.html(event.value.html);
             left = slot * increment;
             $button.css({ left: left });
             $level.css({ width: left });
           },
           'select.ninja': function (event) {
-            if (event.choice.select) {
-              event.choice.select(event);
+            if (event.value.select) {
+              event.value.select(event);
             }
           }
-        }).append($choice),
+        }).append($value),
         $track = $('<div/>', {
           'class': 'nui-sld-trk',
           css: { width: trackWidth }
@@ -707,25 +707,25 @@
           });
         });
       $track.append($groove.append($level), $button);
-      if (options.title) {
-        $choice.before($('<span/>', {
+      if (options.html) {
+        $value.before($('<span/>', {
           'class': 'nui-sld-ttl',
-          text: options.title + ': '
+          html: options.html + ': '
         }));
       }
       $button.bind({
         'keyup.ninja': function (event) {
           if ($.inArray(event.keyCode, [37, 39]) > -1) {/* right or left */
             var
-              choice,
+              value,
               slot = Math.round($button.position().left / increment);
             if (slot > 0 && event.keyCode === 37) {/* left arrow */
               slot--;
             } else if (slot < slots && event.keyCode === 39) {/* right arrow */
               slot++;
             }
-            choice = options.choices[slot];
-            $choice.html(choice.html);
+            value = options.values[slot];
+            $value.html(value.html);
             left = slot * increment;
             $button.css({ left: left });
             $level.css({ width: left });
@@ -789,7 +789,7 @@
 
     tabs: function (options) {
       options = $.extend({}, defaults, {
-        choice: 1
+        value: 1
       }, options);
       var $tabs = $('<span/>');
       if (options.vertical) {
@@ -797,11 +797,11 @@
       } else {
         $tabs.addClass('nui-tab-hrz');
       }
-      $.each(options.choices, function (i, choice) {
+      $.each(options.values, function (i, value) {
         var $tab = $('<button/>', {
           'class': 'nui-tab',
           css: options.css,
-          html: choice.html || choice
+          html: value.html || value
         }).bind({
           'click.ninja': function () {
             if (!$tab.is('.nui-dsb') && !$tab.is('.nui-slc')) {
@@ -821,12 +821,12 @@
           'select.ninja': function () {
             $tabs.children().not($tab).removeClass('nui-slc');
             $tab.addClass('nui-slc');
-            if ($.isFunction(choice.select)) {
-              choice.select();
+            if ($.isFunction(value.select)) {
+              value.select();
             }
           }
         }).appendTo($tabs);
-        if (i === options.choice - 1) {
+        if (i === options.value - 1) {
           $tab.select();
         }
       });

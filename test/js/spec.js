@@ -63,7 +63,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
         var $autocomplete = $.ninja.autocomplete({
           placeholder: 'United States Cities'
-        }).source(function (event) {
+        }).values(function (event) {
           $.ajax({
             url: 'http://ws.geonames.org/searchJSON',
             dataType: 'jsonp',
@@ -76,7 +76,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             },
             success: function (data) {
               $autocomplete.list({
-                choices: $.map(data.geonames, function (item) {
+                values: $.map(data.geonames, function (item) {
                   return {
                     html: item.name + ', ' + item.adminName1,
                     value: item.name + ', ' + item.adminCode1
@@ -205,7 +205,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
         $drawer = $.ninja.drawer({
           html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
-          title: 'Drawer'
+          value: 'Drawer'
         });
 
         $drawerSelect = $.ninja.drawer({
@@ -214,7 +214,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           },
           html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           select: true,
-          title: '<i>Selected</i> Drawer'
+          value: '<i>Selected</i> Drawer'
         });
 
         $examples.append('<div class="ninjaui-example-title">$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
@@ -243,16 +243,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
       });
 
-      describe('$(\'#object\').ninja().hint()', function () {
-        var
-          $buttonHint = $.ninja.button({
-            html: 'Hint'
-          }).hint({
-            html: '<div>This is <b>HTML</b> inside the hint.</div>'
-          });
-        $examples.append('<div class="ninjaui-example-title">$.ninja.x.hint() or $(\'#foo\').ninja().hint()</div>', $example.clone().append($buttonHint));
-      });
-
       describe('$.ninja.icon()', function () {
 
         $examples.append('<div class="ninjaui-example-title">$.ninja.icon()</div>');
@@ -268,25 +258,25 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               css: {
                 margin: '80px'
               },
-              name: iconName
+              value: iconName
             });
           } else if (iconName === 'yield') {
             $icon = $.ninja.icon({
               css: {
                 margin: '96px'
               },
-              name: iconName
+              value: iconName
             });
           } else if (iconName === 'go') {
             $icon = $.ninja.icon({
               css: {
                 margin: '64px'
               },
-              name: iconName
+              value: iconName
             });
           } else {
             $icon = $.ninja.icon({
-              name: iconName
+              value: iconName
             });
           }
           $exampleIcon = $('<span/>', {
@@ -332,7 +322,8 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             $message.html(':( Try again.');
           },
           $menu = $.ninja.menu({
-            choices: [
+            html: 'Menu',
+            values: [
               {
                 html: '<div>Mo</div>',
                 select: function () {
@@ -351,7 +342,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
                   $message.html('Hey, Mo!');
                 }
               },
-              { spacer: true },
+              { rule: true },
               {
                 html: '<div>Shemp</div>',
                 select: function () {
@@ -370,8 +361,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
                   please();
                 }
               }
-            ],
-            html: 'Menu'
+            ]
           });
 
         $examples.append('<div class="ninjaui-example-title">$.ninja.menu()</div>', $example.clone().append($menu, ' ', $message));
@@ -383,7 +373,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           $rating = $.ninja.rating({
             average: 3
           }).select(function (event) {
-            $message.html('New rating: ' + event.stars + ' stars');
+            $message.html('New rating: ' + event.value + ' stars');
           });
         $examples.append('<div class="ninjaui-example-title">$.ninja.rating()</div>', $example.clone().append($rating, ' ', $message));
       });
@@ -394,7 +384,9 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             var foo = 'bar';
           },
           $slider = $.ninja.slider({
-            choices: [
+            html: 'Volume',
+            value: 3,
+            values: [
               {
                 html: '<span title="Silence">0 dB</span>',
                 select: function (event) {
@@ -413,9 +405,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               { html: '<span title="Threshold of pain">130 dB</span>' },
               { html: '<span title="Jet engine at 30 m">150 dB</span>' },
               { html: '<span title="M1 Garand rifle being fired at 1 m">168 dB</span>' }
-            ],
-            slot: 3,
-            title: 'Volume'
+            ]
           });
 
         $examples.append('<div class="ninjaui-example-title">$.ninja.slider()</div>', $example.clone().append($slider));
@@ -428,7 +418,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             $message.html('You have chosen... poorly.');
           },
           $tabs = $.ninja.tabs({
-            choices: [
+            values: [
               {
                 html: '<div><i>Gold</i> Tab</div>',
                 select: function () {

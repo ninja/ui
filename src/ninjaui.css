@@ -45,13 +45,6 @@
   padding-right: 17px;
 }
 
-/* blocker, dialog, list */
-.nui-blk,
-.nui-dlg,
-.nui-lst {
-  background-color: rgba(255,255,255,0.8);
-}
-
 /* blocker, drawer-button, item */
 .nui-blk,
 .nui-drw .nui-btn,
@@ -64,6 +57,11 @@
 .nui-sld-btn {
   left: 0;
   top: 0;
+}
+
+/* blocker, dialog, list */
+.nui-blk {
+  background-color: rgba(255,255,255,0.5);
 }
 
 /* button, item.hover, slider-button, slider-level, tab */
@@ -139,12 +137,6 @@
   border-radius: 0.4em;
 }
 
-/* dialog, list */
-.nui-dlg,
-.nui-lst {
-  border: 1px solid #ccc;
-}
-
 /* button, item, slider-button, star, tab */
 .nui-btn,
 .nui-itm,
@@ -157,7 +149,7 @@
 
 /* button, tab */
 .nui-btn,
-.nui-tab {
+.nui-tab-hrz .nui-tab {
   text-align: center;
 }
 
@@ -171,6 +163,8 @@
 /* dialog, list */
 .nui-dlg,
 .nui-lst {
+  background-color: rgba(255,255,255,0.9);
+  border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   -moz-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
   -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
@@ -184,7 +178,7 @@
   padding: 0.6em;
 }
 
-/* dialog, icon-X */
+/* dialog-icon-X */
 .nui-dlg .nui-icn[aria-label=X] {
   right: -11px;
   top: -11px;
@@ -363,7 +357,6 @@
 .nui-tab-vrt .nui-tab {
   border-top-style: none;
   display: block;
-  text-align: left;
   width: 100%;
 }
 
@@ -434,6 +427,7 @@
 }
 
 /* disable */
-.nui-dsb {
-  cursor: default !important;
+.nui-dsb,
+.nui-tab.nui-slc {
+  cursor: default;
 }
