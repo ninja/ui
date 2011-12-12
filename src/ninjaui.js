@@ -595,7 +595,7 @@
           'mouseleave.ninja': function () {
             $rating.find('.nui-str').each(function (ii, star) {
               var $star = $(star);
-              if (options.select === 0) {
+              if (options.individual === 0) {
                 if (ii < options.average) {
                   $star.addClass('nui-avg');
                 } else {
