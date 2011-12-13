@@ -15,7 +15,6 @@
   'use strict';
 
   var
-    browser = $.browser,
     defaults,
     objects,
     methods,
@@ -26,18 +25,6 @@
 
   if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4) {
     $.error('Ninja UI requires jQuery 1.4.3 or higher.');
-  }
-
-  if (browser.msie && parseFloat(browser.version) < '9') {
-    $('<script/>', {
-      defer: '',
-      src: 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'
-    }).appendTo('head');
-    $(document).ready(function () {
-      CFInstall.check({
-        mode: 'overlay'
-      });
-    });
   }
 
   $('<link/>', {
