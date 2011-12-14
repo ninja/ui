@@ -1,7 +1,7 @@
-[Ninja UI](http://ninjaui.com/) - jQuery Webjutsu
+[Ninja User Interface](http://ninjaui.com/)
 =================================================
 
-jQuery plugin enabling you to create beautiful web interface objects efficiently and unobtrusively.
+the jQuery plugin for lethal interaction
 
 Dependencies
 ------------
@@ -51,7 +51,7 @@ you may not use this file except in compliance with the License.
 
 You may obtain a copy of the License at
 
-[ninjaui.com/LICENSE](http://ninjaui.com/LICENSE)
+[ninjaui.com/LICENSE.txt](http://ninjaui.com/LICENSE.txt)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
