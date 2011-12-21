@@ -230,7 +230,6 @@
 .nui-icn[aria-label=X] circle,
 .nui-str g {
   stroke: #ccc;
-  stroke-width: 1;
 }
 
 /* icon-X */
@@ -425,4 +424,43 @@
 .nui-dsb,
 .nui-tab.nui-slc {
   cursor: default;
+}
+
+img[aria-label=spin] {
+  -webkit-animation: spin 1.5s infinite linear;
+  -moz-animation: spin 1.5s infinite linear;
+  -o-animation: spin 1.5s infinite linear;
+  -ms-animation: spin 1.5s infinite linear;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
 }

@@ -18,10 +18,15 @@
     defaults,
     objects,
     methods,
+    svg,
+    svgInline,
+    svgNamespace = 'http://www.w3.org/2000/svg',
     time,
     version = $.fn.jquery.split('.'),
     versionMinor = parseFloat(version[1]),
-    versionIncrement = parseFloat(version[2] || '0');
+    versionIncrement = parseFloat(version[2] || '0'),
+    vml,
+    $test = $('<div>').append('body');
 
   if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4) {
     $.error('Ninja UI requires jQuery 1.4.3 or higher.');
@@ -31,6 +36,17 @@
     rel: 'stylesheet',
     href: '../src/ninjaui.css'
   }).appendTo('head');
+
+  $test.html('<svg>');
+  svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
+  if (!svgInline) {
+    svg = !!document.createElementNS && !!document.createElementNS(svgNamespace, 'svg').createSVGRect;
+    if (!svg) {
+      $test.html($('<shape>').css('behavior', 'url(#default#VML)'));
+      vml = $test.find('shape')[0].adj;
+    }
+  }
+  $test.remove();
 
   time = $.now();
 
@@ -457,21 +473,21 @@
         })).bind({
           'deselect.ninja': function () {
             $tray.slideUp('fast', function () {
-              $arrowDown.detach();
-              $handle.prepend($arrowRight);
+              $arrowDown.remove();
+              $arrowRight.prependTo($handle);
             });
           },
           'select.ninja': function () {
-            $arrowRight.detach();
-            $handle.prepend($arrowDown);
+            $arrowRight.remove();
+            $arrowDown.prependTo($handle);
             $tray.slideDown('fast');
           }
         }).prependTo($drawer);
       if (options.select) {
-        $handle.prepend($arrowDown);
+        $arrowDown.prependTo($handle);
       } else {
-        $handle.prepend($arrowRight);
         $tray.hide();
+        $arrowRight.prependTo($handle);
       }
       return $drawer.ninja();
     },
@@ -481,68 +497,243 @@
         value: 'spin'
       }, options);
       var
-        $icon,
-        border = ' fill="none" stroke-width="2"',
-        defs = '',
-        g = '',
         id = uniqueId(),
-        idMask = id + 'Mask',
-        idSymbol = id + 'Symbol',
-        idVector = id + 'Vector',
-        mask = '',
-        maskBackground = '<rect fill="#fff" x="0" y="0" width="16" height="16"/>',
-        onload = '',
-        points = '',
-        rotate = '';
+        idMask = 'mask' + id ,
+        idSymbol = 'symbol' + id ,
+        idG = 'g' + id,
+        $circle = $('<circle>'),
+        $defs = $('<defs>'),
+        $g = $('<g>', {
+          id: idG,
+          'stroke-width': 0
+        }),
+        $rect = $('<rect>'),
+        $mask = $('<mask>', {
+          id: idMask
+        }).append($rect.clone().attr({
+          fill: '#fff',
+          height: 16,
+          width: 16
+        })),
+        $polygon = $('<polygon>'),
+        $svg = $('<svg>', {
+          'aria-label': options.value,
+          'class': 'nui-icn',
+          role: 'img',
+          version: '1.1',
+          viewBox: '0 0 16 16',
+          xmlns: 'http://www.w3.org/2000/svg'
+        }).attr({
+          height: '16',
+          width: '16'
+        }),
+        $vpolyline = $('<polyline>', {
+          fillcolor: '#000',
+          strokecolor: '#666'
+        });
       if ($.inArray(options.value, ['arrow-down', 'arrow-right']) > -1) {
         if (options.value === 'arrow-down') {
-          points = '4,4 12,4 8,12';
+          $polygon.attr('points', '4,4 12,4 8,12').appendTo($g);
         } else {
-          points = '4,4 12,8 4,12';
+          $polygon.attr('points', '4,4 12,8 4,12').appendTo($g);
         }
-        g = '<polygon points="' + points + '"/>';
       } else if (options.value === 'camera') {
-        defs = '<defs><mask id="' + idMask + '">' + maskBackground + '<circle cx="8" cy="9" r="5"/></mask></defs>';
-        g = '<rect x="0" y="4" width="16" height="11" rx="2" ry="2" mask="url(#' + idMask + ')"/><polygon points="4,8 4,4 6,1 10,1 12,4 12,8" mask="url(#' + idMask + ')"/><circle cx="8" cy="9" r="3"/>';
+        $circle.clone().attr({
+          cx: 8,
+          cy: 9,
+          r: 5
+        }).appendTo($mask.appendTo($defs));
+        $rect.attr({
+          height: 11,
+          mask: 'url(#' + idMask + ')',
+          rx: 2,
+          ry: 2,
+          width: 16,
+          x: 0,
+          y: 4
+        }).appendTo($g);
+        $polygon.attr({
+          mask: 'url(#' + idMask + ')',
+          points: '4,8 4,4 6,1 10,1 12,4 12,8'
+        }).appendTo($g);
+        $circle.attr({
+          cx: 8,
+          cy: 9,
+          r: 3
+        }).appendTo($g);
       } else if ($.inArray(options.value, ['X', 'x', '-', '+']) > -1) {
         if (options.value === '-') {
-          mask = '<rect x="4" y="7" width="8" height="2"/>';
+          $rect.clone().attr({
+            height: 2,
+            width: 8,
+            x: 4,
+            y: 7
+          }).appendTo($mask);
         } else {
+          $polygon.attr('points', '7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7').appendTo($mask);
           if (options.value !== '+') {
-            rotate = ' transform="rotate(45 8 8)"';
+            $polygon.attr('transform', 'rotate(45 8 8)');
           }
-          mask = '<polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
         }
+        $circle.attr({
+          cx: 8,
+          cy: 8
+        }).appendTo($g);
         if (options.value === 'X') {
-          g = '<circle cx="8" cy="8" r="7"/><polygon points="7,4 9,4 9,7 12,7 12,9 9,9 9,12 7,12 7,9 4,9 4,7 7,7"' + rotate + '/>';
+          $circle.attr({
+            r: 7,
+            'stroke-width': 1
+          });
+          $polygon.clone().attr('fill', '#fff').appendTo($g);
         } else {
-          defs = '<defs><mask id="' + idMask + '">' + maskBackground + mask + '</mask></defs>';
-          g = '<circle cx="8" cy="8" mask="url(#' + idMask + ')" r="8"/>';
+          $mask.appendTo($defs);
+          $circle.attr({
+            mask: 'url(#' + idMask + ')',
+            r: 8
+          });
         }
       } else if (options.value === 'email') {
-        g = '<polygon points="0,2 8,10 16,2"/><polygon points="16,4 12,8 16,12"/><polygon points="0,14 5,9 8,12 11,9 16,14"/><polygon points="0,4 4,8 0,12"/>';
+        $polygon.clone().attr({
+          points: '0,2 8,10 16,2'
+        }).appendTo($g);
+        $polygon.clone().attr({
+          points: '16,4 12,8 16,12'
+        }).appendTo($g);
+        $polygon.clone().attr({
+          points: '0,14 5,9 8,12 11,9 16,14'
+        }).appendTo($g);
+        $polygon.attr({
+          points: '0,4 4,8 0,12'
+        }).appendTo($g);
       } else if (options.value === 'go') {
-        g = '<circle' + border + ' cx="8" cy="8" r="7"/><circle cx="8" cy="8" r="5"/>';
+        $circle.attr({
+          cx: 8,
+          cy: 8
+        }).appendTo($g);
+        $circle.clone().attr({
+          fill: 'none',
+          'stroke-width': 2,
+          r: 7
+        }).appendTo($g);
+        $circle.attr({
+          r: 5
+        }).appendTo($g);
       } else if (options.value === 'home') {
-        g = '<polygon points="0,10 0,8 8,0 16,8 16,10 14,10 14,16 10,16 10,10 6,10 6,16 2,16 2,10"/><rect x="11" y="16" width="4" height="8"/>';
+        $polygon.attr('points', '0,10 0,8 8,0 16,8 16,10 14,10 14,16 10,16 10,10 6,10 6,16 2,16 2,10').appendTo($g);
+        $rect.attr({
+          height: 8,
+          width: 4,
+          x: 10,
+          y: 0
+        }).appendTo($g);
       } else if (options.value === 'search') {
-        g = '<circle' + border + ' cx="7" cy="7" r="5"/><polygon points="9,11 11,9 16,14 14,16"/>';
+        $circle.attr({
+          cx: 7,
+          cy: 7,
+          fill: 'none',
+          r: 5,
+          'stroke-width': 2
+        }).appendTo($g);
+        $polygon.attr('points', '9,11 11,9 16,14 14,16').appendTo($g);
       } else if (options.value === 'star') {
-        g = '<polygon points="0,6 6,6 8,0 10,6 16,6 11,10 13,16 8,12 3,16 5,10"/>';
+        $polygon.attr({
+          points: '0,6 6,6 8,0 10,6 16,6 11,10 13,16 8,12 3,16 5,10',
+          'stroke-width': 1
+        }).appendTo($g);
       } else if (options.value === 'stop') {
-        g = '<polygon' + border + ' points="1,11 1,5 5,1 11,1 15,5 15,11 11,15 5,15"/><polygon points="3,10 3,6 6,3 10,3 13,6 13,10 10,13 6,13"/>';
+        $polygon.clone().attr({
+          fill: 'none',
+          points: '1,11 1,5 5,1 11,1 15,5 15,11 11,15 5,15',
+          'stroke-width': 2
+        }).appendTo($g);
+        $polygon.attr('points', '3,10 3,6 6,3 10,3 13,6 13,10 10,13 6,13').appendTo($g);
       } else if (options.value === 'yield') {
-        g = '<polygon' + border + ' points="8,1 15,15 1,15"/><polygon points="8,5 12,13 4,13"/>';
+        $polygon.clone().attr({
+          fill: 'none',
+          points: '8,1 15,15 1,15',
+          'stroke-width': 2
+        }).appendTo($g);
+        $polygon.attr('points', '8,5 12,13 4,13').appendTo($g);
       } else if (options.value === 'spin') {
-        onload = ' onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idVector + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 8 8)\');},100)"';
-        defs = '<defs><rect id="' + idSymbol + '" x="7" width="2" height="4"/></defs>';
-        g = '<use xlink:href="#' + idSymbol + '" style="opacity:.1" transform="rotate(30 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.2" transform="rotate(60 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.3" transform="rotate(90 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.4" transform="rotate(120 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.5" transform="rotate(150 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.6" transform="rotate(180 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.7" transform="rotate(210 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.8" transform="rotate(240 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9" transform="rotate(270 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.5" transform="rotate(300 8 8)"/><use xlink:href="#' + idSymbol + '" style="opacity:.9.75" transform="rotate(330 8 8)"/><use xlink:href="#' + idSymbol + '"/>';
+        $svg.attr('onload', 'var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idG + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 8 8)\');},100)');
+        $rect.attr({
+          height: 4,
+          id: idSymbol,
+          width: 2,
+          x: 7
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.1',
+          transform: 'rotate(30 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.2',
+          transform: 'rotate(60 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.3',
+          transform: 'rotate(90 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.4',
+          transform: 'rotate(120 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.5',
+          transform: 'rotate(150 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.6',
+          transform: 'rotate(180 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.7',
+          transform: 'rotate(210 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.8',
+          transform: 'rotate(240 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.9',
+          transform: 'rotate(270 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.95',
+          transform: 'rotate(300 8 8)'
+        }).appendTo($g);
+        $rect.clone().attr({
+          style: 'opacity:.975',
+          transform: 'rotate(330 8 8)'
+        }).appendTo($g);
       }
-      $icon = $('<svg aria-label="' + options.value + '" class="nui-icn" height="1" width="1"' + onload + ' role="img" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>' + options.value + '</title>' + defs + '<g id="' + idVector + '" stroke-width="0">' + g + '</g></svg>');
       if (options.css) {
-        $icon.find('g').css(options.css);
+        $g.css(options.css);
       }
-      return $icon;
+      $svg.append('<title>' + options.value + '</title>', $defs, $g);
+      if (svgInline) {
+        return $($svg[0].outerHTML);
+      } else if (svg) {
+        $g.attr({
+          fill: '#333',
+          stroke: '#333'
+        });
+        return $('<img>', {
+          'aria-label': options.value,
+          'class': 'nui-icn',
+          src: 'data:image/svg+xml;base64,' + window.btoa((new XMLSerializer()).serializeToString($svg[0]))
+        });
+      } else if (vml) {
+        return $('<img>', {
+          'aria-label': options.value,
+          'class': 'nui-icn'
+        });
+      } else {
+        return $('<span>', {
+          'aria-label': options.value,
+          'class': 'nui-icn'
+        });
+      }
     },
 
     menu: function (options) {

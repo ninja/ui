@@ -37,8 +37,13 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
   }
 
   var
+    svgInline,
+    $test = $('<div>').append('body'),
     $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples (' + environment + ')</div></div>').appendTo('body'),
     $example = $('<div class="ninjaui-example"/>');
+
+  $test.html('<svg>');
+  svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === 'http://www.w3.org/2000/svg';
 
   QUnit.specify('Ninja User Interface', function () {
     describe('jQuery ' + version, function () {
@@ -120,11 +125,11 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           css: {
             'margin-right': '16px'
           },
-          html: '<i>Selected</i> Button',
+          html: 'Selected',
           select: true
         }),
         $buttonDisabled = $.ninja.button({
-          html: '<i>Disabled</i> Button',
+          html: 'Disabled',
           disable: true
         });
 
@@ -161,7 +166,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept html content on creation', function () {
-          assert($buttonSelected.html()).equals('<i>Selected</i> Button');
+          assert($buttonSelected.html()).equals('Selected');
         });
 
         it('should have class of nui-slc when select is true', function () {
@@ -204,7 +209,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         var $drawer, $drawerSelect;
 
         $drawer = $.ninja.drawer({
-          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
+          html: 'Tray',
           value: 'Drawer'
         });
 
@@ -214,7 +219,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           },
           html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
           select: true,
-          value: '<i>Selected</i> Drawer'
+          value: 'Selected'
         });
 
         $examples.append('<div class="ninjaui-example-title">$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
@@ -230,16 +235,18 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
         });
 
         it('should accept html content on creation', function () {
-          assert($drawer.find('.nui-try').html()).equals('<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>');
+          assert($drawer.find('.nui-try').html()).equals('Tray');
         });
 
-        it('should have a right arrow before selecting', function () {
-          assert($drawer.find('.nui-btn .nui-icn').attr('aria-label')).equals('arrow-right');
-        });
+        if (svgInline) {
+          it('should have a right arrow before selecting', function () {
+            assert($drawer.find('.nui-btn .nui-icn[aria-label="arrow-right"]').is(':visible')).isTrue();
+          });
 
-        it('should have a down arrow after selecting', function () {
-          assert($drawerSelect.find('.nui-btn .nui-icn').attr('aria-label')).equals('arrow-down');
-        });
+          it('should have a down arrow after selecting', function () {
+            assert($drawerSelect.find('.nui-btn .nui-icn[aria-label="arrow-down"]').is(':visible')).isTrue();
+          });
+        }
 
       });
 
@@ -260,20 +267,6 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               },
               value: iconName
             });
-          } else if (iconName === 'yield') {
-            $icon = $.ninja.icon({
-              css: {
-                margin: '96px'
-              },
-              value: iconName
-            });
-          } else if (iconName === 'go') {
-            $icon = $.ninja.icon({
-              css: {
-                margin: '64px'
-              },
-              value: iconName
-            });
           } else {
             $icon = $.ninja.icon({
               value: iconName
@@ -284,31 +277,16 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).append($icon, ' ', iconName).appendTo($exampleIcons);
 
           it('should have icon class', function () {
-            if ($.inArray(version, ['1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3']) === -1) {
-              // can't test these due to a bug in these jQuery versions
-              assert($icon.attr('class')).equals('nui-icn');
-            }
+            assert($icon.attr('class')).equals('nui-icn');
           });
 
-          it('should have aria label', function () {
+          it('should have correct aria label', function () {
             assert($icon.attr('aria-label')).equals(iconName);
           });
 
-          it('should have image role', function () {
-            assert($icon.attr('role')).equals('img');
-          });
-
-          it('should have icon title', function () {
-            assert($('title', $icon).text()).equals(iconName);
-          });
-
           it('should accept css overrides on creation', function () {
-            if (iconName === 'stop') {
+            if (iconName === 'stop' && svgInline) {
               assert($icon.find('g').css('margin-top')).equals('80px');
-            } else if (iconName === 'yield') {
-              assert($icon.find('g').css('margin-top')).equals('96px');
-            } else if (iconName === 'go') {
-              assert($icon.find('g').css('margin-top')).equals('64px');
             }
           });
         });
