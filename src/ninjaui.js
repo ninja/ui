@@ -150,19 +150,25 @@
           $object.append($list);
           $(document).bind({
             'keydown.ninja': function (event) {
-              if ($.inArray(event.keyCode, [9, 38, 40]) > -1) {/* tab, down or up */
-                event.preventDefault();/* prevents page scrolling and tabbing when a list is active */
+              if ($.inArray(event.keyCode, [9, 38, 40]) > -1) {
+                // tab, down or up
+                event.preventDefault();
+                // prevents page scrolling and tabbing when a list is active
               }
             },
             'keyup.ninja': function (event) {
-              if ($.inArray(event.keyCode, [9, 13, 27, 38, 40]) > -1) {/* tab, return, escape, down or up */
-                if (event.keyCode === 13) {/* return */
+              if ($.inArray(event.keyCode, [9, 13, 27, 38, 40]) > -1) {
+                // tab, return, escape, down or up
+                if (event.keyCode === 13) {
+                  // return
                   if ($hover) {
                     $hover.click();
                   }
-                } else if (event.keyCode === 27) {/* escape */
+                } else if (event.keyCode === 27) {
+                  //escape
                   $object.delist();
-                } else if ($.inArray(event.keyCode, [9, 40]) > -1 && !event.shiftKey) {/* tab or down arrow */
+                } else if ($.inArray(event.keyCode, [9, 40]) > -1 && !event.shiftKey) {
+                  // tab or down arrow
                   if ($hover) {
                     if ($hover.nextAll('.nui-itm').length) {
                       $hover.nextAll('.nui-itm:first').trigger('mouseenter.ninja');
@@ -172,7 +178,8 @@
                   } else {
                     $list.find('.nui-itm:first').trigger('mouseenter.ninja');
                   }
-                } else if (event.keyCode === 38 || (event.shiftKey && event.keyCode === 9)) {/* shift+tab or up arrow */
+                } else if (event.keyCode === 38 || (event.shiftKey && event.keyCode === 9)) {
+                  // shift+tab or up arrow
                   if ($hover) {
                     if ($hover.prevAll('.nui-itm').length) {
                       $hover.prevAll('.nui-itm:first').trigger('mouseenter.ninja');
@@ -339,7 +346,8 @@
         }).bind({
           'keyup.ninja': function (event) {
             clearTimeout(timer);
-            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1 && $input.val() !== '') {/* not tab, return, escape, left , up, right or down */
+            if ($.inArray(event.keyCode, [9, 13, 27, 37, 38, 39, 40]) === -1 && $input.val() !== '') {
+              // not tab, return, escape, left , up, right or down
               timer = setTimeout(function () {
                 var $spin = $autocomplete.find('.nui-icn[aria-label=spin]');
                 if ($spin.is(':hidden')) {
@@ -436,7 +444,8 @@
           });
           $(document).bind({
             'keyup.ninja': function (event) {
-              if (event.keyCode === 27) {/* escape */
+              if (event.keyCode === 27) {
+                // escape
                 $dialog.detach();
               }
             }
@@ -894,13 +903,16 @@
       }
       $button.bind({
         'keyup.ninja': function (event) {
-          if ($.inArray(event.keyCode, [37, 39]) > -1) {/* right or left */
+          if ($.inArray(event.keyCode, [37, 39]) > -1) {
+            // right or left
             var
               value,
               slot = Math.round($button.position().left / increment);
-            if (slot > 0 && event.keyCode === 37) {/* left arrow */
+            if (slot > 0 && event.keyCode === 37) {
+              // left arrow
               slot--;
-            } else if (slot < slots && event.keyCode === 39) {/* right arrow */
+            } else if (slot < slots && event.keyCode === 39) {
+              // right arrow
               slot++;
             }
             value = options.values[slot];
