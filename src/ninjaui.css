@@ -163,6 +163,7 @@
 /* dialog, list */
 .nui-dlg,
 .nui-lst {
+  background-color: #fff;
   background-color: rgba(255,255,255,0.9);
   border: 1px solid #ccc;
   -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);

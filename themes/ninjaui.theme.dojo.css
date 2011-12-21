@@ -13,10 +13,8 @@
   color: #fff;
 }
 
-/* blocker, dialog, list */
-.nui-thm-dojo .nui-blk,
-.nui-thm-dojo .nui-dlg,
-.nui-thm-dojo .nui-lst {
+/* blocker */
+.nui-thm-dojo .nui-blk {
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -49,6 +47,8 @@
 /* dialog, list */
 .nui-thm-dojo .nui-dlg,
 .nui-thm-dojo .nui-lst {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.8);
   border-color: #666;
 }
 
