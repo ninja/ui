@@ -27,7 +27,7 @@
     $.error('Ninja UI requires jQuery 1.4.3 or higher.');
   }
 
-  $('<link/>', {
+  $('<link>', {
     rel: 'stylesheet',
     href: '../src/ninjaui.css'
   }).appendTo('head');
@@ -115,7 +115,7 @@
           $object = $(this).ninja(),
           $button = $object.find('button'),
           $input = $object.find('input'),
-          $list = $('<div/>', {
+          $list = $('<div>', {
             'class': 'nui-lst'
           });
         if ($object.is('.nui-atc')) {
@@ -186,11 +186,11 @@
           $.each(options.values, function (i, value) {
             var $value;
             if (value.rule) {
-              $value = $('<div/>', {
+              $value = $('<div>', {
                 'class': 'nui-rul'
               });
             } else {
-              $value = $('<button/>', {
+              $value = $('<button>', {
                 'class': 'nui-itm'
               });
               $value.bind({
@@ -303,7 +303,7 @@
       options = $.extend({}, defaults, options);
       var
         timer,
-        $autocomplete = $('<span/>', {
+        $autocomplete = $('<span>', {
           'class': 'nui-atc'
         }).bind({
           'select.ninja': function (event) {
@@ -318,7 +318,7 @@
             event.query = $input.val();
           }
         }),
-        $input = $('<input/>', {
+        $input = $('<input>', {
           type: 'text'
         }).bind({
           'keyup.ninja': function (event) {
@@ -346,7 +346,7 @@
 
     button: function (options) {
       options = $.extend({}, defaults, options);
-      var $button = $('<button/>', {
+      var $button = $('<button>', {
         'class': 'nui-btn',
         css: options.css,
         html: options.html
@@ -393,7 +393,7 @@
         $parent: $('body')
       }, options);
       var
-        $dialog = $('<span/>', {
+        $dialog = $('<span>', {
           'class': 'nui-dlg',
           css: options.css,
           html: options.html
@@ -403,7 +403,7 @@
         }).bind('click.ninja', function () {
           $dialog.detach();
         }).appendTo($dialog),
-        $blocker = $('<div/>', {
+        $blocker = $('<div>', {
           'class': 'nui-blk'
         }).bind('click.ninja', function (event) {
           if ($.inArray($dialog[0], $(event.target).parents()) === -1) {
@@ -437,11 +437,11 @@
     drawer: function (options) {
       options = $.extend({}, defaults, options);
       var
-        $drawer = $('<div/>', {
+        $drawer = $('<div>', {
           'class': 'nui-drw',
           css: options.css
         }),
-        $tray = $('<div/>', {
+        $tray = $('<div>', {
           'class': 'nui-try',
           html: options.html
         }).appendTo($drawer),
@@ -548,7 +548,10 @@
     menu: function (options) {
       options = $.extend({}, defaults, options);
       var
-        $menu = $('<span/>', {
+        $arrowDown = $.ninja.icon({
+          value: 'arrow-down'
+        }),
+        $menu = $('<span>', {
           'class': 'nui-mnu'
         }),
         $button = $.ninja.button($.extend({}, options, {
@@ -557,9 +560,7 @@
           $menu.list(options);
         }).deselect(function () {
           $menu.delist();
-        }).append($.ninja.icon({
-          value: 'arrow-down'
-        }));
+        }).append($arrowDown);
       $menu.bind({
         'delist.ninja': function () {
           $button.deselect();
@@ -576,7 +577,7 @@
       }, options);
       var
         i,
-        $rating = $('<span/>', {
+        $rating = $('<span>', {
           'class': 'nui-rtn'
         }).bind({
           'mouseleave.ninja': function () {
@@ -598,7 +599,7 @@
           }
         });
       for (i = 0; i < options.values; i++) {
-        $('<button/>', {
+        $('<button>', {
           'class': 'nui-str',
           html: $.ninja.icon({
             value: 'star'
@@ -644,20 +645,20 @@
         slots = options.values.length - 1,
         increment = options.width / slots,
         left = options.value * increment,
-        $value = $('<span/>', {
+        $value = $('<span>', {
           'class': 'nui-sld-value',
           html: options.values[options.value].html
         }),
-        $button = $('<button/>', {
+        $button = $('<button>', {
           'class': 'nui-sld-btn',
           css: { left: left }
         }),
         trackWidth = options.width + 18,
-        $level = $('<div/>', {
+        $level = $('<div>', {
           'class': 'nui-sld-lvl',
           css: { width: left }
         }),
-        $slider = $('<span/>', {
+        $slider = $('<span>', {
           'class': 'nui-sld'
         }).bind({
           'change.ninja select.ninja': function (event) {
@@ -681,11 +682,11 @@
             }
           }
         }).append($value),
-        $track = $('<div/>', {
+        $track = $('<div>', {
           'class': 'nui-sld-trk',
           css: { width: trackWidth }
         }).appendTo($slider),
-        $groove = $('<div/>', {
+        $groove = $('<div>', {
           'class': 'nui-sld-grv'
         }).bind('click.ninja', function (event) {
           $button.trigger({
@@ -695,7 +696,7 @@
         });
       $track.append($groove.append($level), $button);
       if (options.html) {
-        $value.before($('<span/>', {
+        $value.before($('<span>', {
           'class': 'nui-sld-ttl',
           html: options.html + ': '
         }));
@@ -778,14 +779,14 @@
       options = $.extend({}, defaults, {
         value: 1
       }, options);
-      var $tabs = $('<span/>');
+      var $tabs = $('<span>');
       if (options.vertical) {
         $tabs.addClass('nui-tab-vrt');
       } else {
         $tabs.addClass('nui-tab-hrz');
       }
       $.each(options.values, function (i, value) {
-        var $tab = $('<button/>', {
+        var $tab = $('<button>', {
           'class': 'nui-tab',
           css: options.css,
           html: value.html || value
