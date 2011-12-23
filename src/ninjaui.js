@@ -6,8 +6,6 @@
   http://ninjaui.com/#license
 */
 
-/*globals CFInstall: false*/
-
 /*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: true, undef: true, white: true*/
 
 (function ($, window, document, undefined) {
