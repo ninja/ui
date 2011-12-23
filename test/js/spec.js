@@ -272,7 +272,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               value: iconName
             });
           }
-          $exampleIcon = $('<span/>', {
+          $exampleIcon = $('<span>', {
             'class': 'ninjaui-example-icon'
           }).append($icon, ' ', iconName).appendTo($exampleIcons);
 
@@ -295,7 +295,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
       describe('$.ninja.menu()', function () {
         var
-          $message = $('<span/>'),
+          $message = $('<span>'),
           please = function () {
             $message.html(':( Try again.');
           },
@@ -347,7 +347,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
       describe('$.ninja.rating()', function () {
         var
-          $message = $('<span/>'),
+          $message = $('<span>'),
           $rating = $.ninja.rating({
             average: 3
           }).select(function (event) {
@@ -391,7 +391,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
       describe('$.ninja.tabs()', function () {
         var
-          $message = $('<span/>'),
+          $message = $('<span>'),
           poorly = function () {
             $message.html('You have chosen... poorly.');
           },
