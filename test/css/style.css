@@ -283,10 +283,7 @@ td { vertical-align: top; }
 
 .nui-thm-dojo .ninjaui-example {
   background-color: #333;
-}
-
-.nui-thm-neon .ninjaui-example {
-  background-color: #000;
+  color: #fff;
 }
 
 /* ==|== media queries ======================================================
