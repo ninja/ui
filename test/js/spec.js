@@ -33,7 +33,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
       rel: 'stylesheet',
       href: '../themes/ninjaui.theme.' + theme + '.css'
     }).appendTo('head');
-    $('body').addClass('nui-' + theme);
+    $('body').addClass('nui-thm-' + theme);
   }
 
   var
