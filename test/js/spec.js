@@ -277,7 +277,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
           }).append($icon, ' ', iconName).appendTo($exampleIcons);
 
           it('should have icon class', function () {
-            assert($icon.attr('class')).equals('nui-icn');
+            assert($icon.is('.nui-icn')).isTrue();
           });
 
           it('should have correct aria label', function () {
