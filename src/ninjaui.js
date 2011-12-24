@@ -501,12 +501,9 @@
       var
         id = uniqueId(),
         idMask = 'mask' + id ,
-        idSymbol = 'symbol' + id ,
-        idG = 'g' + id,
         $circle = $('<circle>'),
         $defs = $('<defs>'),
         $g = $('<g>', {
-          id: idG,
           'stroke-width': 0
         }),
         $rect = $('<rect>'),
@@ -653,10 +650,8 @@
         }).appendTo($g);
         $polygon.attr('points', '8,5 12,13 4,13').appendTo($g);
       } else if (options.value === 'spin') {
-        $svg.attr('onload', 'var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById(\'' + idG + '\').setAttributeNS(null,\'transform\',\'rotate(\'+frame+\' 8 8)\');},100)');
         $rect.attr({
           height: 4,
-          id: idSymbol,
           width: 2,
           x: 7
         }).appendTo($g);
@@ -710,7 +705,22 @@
       }
       $svg.append('<title>' + options.value + '</title>', $defs, $g);
       if (svgInline) {
-        return $($svg[0].outerHTML);
+        var $icon = $($('<div>').append($svg).html());
+        if (options.value === 'spin') {
+          $icon.bind({
+            'spin.ninja': function () {
+              var frame=0;
+              setInterval(function () {
+                frame = frame + 30;
+                if (frame === 360) {
+                  frame = 0
+                }
+                $icon.find('g').attr('transform', 'rotate(' + frame + ' 8 8)');
+              }, 100);
+            }
+          }).trigger('spin.ninja');
+        }
+        return $icon;
       } else if (svg) {
         $g.attr({
           fill: '#333',
