@@ -506,6 +506,7 @@
         $g = $('<g>', {
           'stroke-width': 0
         }),
+        $icon,
         $rect = $('<rect>'),
         $mask = $('<mask>', {
           id: idMask
@@ -705,11 +706,11 @@
       }
       $svg.append('<title>' + options.value + '</title>', $defs, $g);
       if (svgInline) {
-        var $icon = $($('<div>').append($svg).html());
+        $icon = $($('<div>').append($svg).html());
         if (options.value === 'spin') {
           $icon.bind({
             'spin.ninja': function () {
-              var frame=0;
+              var frame = 0;
               setInterval(function () {
                 frame = frame + 30;
                 if (frame === 360) {
