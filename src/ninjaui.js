@@ -23,7 +23,6 @@
     version = $.fn.jquery.split('.'),
     versionMinor = parseFloat(version[1]),
     versionIncrement = parseFloat(version[2] || '0'),
-    vml,
     $test = $('<div>').append('body');
 
   if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4) {
@@ -39,10 +38,6 @@
   svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
   if (!svgInline) {
     svg = !!document.createElementNS && !!document.createElementNS(svgNamespace, 'svg').createSVGRect;
-    if (!svg) {
-      $test.html($('<shape>').css('behavior', 'url(#default#VML)'));
-      vml = $test.find('shape')[0].adj;
-    }
   }
   $test.remove();
 
@@ -533,10 +528,6 @@
         }).attr({
           height: '16',
           width: '16'
-        }),
-        $vpolyline = $('<polyline>', {
-          fillcolor: '#000',
-          strokecolor: '#666'
         });
       if ($.inArray(options.value, ['arrow-down', 'arrow-right']) > -1) {
         if (options.value === 'arrow-down') {
@@ -729,11 +720,6 @@
           'aria-label': options.value,
           'class': 'nui-icn',
           src: 'data:image/svg+xml;base64,' + window.btoa((new XMLSerializer()).serializeToString($svg[0]))
-        });
-      } else if (vml) {
-        return $('<img>', {
-          'aria-label': options.value,
-          'class': 'nui-icn'
         });
       } else {
         return $('<span>', {
