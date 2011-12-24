@@ -32,7 +32,7 @@
   $('<link>', {
     rel: 'stylesheet',
     href: '../src/ninjaui.css'
-  }).appendTo('head');
+  }).prependTo('head');
 
   $test.html('<svg>');
   svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
