@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16.0" height="16.0">
+
+	<metadata>
+		<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#" xmlns:dc = "http://purl.org/dc/elements/1.1/">
+			<rdf:Description rdf:about="http://likethought.com/opacity/">
+				<dc:title>spin 12</dc:title>
+				<dc:creator></dc:creator>
+				<dc:rights></dc:rights>
+				<dc:description></dc:description>
+				<dc:format>image/svg+xml</dc:format>
+				<dc:language>en</dc:language>
+			</rdf:Description>
+		</rdf:RDF>
+	</metadata>
+	<g>
+		<title>Layer 1</title>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16.0" height="16.0">
+
+	<metadata>
+		<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#" xmlns:dc = "http://purl.org/dc/elements/1.1/">
+			<rdf:Description rdf:about="http://likethought.com/opacity/">
+				<dc:title>spin 12</dc:title>
+				<dc:creator></dc:creator>
+				<dc:rights></dc:rights>
+				<dc:description></dc:description>
+				<dc:format>image/svg+xml</dc:format>
+				<dc:language>en</dc:language>
+			</rdf:Description>
+		</rdf:RDF>
+	</metadata>
+	<g>
+		<title>Layer 1</title>
+		<g transform="translate(0.0, 0.0) translate(8.0, 8.0) rotate(30.083) translate(-8.0, -8.0) scale(1.0, 1.0)">
+<svg aria-label="spin" class="nui-icn" role="img" version="1.1" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" height="16" width="16" onload="var frame=0;setInterval(function(){frame=frame+30;if(frame===360){frame=0}document.getElementById('g1324507354953').setAttributeNS(null,'transform','rotate('+frame+' 8 8)');},100)"><title>spin</title><defs></defs><g id="g1324507354953" stroke-width="0" fill="#333" stroke="#333"><rect height="4" id="symbol1324507354953" width="2" x="7"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.1" transform="rotate(30 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.2" transform="rotate(60 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.3" transform="rotate(90 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.4" transform="rotate(120 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.5" transform="rotate(150 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.6" transform="rotate(180 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.7" transform="rotate(210 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.8" transform="rotate(240 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.9" transform="rotate(270 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.95" transform="rotate(300 8 8)"></rect><rect height="4" id="symbol1324507354953" width="2" x="7" style="opacity:.975" transform="rotate(330 8 8)"></rect></g></svg>		</g>
+	</g>
+
+</svg>
+	</g>
+
+</svg>

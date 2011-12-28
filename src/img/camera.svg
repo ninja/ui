@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16.0" height="16.0">
+
+	<metadata>
+		<rdf:RDF xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#" xmlns:dc = "http://purl.org/dc/elements/1.1/">
+			<rdf:Description rdf:about="http://likethought.com/opacity/">
+				<dc:title>camera</dc:title>
+				<dc:creator></dc:creator>
+				<dc:rights></dc:rights>
+				<dc:description></dc:description>
+				<dc:format>image/svg+xml</dc:format>
+				<dc:language>en</dc:language>
+			</rdf:Description>
+		</rdf:RDF>
+	</metadata>
+	<g>
+		<title>Layer 1</title>
+<svg aria-label="camera" class="nui-icn" role="img" version="1.1" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" height="16" width="16"><title>camera</title><defs><mask id="mask1324507354960"><rect fill="#fff" height="16" width="16"></rect><circle cx="8" cy="9" r="5"></circle></mask></defs><g id="g1324507354960" stroke-width="0" fill="#333" stroke="#333"><rect height="11" mask="url(#mask1324507354960)" rx="2" ry="2" width="16" x="0" y="4"></rect><polygon mask="url(#mask1324507354960)" points="4,8 4,4 6,1 10,1 12,4 12,8"></polygon><circle cx="8" cy="9" r="3"></circle></g></svg>	</g>
+
+</svg>
