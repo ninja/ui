@@ -3,19 +3,24 @@
 
 the jQuery plugin for lethal interaction
 
-Dependencies
-------------
+Production Dependency
+---------------------
 
 [jQuery](http://jquery.com/)
 
-[Node.js](http://nodejs.org/) (Only for development)
+Development Dependencies
+------------------------
+[Node.js](http://nodejs.org/)
+Jake
+CleanCSS
+UglifyJS
 
 Develop
 -------
-Navigate to wherever you cloned/downloaded Ninja UI and npm link
+Navigate to wherever you cloned/downloaded Ninja UI and install dependencies
 
     cd ~/projects/ninjaui
-    npm link
+    npm install
 
 Test during development
 -----------------------
@@ -25,10 +30,10 @@ Open test page in a web browser
 
 Build
 -----
-After making changes to either src/ninjaui.js or src/ninjaui.css run ninjabuild
+After making changes to either src/ninjaui.js or src/ninjaui.css run jake
 
     cd ~/projects/ninjaui
-    ninjabuild
+    jake
 
 Test after building
 -------------------
@@ -39,7 +44,7 @@ Open test page in a web browser
 Authors
 -------
 
-Jamie Hoover and Faisal N. Jawdat
+Jamie R. Hoover and Faisal N. Jawdat
 
 License
 -------
