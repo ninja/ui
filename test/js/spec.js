@@ -1,5 +1,5 @@
 /*
-  Copyright 2008-2011 Jamie Hoover.
+  Copyright 2008-2012 Jamie Hoover.
   Licensed per the terms of the Apache License v2.0. See Readme.md for details.
 */
 
