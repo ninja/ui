@@ -39,7 +39,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
   var
     svgInline,
     $test = $('<div>').append('body'),
-    $examples = $('<div class="ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples (' + environment + ')</div></div>').appendTo('body'),
+    $examples = $('<div class="grid ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples (' + environment + ')</div></div>').appendTo('body'),
     $example = $('<div class="ninjaui-example"/>');
 
   $test.html('<svg>');

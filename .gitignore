@@ -9,6 +9,7 @@
 *.tmproj
 tmtags
 .idea
+.redcar
 
 node_modules/
 
