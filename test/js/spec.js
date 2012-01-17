@@ -8,7 +8,7 @@
 /*globals QUnit, $versions, describe, before, after, given, it, assert, async*/
 
 var
-  jQueryVersions = ['1.7.1', '1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3'],
+  jQueryVersions = ['1.7.1', '1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6'],
   environment = decodeURI((new RegExp('environment' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]),
   theme = decodeURI((new RegExp('theme' + '=' + '(.+?)(&|$)').exec(location.search) || [null])[1]),
   scriptPath;
@@ -38,13 +38,19 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
   }
 
   var
+    svg,
     svgInline,
-    $tests = $('#qunit-tests'),
+    svgNamespace = 'http://www.w3.org/2000/svg',
+    $test = $('<div>').appendTo('body'),
     $samples = $('<div class="nui-grd ninjaui-samples"><div class="ninjaui-samples-title">jQuery ' + version + ' Samples (' + environment + ')</div></div>').appendTo('body'),
     $sample = $('<div class="ninjaui-sample">');
 
-  $tests.html('<svg>');
-  svgInline = ($tests.find('svg')[0] && $tests.find('svg')[0].namespaceURI) === 'http://www.w3.org/2000/svg';
+  $test.html('<svg>');
+  svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
+  if (!svgInline) {
+    svg = !!document.createElementNS && !!document.createElementNS(svgNamespace, 'svg').createSVGRect;
+  }
+  $test.remove();
 
   QUnit.specify('Ninja UI', function () {
 
@@ -90,10 +96,12 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             assert($icon).isDefined();
             if (svgInline) {
               assert($icon.is('svg')).isTrue();
-            } else {
+            } else if (svg) {
               assert($icon.is('img')).isTrue();
+            } else {
+              assert($icon.is('span')).isTrue();
             }
-            assert($icon.is('.nui-icn')).isTrue();
+            assert($icon.attr('class')).equals('nui-icn');
             assert($icon.attr('aria-label')).equals(iconName.toString());
           });
 

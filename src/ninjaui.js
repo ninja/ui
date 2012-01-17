@@ -26,7 +26,7 @@
     version = $.fn.jquery.split('.'),
     versionMinor = parseFloat(version[1]),
     versionIncrement = parseFloat(version[2] || '0'),
-    $test = $('<div>').append('body');
+    $test = $('<div>').appendTo('body');
 
   if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4) {
     $.error('Ninja UI requires jQuery 1.4.3 or higher.');
