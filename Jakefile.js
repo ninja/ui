@@ -20,7 +20,7 @@ task('default', ['minify'], function () {
 });
 
 desc('Display version number.');
-task('version', function (options) {
+task('version', function () {
   console.log(version);
 });
 
