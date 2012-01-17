@@ -40,6 +40,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
   var
     svg,
     svgInline,
+    svgInlineMaskMissing,
     svgNamespace = 'http://www.w3.org/2000/svg',
     $test = $('<div>').appendTo('body'),
     $samples = $('<div class="nui-grd ninjaui-samples"><div class="ninjaui-samples-title">jQuery ' + version + ' Samples (' + environment + ')</div></div>').appendTo('body'),
@@ -47,7 +48,12 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   $test.html('<svg>');
   svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
-  if (!svgInline) {
+  if (svgInline) {
+    svg = true;
+    if ($.browser.safari) {
+      svgInlineMaskMissing = $.browser.version < 535;
+    }
+  } else {
     svg = !!document.createElementNS && !!document.createElementNS(svgNamespace, 'svg').createSVGRect;
   }
   $test.remove();
@@ -90,11 +96,14 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
             .appendTo($samples);
 
           given(iconNames).it('should have correct HTML', function (iconName) {
-            var $icon = $.ninja.icon({
-              value: iconName.toString()
-            }).appendTo($icons);
+            iconName = iconName.toString();
+            var
+              mask = $.inArray(iconName, ['-', '+', 'camera', 'x']) > -1,
+              $icon = $.ninja.icon({
+                value: iconName
+              }).appendTo($icons);
             assert($icon).isDefined();
-            if (svgInline) {
+            if (svgInline && (!mask || mask && !svgInlineMaskMissing)) {
               assert($icon.is('svg')).isTrue();
             } else if (svg) {
               assert($icon.is('img')).isTrue();
@@ -102,7 +111,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
               assert($icon.is('span')).isTrue();
             }
             assert($icon.attr('class')).equals('nui-icn');
-            assert($icon.attr('aria-label')).equals(iconName.toString());
+            assert($icon.attr('aria-label')).equals(iconName);
           });
 
         });

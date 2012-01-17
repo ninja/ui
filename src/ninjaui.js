@@ -21,6 +21,7 @@
     objects,
     svg,
     svgInline,
+    svgInlineMaskMissing,
     svgNamespace = 'http://www.w3.org/2000/svg',
     then,
     version = $.fn.jquery.split('.'),
@@ -39,7 +40,12 @@
 
   $test.html('<svg>');
   svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
-  if (!svgInline) {
+  if (svgInline) {
+    svg = true;
+    if ($.browser.safari) {
+      svgInlineMaskMissing = $.browser.version < 535;
+    }
+  } else {
     svg = !!document.createElementNS && !!document.createElementNS(svgNamespace, 'svg').createSVGRect;
   }
   $test.remove();
@@ -512,6 +518,7 @@
       var
         id = uniqueId(),
         idMask = 'mask' + id,
+        mask,
         $circle = $('<circle>'),
         $defs = $('<defs>'),
         $g = $('<g>', {
@@ -535,9 +542,13 @@
           viewBox: '0 0 16 16',
           xmlns: 'http://www.w3.org/2000/svg'
         }).attr({
-          height: '16',
-          width: '16'
+          height: 16,
+          width: 16
         });
+      if ($.inArray(options.value, ['-', '+', 'camera', 'x']) > -1) {
+        mask = true;
+        $mask.appendTo($defs);
+      }
       if ($.inArray(options.value, ['arrow-down', 'arrow-right']) > -1) {
         if (options.value === 'arrow-down') {
           $polygon.attr('points', '4,4 12,4 8,12').appendTo($g);
@@ -549,7 +560,7 @@
           cx: 8,
           cy: 9,
           r: 5
-        }).appendTo($mask.appendTo($defs));
+        }).appendTo($mask);
         $rect.attr({
           height: 11,
           mask: 'url(#' + idMask + ')',
@@ -593,7 +604,6 @@
           });
           $polygon.clone().attr('fill', '#fff').appendTo($g);
         } else {
-          $mask.appendTo($defs);
           $circle.attr({
             mask: 'url(#' + idMask + ')',
             r: 8
@@ -716,7 +726,7 @@
         $g.css(options.css);
       }
       $svg.append('<title>' + options.value + '</title>', $defs, $g);
-      if (svgInline) {
+      if (svgInline && (!mask || mask && !svgInlineMaskMissing)) {
         $icon = $($('<div>').append($svg).html());
         if (options.value === 'spin') {
           $icon.bind({

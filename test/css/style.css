@@ -64,13 +64,6 @@ body {
   padding: 1em;
 }
 
-.ninjaui-sample-icon {
-  display: inline-block;
-  margin-right: 1em;
-  min-width: 22%;
-  white-space: nowrap;
-}
-
 .nui-thm-dojo .ninjaui-sample {
   background-color: #333;
   color: #fff;
