@@ -17,6 +17,10 @@ UglifyJS
 
 Develop
 -------
+If you've never previously installed Jake before
+
+    npm install -g jake
+
 Navigate to wherever you cloned/downloaded Ninja UI and install dependencies
 
     cd ~/projects/ninjaui
