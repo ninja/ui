@@ -29,10 +29,10 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   'use strict';
 
-  if ($.inArray(theme, ['dojo']) > -1) {
+  if ($.inArray(theme, ['bitmap', 'dojo']) > -1) {
     $('<link/>', {
       rel: 'stylesheet',
-      href: '../themes/ninjaui.theme.' + theme + '.css'
+      href: '../themes/' + theme + '.css'
     }).appendTo('head');
     $('body').addClass('nui-thm-' + theme);
   }
