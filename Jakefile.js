@@ -15,7 +15,7 @@ var
   version = pkg.version;
 
 desc('Default task.');
-task('default', ['minify'], function () {
+task('default', ['jquery.ninjaui.min.js'], function () {
   console.log('Ninja UI ' + version + ' build complete. Test URL: file://' + __dirname + '/test/index.html?environment=production');
 });
 
@@ -25,7 +25,7 @@ task('version', function () {
 });
 
 desc('Build JavaScript file.');
-file('build', [__dirname + '/src/ninjaui.css', __dirname + '/src/ninjaui.js'], function () {
+file('jquery.ninjaui.js', [__dirname + '/src/ninjaui.css', __dirname + '/src/ninjaui.js'], function () {
   var
     css = new Buffer(cleanCSS.process(fs.readFileSync(__dirname + '/src/ninjaui.css', 'utf8'))),
     js = fs.readFileSync(__dirname + '/src/ninjaui.js', 'utf8').replace(/development/g, version).replace('../src/ninjaui.css', 'data:text/css;base64,' + css.toString('base64'));
@@ -33,7 +33,7 @@ file('build', [__dirname + '/src/ninjaui.css', __dirname + '/src/ninjaui.js'], f
 });
 
 desc('Minify JavaScript file.');
-file('minify', ['build', 'jquery.ninjaui.js'], function () {
+file('jquery.ninjaui.min.js', ['jquery.ninjaui.js'], function () {
   var
     copyright = '/*! Ninja UI v' + version + ' ninjaui.com | ninjaui.com/#license */\n',
     js = uglify(fs.readFileSync('jquery.ninjaui.js', 'utf8'));
