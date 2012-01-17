@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #666;
   color: #333;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -48,37 +48,30 @@ body {
   border-radius: 0;
 }
 
-.ninjaui-examples {
+.ninjaui-samples {
   background-color: #eee;
+  border-top: 1px solid #fff;
+}
+
+.ninjaui-samples-title {
+  color: #333;
+  font-weight: bold;
+  margin: 1em;
+}
+
+.ninjaui-sample {
   border-top: 1px solid #fff;
   padding: 1em;
 }
 
-.ninjaui-examples-title,
-.ninjaui-example-title {
-  color: #333;
-}
-
-.ninjaui-examples-title {
-  font-weight: bold;
-  margin-bottom: 1em;
-}
-
-.ninjaui-example {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 1em;
-  margin: 0.25em 0 1em 0;
-}
-
-.ninjaui-example-icon {
+.ninjaui-sample-icon {
   display: inline-block;
   margin-right: 1em;
   min-width: 22%;
   white-space: nowrap;
 }
 
-.nui-thm-dojo .ninjaui-example {
+.nui-thm-dojo .ninjaui-sample {
   background-color: #333;
   color: #fff;
 }

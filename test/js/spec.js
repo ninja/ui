@@ -1,11 +1,11 @@
 /*
   Copyright 2008-2012 Jamie Hoover.
-  Licensed per the terms of the Apache License v2.0. See Readme.md for details.
+  Licensed per the terms of the Apache License v2.0. See README.md for details.
 */
 
-/*globals QUnit, $versions, describe, before, after, given, it, assert*/
-
 /*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: true, regexp: true, strict: true, undef: true, white: true*/
+
+/*globals QUnit, $versions, describe, before, after, given, it, assert, async*/
 
 var
   jQueryVersions = ['1.7.1', '1.7', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6', '1.5.2', '1.5.1', '1.5', '1.4.4', '1.4.3'],
@@ -26,6 +26,7 @@ QUnit.config.reorder = true;
 QUnit.specify.globalApi = true;
 
 $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version) {
+
   'use strict';
 
   if ($.inArray(theme, ['dojo']) > -1) {
@@ -38,389 +39,410 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   var
     svgInline,
-    $test = $('<div>').append('body'),
-    $examples = $('<div class="grid ninjaui-examples"><div class="ninjaui-examples-title">jQuery ' + version + ' Examples (' + environment + ')</div></div>').appendTo('body'),
-    $example = $('<div class="ninjaui-example"/>');
+    $tests = $('#qunit-tests'),
+    $samples = $('<div class="nui-grd ninjaui-samples"><div class="ninjaui-samples-title">jQuery ' + version + ' Samples (' + environment + ')</div></div>').appendTo('body'),
+    $sample = $('<div class="ninjaui-sample">');
 
-  $test.html('<svg>');
-  svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === 'http://www.w3.org/2000/svg';
+  $tests.html('<svg>');
+  svgInline = ($tests.find('svg')[0] && $tests.find('svg')[0].namespaceURI) === 'http://www.w3.org/2000/svg';
 
-  QUnit.specify('Ninja User Interface', function () {
+  QUnit.specify('Ninja UI', function () {
+
     describe('jQuery ' + version, function () {
 
-      describe('Infrastructure', function () {
-        it('should load jQuery ' + version, function () {
-          assert($.fn.jquery).equals(version);
-        });
+      it('should load', function () {
+        assert($).isDefined();
+      });
 
-        it('should load Ninja UI', function () {
+      it('should be correct version', function () {
+        assert($.fn.jquery).equals(version);
+      });
+
+      describe('Ninja UI', function () {
+
+        // Note that styles set and get do not always match (1em returns 16px) and browsers handle invalid styles inconsitently
+
+        it('should load', function () {
           assert($.ninja).isDefined();
         });
 
         if (environment !== 'production') {
-          it('should return development Ninja UI version if environment is not production', function () {
+          it('should be development version', function () {
             assert($.ninja.version()).equals('development');
           });
         }
-      });
 
-      describe('$.ninja.autocomplete()', function () {
+        describe('Icon', function () {
 
-        var $autocomplete = $.ninja.autocomplete({
-          placeholder: 'United States Cities'
-        }).values(function (event) {
-          $.ajax({
-            url: 'http://ws.geonames.org/searchJSON',
-            dataType: 'jsonp',
-            data: {
-              country: 'US',
-              featureClass: 'P',
-              fuzzy: 0,
-              maxRows: 10,
-              q: event.query
-            },
-            success: function (data) {
-              $autocomplete.list({
-                values: $.map(data.geonames, function (item) {
-                  return {
-                    html: item.name + ', ' + item.adminName1,
-                    value: item.name + ', ' + item.adminCode1
-                  };
-                }),
-                query: event.query
-              });
-            },
-            error: function (request, status, message) {
-              $.error(message);
+          var
+            $icons,
+            iconNames = ['-', '+', 'arrow-down', 'arrow-right', 'camera', 'email', 'go', 'home', 'search', 'spin', 'star', 'stop', 'x', 'X', 'yield'];
+
+          $icons = $sample
+            .clone()
+            .append($icons)
+            .appendTo($samples);
+
+          given(iconNames).it('should have correct HTML', function (iconName) {
+            var $icon = $.ninja.icon({
+              value: iconName.toString()
+            }).appendTo($icons);
+            assert($icon).isDefined();
+            if (svgInline) {
+              assert($icon.is('svg')).isTrue();
+            } else {
+              assert($icon.is('img')).isTrue();
             }
-          });
-        });
-
-        $examples.append('<div class="ninjaui-example-title">$.ninja.autocomplete()</div>', $example.clone().append($autocomplete));
-
-      });
-
-      describe('$.ninja.button()', function () {
-        var $toggleSelect, $toggleDisable,
-        $button = $.ninja.button({
-          html: 'Button'
-        }).disable(function () {
-          $toggleSelect.attr({
-            disabled: 'disabled'
-          });
-        }).enable(function () {
-          $toggleSelect.attr({
-            disabled: false
-          });
-        }).select(function () {
-          $toggleSelect.attr({
-            checked: 'checked'
-          });
-        }).deselect(function () {
-          $toggleSelect.attr({
-            checked: false
-          });
-        }),
-        $buttonSelected = $.ninja.button({
-          css: {
-            'margin-right': '16px'
-          },
-          html: 'Selected',
-          select: true
-        }),
-        $buttonDisabled = $.ninja.button({
-          html: 'Disabled',
-          disable: true
-        });
-
-        $toggleSelect = $('<input/>', {
-          type: 'checkbox'
-        }).change(function () {
-          if ($toggleSelect.attr('checked')) {
-            $button.select();
-          } else {
-            $button.deselect();
-          }
-        });
-
-        $toggleDisable = $('<input/>', {
-          type: 'checkbox'
-        }).change(function () {
-          if ($toggleDisable.attr('checked')) {
-            $button.disable();
-          } else {
-            $button.enable();
-          }
-        });
-
-        $examples.append('<div class="ninjaui-example-title">$.ninja.button()</div>', $example.clone().append($button, ' ', $toggleSelect, ' Select ', $toggleDisable, ' Disable', '<br/><br/>', $buttonSelected, ' ', $buttonDisabled));
-
-        it('should have button class', function () {
-          assert($button.hasClass('nui-btn')).isTrue();
-        });
-
-        it('should accept css overrides on creation', function () {
-          assert($buttonSelected.css('margin-right')).equals('16px');
-          // Note that different browsers are not consistent in how they deal with invalid styles.
-          // Note also that values given and values returned do not always match, such as 1em returning 16px
-        });
-
-        it('should accept html content on creation', function () {
-          assert($buttonSelected.html()).equals('Selected');
-        });
-
-        it('should have class of nui-slc when select is true', function () {
-          assert($buttonSelected.hasClass('nui-slc')).isTrue();
-        });
-
-        it('should have class of nui-dsb when disable is true', function () {
-          assert($buttonDisabled.hasClass('nui-dsb')).isTrue();
-        });
-      });
-
-      describe('$.ninja.dialog()', function () {
-        var
-          $toggleDialog,
-          $dialog = $.ninja.dialog({
-            html: '<div style="padding: 50px">This is <b>HTML</b> inside the dialog.</div>'
-          }).attach(function () {
-            $toggleDialog.attr({
-              checked: 'checked'
-            });
-          }).detach(function () {
-            $toggleDialog.attr({
-              checked: false
-            });
-          });
-        $toggleDialog = $('<input/>', {
-          type: 'checkbox'
-        }).change(function () {
-          if ($toggleDialog.attr('checked')) {
-            $dialog.attach();
-          } else {
-            $dialog.detach();
-          }
-        });
-        $examples.append('<div class="ninjaui-example-title">$.ninja.dialog()</div>', $example.clone().append($toggleDialog, ' Attach Dialog'));
-      });
-
-      describe('$.ninja.drawer()', function () {
-
-        var $drawer, $drawerSelect;
-
-        $drawer = $.ninja.drawer({
-          html: 'Tray',
-          value: 'Drawer'
-        });
-
-        $drawerSelect = $.ninja.drawer({
-          css: {
-            width: '360px'
-          },
-          html: '<div style="padding: 50px">This is <b>HTML</b> inside the drawer.</div>',
-          select: true,
-          value: 'Selected'
-        });
-
-        $examples.append('<div class="ninjaui-example-title">$.ninja.drawer()</div>', $example.clone().append($drawer, '<br/>', $drawerSelect));
-
-        it('should have drawer class', function () {
-          assert($drawer.hasClass('nui-drw')).isTrue();
-        });
-
-        it('should accept css overrides on creation', function () {
-          assert($drawerSelect.css('width')).equals('360px');
-          // Note that different browsers are not consistent in how they deal with invalid styles.
-          // Note also that values given and values returned do not always match, such as 1em returning 16px
-        });
-
-        it('should accept html content on creation', function () {
-          assert($drawer.find('.nui-try').html()).equals('Tray');
-        });
-
-        if (svgInline) {
-          it('should have a right arrow before selecting', function () {
-            assert($drawer.find('.nui-btn .nui-icn[aria-label="arrow-right"]').is(':visible')).isTrue();
-          });
-
-          it('should have a down arrow after selecting', function () {
-            assert($drawerSelect.find('.nui-btn .nui-icn[aria-label="arrow-down"]').is(':visible')).isTrue();
-          });
-        }
-
-      });
-
-      describe('$.ninja.icon()', function () {
-
-        $examples.append('<div class="ninjaui-example-title">$.ninja.icon()</div>');
-
-        var
-          iconNames = ['spin', 'stop', 'yield', 'go', 'x', '-', '+', 'camera', 'arrow-down', 'arrow-right', 'home', 'email', 'search', 'star', 'X'],
-          $exampleIcons = $example.clone().appendTo($examples);
-
-        $.each(iconNames, function (i, iconName) {
-          var $exampleIcon, $icon;
-          if (iconName === 'stop') {
-            $icon = $.ninja.icon({
-              css: {
-                margin: '80px'
-              },
-              value: iconName
-            });
-          } else {
-            $icon = $.ninja.icon({
-              value: iconName
-            });
-          }
-          $exampleIcon = $('<span>', {
-            'class': 'ninjaui-example-icon'
-          }).append($icon, ' ', iconName).appendTo($exampleIcons);
-
-          it('should have icon class', function () {
             assert($icon.is('.nui-icn')).isTrue();
+            assert($icon.attr('aria-label')).equals(iconName.toString());
           });
 
-          it('should have correct aria label', function () {
-            assert($icon.attr('aria-label')).equals(iconName);
+        });
+
+        describe('Button', function () {
+
+          var $button, $buttonCSS, $buttonDisable, $buttonIcon, $buttonSelect, $buttonState;
+
+          $button = $.ninja.button({
+            html: 'Button'
+          }).disable(function () {
+            $buttonState = 'disabled';
+          }).enable(function () {
+            $buttonState = 'enabled';
+          }).select(function () {
+            $buttonState = 'selected';
+          }).deselect(function () {
+            $buttonState = 'deselected';
+          });
+
+          $buttonCSS = $.ninja.button({
+            css: {
+              'font-weight': '900'
+            },
+            html: 'CSS'
+          });
+
+          $buttonDisable = $.ninja.button({
+            html: 'Disabled',
+            disable: true
+          });
+
+          $buttonIcon = $.ninja.button({
+            html: $.ninja.icon({
+              name: 'home'
+            }),
+            select: true
+          });
+
+          $buttonSelect = $.ninja.button({
+            html: 'Selected',
+            select: true
+          });
+
+          $sample
+            .clone()
+            .append($button, $buttonCSS, $buttonDisable, $buttonSelect)
+            .appendTo($samples);
+          $buttonIcon = $button.find('.nui-icn');
+
+          it('should have correct HTML', function () {
+            assert($button).isDefined();
+            assert($button.is('button')).isTrue();
+            assert($button.hasClass('nui-btn')).isTrue();
+          });
+
+          it('should have correct CSS', function () {
+            assert($button.css('text-align')).equals('center');
           });
 
           it('should accept css overrides on creation', function () {
-            if (iconName === 'stop' && svgInline) {
-              assert($icon.find('g').css('margin-top')).equals('80px');
-            }
+            assert($buttonCSS.css('font-weight')).equals('900');
+          });
+
+          it('should accept html content on creation', function () {
+            assert($buttonSelect.html()).equals('Selected');
+          });
+
+          it('should have correct initial state', function () {
+            assert($buttonDisable.hasClass('nui-dsb')).isTrue();
+            assert($buttonSelect.hasClass('nui-slc')).isTrue();
           });
         });
 
-      });
+        describe('Autocomplete', function () {
 
-      describe('$.ninja.menu()', function () {
-        var
-          $message = $('<span>'),
-          please = function () {
-            $message.html(':( Try again.');
-          },
+          var $autocomplete, $autocompleteInput, $autocompleteSpin;
+
+          $autocomplete = $.ninja.autocomplete({
+            placeholder: 'Autocomplete'
+          }).values(function (event) {
+            $autocomplete.list({
+              values: [
+                { html: 'qwertyuiop' },
+                { html: 'asdfghjkl' },
+                { html: 'zxcvbnm' }
+              ],
+              query: event.query
+            });
+          });
+
+          $autocompleteInput = $autocomplete.find('input');
+
+          $autocompleteSpin = $autocomplete.find('.nui-icn[aria-label=spin]');
+
+          $sample
+            .clone()
+            .append($autocomplete)
+            .appendTo($samples);
+
+          it('should have correct HTML', function () {
+            assert($autocomplete).isDefined();
+            assert($autocomplete.is('span')).isTrue();
+            assert($autocomplete.hasClass('nui-atc')).isTrue();
+            assert($autocompleteInput).isDefined();
+            assert($autocompleteInput.attr('type')).equals('text');
+            assert($autocompleteSpin).isDefined();
+          });
+
+          it('should have correct CSS', function () {
+            assert($autocomplete.css('display')).equals('inline-block');
+            assert($autocomplete.css('position')).equals('relative');
+            assert($autocompleteInput.css('padding-right')).equals('17px');
+          });
+
+          it('should have placeholder', function () {
+            assert($autocompleteInput.val() || $autocompleteInput.attr('placeholder')).equals('Autocomplete');
+          });
+
+        });
+
+        describe('Dialog', function () {
+
+          var $dialog, $dialogState;
+
+          $dialog = $.ninja.dialog({
+            html: 'HTML'
+          }).attach(function () {
+            $dialogState = 'attached';
+          }).detach(function () {
+            $dialogState = 'detached';
+          });
+
+          before(function () {
+            $dialog.attach();
+          });
+
+          after(function () {
+            $dialog.detach();
+          });
+
+          it('should attach', function () {
+            assert($dialogState).equals('attached');
+          });
+
+          it('should have correct HTML', function () {
+            assert($dialog).isDefined();
+            assert($dialog.is('span')).isTrue();
+          });
+
+        });
+
+        describe('Drawer', function () {
+
+          var $drawer, $drawerHandle, $drawerIconArrowRight, $drawerSelect, $drawerSelectHandle, $drawerSelectIconArrowDown, $drawerTray;
+
+          $drawer = $.ninja.drawer({
+            css: {
+              fontWeight: '900'
+            },
+            html: 'HTML',
+            value: 'Drawer'
+          });
+
+          $drawerSelect = $.ninja.drawer({
+            html: 'HTML',
+            select: true,
+            value: 'Selected'
+          });
+
+          $sample
+            .clone()
+            .append($drawer, $drawerSelect)
+            .appendTo($samples);
+
+          $drawerHandle = $drawer.find('button.nui-btn::first-child');
+
+          $drawerIconArrowRight = $drawerHandle.find('.nui-icn[aria-label="arrow-right"]');
+
+          $drawerSelectHandle = $drawerSelect.find('button.nui-btn::first-child');
+
+          $drawerSelectIconArrowDown = $drawerSelectHandle.find('.nui-icn[aria-label="arrow-down"]');
+
+          $drawerTray = $drawer.find('.nui-try');
+
+          it('should have correct HTML', function () {
+            assert($drawer).isDefined();
+            assert($drawer.is('div')).isTrue();
+            assert($drawer.hasClass('nui-drw')).isTrue();
+          });
+
+          it('should accept css overrides on creation', function () {
+            assert($drawerHandle.css('font-weight')).equals('900');
+          });
+
+          it('should accept html content on creation', function () {
+            assert($drawerTray.html()).equals('HTML');
+          });
+
+          if (svgInline) {
+            it('should have a right arrow before selecting', function () {
+              assert($drawerIconArrowRight.is(':visible')).isTrue();
+            });
+
+            it('should have a down arrow after selecting', function () {
+              assert($drawerSelectIconArrowDown.is(':visible')).isTrue();
+            });
+          }
+
+        });
+
+        describe('Menu', function () {
+
+          var $menu, menuHTML;
+
           $menu = $.ninja.menu({
             html: 'Menu',
             values: [
               {
-                html: '<div>Mo</div>',
+                html: '<div>A</div>',
                 select: function () {
-                  $message.html('Oh, a wise guy eh?');
+                  menuHTML = 'A';
                 }
               },
               {
-                html: '<div>Larry</div>',
+                html: '<div>B</div>',
                 select: function () {
-                  $message.html('Cut it out, ya puddinhead!');
-                }
-              },
-              {
-                html: '<div>Curly</div>',
-                select: function () {
-                  $message.html('Hey, Mo!');
+                  menuHTML = 'B';
                 }
               },
               { rule: true },
               {
-                html: '<div>Shemp</div>',
+                html: '<div>C</div>',
                 select: function () {
-                  please();
-                }
-              },
-              {
-                html: '<div>Joe</div>',
-                select: function () {
-                  please();
-                }
-              },
-              {
-                html: '<div>Curly Joe</div>',
-                select: function () {
-                  please();
+                  menuHTML = 'C';
                 }
               }
             ]
           });
 
-        $examples.append('<div class="ninjaui-example-title">$.ninja.menu()</div>', $example.clone().append($menu, ' ', $message));
-      });
+          $sample
+            .clone()
+            .append($menu)
+            .appendTo($samples);
 
-      describe('$.ninja.rating()', function () {
-        var
-          $message = $('<span>'),
+          it('should have correct HTML', function () {
+            assert($menu).isDefined();
+            assert($menu.is('span')).isTrue();
+            assert($menu.hasClass('nui-mnu')).isTrue();
+          });
+
+        });
+
+        describe('Rating', function () {
+
+          var $rating, ratingStars;
+
           $rating = $.ninja.rating({
             average: 3
           }).select(function (event) {
-            $message.html('New rating: ' + event.value + ' stars');
+            ratingStars = event.value;
           });
-        $examples.append('<div class="ninjaui-example-title">$.ninja.rating()</div>', $example.clone().append($rating, ' ', $message));
-      });
 
-      describe('$.ninja.slider()', function () {
-        var
-          poorly = function () {
-            var foo = 'bar';
-          },
+          $sample
+            .clone()
+            .append($rating)
+            .appendTo($samples);
+
+          it('should have correct HTML', function () {
+            assert($rating).isDefined();
+            assert($rating.is('span')).isTrue();
+            assert($rating.hasClass('nui-rtn')).isTrue();
+          });
+
+        });
+
+        describe('Slider', function () {
+
+          var $slider, sliderValue;
+
           $slider = $.ninja.slider({
-            html: 'Volume',
-            value: 3,
+            html: 'Slider',
+            value: 1,
             values: [
               {
-                html: '<span title="Silence">0 dB</span>',
+                html: 'A',
                 select: function (event) {
-                  poorly();
+
                 }
               },
-              { html: '<span title="Light leaf rustling, calm breathing">10 dB</span>' },
-              { html: '<span title="Very calm room">20-30 dB</span>' },
-              { html: '<span title="Normal conversation at 1 m">40-60 dB</span>' },
-              { html: '<span title="TV set at home level at 1 m">60 dB</span>' },
-              { html: '<span title="Passenger car at 10 m">60-80 dB</span>' },
-              { html: '<span title="Hearing damage over long-term exposure">78 dB</span>' },
-              { html: '<span title="Traffic on a busy roadway at 10 m">80-90 dB</span>' },
-              { html: '<span title="Jack hammer at 1 m">100 dB</span>' },
-              { html: '<span title="Hearing damage immediately possible">120 dB</span>' },
-              { html: '<span title="Threshold of pain">130 dB</span>' },
-              { html: '<span title="Jet engine at 30 m">150 dB</span>' },
-              { html: '<span title="M1 Garand rifle being fired at 1 m">168 dB</span>' }
+              { html: 'B' },
+              { html: 'C' }
             ]
           });
 
-        $examples.append('<div class="ninjaui-example-title">$.ninja.slider()</div>', $example.clone().append($slider));
-      });
+          $sample
+            .clone()
+            .append($slider)
+            .appendTo($samples);
 
-      describe('$.ninja.tabs()', function () {
-        var
-          $message = $('<span>'),
-          poorly = function () {
-            $message.html('You have chosen... poorly.');
-          },
+          it('should have correct HTML', function () {
+            assert($slider).isDefined();
+            assert($slider.is('span')).isTrue();
+            assert($slider.hasClass('nui-sld')).isTrue();
+          });
+
+        });
+
+        describe('Tabs', function () {
+
+          var $tabs, tabCurrent;
+
           $tabs = $.ninja.tabs({
             values: [
               {
-                html: '<div><i>Gold</i> Tab</div>',
+                html: 'A',
                 select: function () {
-                  poorly();
+                  tabCurrent = 'a';
                 }
               },
               {
-                html: '<div><i>Silver</i> Tab</div>',
+                html: 'B',
                 select: function () {
-                  poorly();
+                  tabCurrent = 'b';
                 }
               },
               {
-                html: '<div><i>Wood</i> Tab</div>',
+                html: 'C',
                 select: function () {
-                  $message.html('You have chosen... wisely.');
+                  tabCurrent = 'c';
                 }
               }
             ]
           });
 
-        $examples.append('<div class="ninjaui-example-title">$.ninja.tabs()</div>', $example.clone().append($tabs, ' ', $message));
+          $sample
+            .clone()
+            .append($tabs)
+            .appendTo($samples);
+
+          it('should have correct HTML', function () {
+            assert($tabs).isDefined();
+            assert($tabs.is('span')).isTrue();
+            assert($tabs.hasClass('nui-tab-hrz')).isTrue();
+          });
+
+        });
       });
-/* */
 
     });
   });
