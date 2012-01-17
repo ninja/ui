@@ -30,7 +30,11 @@ Test during development
 -----------------------
 Open test page in a web browser
 
-    file:///~/projects/ninjaui/test/index.html
+    file:///~/ninjaui/test/index.html
+
+Test with a theme:
+
+    file:///~/ninjaui/test/index.html?theme=dojo
 
 Build
 -----
@@ -43,7 +47,7 @@ Test after building
 -------------------
 Open test page in a web browser
 
-    file:///~/projects/ninjaui/test/index.html?environment=production
+    file:///~/ninjaui/test/index.html?environment=production
 
 Authors
 -------
