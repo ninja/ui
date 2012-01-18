@@ -29,7 +29,7 @@ $versions(jQueryVersions).load(scriptPath).execute(function ($, jQuery, version)
 
   'use strict';
 
-  if ($.inArray(theme, ['bitmap', 'dojo']) > -1) {
+  if ($.inArray(theme, ['bitmap', 'yugen']) > -1) {
     $('<link/>', {
       rel: 'stylesheet',
       href: '../themes/' + theme + '.css'

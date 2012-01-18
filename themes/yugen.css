@@ -1,0 +1,116 @@
+/*
+  Ninja UI Theme: Yugen 幽玄 - aesthetically mysterious
+  Copyright 2008-2012 Jamie Hoover.
+  Licensed per the terms of the Apache License v2.0.
+  http://ninjaui.com/#license
+*/
+
+/* button, item, select, tab */
+.nui-thm-yugen .nui-btn,
+.nui-thm-yugen .nui-itm,
+.nui-thm-yugen .nui-slc,
+.nui-thm-yugen .nui-tab {
+  color: #fff;
+}
+
+/* blocker */
+.nui-thm-yugen .nui-blk {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* button, item, tab */
+.nui-thm-yugen .nui-btn,
+.nui-thm-yugen .nui-itm,
+.nui-thm-yugen .nui-tab {
+  text-shadow: 0 -1px 1px #000;
+}
+
+/* button, slider-button, slider-button.select, slider-groove, tab, tray */
+.nui-thm-yugen .nui-btn,
+.nui-thm-yugen .nui-sld-btn,
+.nui-thm-yugen .nui-sld-btn.nui-slc,
+.nui-thm-yugen .nui-sld-grv,
+.nui-thm-yugen .nui-tab,
+.nui-thm-yugen .nui-try {
+  border-color: #000;
+}
+
+/* button, slider-button, slider-button.select, slider-groove, tab */
+.nui-thm-yugen .nui-btn,
+.nui-thm-yugen .nui-sld-btn,
+.nui-thm-yugen .nui-sld-btn.nui-slc,
+.nui-thm-yugen .nui-sld-grv,
+.nui-thm-yugen .nui-tab {
+  background-color: #333;
+}
+
+/* dialog, list */
+.nui-thm-yugen .nui-dlg,
+.nui-thm-yugen .nui-lst {
+  background-color: #000;
+  background-color: rgba(0,0,0,0.8);
+  border-color: #666;
+}
+
+/* icon, item.hover, select, star.average */
+.nui-thm-yugen .nui-icn g,
+.nui-thm-yugen .nui-itm.nui-hvr g,
+.nui-thm-yugen .nui-slc g,
+.nui-thm-yugen .nui-str.nui-avg g {
+  fill: #fff;
+}
+
+/* icon, icon-X, item.hover, select */
+.nui-thm-yugen .nui-icn g,
+.nui-thm-yugen .nui-icn[aria-label=X] circle,
+.nui-thm-yugen .nui-icn[aria-label=X] polygon,
+.nui-thm-yugen .nui-itm.nui-hvr g,
+.nui-thm-yugen .nui-slc g {
+  stroke: #fff;
+}
+
+/* icon-X */
+.nui-thm-yugen .nui-icn[aria-label=X] g {
+  fill: #900;
+}
+
+/* item.hover, select */
+.nui-thm-yugen .nui-itm.nui-hvr,
+.nui-thm-yugen .nui-slc {
+  background-color: #c00;
+  border-color: #900;
+  text-shadow: 0 -1px 1px #300;
+}
+
+/* rule */
+.nui-thm-yugen .nui-rul {
+  border-top-color: #666;
+}
+
+/* slider-level */
+.nui-thm-yugen .nui-sld-lvl {
+  background-color: #c00;
+}
+
+/* star */
+.nui-thm-yugen .nui-str g {
+  fill: #999;
+  stroke: #666;
+}
+
+/* star.average */
+.nui-thm-yugen .nui-str.nui-avg g {
+  stroke: #ccc;
+}
+
+/* star.individual */
+.nui-thm-yugen .nui-str.nui-ind g {
+  fill: #c00;
+  stroke: #900;
+}
+
+/* tray */
+.nui-thm-yugen .nui-try {
+  background-color: #222;
+  border-bottom-color: #444;
+}
