@@ -1,6 +1,6 @@
 {
   "name": "ninjaui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "the jQuery plugin for lethal interaction",
   "keywords": ["jquery ui", "jquery", "ui", "user interface", "autocomplete", "button", "dialog", "drawer", "icons", "menu", "rating", "slider", "tabs", "jquery", "plugin", "ninja"],
   "authors": ["Jamie R. Hoover <dont.tase@me.com>", "Faisal N. Jawdat <faisal@faisal.com>"],
