@@ -658,12 +658,20 @@
           'stroke-width': 1
         }).appendTo($g);
       } else if (options.value === 'stop') {
-        $polygon.clone().attr({
+        $rect.clone().attr({
           fill: 'none',
-          points: '1,11 1,5 5,1 11,1 15,5 15,11 11,15 5,15',
-          'stroke-width': 2
+          height: 14,
+          'stroke-width': 2,
+          width: 14,
+          x: 1,
+          y: 1
         }).appendTo($g);
-        $polygon.attr('points', '3,10 3,6 6,3 10,3 13,6 13,10 10,13 6,13').appendTo($g);
+        $rect.attr({
+          height: 10,
+          width: 10,
+          x: 3,
+          y: 3
+        }).appendTo($g);
       } else if (options.value === 'yield') {
         $polygon.clone().attr({
           fill: 'none',
