@@ -6,10 +6,6 @@
   http://ninjaui.com/#license
 */
 
-/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, jquery: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: true, undef: true, white: true*/
-
-/*globals XMLSerializer*/
-
 (function ($, window, document, undefined) {
 
   'use strict';
@@ -22,23 +18,25 @@
     svg,
     svgInline,
     svgInlineMaskMissing,
-    svgNamespace = 'http://www.w3.org/2000/svg',
+    svgNamespace,
     then,
     version = $.fn.jquery.split('.'),
     versionMinor = parseFloat(version[1]),
-    versionIncrement = parseFloat(version[2] || '0'),
-    $test = $('<div>').appendTo('body');
+    $test;
 
-  if (versionMinor === 4 && versionIncrement < 3 || versionMinor < 4) {
-    $.error('Ninja UI requires jQuery 1.4.3 or higher.');
+  if (versionMinor < 6) {
+    $.error('Ninja UI requires jQuery 1.6 or higher.');
   }
 
   $('<link>', {
-    rel: 'stylesheet',
-    href: '../src/ninjaui.css'
+    rel: 'stylesheet/less',
+    href: '../src/less/index.less',
+    type: 'text/css'
   }).prependTo('head');
 
+  $test = $('<div>').appendTo('body');
   $test.html('<svg>');
+  svgNamespace = 'http://www.w3.org/2000/svg';
   svgInline = ($test.find('svg')[0] && $test.find('svg')[0].namespaceURI) === svgNamespace;
   if (svgInline) {
     svg = true;
@@ -130,7 +128,7 @@
         if ($.isFunction(callback)) {
           $object.bind('disable.ninja', callback);
         } else {
-          $object.fadeTo('fast', 0.5).addClass('nui-dsb').trigger('disable.ninja');
+          $object.addClass('nui-dsb').trigger('disable.ninja');
         }
       });
     },
@@ -141,7 +139,7 @@
         if ($.isFunction(callback)) {
           $object.bind('enable.ninja', callback);
         } else {
-          $object.fadeTo('fast', 1).removeClass('nui-dsb').trigger('enable.ninja');
+          $object.removeClass('nui-dsb').trigger('enable.ninja');
         }
       });
     },
@@ -419,7 +417,8 @@
         $button.trigger('select.ninja');
       }
       if (options.disable) {
-        $button.ninja().disable();
+        $button.addClass('nui-dsb');
+        $button.trigger('disable.ninja');
       }
       return $button.ninja();
     },

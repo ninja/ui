@@ -1,8 +1,8 @@
 {
   "name": "ninjaui",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "the jQuery plugin for lethal interaction",
-  "keywords": ["jquery ui", "jquery", "ui", "user interface", "autocomplete", "button", "dialog", "drawer", "icons", "menu", "rating", "slider", "tabs", "jquery", "plugin", "ninja"],
+  "keywords": ["ui", "user interface", "autocomplete", "button", "dialog", "drawer", "icons", "menu", "rating", "slider", "tabs", "jquery", "plugin", "ninja"],
   "authors": ["Jamie R. Hoover <dont.tase@me.com>", "Faisal N. Jawdat <faisal@faisal.com>"],
   "homepage": "https://ninjaui.com/",
   "repository": {
@@ -13,7 +13,11 @@
     "node": "0.6.x"
   },
   "dependencies": {
-    "clean-css": "0.3.x",
+    "colors": "0.6.x",
+    "jsdom": "0.2.x",
+    "jshint": "0.5.x",
+    "less": "1.2.x",
+    "nodewatch": "0.1.x",
     "uglify-js": "1.2.x"
   }
 }

@@ -3,20 +3,202 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for more details.
 */
 
-/*globals desc: false, task: false, file: false, directory: false*/
+/*globals jake, desc, task, file, directory*/
 
 /*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, node: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: false, undef: true, white: true*/
 
+/*colors: bold, italic, underline, inverse, yellow, cyan, white, magenta, green, red, grey, blue, rainbow*/
+
 var
-  cleanCSS = require('clean-css'),
+  colors = require('colors'),
+  exec = require('child_process').exec,
   fs = require('fs'),
+  jshint = require('jshint').JSHINT,
+  less = require('less'),
   uglify = require('uglify-js'),
-  pkg = JSON.parse(fs.readFileSync(__dirname + '/package.json', 'utf8')),
-  version = pkg.version;
+  base64css,
+  dirsrc = './src/',
+  dirtest = './test/',
+  version = JSON.parse(fs.readFileSync('./package.json', 'utf8')).version,
+  dirdist = './dist/' + version + '/',
+  filesrc = dirsrc + 'ninjaui.js',
+  filedist = dirdist + 'jquery.ninjaui.js',
+  filemin = dirdist + 'jquery.ninjaui.min.js',
+  iconPass = '\u2714'.green,
+  iconFail = '\u2717'.red;
 
 desc('Default task.');
-task('default', ['jquery.ninjaui.min.js'], function () {
-  console.log('Ninja UI ' + version + ' build complete. Test URL: file://' + __dirname + '/test/index.html?environment=production');
+task('default', ['announce', 'test'], function () {
+  console.log(('testing...').underline);
+});
+
+desc('Lint JavaScript file.');
+task('lint', function () {
+  var
+    buffer = fs.readFileSync(filesrc, 'utf8'),
+    config = fs.readFileSync(dirtest + 'jshint.json', 'utf8'),
+    config = config.replace(/\/\*[\s\S]*(?:\*\/)/g, ''); //remove everything between "/* */"
+    config = config.replace(/\/\/[^\n\r]*/g, ''); //remove everything after "//"
+    config = JSON.parse(config);
+
+  if (jshint(buffer, config)) {
+    console.log(iconPass, 'linted:       ', filesrc);
+  } else {
+    console.error(iconFail, 'syntax errors:', filesrc);
+    jshint.errors.forEach(function (error) {
+      if (error) {
+        if (error.id) {
+          console.error(error.id.red, error.line + ',' + error.character, error.reason);
+        } else {
+          console.error(error.reason.red);
+        }
+      }
+    });
+    process.exit(1);
+  }
+});
+
+desc('Build JavaScript file.');
+task('build', [dirdist, 'lint'], function () {
+  var
+    fileless = dirsrc + 'less/index.less',
+    parser = new(less.Parser)({
+      paths: [dirsrc + 'less'],
+      filename: fileless
+    });
+
+  parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
+    if (error) {
+      console.error(iconFail, 'syntax errors:', error.filename);
+      console.error(' ', error.line + ',' + error.column, '      ', error.extract[1].red);
+      process.exit(1);
+    }
+
+    base64css = 'data:text/css;base64,' + new Buffer(tree.toCSS({
+      compress: true
+    })).toString('base64');
+
+    console.log(iconPass, 'compiled:     ', fileless);
+
+    fs.writeFileSync(
+      dirdist + 'jquery.ninjaui.js',
+      fs.readFileSync(dirsrc + 'ninjaui.js', 'utf8')
+        .replace(/development/g, version)
+        .replace('stylesheet/less', 'stylesheet')
+        .replace(
+          '../src/less/index.less',
+          base64css),
+      'utf8'
+    );
+  });
+
+  console.log(iconPass, 'created:      ', filedist);
+});
+
+desc('Minify JavaScript file.');
+task('minify', ['build'], function () {
+  var
+    copyright = '/*! Ninja UI v' + version + ' ninjaui.com | ninjaui.com/#license */\n',
+    javascript = uglify(fs.readFileSync(dirdist + 'jquery.ninjaui.js', 'utf8'));
+
+  fs.writeFileSync(dirdist + 'jquery.ninjaui.min.js', copyright + javascript, 'utf8');
+
+  console.log(iconPass, 'minified:     ', filemin);
+});
+
+desc('Test minified JavaScript.');
+task('test', ['minify'], function () {
+  var
+    jsdom = require('jsdom'),
+    assert = require('assert'),
+    testCount = 0,
+    versionCount = 1,
+    test = function ($, name, fn) {
+      try {
+        fn();
+      } catch (error) {
+        console.error(iconFail, 'test failed:  ', name, '(jQuery', $.fn.jquery + ')');
+        console.error('                ', error.message.bold);
+        process.exit(1);
+      }
+      if (versionCount === 1) {
+        testCount++;
+      }
+    },
+    versions = ['1.7.1', '1.7.0', '1.6.4', '1.6.3', '1.6.2', '1.6.1', '1.6.0'];
+
+  versions.forEach(function (jQueryVersion) {
+
+    jsdom.env({
+      html: '<html><head></head><body></body></html>',
+      src: [
+        fs.readFileSync(dirtest + 'jquery/' + jQueryVersion + '.min.js', 'utf8'),
+        fs.readFileSync(filemin, 'utf8')
+      ],
+      done: function (errors, window) {
+        if (errors) {
+          console.error(errors);
+          process.exit(1);
+        }
+        var
+          $ = window.$,
+          document = window.document;
+        require('test/core.js')($, window, document, test, assert, version);
+        require('test/button.js')($, window, document, test, assert);
+        versionCount++;
+        if (versionCount === versions.length) {
+          console.log(iconPass, 'tested:       ', testCount, 'tests passed', versions.length, 'versions of jQuery(' + versions[versions.length - 1], '-', versions[0] + ')');
+
+        }
+      }
+    });
+
+  });
+
+});
+
+desc('Watch for changes.');
+task('watch', ['watchMessage'], function () {
+  var
+    spawn = require('child_process').spawn,
+    watch = require('nodewatch'),
+    busy = false,
+    test = null;
+
+  watch.add(dirsrc).add(dirsrc + 'less').add(dirtest).onChange(function (file) {
+    if (!busy) {
+      busy = true;
+      test = spawn('jake', ['default', 'watchMessage']);
+      test.stdout.on('data', function (data) {
+        process.stdout.write(data);
+      });
+      test.stderr.on('data', function (data) {
+        process.stderr.write(data);
+      });
+      test.on('exit', function (code) {
+        test.stdout.removeAllListeners('data');
+        test.stderr.removeAllListeners('data');
+        test.removeAllListeners('exit');
+        test = null;
+        busy = false;
+      });
+    }
+  });
+});
+
+task('announce', function () {
+  console.log(('Ninja UI ' + version).bold);
+  console.log(('building...').underline);
+})
+
+task('watchMessage', function () {
+  console.log('Watching Ninja UI code for changes... (CTRL-C to quit)'.yellow);
+});
+
+desc('Remove generated files.');
+task('clean', function () {
+  fs.unlink(dirdist + 'jquery.ninjaui.min.js');
+  fs.unlink(dirdist + 'jquery.ninjaui.js');
 });
 
 desc('Display version number.');
@@ -24,24 +206,4 @@ task('version', function () {
   console.log(version);
 });
 
-desc('Build JavaScript file.');
-file('jquery.ninjaui.js', [__dirname + '/src/ninjaui.css', __dirname + '/src/ninjaui.js'], function () {
-  var
-    css = new Buffer(cleanCSS.process(fs.readFileSync(__dirname + '/src/ninjaui.css', 'utf8'))),
-    js = fs.readFileSync(__dirname + '/src/ninjaui.js', 'utf8').replace(/development/g, version).replace('../src/ninjaui.css', 'data:text/css;base64,' + css.toString('base64'));
-  fs.writeFileSync('jquery.ninjaui.js', js, 'utf8');
-});
-
-desc('Minify JavaScript file.');
-file('jquery.ninjaui.min.js', ['jquery.ninjaui.js'], function () {
-  var
-    copyright = '/*! Ninja UI v' + version + ' ninjaui.com | ninjaui.com/#license */\n',
-    js = uglify(fs.readFileSync('jquery.ninjaui.js', 'utf8'));
-  fs.writeFileSync('jquery.ninjaui.min.js', copyright + js, 'utf8');
-});
-
-desc('Remove generated files.');
-task('clean', function () {
-  fs.unlink('jquery.ninjaui.min.js');
-  fs.unlink('jquery.ninjaui.js');
-});
+directory(dirdist);
