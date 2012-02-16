@@ -59,13 +59,15 @@ task('lint', function () {
 });
 
 desc('Build JavaScript file.');
-task('build', [dirdist, 'lint'], function () {
+task('build', ['lint'], function () {
   var
     fileless = dirsrc + 'less/index.less',
     parser = new(less.Parser)({
       paths: [dirsrc + 'less'],
       filename: fileless
     });
+
+  fs.mkdirSync(dirdist);
 
   parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
     if (error) {
@@ -143,8 +145,8 @@ task('test', ['minify'], function () {
         var
           $ = window.$,
           document = window.document;
-        require('test/core.js')($, window, document, test, assert, version);
-        require('test/button.js')($, window, document, test, assert);
+        require(dirtest + 'core.js')($, window, document, test, assert, version);
+        require(dirtest + 'button.js')($, window, document, test, assert);
         versionCount++;
         if (versionCount === versions.length) {
           console.log(iconPass, 'tested:       ', testCount, 'tests passed', versions.length, 'versions of jQuery(' + versions[versions.length - 1], '-', versions[0] + ')');
@@ -205,5 +207,3 @@ desc('Display version number.');
 task('version', function () {
   console.log(version);
 });
-
-directory(dirdist);

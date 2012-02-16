@@ -13,6 +13,5 @@ tmtags
 
 node_modules/
 
-# Ninja UI built files
-jquery.ninjaui.js
-jquery.ninjaui.min.js
+# Develoment Distribution
+dist/1.1.0
