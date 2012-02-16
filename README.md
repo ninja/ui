@@ -1,62 +1,34 @@
-[Ninja User Interface](http://ninjaui.com/)
-=================================================
-
+#[Ninja User Interface](http://ninjaui.com/)
 the jQuery plugin for lethal interaction
 
-Production Dependency
----------------------
+##Depends On
+[jQuery](http://jquery.com/) versions 1.6 - 1.7.1
 
-[jQuery](http://jquery.com/)
+##Develop with [Node.js](http://nodejs.org/)
+	
+###Install Git, Node.js, NPM and Jake	
+	brew install git node
+	curl http://npmjs.org/install.sh | sh
+	npm install -g jake
+	
+###Fork, Clone and install dependencies of  Ninja UI
+	mkdir ~/Code/ninja
+	git clone git@github.com:GITHUB_USER_NAME/ui.git ~/Code/ninja/ui
+	cd ~/Code/ninja/ui
+	npm install -d
 
-Development Dependencies
-------------------------
-[Node.js](http://nodejs.org/)
-Jake
-CleanCSS
-UglifyJS
-
-Develop
--------
-If you've never previously installed Jake before
-
-    npm install -g jake
-
-Navigate to wherever you cloned/downloaded Ninja UI and install dependencies
-
-    cd ~/projects/ninjaui
-    npm install
-
-Test during development
------------------------
-Open test page in a web browser
-
-    file:///~/ninjaui/test/index.html
-
-Test with a theme:
-
-    file:///~/ninjaui/test/index.html?theme=dojo
-
-Build
------
-After making changes to either src/ninjaui.js or src/ninjaui.css run jake
-
-    cd ~/projects/ninjaui
+###Build latest development version
+	cd ~/Code/ninja/ui
     jake
 
-Test after building
--------------------
-Open test page in a web browser
-
-    file:///~/ninjaui/test/index.html?environment=production
-
-Authors
--------
-
+###Watch and automatically build
+	cd ~/Code/ninja/ui
+    jake watch
+    
+##Authors
 Jamie R. Hoover and Faisal N. Jawdat
 
-License
--------
-
+##License
 Copyright 2008-2012 Jamie Hoover.
 
 Licensed under the Apache License, Version 2.0 (the "License");
