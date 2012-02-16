@@ -15,6 +15,7 @@ var
   fs = require('fs'),
   jshint = require('jshint').JSHINT,
   less = require('less'),
+  path = require('path'),
   uglify = require('uglify-js'),
   base64css,
   dirsrc = './src/',
@@ -67,7 +68,9 @@ task('build', ['lint'], function () {
       filename: fileless
     });
 
-  fs.mkdirSync(dirdist);
+  if (!path.existsSync(dirdist)) {
+    fs.mkdirSync(dirdist);
+  }
 
   parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
     if (error) {
