@@ -29,7 +29,7 @@ var
   iconFail = '\u2717'.red;
 
 desc('Default task.');
-task('default', ['announce', 'test'], function () {
+task('default', ['messageBuild', 'test'], function () {
   console.log(('testing...').underline);
 });
 
@@ -163,7 +163,7 @@ task('test', ['minify'], function () {
 });
 
 desc('Watch for changes.');
-task('watch', ['watchMessage'], function () {
+task('watch', ['messageWatch'], function () {
   var
     spawn = require('child_process').spawn,
     watch = require('nodewatch'),
@@ -191,12 +191,12 @@ task('watch', ['watchMessage'], function () {
   });
 });
 
-task('announce', function () {
+task('messageBuild', function () {
   console.log(('Ninja UI ' + version).bold);
   console.log(('building...').underline);
 })
 
-task('watchMessage', function () {
+task('messageWatch', function () {
   console.log('Watching Ninja UI code for changes... (CTRL-C to quit)'.yellow);
 });
 
