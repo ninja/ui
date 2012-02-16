@@ -1,16 +1,16 @@
 #[Ninja User Interface](http://ninjaui.com/)
 the jQuery plugin for lethal interaction
 
-##Depends On
-[jQuery](http://jquery.com/) versions 1.6 - 1.7.1
+##Depends On [jQuery](http://jquery.com/)
+versions 1.6 - 1.7.1
 
 ##Develop with [Node.js](http://nodejs.org/)
-	
-###Install Git, Node.js, NPM and Jake	
+
+###Install Git, Node.js, NPM and Jake
 	brew install git node
 	curl http://npmjs.org/install.sh | sh
 	npm install -g jake
-	
+
 ###Fork, Clone and install dependencies of  Ninja UI
 	mkdir ~/Code/ninja
 	git clone git@github.com:GITHUB_USER_NAME/ui.git ~/Code/ninja/ui
@@ -24,7 +24,7 @@ the jQuery plugin for lethal interaction
 ###Watch and automatically build
 	cd ~/Code/ninja/ui
     jake watch
-    
+
 ##Authors
 Jamie R. Hoover and Faisal N. Jawdat
 
