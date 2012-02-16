@@ -1,17 +1,19 @@
-# Mac OS
-.DS_Store
+# current develoment build
+dist/1.1.0
 
-# Editors
+# Node.js
+node_modules/
+
+# editors
+*.sublime-project
 *.swp
-*~
-\#*
-.\#*
 *.tmproj
 tmtags
 .idea
 .redcar
+*~
+\#*
+.\#*
 
-node_modules/
-
-# Develoment Distribution
-dist/1.1.0
+# Mac OS X
+.DS_Store
