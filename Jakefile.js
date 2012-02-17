@@ -3,14 +3,11 @@
   Licensed per the terms of the Apache License v2.0. See Readme.md for more details.
 */
 
-/*globals jake, desc, task, file, directory*/
-
-/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, node: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: false, undef: true, white: true*/
-
-/*colors: bold, italic, underline, inverse, yellow, cyan, white, magenta, green, red, grey, blue, rainbow*/
+"use strict";
 
 var
   colors = require('colors'),
+  /*bold, italic, underline, inverse, yellow, cyan, white, magenta, green, red, grey, blue, rainbow*/
   exec = require('child_process').exec,
   fs = require('fs'),
   jshint = require('jshint').JSHINT,
@@ -37,10 +34,10 @@ desc('Lint JavaScript file.');
 task('lint', function () {
   var
     buffer = fs.readFileSync(filesrc, 'utf8'),
-    config = fs.readFileSync(dirtest + 'jshint.json', 'utf8'),
-    config = config.replace(/\/\*[\s\S]*(?:\*\/)/g, ''); //remove everything between "/* */"
-    config = config.replace(/\/\/[^\n\r]*/g, ''); //remove everything after "//"
-    config = JSON.parse(config);
+    config = JSON.parse(fs.readFileSync(dirtest + 'jshint.json', 'utf8')
+      .replace(/\/\*[\s\S]*(?:\*\/)/g, '') //remove everything between "/* */"
+      .replace(/\/\/[^\n\r]*/g, '') //remove everything after "//"
+    );
 
   if (jshint(buffer, config)) {
     console.log(iconPass, 'linted:       ', filesrc);
@@ -194,7 +191,7 @@ task('watch', ['messageWatch'], function () {
 task('messageBuild', function () {
   console.log(('Ninja UI ' + version).bold);
   console.log(('building...').underline);
-})
+});
 
 task('messageWatch', function () {
   console.log('Watching Ninja UI code for changes... (CTRL-C to quit)'.yellow);
