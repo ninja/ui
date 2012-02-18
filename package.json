@@ -1,23 +1,55 @@
 {
   "name": "ninjaui",
   "version": "1.1.0",
+
   "description": "the jQuery plugin for lethal interaction",
   "keywords": ["ui", "user interface", "autocomplete", "button", "dialog", "drawer", "icons", "menu", "rating", "slider", "tabs", "jquery", "plugin", "ninja"],
-  "authors": ["Jamie R. Hoover <dont.tase@me.com>", "Faisal N. Jawdat <faisal@faisal.com>"],
+
   "homepage": "https://ninjaui.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/ninja/ui.git"
   },
-  "engines": {
-    "node": "0.6.x"
+  "bugs": {
+    "url" : "http://github.com/ninja/ui/issues"
   },
-  "dependencies": {
+
+  "author": {
+    "name": "Jamie R. Hoover",
+    "email": "dont.tase@me.com",
+    "url": "http://uipoet.com"
+  },
+  "contributors": [
+    {
+      "name": "Faisal N. Jawdat",
+      "email": "faisal@faisal.com",
+      "url": "http://faisail.com"
+    }
+  ],
+
+  "engines": {
+    "node": "0.6 || 0.7 || 0.8",
+    "npm": "1"
+  },
+  "devDependencies": {
     "colors": "0.6.x",
     "jsdom": "0.2.x",
     "jshint": "0.5.x",
     "less": "1.2.x",
     "nodewatch": "0.1.x",
     "uglify-js": "1.2.x"
-  }
+  },
+
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "watch": "node scripts/watch.js"
+  },
+
+  "licenses": [
+    {
+      "type": "Apache 2",
+      "url": "http://github.com/ninja/ui/raw/master/LICENSE.txt"
+    }
+  ]
 }

@@ -17,3 +17,5 @@ tmtags
 
 # Mac OS X
 .DS_Store
+
+npm-debug.log

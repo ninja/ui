@@ -6,24 +6,25 @@ versions 1.6 - 1.7.1
 
 ##Develop with [Node.js](http://nodejs.org/)
 
-###Install Git, Node.js, NPM and Jake
+Install git, node and npm:
+
 	brew install git node
 	curl http://npmjs.org/install.sh | sh
-	npm install -g jake
 
-###Fork, Clone and install dependencies of  Ninja UI
+Fork, clone and install development dependencies:
+
 	mkdir ~/Code/ninja
 	git clone git@github.com:GITHUB_USER_NAME/ui.git ~/Code/ninja/ui
 	cd ~/Code/ninja/ui
 	npm install -d
 
-###Build latest development version
-	cd ~/Code/ninja/ui
-    jake
+Build latest development version:
 
-###Watch and automatically build
-	cd ~/Code/ninja/ui
-    jake watch
+  npm run-script build
+
+Watch and rebuild when source or tests change:
+
+  npm run-script watch
 
 ##Authors
 Jamie R. Hoover and Faisal N. Jawdat
