@@ -1,36 +1,47 @@
-#[Ninja User Interface](http://ninjaui.com/)
-the jQuery plugin for lethal interaction
+##[Ninja User Interface](http://ninjaui.com/)
+*the jQuery plugin for lethal interaction*
 
-##Depends On [jQuery](http://jquery.com/)
+###Extends [jQuery](http://jquery.com/)
 versions 1.6 - 1.7.1
 
-##Develop with [Node.js](http://nodejs.org/)
+###Develop with [Node.js](http://nodejs.org/)
 
-Install git, node and npm:
+1.) Install node and npm.
 
-	brew install git node
-	curl http://npmjs.org/install.sh | sh
+*Here's how with [homebrew](http://mxcl.github.com/homebrew/) in Mac OS X:*
 
-Fork, clone and install development dependencies:
+    brew install node
+    curl http://npmjs.org/install.sh | sh
 
-	mkdir ~/Code/ninja
-	git clone git@github.com:GITHUB_USER_NAME/ui.git ~/Code/ninja/ui
-	cd ~/Code/ninja/ui
-	npm install -d
+2.) [Fork Ninja UI](fork_select).
 
-Build latest development version:
+3.) Clone from your fork.
 
-  npm run-script build
+    mkdir ~/ninja
+    git clone git@github.com:<GITHUB_USER_NAME>/ui.git ~/Code/ninja/ui
 
-Watch and rebuild when source or tests change:
+4.) Install development dependencies:
 
-  npm run-script watch
+    cd ~/ninja/ui
+    npm install -d
 
-##Authors
+Build and test latest development version:
+
+    npm run-script build
+    
+Test without building:
+
+    npm test
+
+**Automatically** watch and rebuild/retest when source/tests change:
+
+    npm run-script watch
+
+###Authors
 Jamie R. Hoover and Faisal N. Jawdat
 
-##License
-Copyright 2008-2012 Jamie Hoover.
+###License
+Copyright 2008-2012 Jamie R. Hoover.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
