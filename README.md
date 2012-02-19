@@ -1,12 +1,9 @@
 ##[Ninja User Interface](http://ninjaui.com/)
-*the jQuery plugin for lethal interaction*
+*the [jQuery](http://jquery.com/ "jQuery versions 1.6 - 1.7.1") plugin for lethal interaction*
 
-###Extends [jQuery](http://jquery.com/)
-versions 1.6 - 1.7.1
+###Develop
 
-###Develop with [Node.js](http://nodejs.org/)
-
-1.) Install node and npm.
+1.) Install [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/).
 
 *Here's how with [homebrew](http://mxcl.github.com/homebrew/) in Mac OS X:*
 
