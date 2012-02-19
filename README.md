@@ -13,7 +13,7 @@ versions 1.6 - 1.7.1
     brew install node
     curl http://npmjs.org/install.sh | sh
 
-2.) [Fork Ninja UI](fork_select).
+2.) [`Fork`](fork_select) Ninja UI.
 
 3.) Clone from your fork.
 
@@ -38,10 +38,10 @@ Test without building:
     npm run-script watch
 
 ###Authors
-Jamie R. Hoover and Faisal N. Jawdat
+[`uipoet`](/uipoet "Jamie Hoover") and [`faisal`](/faisal "Faisal N. Jawdat")
 
 ###License
-Copyright 2008-2012 Jamie R. Hoover.
+Copyright 2008-2012 Jamie Hoover.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
