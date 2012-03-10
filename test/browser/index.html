@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja UI Tests</title>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <script src="../lib/jquery/1.7.1.min.js"></script>
+    <script src="../../dist/1.1.0/jquery.ninjaui.min.js"></script>
+    <script src="../../node_modules/expect.js/expect.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../stylesheet.js"></script>
+    <script>
+      $(function () {
+        mocha.run();
+      });
+    </script>
+  </body>
+</html>

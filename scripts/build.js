@@ -38,8 +38,12 @@ var
 
   uglify = require('uglify-js');
 
+console.log();
+console.log('Bulding Ninja UI', version);
+console.log();
+
 if (jshint(buffer, config)) {
-  console.log(iconPass, 'linted:       ', filesrc);
+  console.log(iconPass, 'linted:', filesrc);
 } else {
   console.error(iconFail, 'syntax errors:', filesrc);
   jshint.errors.forEach(function (error) {
@@ -61,14 +65,14 @@ if (!path.existsSync(dirdist)) {
 parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
   if (error) {
     console.error(iconFail, 'syntax errors:', error.filename);
-    console.error(' ', error.line + ',' + error.column, '      ', error.extract[1].red);
+    console.error(error.line + ',' + error.column, error.extract[1].red);
     process.exit(1);
   }
 
-  console.log(iconPass, 'compiled:     ', fileless);
+  console.log(iconPass, 'compiled:', fileless);
 
   fs.writeFileSync(
-    dirdist + 'jquery.ninjaui.js',
+    path.resolve(dirdist, 'jquery.ninjaui.js'),
     fs.readFileSync(path.resolve(dirsrc, 'ninjaui.js'), 'utf8')
       .replace(/development/g, version)
       .replace('stylesheet/less', 'stylesheet')
@@ -80,10 +84,9 @@ parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
   );
 });
 
-console.log(iconPass, 'created:      ', filedist);
+console.log(iconPass, 'created:', filedist);
 
 fs.writeFileSync(path.resolve(dirdist, 'jquery.ninjaui.min.js'), copyright + uglify(fs.readFileSync(path.resolve(dirdist, 'jquery.ninjaui.js'), 'utf8')), 'utf8');
 
-console.log(iconPass, 'minified:     ', filedistmin);
-
-require('./test.js');
+console.log(iconPass, 'minified:', filedistmin);
+console.log();

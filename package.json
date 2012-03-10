@@ -33,17 +33,13 @@
   },
   "devDependencies": {
     "colors": "0.6.x",
+    "expect.js": "0.1.x",
     "jsdom": "0.2.x",
     "jshint": "0.5.x",
     "less": "1.2.x",
+    "mocha": "0.14.x",
     "nodewatch": "0.1.x",
     "uglify-js": "1.2.x"
-  },
-
-  "scripts": {
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
-    "watch": "node scripts/watch.js"
   },
 
   "licenses": [

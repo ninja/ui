@@ -72,7 +72,7 @@
   then = $.now();
 
   function uniqueId() {
-    return then ++;
+    return then += 1;
   }
 
   methods = {
@@ -821,7 +821,7 @@
             });
           }
         });
-      for (i = 0; i < options.values; i++) {
+      for (i = 0; i < options.values; i += 1) {
         $('<button>', {
           'class': 'nui-str',
           html: $.ninja.icon({
@@ -830,7 +830,7 @@
         }).appendTo($rating);
       }
       $rating.find('.nui-str').each(function (i, star) {
-        i++;
+        i += 1;
         var $star = $(star);
         $star.bind({
           'click.ninja select.ninja': function () {
@@ -936,9 +936,9 @@
               value,
               slot = Math.round($button.position().left / increment);
             if (slot > 0 && isKey(event, 'arrowLeft')) {
-              slot--;
+              slot -= 1;
             } else if (slot < slots && isKey(event, 'arrowRight')) {
-              slot++;
+              slot += 1;
             }
             value = options.values[slot];
             $value.html(value.html);

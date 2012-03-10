@@ -1,18 +1,9 @@
-/*
-  Copyright 2008-2012 Jamie Hoover.
-  Licensed per the terms of the Apache License v2.0. See README.md for details.
-
-  Note: No testing for computed styles. HTML DOM/BOM only!
-*/
-
-/*jshint bitwise: true, browser: true, curly: true, eqeqeq: true, forin: true, immed: true, indent: 2, node: true, maxerr: 3, newcap: true, noarg: true, noempty: true, nomen: true, nonew: true, onevar: true, plusplus: false, regexp: true, strict: false, undef: true, white: true*/
-
 module.exports = function ($, window, document, test, assert) {
 
   test($, 'button.html', function () {
     var $button = $.ninja.button();
 
-    assert($button.is('button'));
+    assert.equal($button[0].tagName.toLowerCase(), 'button');
     assert($button.hasClass('nui-btn'));
   });
 

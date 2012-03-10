@@ -12,8 +12,8 @@
   "noarg": true,
   "noempty": true,
   "nonew": true,
-  "plusplus": false,
-  "regexp": true,
+  "plusplus": true,
+  "regexp": false, // These are only build/test scripts. Security is not an issue.
   "undef": true,
   "strict": true,
   "trailing": true,
