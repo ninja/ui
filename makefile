@@ -7,8 +7,14 @@ default:
 build:
 	node scripts/build.js
 
+watch:
+	node scripts/watch.js
+
+update:
+	$(MAKE) -s build test
+
 test:
-	./node_modules/.bin/mocha --ui bdd --require ./test/lib --reporter $(REPORTER) $(BAIL)
+	./node_modules/.bin/mocha -c --ui bdd --require ./test/lib --reporter $(REPORTER) $(BAIL)
 
 test-all: test-1.7.1 test-1.7.0 test-1.6.4 test-1.6.3 test-1.6.2 test-1.6.1 test-1.6.0
 

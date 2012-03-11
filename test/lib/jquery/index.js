@@ -8,6 +8,7 @@ module.exports = function (fn) {
     fs = require('fs'),
     jsdom = require('jsdom');
 
+  console.log();
   console.log('Testing Ninja UI', version, 'with jQuery', jQueryVersion);
 
   jsdom.env({

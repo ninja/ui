@@ -24,9 +24,9 @@ watch
       busy = true;
       console.log(iconChange, 'changed:      ', file.magenta);
       if (path.basename(file) === 'ninjaui.js' || path.extname(file) === '.less') {
-        test = spawn('node', ['scripts/build.js']);
+        test = spawn('make', ['update']);
       } else if (path.extname(file) === '.js') {
-        test = spawn('node', ['scripts/test.js']);
+        test = spawn('make', ['test']);
       }
       test.stdout.on('data', function (data) {
         process.stdout.write(data);
