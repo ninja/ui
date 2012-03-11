@@ -8,7 +8,7 @@ build:
 	node scripts/build.js
 
 test:
-	./node_modules/.bin/mocha --ui bdd --require ./test/lib/require --reporter $(REPORTER) $(BAIL)
+	./node_modules/.bin/mocha --ui bdd --require ./test/lib --reporter $(REPORTER) $(BAIL)
 
 test-all: test-1.7.1 test-1.7.0 test-1.6.4 test-1.6.3 test-1.6.2 test-1.6.1 test-1.6.0
 
