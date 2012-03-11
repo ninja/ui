@@ -24,15 +24,11 @@
 
 Build and test latest development version:
 
-    npm run-script build
-    
-Test without building:
-
-    npm test
+    make
 
 **Automatically** watch and rebuild/retest when source/tests change:
 
-    npm run-script watch
+    make watch
 
 ###Authors
 [`uipoet`](/uipoet "Jamie Hoover") and [`faisal`](/faisal "Faisal N. Jawdat")
