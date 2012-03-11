@@ -10,9 +10,6 @@ build:
 watch:
 	node scripts/watch.js
 
-update:
-	$(MAKE) -s build test
-
 test:
 	./node_modules/.bin/mocha -c --ui bdd --require ./test/lib --reporter $(REPORTER) $(BAIL)
 
