@@ -6,6 +6,8 @@ default:
 
 build:
 	node scripts/build.js
+version:
+	@node scripts/version.js
 
 watch:
 	node scripts/watch.js
