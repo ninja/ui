@@ -433,11 +433,6 @@
           css: options.css,
           html: options.html
         }),
-        $button = $.ninja.icon({
-          value: 'X'
-        }).bind('click.ninja', function () {
-          $dialog.detach();
-        }).appendTo($dialog),
         $blocker = $('<div>', {
           'class': 'nui-blk'
         }).bind('click.ninja', function (event) {
@@ -445,6 +440,11 @@
             $dialog.detach();
           }
         });
+      $.ninja.icon({
+        value: 'X'
+      }).bind('click.ninja', function () {
+        $dialog.detach();
+      }).appendTo($dialog);
       $dialog.bind({
         'attach.ninja': function (event) {
           options.$parent.append($blocker, $dialog);
