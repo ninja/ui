@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var
   version = require('../package.json').version,
@@ -22,13 +22,6 @@ var
 
   fs = require('fs'),
 
-  jshint = require('jshint').JSHINT,
-  buffer = fs.readFileSync(filesrc, 'utf8'),
-  config = JSON.parse(fs.readFileSync(path.resolve(dirsrc, '.jshintrc'), 'utf8')
-    .replace(/\/\*[\s\S]*(?:\*\/)/g, '') //remove everything between "/* */"
-    .replace(/\/\/[^\n\r]*/g, '') //remove everything after "//"
-  ),
-
   less = require('less'),
   fileless = path.resolve(dirsrc, 'less', 'index.less'),
   parser = new(less.Parser)({
@@ -41,22 +34,6 @@ var
 console.log();
 console.log('Building Ninja UI', version);
 console.log();
-
-if (jshint(buffer, config)) {
-  console.log(iconPass, 'linted:', filesrc);
-} else {
-  console.error(iconFail, 'syntax errors:', filesrc);
-  jshint.errors.forEach(function (error) {
-    if (error) {
-      if (error.id) {
-        console.error(error.id.red, error.line + ',' + error.character, error.reason);
-      } else {
-        console.error(error.reason.red);
-      }
-    }
-  });
-  process.exit(1);
-}
 
 if (!path.existsSync(dirdist)) {
   fs.mkdirSync(dirdist);
