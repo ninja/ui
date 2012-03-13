@@ -39,7 +39,7 @@ var
   uglify = require('uglify-js');
 
 console.log();
-console.log('Bulding Ninja UI', version);
+console.log('Building Ninja UI', version);
 console.log();
 
 if (jshint(buffer, config)) {
