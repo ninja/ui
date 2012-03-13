@@ -51,7 +51,7 @@ parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
   fs.writeFileSync(
     path.resolve(dirdist, 'jquery.ninjaui.js'),
     fs.readFileSync(path.resolve(dirsrc, 'ninjaui.js'), 'utf8')
-      .replace(/development/g, version)
+      .replace(/VERSION/g, version)
       .replace('stylesheet/less', 'stylesheet')
       .replace(
         '../src/less/index.less',
