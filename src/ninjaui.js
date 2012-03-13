@@ -24,8 +24,8 @@
     versionMinor = parseFloat(version[1]),
     $test;
 
-  if (versionMinor < 6) {
-    $.error('Ninja UI requires jQuery 1.6 or higher.');
+  if (versionMinor < 7) {
+    $.error('Ninja UI VERSION requires jQuery 1.7 or higher.');
   }
 
   $('<link>', {
