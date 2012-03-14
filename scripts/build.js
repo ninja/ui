@@ -2,7 +2,7 @@
 
 var
   version = require('../package.json').version,
-  copyright = '/*! Ninja UI v' + version + ' ninjaui.com | ninjaui.com/#license */\n',
+  year = new Date().getFullYear(),
 
   colors = require('colors'),
   /*
@@ -27,9 +27,7 @@ var
   parser = new(less.Parser)({
     paths: [path.resolve(dirsrc, 'less')],
     filename: fileless
-  }),
-
-  uglify = require('uglify-js');
+  });
 
 console.log();
 console.log('Building Ninja UI', version);
@@ -52,6 +50,7 @@ parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
     path.resolve(dirdist, 'jquery.ninjaui.js'),
     fs.readFileSync(path.resolve(dirsrc, 'ninjaui.js'), 'utf8')
       .replace(/VERSION/g, version)
+      .replace(/YEAR/g, year)
       .replace('stylesheet/less', 'stylesheet')
       .replace(
         '../src/less/index.less',
@@ -62,8 +61,3 @@ parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
 });
 
 console.log(iconPass, 'created:', filedist);
-
-fs.writeFileSync(path.resolve(dirdist, 'jquery.ninjaui.min.js'), copyright + uglify(fs.readFileSync(path.resolve(dirdist, 'jquery.ninjaui.js'), 'utf8')), 'utf8');
-
-console.log(iconPass, 'minified:', filedistmin);
-console.log();

@@ -1,20 +1,26 @@
+COPYRIGHT = "/*! Ninja UI ${VERSION} ninjaui.com | ninjaui.com/\#license */"
+VERSION = $(shell node scripts/version.js)
 BAIL = --bail
 REPORTER = dot
+DIST_DIR = ./dist/${VERSION}
+DIST_FILE = ${DIST_DIR}/jquery.ninjaui.min.js
 
-default: build test-all
+ninjaui: minify test-all
 
 version:
-	@node scripts/version.js
+	@echo ${VERSION}
 
-lint:
-	@echo "\nLinting Ninja UI `make version`"
+hint:
+	@echo "\nChecking for syntax errors..."
 	@./node_modules/.bin/jshint src/ninjaui.js --config src/.jshintrc --show-non-errors
+	@echo "\n...looking good, feeling good."
 
-build: lint
+build: hint
 	@node scripts/build.js
 
-watch:
-	@node scripts/watch.js
+minify: build
+	@echo ${COPYRIGHT} > ${DIST_FILE}
+	@./node_modules/.bin/uglifyjs --unsafe --no-copyright ${DIST_DIR}/jquery.ninjaui.js >> ${DIST_FILE}
 
 test:
 	@./node_modules/.bin/mocha --colors --ui bdd --require ./test/lib --reporter $(REPORTER) $(BAIL)
@@ -27,4 +33,7 @@ test-1.7.1:
 test-1.7.0:
 	@make test JQUERY_VERSION=1.7.0
 
-.PHONY: default build watch test test-all test-1.7.1 test 1.7.0
+watch:
+	@node scripts/watch.js
+
+.PHONY: default hint build minify test test-all test-1.7.1 test 1.7.0 watch

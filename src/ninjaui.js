@@ -1,7 +1,7 @@
-/*!
+/*
   Ninja User Interface jQuery Plugin VERSION
   http://ninjaui.com/
-  Copyright 2008-2012 Jamie Hoover
+  Copyright 2008-YEAR Jamie Hoover
   Licensed per the terms of the Apache License v2.0
   http://ninjaui.com/#license
 */
