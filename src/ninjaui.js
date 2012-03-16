@@ -29,8 +29,8 @@
   }
 
   $('<link>', {
-    rel: 'stylesheet/less',
-    href: '../src/less/index.less',
+    rel: 'stylesheet',
+    href: '../src/css/index.styl',
     type: 'text/css'
   }).prependTo('head');
 

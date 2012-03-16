@@ -9,7 +9,7 @@ var
   path = require('path'),
   spawn = require('child_process').spawn,
   watch = require('nodewatch'),
-  message = 'Watching Ninja UI code for changes...'.cyan + '(CTRL-C to quit)'.grey,
+  message = 'Watching Ninja UI code for changes...' + '(CTRL-C to quit)'.grey,
   busy = false,
   test = null,
   iconChange = '\u0394'.magenta;
@@ -17,16 +17,18 @@ var
 console.log(message);
 
 watch
-  .add(path.resolve(__dirname, '..', 'src'), true)
-  .add(path.resolve(__dirname, '..', 'test'))
+  .add('src', true)
+  .add('test')
   .onChange(function (file) {
     if (!busy) {
       busy = true;
-      console.log(iconChange, 'changed:      ', file.magenta);
-      if (path.basename(file) === 'ninjaui.js' || path.extname(file) === '.less') {
-        test = spawn('make', ['-s', 'build', 'test']);
+      console.log('\n ', iconChange, 'change detected'.magenta, ('(' + path.relative('.', file) + path.basename(file) + ')\n').grey);
+      if (path.basename(file) === 'ninjaui.js') {
+        test = spawn('make', ['hint', 'minify', 'test']);
+      } else if (path.extname(file) === '.styl') {
+        test = spawn('make', ['minify', 'test']);
       } else if (path.extname(file) === '.js') {
-        test = spawn('make', ['-s', 'test']);
+        test = spawn('make', ['test']);
       }
       test.stdout.on('data', function (data) {
         process.stdout.write(data);
