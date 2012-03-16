@@ -11,8 +11,7 @@ var
   watch = require('nodewatch'),
   message = 'Watching Ninja UI code for changes...' + '(CTRL-C to quit)'.grey,
   busy = false,
-  test = null,
-  iconChange = '\u0394'.magenta;
+  test;
 
 console.log(message);
 
@@ -22,7 +21,7 @@ watch
   .onChange(function (file) {
     if (!busy) {
       busy = true;
-      console.log('\n ', iconChange, 'change detected'.magenta, ('(' + path.relative('.', file) + path.basename(file) + ')\n').grey);
+      console.log('\n  \u0394 change detected'.magenta, ('(' + path.relative('.', file) + path.basename(file) + ')\n').grey);
       if (path.basename(file) === 'ninjaui.js') {
         test = spawn('make', ['hint', 'minify', 'test']);
       } else if (path.extname(file) === '.styl') {
