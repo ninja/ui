@@ -1,9 +1,13 @@
+# Makefile tasks for Ninja UI
+
+export JQUERY_VERSION := 1.7.1
+
+VERSION = $(shell node --print --eval "require('package.json').version")
 COPYRIGHT = "/*! Ninja UI ${VERSION} ninjaui.com | ninjaui.com/\#license */"
-VERSION = $(shell node scripts/version.js)
-BAIL = --bail
-REPORTER = dot
 DIST_DIR = ./dist/${VERSION}
 DIST_FILE = ${DIST_DIR}/jquery.ninjaui.min.js
+BAIL = --bail
+REPORTER = dot
 
 ninjaui: minify test-all
 
@@ -23,7 +27,8 @@ minify: build
 	@./node_modules/.bin/uglifyjs --unsafe --no-copyright ${DIST_DIR}/jquery.ninjaui.js >> ${DIST_FILE}
 
 test:
-	@./node_modules/.bin/mocha --colors --ui bdd --require ./test/lib --reporter $(REPORTER) $(BAIL)
+	@echo "Testing Ninja UI ${VERSION} with jQuery ${JQUERY_VERSION}"
+	@./node_modules/.bin/mocha --colors --ui bdd --globals $$,expect,version --require ./test --reporter $(REPORTER) $(BAIL)
 
 test-all: test-1.7.1 test-1.7.0
 

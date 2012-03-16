@@ -29,9 +29,7 @@ var
     filename: fileless
   });
 
-console.log();
-console.log('Building Ninja UI', version);
-console.log();
+console.log('\nBuilding Ninja UI', version, '\n');
 
 if (!path.existsSync(dirdist)) {
   fs.mkdirSync(dirdist);
@@ -60,4 +58,4 @@ parser.parse(fs.readFileSync(fileless, 'utf8'), function (error, tree) {
   );
 });
 
-console.log(iconPass, 'created:', filedist);
+console.log(iconPass, 'created:', filedist, '\n');

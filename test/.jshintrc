@@ -1,5 +1,6 @@
 {
   "predef": [],
+  "jquery": true,
   "node": true,
   "es5": true,
   "bitwise": true,
