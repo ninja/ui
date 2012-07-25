@@ -1,0 +1,50 @@
+@import('../theme');
+
+.nui-btn {
+  -webkit-appearance: button;
+  background-clip: padding-box;
+  background-color: $background-color;
+  background-image-gradient();
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  color: $color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 100%;
+  height: auto;
+  line-height: normal;
+  margin: 0;
+  outline: none;
+  *overflow: visible;
+  padding: 2px 8px;
+  text-align: center;
+  text-shadow: invert($color) 0px 1px 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+  white-space: nowrap;
+  &:focus,
+  &:hover {
+    border-color: lighten($border-color, 50%);
+  }
+  &::-moz-focus-inner {
+    border: none;
+    padding: 0;
+  }
+  &.nui-slc {
+    background-color: darken($background-color, 10%);
+    background-image-gradient-inverted();
+    text-shadow: none;
+  }
+  &.nui-prm {
+    background-color: rgb(0, 102, 204);
+  }
+  &[disabled],
+  &[disabled],
+  &.nui-dsb {
+    cursor: default;
+  }
+  img, .nui-icn {
+    vertical-align: bottom;
+  }
+}

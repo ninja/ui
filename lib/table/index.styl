@@ -1,0 +1,46 @@
+table.nui-tbl {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(203, 203, 203);
+  border-collapse: separate;
+  border-radius: 4px;
+  border-spacing: 0;
+  margin-bottom: 10px;
+  > tbody > tr {
+    &:nth-child(odd) {
+      > td, > th {
+        background-color: rgb(242, 242, 242);
+      }
+    }
+    &:hover {
+      > td, > th {
+        background-color: rgb(230, 230, 230);
+      }
+    }
+  }
+  > tbody + thead > tr:first-child, > thead + tbody > tr:first-child {
+    > td, > th {
+      border-top: 1px solid rgb(203, 203, 203);
+    }
+  }
+  tr {
+    > td, > th {
+      border-left: 1px solid rgb(203, 203, 203);
+      border-top: @border-left;
+      padding: 8px;
+      &.nui-nbr {
+        text-align: right;
+      }
+      &:first-child {
+        border-left: none;
+      }
+      table.nui-tbl {
+        margin-bottom: 0px;
+      }
+    }
+    &:first-child {
+      > td, > th {
+        border-top: none;
+      }
+    }
+  }
+}

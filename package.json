@@ -1,51 +1,61 @@
 {
-  "name": "ninjaui",
+  "name": "ninja",
+
   "version": "1.1.0",
 
-  "description": "the jQuery plugin for lethal interaction",
-  "keywords": ["ui", "user interface", "autocomplete", "button", "dialog", "drawer", "icons", "menu", "rating", "slider", "tabs", "jquery", "plugin", "ninja"],
+  "description": "Ninja User Interface",
 
   "homepage": "https://ninjaui.com/",
+
   "repository": {
     "type": "git",
     "url": "https://github.com/ninja/ui.git"
   },
+
   "bugs": {
     "url" : "http://github.com/ninja/ui/issues"
   },
 
+  "engines": {
+    "node": "0.8",
+    "npm": "1.1"
+  },
+
+  "devDependencies": {
+    "colors": "*",
+    "expect.js": "*",
+    "grunt": "0.3",
+    "grunt-mocha": "*",
+    "jsdom": "*",
+    "jshint": "*",
+    "mocha": "*",
+    "nib": "*",
+    "nodewatch": "*",
+    "stylus": "*",
+    "uglify-js": "*"
+  },
+
+  "main": "lib/components.js",
+
+  "licenses": [
+    {
+      "type": "Apache 2",
+      "url": "http://ninjaui.com/license.txt"
+    }
+  ],
+
   "author": {
-    "name": "Jamie R. Hoover",
+    "name": "Jamie Hoover",
     "email": "dont.tase@me.com",
     "url": "http://uipoet.com"
   },
+
   "contributors": [
     {
       "name": "Faisal N. Jawdat",
       "email": "faisal@faisal.com",
       "url": "http://faisail.com"
     }
-  ],
-
-  "engines": {
-    "node": "0.6 || 0.7 || 0.8",
-    "npm": "1"
-  },
-  "devDependencies": {
-    "colors": "0.6.x",
-    "expect.js": "0.1.x",
-    "jsdom": "0.2.x",
-    "jshint": "0.5.x",
-    "mocha": "0.14.x",
-    "nodewatch": "0.1.x",
-    "stylus": "0.24.x",
-    "uglify-js": "1.2.x"
-  },
-
-  "licenses": [
-    {
-      "type": "Apache 2",
-      "url": "http://github.com/ninja/ui/raw/master/LICENSE.txt"
-    }
   ]
+
 }

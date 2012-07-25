@@ -1,0 +1,150 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja UI Tests</title>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+    <link rel="stylesheet" href="../../dist/1.1.0/ninja.css" />
+    <style>
+      table {
+        font-size: 12px;
+      }
+      table.lotr {
+        font: 14px times;
+      }
+      th.lotr {
+        font-size: 24px; font-weight: normal; letter-spacing: 6px;
+      }
+    </style>
+    <script src="../vendor/jquery-1.7.2.js"></script>
+    <script src="../../node_modules/expect.js/expect.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+  </head>
+  <body>
+    <table class="nui-tbl">
+      <thead>
+        <tr>
+          <th colspan="5">HTML</th>
+          <th rowspan="2">Class</th>
+          <th rowspan="2">Description</th>
+        </tr>
+        <tr>
+          <th><code><a></a></code></th>
+          <th><code><button></button></code></th>
+          <th><code><input type="button"></code></th>
+          <th><code><input type="reset"></code></th>
+          <th><code><input type="submit"></code></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a class="nui-btn">Ninja UI</a></td>
+          <td><button class="nui-btn">Ninja UI</button></td>
+          <td><input class="nui-btn" type="button" value="Ninja UI"/></td>
+          <td><input class="nui-btn" type="reset" value="Ninja UI"/></td>
+          <td><input class="nui-btn" type="submit" value="Ninja UI"/></td>
+          <td><code>nui-btn</code></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><a class="nui-btn nui-slc">Ninja UI</a></td>
+          <td><button class="nui-btn nui-slc">Ninja UI</button></td>
+          <td><input class="nui-btn nui-slc" type="button" value="Ninja UI"/></td>
+          <td><input class="nui-btn nui-slc" type="reset" value="Ninja UI"/></td>
+          <td><input class="nui-btn nui-slc" type="submit" value="Ninja UI"/></td>
+          <td><code>nui-btn nui-slc</code></td>
+          <td>select</td>
+        </tr>
+        <tr>
+          <td><a class="nui-btn nui-dsb">Ninja UI</a></td>
+          <td><button class="nui-btn nui-dsb">Ninja UI</button></td>
+          <td><input class="nui-btn nui-dsb" type="button" value="Ninja UI"/></td>
+          <td><input class="nui-btn nui-dsb" type="reset" value="Ninja UI"/></td>
+          <td><input class="nui-btn nui-dsb" type="submit" value="Ninja UI"/></td>
+          <td><code>nui-btn nui-dsb</code></td>
+          <td>disable</td>
+        </tr>
+        <tr>
+          <td><a class="nui-btn nui-slc nui-dsb">Ninja UI</a></td>
+          <td><button class="nui-btn nui-slc nui-dsb">Ninja UI</button></td>
+          <td><input class="nui-btn nui-slc nui-dsb" type="button" value="Ninja UI"/></td>
+          <td><input class="nui-btn nui-slc nui-dsb" type="reset" value="Ninja UI"/></td>
+          <td><input class="nui-btn nui-slc nui-dsb" type="submit" value="Ninja UI"/></td>
+          <td><code>nui-btn nui-slc nui-dsb</code></td>
+          <td>select, disable</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="nui-tbl">
+      <thead>
+        <tr>
+          <th colspan="3">Table</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <table class="nui-tbl lotr">
+              <thead>
+                <tr>
+                  <th class="lotr" colspan="3">CONTENTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Note on the Text</td>
+                  <td>by Douglas A. Anderson</td>
+                  <td class="nui-nbr">page v</td>
+                </tr>
+                <tr>
+                  <td>Foreword</td>
+                  <td>to the Second Editiion</td>
+                  <td class="nui-nbr">5</td>
+                </tr>
+                <tr>
+                  <td>Prologue</td>
+                  <td>Concerning Hobbits, and other matters</td>
+                  <td class="nui-nbr">10</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th colspan="3">BOOK ONE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="nui-nbr">I</td>
+                  <td>A Long-expected Party</td>
+                  <td class="nui-nbr">29</td>
+                </tr>
+                <tr>
+                  <td class="nui-nbr">II</td>
+                  <td>The Shadow of the Past</td>
+                  <td class="nui-nbr">51</td>
+                </tr>
+                <tr>
+                  <td class="nui-nbr">III</td>
+                  <td>Three Is Company</td>
+                  <td class="nui-nbr">74</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id="mocha"></div>
+
+    <script src="button.js"></script>
+    <script src="table.js"></script>
+
+    <script>
+      $(function () {
+        mocha.run();
+      });
+    </script>
+  </body>
+</html>

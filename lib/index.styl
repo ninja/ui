@@ -1,4 +1,9 @@
-/*! Ninja UI vdevelopment ninjaui.com | ninjaui.com/#license */
+/*! Ninja CSS ninjaui.com | ninjaui.com/license.txt */
+
+@import 'nib/vendor';
+@import 'theme';
+@import 'button';
+@import 'table';
 
 /* autocomplete, menu, slider-track */
 .nui-atc,
@@ -27,9 +32,14 @@
   display: inline-block;
 }
 
+/* autocomplete-icon-spin disable*/
+.nui-atc .nui-icn[aria-label=spin],
+.nui-dsb {
+  opacity: 0.5;
+}
+
 /* autocomplete-icon-spin */
 .nui-atc .nui-icn[aria-label=spin] {
-  opacity: 0.5;
   right: 1px;
   top: 1px;
 }
@@ -55,40 +65,39 @@
 
 /* blocker, dialog, list */
 .nui-blk {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* button, item.hover, slider-button, slider-level, tab */
-.nui-btn,
+/* item.hover, slider-button, slider-level, tab */
 .nui-itm.nui-hvr,
 .nui-sld-btn,
 .nui-sld-lvl,
 .nui-tab {
-  background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(255,255,255,0.2)), colorstop(0.5, rgba(255,255,255,0)), colorstop(0.5, rgba(0,0,0,0)), colorstop(1, rgba(0,0,0,0.1)));
-  background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
-  background-image: -moz-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
-  background-image: -ms-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
-  background-image: -o-linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  background-image-gradient()
 }
 
-/* button, item, tab, tray */
-.nui-btn,
+/* item, tab, tray */
 .nui-itm,
 .nui-tab,
 .nui-try {
-  padding: 0.2em 1em;
+  padding: 2px 12px;
 }
 
-/* button, item, tab */
-.nui-btn,
+/* item, tab */
 .nui-itm,
 .nui-tab {
-  line-height: 1em;
-  text-shadow: 0 1px 0 #fff;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 12px;
+  font-size-adjust: none;
+  font-weight: 600;
+  height: 21px;
+  line-height: 12px;
+  overflow: visible;
+  text-shadow: rgb(255, 255, 255) 0px 1px 0px;
 }
 
-/* button, dialog-icon-X, item, slider-button, slider-groove, star, tab */
-.nui-btn,
+/* dialog-icon-X, item, slider-button, slider-groove, star, tab */
 .nui-dlg .nui-icn[aria-label=X],
 .nui-itm,
 .nui-sld-btn,
@@ -98,8 +107,7 @@
   cursor: pointer;
 }
 
-/* button, dialog, list, slider-button, slider-groove, slider-level, tab, tray */
-.nui-btn,
+/* dialog, list, slider-button, slider-groove, slider-level, tab, tray */
 .nui-dlg,
 .nui-lst,
 .nui-sld-btn,
@@ -107,48 +115,38 @@
 .nui-sld-lvl,
 .nui-tab,
 .nui-try {
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
   background-clip: padding-box;
 }
 
-/* button, slider-button, slider-groove, tab, tray */
-.nui-btn,
+/* slider-button, slider-groove, tab, tray */
 .nui-sld-btn,
 .nui-sld-grv,
 .nui-tab,
 .nui-try {
-  background-color: #eee;
+  background-color: rgb(238, 238, 238);
   border: 1px solid #999;
 }
 
-/* button, dialog, list */
-.nui-btn,
+/* dialog, list */
 .nui-dlg,
 .nui-lst {
-  -webkit-border-radius: 0.4em;
-  -moz-border-radius: 0.4em;
-  border-radius: 0.4em;
+  border-radius: 4px;
 }
 
-/* button, item, slider-button, star, tab */
-.nui-btn,
+/* item, slider-button, star, tab */
 .nui-itm,
 .nui-sld-btn,
 .nui-str,
 .nui-tab {
   margin: 0;
-  outline-width: 1px;
 }
 
-/* button, tab */
-.nui-btn,
+/* tab */
 .nui-tab-hrz .nui-tab {
   text-align: center;
 }
 
-/* button-icon, item-icon, tab=icon */
-.nui-btn .nui-icn,
+/* item-icon, tab=icon */
 .nui-itm .nui-icn,
 .nui-tab .nui-icn {
   vertical-align: bottom;
@@ -158,19 +156,15 @@
 .nui-dlg,
 .nui-lst {
   background-color: #fff;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #ccc;
-  -webkit-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  -moz-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  -ms-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  -o-box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
-  box-shadow: 0 0.2em 0.4em rgba(0,0,0,0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 /* dialog */
 .nui-dlg {
-  padding: 0.6em;
+  padding: 6px;
 }
 
 /* dialog-icon-X */
@@ -201,16 +195,14 @@
 /* drawer-button.select */
 .nui-drw .nui-btn.nui-slc,
 .nui-tab-vrt .nui-tab:first-child {
-  -webkit-border-radius: 0.4em 0.4em 0 0;
-  -moz-border-radius: 0.4em 0.4em 0 0;
-  border-radius: 0.4em 0.4em 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 /* icon */
 .nui-icn {
-  height: 1em;
+  height: 12px;
   vertical-align: middle;
-  width: 1em;
+  width: 12px;
 }
 
 /* icon */
@@ -256,21 +248,19 @@
 
 /* list */
 .nui-lst {
-  padding: 0.6em 0;
+  padding: 6px 0;
 }
 
 /* rule */
 .nui-rul {
   border-top: 1px solid #ccc;
-  margin: 0.2em 0 0.4em 0;
+  margin: 2px 0 4px 0;
 }
 
 /* slider-button, slider-groove, slider-level */
 .nui-sld-btn,
 .nui-sld-grv,
 .nui-sld-lvl {
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
   border-radius: 9px;
 }
 
@@ -299,14 +289,9 @@
   height: 4px;
 }
 
-/* slider-groove, select */
-.nui-sld-grv,
-.nui-slc {
-  background-image: -webkit-gradient(linear, left top, left bottom, colorstop(0, rgba(0,0,0,0.3)), colorstop(0.5, rgba(0,0,0,0)), colorstop(0.5, rgba(255,255,255,0)), colorstop(1, rgba(255,255,255,0.1)));
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: -ms-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
-  background-image: -o-linear-gradient(top, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0.1) 100%);
+/* slider-groove */
+.nui-sld-grv {
+  background-image-gradient-inverted();
 }
 
 /* slider-groove */
@@ -319,7 +304,7 @@
 
 /* slider-title */
 .nui-sld-ttl {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 /* star */
@@ -335,16 +320,12 @@
 /* tab-first */
 .nui-tab-hrz .nui-tab:first-child {
   border-left-style: solid;
-  -webkit-border-radius: 0.4em 0 0 0.4em;
-  -moz-border-radius: 0.4em 0 0 0.4em;
-  border-radius: 0.4em 0 0 0.4em;
+  border-radius: 4px 0 0 4px;
 }
 
 /* tab-last */
 .nui-tab-hrz .nui-tab:last-child {
-  -webkit-border-radius: 0 0.4em 0.4em 0;
-  -moz-border-radius: 0 0.4em 0.4em 0;
-  border-radius: 0 0.4em 0.4em 0;
+  border-radius: 0 4px 4px 0;
 }
 
 /* tabs-vertical */
@@ -362,9 +343,7 @@
 /* tab-last */
 .nui-tab-vrt .nui-tab:last-child,
 .nui-try {
-  -webkit-border-radius: 0 0 0.4em 0.4em;
-  -moz-border-radius: 0 0 0.4em 0.4em;
-  border-radius: 0 0 0.4em 0.4em;
+  border-radius: 0 0 4px 4px;
 }
 
 /* tray */
@@ -379,17 +358,15 @@
 
 /* item.hover, select, slider-level */
 .nui-itm.nui-hvr,
-.nui-slc,
 .nui-sld-lvl {
-  background-color: #06c;
+  background-color: rgb(0, 102, 204);
 }
 
-/* item.hover, select */
-.nui-itm.nui-hvr,
-.nui-slc {
-  border-color: #06c;
+/* item.hover */
+.nui-itm.nui-hvr {
+  border-color: rgb(0, 102, 204);
   color: #fff;
-  text-shadow: 0 -1px 1px #06c;
+  text-shadow: 0 -1px 1px rgb(0, 102, 204);
 }
 
 /* item.hover, select */
@@ -405,8 +382,10 @@
 
 /* slider-button.select */
 .nui-sld-btn.nui-slc {
+/* Disabled due to override bug in IE.
   background-color: #ccc;
   border-color: #999;
+*/
 }
 
 /* star.average */
@@ -416,7 +395,7 @@
 
 /* star.individual */
 .nui-str.nui-ind g {
-  fill: #06c;
+  fill: rgb(0, 102, 204);
   stroke: #039;
 }
 
